@@ -1,0 +1,6 @@
+mis:
+  mode: clip
+  level: token
+  lower_bound: 0.0
+  upper_bound: 2.0
+  batch_normalize: true
