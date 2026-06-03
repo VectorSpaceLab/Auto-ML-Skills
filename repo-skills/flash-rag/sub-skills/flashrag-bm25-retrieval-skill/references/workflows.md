@@ -52,6 +52,32 @@ python scripts/run_bm25_search.py --config <work_dir>/bm25.yaml --query "What is
 python scripts/inspect_output.py --output <work_dir>/search.json
 ```
 
+## Public BM25 Index Builder Commands
+
+Use these commands when moving from the bundled smoke scripts to a real FlashRAG index build.
+
+BM25s backend:
+
+```bash
+python -m flashrag.retriever.index_builder \
+  --retrieval_method bm25 \
+  --corpus_path <work_dir>/corpus.jsonl \
+  --bm25_backend bm25s \
+  --save_dir <work_dir>/indexes
+```
+
+Pyserini backend:
+
+```bash
+python -m flashrag.retriever.index_builder \
+  --retrieval_method bm25 \
+  --corpus_path <work_dir>/corpus.jsonl \
+  --bm25_backend pyserini \
+  --save_dir <work_dir>/indexes
+```
+
+Prefer BM25s for a Python-only local smoke path. Use Pyserini when the user's production setup already has Java/Pyserini available and needs Lucene-compatible indexes.
+
 ## Success Criteria
 
 - Environment check prints `valid: true`, or missing optional packages are irrelevant to the selected fake/offline path.
@@ -66,3 +92,5 @@ python scripts/inspect_output.py --output <work_dir>/search.json
 - If dense, generator, reranker, multimodal, or web UI dependencies are missing, use the fake/offline smoke path first.
 - If a script emits a handoff JSON, that capability is not exposed as a stable installed-package CLI; follow the handoff note instead of opening the original extraction checkout.
 - Keep generated configs, logs, summaries, and inspection outputs in `<work_dir>`.
+- For Pyserini, check Java availability before starting the index build.
+- For BM25s, keep the original corpus JSONL near the index because downstream inspection often needs original document text.

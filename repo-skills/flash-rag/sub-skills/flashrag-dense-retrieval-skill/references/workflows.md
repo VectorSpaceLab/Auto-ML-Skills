@@ -51,6 +51,31 @@ python scripts/make_dense_config.py --output <work_dir>/dense.yaml --corpus <wor
 python scripts/run_dense_search.py --config <work_dir>/dense.yaml --query "What is RAG?" --output <work_dir>/dense_search.json
 ```
 
+## Public Dense Index Builder Command
+
+Use this command shape for real dense index construction after corpus validation passes:
+
+```bash
+python -m flashrag.retriever.index_builder \
+  --retrieval_method e5 \
+  --model_path <embedding_model_path> \
+  --corpus_path <work_dir>/corpus.jsonl \
+  --save_dir <work_dir>/indexes \
+  --use_fp16 \
+  --max_length 512 \
+  --batch_size 256 \
+  --pooling_method mean \
+  --faiss_type Flat
+```
+
+If the embedding model is compatible with `sentence-transformers`, add:
+
+```bash
+--sentence_transformer
+```
+
+Set `--pooling_method` explicitly for non-E5/non-BGE models when accuracy matters. Common values are `mean`, `pooler`, and `cls`.
+
 ## Success Criteria
 
 - Environment check prints `valid: true`, or missing optional packages are irrelevant to the selected fake/offline path.
@@ -65,3 +90,5 @@ python scripts/run_dense_search.py --config <work_dir>/dense.yaml --query "What 
 - If dense, generator, reranker, multimodal, or web UI dependencies are missing, use the fake/offline smoke path first.
 - If a script emits a handoff JSON, that capability is not exposed as a stable installed-package CLI; follow the handoff note instead of opening the original extraction checkout.
 - Keep generated configs, logs, summaries, and inspection outputs in `<work_dir>`.
+- Indexes are tied to the embedding model, pooling method, instruction prefix, max length, and corpus. Rebuild when any of those change.
+- Use `Flat` for benchmark-aligned accuracy; switch to approximate Faiss index types only after recording the accuracy/latency tradeoff.

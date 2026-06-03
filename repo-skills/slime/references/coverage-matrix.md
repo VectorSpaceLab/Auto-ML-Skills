@@ -17,7 +17,9 @@ This matrix records the public workflows covered by the generated skill tree. Us
 | On-policy distillation | OPD advanced doc and examples | `slime-on-policy-distillation` | Covers SGLang vs Megatron teacher modes and required flags |
 | Custom rollout/hook interfaces | Customization guide, plugin contract tests | `slime-custom-rollout` | Includes verified signatures, templates, and contract-test guidance |
 | Agentic tool use | Search-R1, ReTool, Tau-bench, Strands, multi-agent, coding-agent examples | `slime-agentic-tool-use` | Covers hook selection, dataset metadata, sandbox/tool dependencies, TITO cautions |
+| SWE/coding-agent RL | Coding-agent example, Anthropic/OpenAI adapters, sandbox helpers, trajectory tests | `slime-coding-agent-rl` | Covers sandbox metadata, adapter routing, token provenance, fan-out segments, reward/grading flow |
 | Fully async rollout | Fully async example and module | `slime-fully-async-rollout` | Covers async driver, function path, limitations, queue behavior |
+| Speculative decoding and online MTP training | Speculative decoding advanced doc, SGLang flags, model recipes | `slime-speculative-decoding` | Covers EAGLE flags, draft model path, MTP conversion/training flags, speedup validation and fallbacks |
 | VLM training | GEO3K VLM examples and docs | `slime-vlm-training` | Covers multimodal data, `--multimodal-keys`, VLM SFT/RL, backend caveats |
 | Evaluation | Quick start eval args, eval config example | `slime-evaluation` | Covers CLI pair and YAML config, per-dataset overrides, custom eval |
 | Rollout correction | Train-infer mismatch example, TIS flags | `slime-rollout-correction` | Covers TIS/MIS flags, logprob requirements, mismatch metrics |

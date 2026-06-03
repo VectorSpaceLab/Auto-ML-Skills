@@ -66,7 +66,9 @@ Read [references/installation.md](references/installation.md) for environment de
 - Use [slime-on-policy-distillation](sub-skills/slime-on-policy-distillation/SKILL.md) for OPD with SGLang or Megatron teachers.
 - Use [slime-custom-rollout](sub-skills/slime-custom-rollout/SKILL.md) for custom rollout, custom generate, reward model, filters, losses, data sources, evaluation functions, and Megatron hooks.
 - Use [slime-agentic-tool-use](sub-skills/slime-agentic-tool-use/SKILL.md) for Search-R1, ReTool, Tau-bench, Strands, multi-agent, coding-agent, sandbox, RAG, and tool-use rollout patterns.
+- Use [slime-coding-agent-rl](sub-skills/slime-coding-agent-rl/SKILL.md) for SWE/coding-agent RL, Anthropic/OpenAI adapter routing, sandbox metadata, patch grading, and token-provenance checks.
 - Use [slime-fully-async-rollout](sub-skills/slime-fully-async-rollout/SKILL.md) for `train_async.py` plus `slime.rollout.fully_async_rollout.generate_rollout_fully_async`.
+- Use [slime-speculative-decoding](sub-skills/slime-speculative-decoding/SKILL.md) for SGLang speculative decoding, EAGLE/MTP flags, draft model paths, and online MTP training.
 - Use [slime-vlm-training](sub-skills/slime-vlm-training/SKILL.md) for multimodal/VLM SFT and RL, GEO3K-style single-turn or multi-turn tasks, and `--multimodal-keys`.
 - Use [slime-evaluation](sub-skills/slime-evaluation/SKILL.md) for periodic eval, `--eval-prompt-data`, structured `--eval-config`, multi-task eval, and custom eval rollout.
 - Use [slime-rollout-correction](sub-skills/slime-rollout-correction/SKILL.md) for TIS/MIS, rollout logprob bypass, mismatch metrics, and train-inference mismatch mitigation.
@@ -78,8 +80,9 @@ Read [references/installation.md](references/installation.md) for environment de
 
 - If the request is "run a normal RL job", start with `slime-rl-training`; pull in `slime-checkpoint-conversion`, `slime-model-recipes`, and `slime-environment-setup` only as needed.
 - If the request is "SFT", start with `slime-sft-training`, not the RL skill.
-- If the request involves tool calls, search, RAG, sandbox execution, or multi-turn environment feedback, start with `slime-agentic-tool-use`, then use `slime-custom-rollout` for hook signatures.
+- If the request involves tool calls, search, RAG, sandbox execution, or multi-turn environment feedback, start with `slime-agentic-tool-use`, then use `slime-custom-rollout` for hook signatures. For SWE/coding-agent RL, route directly to `slime-coding-agent-rl` after confirming it is not a simpler tool-use rollout.
 - If the request is mostly SGLang topology, multi-model serving, or external engines, start with `slime-sglang-deployment`.
+- If the request is rollout speed via draft tokens, EAGLE, or MTP, start with `slime-speculative-decoding` and pull in SGLang deployment only for topology or memory tuning.
 - If a failure occurs before training starts, inspect `slime-environment-setup` and root troubleshooting first. If the failure occurs during generation, inspect SGLang, debug/trace/profile, and fault-tolerance skills.
 
 ## Package Facts

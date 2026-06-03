@@ -45,6 +45,7 @@ See [references/installation.md](references/installation.md) for optional extras
 - **SKR and adaptive judger data validation and fake route checks.**: [sub-skills/flashrag-judger-skill/SKILL.md](sub-skills/flashrag-judger-skill/SKILL.md)
 - **KG-Trace triple extraction and evidence-chain context smoke workflows.**: [sub-skills/flashrag-kg-trace-refiner-skill/SKILL.md](sub-skills/flashrag-kg-trace-refiner-skill/SKILL.md)
 - **Named methods from FlashRAG examples, including naive, zero-shot, SKR, TRACE, reasoning, and refiner variants.**: [sub-skills/flashrag-methods-runner-skill/SKILL.md](sub-skills/flashrag-methods-runner-skill/SKILL.md)
+- **Benchmark reproduction setup, method-specific extra models, unified E5/Llama3 settings, and result-alignment checks.**: [sub-skills/flashrag-benchmark-reproduction-skill/SKILL.md](sub-skills/flashrag-benchmark-reproduction-skill/SKILL.md)
 - **BM25+dense/CLIP multi-retriever configuration and merge settings.**: [sub-skills/flashrag-multi-retriever-skill/SKILL.md](sub-skills/flashrag-multi-retriever-skill/SKILL.md)
 - **CLIP/openai-clip/chinese-clip multimodal index preflight and smoke tests.**: [sub-skills/flashrag-multimodal-index-skill/SKILL.md](sub-skills/flashrag-multimodal-index-skill/SKILL.md)
 - **MMSequentialPipeline and multimodal no-retrieval/RAG smoke workflows.**: [sub-skills/flashrag-multimodal-pipeline-skill/SKILL.md](sub-skills/flashrag-multimodal-pipeline-skill/SKILL.md)
