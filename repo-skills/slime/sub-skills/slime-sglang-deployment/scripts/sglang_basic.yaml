@@ -1,0 +1,9 @@
+sglang:
+  - name: actor
+    update_weights: true
+    server_groups:
+      - worker_type: regular
+        num_gpus: 8
+        num_gpus_per_engine: 2
+        overrides:
+          mem_fraction_static: 0.7
