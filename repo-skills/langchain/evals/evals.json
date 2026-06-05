@@ -1,0 +1,86 @@
+{
+  "skill_name": "langchain",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use the LangChain skill to set up and run a local Hugging Face/Qwen-style model smoke test without an API key.",
+      "expected_output": "Routes to langchain-local-hf-models-skill, names smoke_local_hf_model.py --model-path, transformers, torch, and HuggingFacePipeline.",
+      "files": [],
+      "assertions": [
+        "Routes to sub-skills/langchain-local-hf-models-skill/SKILL.md",
+        "References scripts/smoke_local_hf_model.py with --model-path",
+        "Mentions transformers and torch",
+        "Does not depend on original source checkout"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Use the LangChain skill to build no-key ParentDocumentRetriever and EnsembleRetriever checks.",
+      "expected_output": "Routes to advanced retrievers, names ParentDocumentRetriever, EnsembleRetriever, DeterministicFakeEmbedding, and smoke_advanced_retrievers.py.",
+      "files": [],
+      "assertions": [
+        "Routes to langchain-advanced-retrievers-skill",
+        "Names smoke_advanced_retrievers.py",
+        "Names ParentDocumentRetriever and EnsembleRetriever",
+        "Uses no-key deterministic embeddings"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Use the LangChain skill to validate cache, rate limiting, and usage metadata without provider quota.",
+      "expected_output": "Routes to cache/rate/usage, names smoke_cache_rate_usage.py, InMemoryCache, InMemoryRateLimiter, UsageMetadataCallbackHandler.",
+      "files": [],
+      "assertions": [
+        "Routes to langchain-caching-rate-limits-usage-skill",
+        "References smoke_cache_rate_usage.py",
+        "Names InMemoryCache, InMemoryRateLimiter, UsageMetadataCallbackHandler"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Use the LangChain skill to generate SQL safely without auto-executing dangerous SQL.",
+      "expected_output": "Routes to SQL/graph toolkits, names SQLDatabase, create_sql_query_chain, read-only credentials, and generated SQL allowlisting.",
+      "files": [],
+      "assertions": [
+        "Routes to langchain-sql-graph-toolkits-skill",
+        "References smoke_sql_query_chain.py",
+        "Names SQLDatabase and create_sql_query_chain",
+        "Mentions read-only and review/allowlisting"
+      ]
+    }
+  ],
+  "validation_results": {
+    "frontmatter_link_path_id": {
+      "command": "python langchain/scripts/validate_skill_tree.py --json",
+      "result": "PASS"
+    },
+    "public_path_leak_search": {
+      "command": "rg local-path leak tokens in langchain/langgraph public files excluding evals",
+      "result": "PASS"
+    },
+    "script_smoke_tests": {
+      "command": "/tmp/langskill-verify-py311/bin/python langchain/scripts/run_all_smokes.py --json",
+      "result": "PASS",
+      "passed": 19,
+      "failed": 0
+    },
+    "coverage": {
+      "sub_skills": 23,
+      "root_router_updated": true,
+      "coverage_matrix_updated": true
+    }
+  },
+  "model_test": {
+    "model": "/share/project/yuyang/model/Qwen3-0.6B",
+    "runtime": "/opt/conda/bin/python3.11 with transformers 4.57.3 and torch 2.5.1+cu124",
+    "method": "Real Qwen3-0.6B generation using only generated public SKILL.md excerpts for each prompt, no source checkout or research notes.",
+    "result": "PASS",
+    "passed": 4,
+    "total": 4,
+    "notes": [
+      "Initial Qwen passes selected the right sub-skills but omitted key API tokens; quick-answer templates were added to relevant SKILL.md files and the eval was rerun.",
+      "Local HF model public script is parameterized with --model-path; the local model path appears only in eval artifacts, not public skill content.",
+      "Real local script smoke also passed: smoke_local_hf_model.py loaded Qwen3-0.6B and returned non-empty raw Transformers plus HuggingFacePipeline text on CUDA."
+    ]
+  }
+}
