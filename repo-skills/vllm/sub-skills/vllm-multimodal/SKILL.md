@@ -6,7 +6,20 @@ disable-model-invocation: true
 
 # vLLM Multimodal
 
-Use this sub-skill for vLLM multimodal models and media-bearing requests.
+Use this sub-skill for vLLM multimodal models and media-bearing requests. It owns image, video, audio, prompt embedding, processor kwargs, vision-language chat payloads, and speech transcription/translation endpoint workflows.
+
+## Use When
+
+- The user wants image, video, audio, prompt embeddings, or speech endpoints through vLLM.
+- The user needs OpenAI-style content blocks, base64 media, URLs, local media paths, or processor kwargs.
+- The user asks whether a model and prompt template are valid for multimodal serving.
+- The user needs to separate text-only server validation from true multimodal validation.
+
+## Inputs To Collect
+
+- Model ID, modality, prompt template/placeholders, processor options, media source, media size, endpoint family, and privacy limits.
+- Whether the server can fetch URLs or needs base64/local file access.
+- Output length, sampling settings, and whether transcription/translation or chat generation is expected.
 
 ## Short Workflow
 
@@ -15,6 +28,7 @@ Use this sub-skill for vLLM multimodal models and media-bearing requests.
 3. Read [references/workflows.md](references/workflows.md) for offline/server flow.
 4. Read [references/multimodal-reference.md](references/multimodal-reference.md) for payload shapes, media URLs/base64, and processor kwargs.
 5. Validate media references before model loading; use small media and short outputs for smoke tests.
+6. Record whether the real smoke used text-only, image, video, audio, or speech input.
 
 ## Bundled Scripts
 
@@ -29,3 +43,9 @@ Use this sub-skill for vLLM multimodal models and media-bearing requests.
 ## Boundaries
 
 Use `vllm-openai-serving` for server lifecycle and `vllm-performance-tuning` for multimodal compile/cache tuning.
+
+## Verification Notes
+
+- Payload validation is structural only.
+- A Qwen text-only model can validate vLLM server lifecycle, but not multimodal payload semantics.
+- True multimodal validation requires a compatible VLM/audio/speech model and an actual small media sample.

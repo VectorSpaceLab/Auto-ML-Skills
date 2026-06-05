@@ -7,7 +7,7 @@ Key server args:
 - Tensor parallel: `--tp-size` or `--tp`.
 - Data parallel: `--dp-size`, `--load-balance-method`.
 - Pipeline parallel: `--pp-size`, `--pp-max-micro-batch-size`, `--pp-async-batch-depth`.
-- Attention/expert parallel variants: `--attn-cp-size`, `--moe-dp-size`, expert parallel/MoE backend flags.
+- Attention/expert parallel variants: `--attn-cp-size`, `--moe-dp-size`, `--ep-size`/`--expert-parallel-size`, `--moe-a2a-backend`, `--moe-runner-backend`, `--deepep-mode`, and expert placement/rebalance flags.
 - Multi-node: `--nnodes`, `--node-rank`, `--dist-init-addr`, `--nccl-port`, `--dist-timeout`.
 - Ray: `--use-ray` for selected distributed launches.
 
@@ -31,6 +31,18 @@ python -m sglang.launch_server --model-path <MODEL_ID> --tp-size 16 --nnodes 2 -
 ```
 
 Confirm the exact interpretation of `tp_size` against current SGLang release for multi-node; operationally, all nodes must agree on model, tokenizer, and distributed init.
+
+## Expert Parallel / MoE
+
+Use expert parallelism for MoE models, not dense-only models. Common knobs:
+
+- `--ep-size` or `--expert-parallel-size` controls expert parallel degree.
+- `--moe-a2a-backend` selects all-to-all transfer backend such as `deepep`, `mooncake`, `nixl`, `mori`, `flashinfer`, or platform-specific choices.
+- `--deepep-mode auto|normal|low_latency`: `auto` is the normal serving default; PD deployments often use `normal` for prefill and `low_latency` for decode.
+- `--ep-num-redundant-experts`, `--init-expert-location`, `--enable-eplb`, and expert distribution recorder flags support expert load balancing and placement diagnostics.
+- Expert distribution record HTTP routes can start, stop, and dump routing statistics; pair them with metrics only for bounded diagnostic windows.
+
+Validate EP arithmetic against TP/DP/PP before launch. Some EP backends require RDMA/NVLink fabric and matching environment variables or device lists.
 
 ## Router / Model Gateway
 
@@ -79,4 +91,5 @@ SGLang includes service/deployment examples for single-node and distributed stat
 - `tp_size * pp_size` exceeding visible GPUs unless multi-node/Ray is configured.
 - Router can reach `/health` but worker model route uses a different root path.
 - PD prefill/decode ports not mutually reachable.
+- EP backend chosen on hardware/fabric that cannot support it.
 - Exposed router without auth/rate limit.

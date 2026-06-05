@@ -24,7 +24,7 @@ Native endpoint: `POST /encode` with `text` or token IDs depending on model supp
 
 ## Rerank
 
-Route: `/v1/rerank` accepts query/document style payloads for reranker models. Use `<RERANK_MODEL_ID>` and validate the model card for required input format.
+Route: `/v1/rerank` accepts query/document style payloads for reranker models. Use `<RERANK_MODEL_ID>` and validate the model card for required input format. Multimodal rerank handlers can extract image/video content blocks when the reranker model supports them.
 
 Generic payload shape:
 
@@ -43,6 +43,8 @@ Inspected routes include `/v1/score` and examples for reward models. Score workf
 ## Classify
 
 Routes: native `/classify` and OpenAI-compatible `/v1/classify`. Use when the model exposes classification behavior or when SGLang maps embedding-like outputs into class scores.
+
+Tokenization utilities are exposed as `/v1/tokenize`, `/tokenize`, `/v1/detokenize`, and `/detokenize`; they are useful for score/debug workflows but are not substitutes for embedding or rerank endpoints.
 
 ## Pitfalls
 

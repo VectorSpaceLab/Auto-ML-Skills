@@ -50,6 +50,16 @@ Common production parameters:
 3. If model loading is allowed, run `python scripts/run_offline_smoke.py --model Qwen/Qwen3-0.6B --max-tokens 8`.
 4. Save stdout and JSON summary to the user's output directory.
 
+Optional limit parameters for small real smoke runs:
+
+- `--max-model-len 512`: reduce context allocation for a short prompt.
+- `--gpu-memory-utilization 0.25`: reserve a smaller fraction of one GPU for smoke testing.
+- `--enforce-eager`: disable CUDA graph/compile capture when diagnosing startup issues.
+- `--dtype auto`: keep dtype explicit while allowing vLLM to choose a supported type.
+- `--report-model-name NAME`: use a display name in saved reports when the actual model argument is a private path.
+
+These parameters are for bounded validation, not production defaults. For real production sizing, restore the target context length and memory/concurrency settings before benchmarking.
+
 ## Output Inspection
 
 For each `RequestOutput`, inspect:

@@ -43,7 +43,29 @@ resp = client.chat.completions.create(
 print(resp.choices[0].message.content)
 ```
 
-Use native `/generate` when the user needs `max_new_tokens`, `lora_path`, native logprob controls, or non-OpenAI features. Use `/v1/chat/completions` when client compatibility and chat templates matter.
+Use native `/generate` when the user needs `max_new_tokens`, `lora_path`, native logprob controls, routed experts, PD bootstrap fields, or non-OpenAI features. Use `/v1/chat/completions` when client compatibility and chat templates matter.
+
+## Responses API
+
+The OpenAI-compatible Responses API surface includes:
+
+- `POST /v1/responses`
+- `GET /v1/responses/{response_id}`
+- `POST /v1/responses/{response_id}/cancel`
+
+Use `client.responses.create(...)` for models/workloads that expect the Responses API, built-in tools, or reasoning-effort style inputs. Typical fields are `model`, `instructions`, `input`, optional `tools`, and streaming controls. Keep classic chat workflows on `/v1/chat/completions`; do not rewrite a chat-only integration to Responses unless the user needs Responses-specific semantics.
+
+```python
+from openai import OpenAI
+
+client = OpenAI(base_url="http://127.0.0.1:30000/v1", api_key="None")
+resp = client.responses.create(
+    model="<MODEL_ID>",
+    instructions="Answer briefly.",
+    input="Say OK.",
+)
+print(resp.output_text)
+```
 
 ## Lifecycle Safety
 

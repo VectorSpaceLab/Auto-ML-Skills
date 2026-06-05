@@ -34,7 +34,7 @@ def main() -> None:
     cmd = ["vllm", "serve", args.model, "--host", args.host, "--port", str(port)] + args.arg
     (out / "server.cmd").write_text(" ".join(cmd) + "\n", encoding="utf-8")
     handle = log.open("w", encoding="utf-8")
-    proc = subprocess.Popen(cmd, stdout=handle, stderr=subprocess.STDOUT, text=True)
+    proc = subprocess.Popen(cmd, stdout=handle, stderr=subprocess.STDOUT, text=True, start_new_session=True)
     pid_file.write_text(str(proc.pid) + "\n", encoding="utf-8")
     base_url = f"http://{args.host}:{port}"
     result = {"pid": proc.pid, "base_url": base_url, "log": str(log), "cmd": cmd}

@@ -31,14 +31,14 @@ For ROCm, TPU, Ascend, or Apple Silicon, use the public vLLM ecosystem package/i
 ## Route To Sub-Skills
 
 - **Offline `LLM` inference, `SamplingParams`, chat templates, batch generation, CLI `vllm chat`/`complete`/`run-batch`.**: [sub-skills/vllm-offline-inference/SKILL.md](sub-skills/vllm-offline-inference/SKILL.md)
-- **OpenAI-compatible server lifecycle and `/v1/models`, chat, completions, responses, embeddings, score, health, metrics, tokenization.**: [sub-skills/vllm-openai-serving/SKILL.md](sub-skills/vllm-openai-serving/SKILL.md)
+- **OpenAI-compatible server lifecycle and `/v1/models`, chat, completions, responses, embeddings, score/rerank/classify/pooling, audio/realtime, health, metrics, tokenization.**: [sub-skills/vllm-openai-serving/SKILL.md](sub-skills/vllm-openai-serving/SKILL.md)
 - **Serving and engine configuration: YAML config, tensor/pipeline parallel, dtype, memory, max model length, quantization, chat templates.**: [sub-skills/vllm-serving-config/SKILL.md](sub-skills/vllm-serving-config/SKILL.md)
 - **LoRA adapter loading, multi-LoRA serving, runtime adapter updates, resolver plugins, adapter request payloads.**: [sub-skills/vllm-lora-adapters/SKILL.md](sub-skills/vllm-lora-adapters/SKILL.md)
 - **Structured outputs, guided decoding, JSON schema, regex, choice constraints, grammar, tool calling, reasoning outputs.**: [sub-skills/vllm-structured-outputs/SKILL.md](sub-skills/vllm-structured-outputs/SKILL.md)
 - **Embeddings, pooling, classification, reranking/score, offline `encode`/`score`, and OpenAI embedding-style requests.**: [sub-skills/vllm-embeddings-pooling/SKILL.md](sub-skills/vllm-embeddings-pooling/SKILL.md)
-- **Multimodal image/video/audio inputs, prompt placeholders, processor kwargs, multimodal chat payloads, speech endpoints.**: [sub-skills/vllm-multimodal/SKILL.md](sub-skills/vllm-multimodal/SKILL.md)
-- **Distributed serving: Ray, multiprocessing, tensor/pipeline/data parallel, expert parallel, multi-node, Kubernetes, disaggregated prefill.**: [sub-skills/vllm-distributed-serving/SKILL.md](sub-skills/vllm-distributed-serving/SKILL.md)
-- **KV cache, prefix caching, chunked prefill, speculative decoding, quantized KV cache, torch compile, memory/concurrency tuning.**: [sub-skills/vllm-performance-tuning/SKILL.md](sub-skills/vllm-performance-tuning/SKILL.md)
+- **Multimodal image/video/audio inputs, prompt placeholders/embeddings, processor kwargs, multimodal chat payloads, speech/realtime endpoints.**: [sub-skills/vllm-multimodal/SKILL.md](sub-skills/vllm-multimodal/SKILL.md)
+- **Distributed serving: Ray/Ray Serve, multiprocessing, tensor/pipeline/data parallel, expert parallel, multi-node, Kubernetes, disaggregated prefill, NIXL/KV transfer.**: [sub-skills/vllm-distributed-serving/SKILL.md](sub-skills/vllm-distributed-serving/SKILL.md)
+- **KV cache, prefix caching, chunked prefill, speculative decoding, AWQ/GPTQ/FP8 and KV-cache quant, torch compile/CUDA graph, DBO, memory/concurrency tuning.**: [sub-skills/vllm-performance-tuning/SKILL.md](sub-skills/vllm-performance-tuning/SKILL.md)
 - **Benchmarks, profiling, latency/throughput/serve/startup/mm-processor runs, benchmark result inspection.**: [sub-skills/vllm-benchmarks-profiling/SKILL.md](sub-skills/vllm-benchmarks-profiling/SKILL.md)
 - **Environment checks, package/API inspection, install failures, CUDA/ROCm issues, logs, metrics, common serving and runtime errors.**: [sub-skills/vllm-observability-troubleshooting/SKILL.md](sub-skills/vllm-observability-troubleshooting/SKILL.md)
 

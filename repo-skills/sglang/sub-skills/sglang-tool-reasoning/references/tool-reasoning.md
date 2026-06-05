@@ -40,6 +40,18 @@ tools = [{
 
 Send through `/v1/chat/completions` with `tools=tools` and optionally `tool_choice`.
 
+## Responses API And Built-In Tools
+
+For models that document OpenAI Responses API support, use `client.responses.create(...)` through `/v1/responses`. Responses requests use `instructions` and `input` rather than chat `messages`, and can carry built-in tool declarations such as code-interpreter or web-search style tools when the server has a compatible `--tool-server`.
+
+Keep these distinctions clear:
+
+- Chat tools: `POST /v1/chat/completions`, `messages`, `tools`, `tool_choice`.
+- Responses tools: `POST /v1/responses`, `instructions`, `input`, `tools`, response retrieve/cancel routes.
+- Native parser helpers: `/parse_function_call` and `/separate_reasoning`.
+
+Do not enable a demo tool server in production without sandbox, network, and credential review. Built-in Python/code tools may execute generated code; web-search tools need explicit API credentials.
+
 ## Parser Utility Routes
 
 Inspected native helper routes include:

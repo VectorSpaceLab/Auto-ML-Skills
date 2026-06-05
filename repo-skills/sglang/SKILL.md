@@ -13,7 +13,7 @@ Public examples should use public model IDs or placeholders. For lightweight smo
 ## Routing
 
 - Offline generation, Engine/Runtime API, SGLang language frontend, native `/generate`, sampling params, chat-template use in local code: use [sub-skills/sglang-offline-runtime/SKILL.md](sub-skills/sglang-offline-runtime/SKILL.md).
-- OpenAI-compatible server lifecycle, `/v1/chat/completions`, `/v1/completions`, `/v1/models`, `/health`, `/generate`, API keys, curl/OpenAI clients: use [sub-skills/sglang-openai-server/SKILL.md](sub-skills/sglang-openai-server/SKILL.md).
+- OpenAI-compatible server lifecycle, `/v1/chat/completions`, `/v1/completions`, `/v1/responses`, `/v1/models`, `/health`, `/generate`, API keys, curl/OpenAI clients: use [sub-skills/sglang-openai-server/SKILL.md](sub-skills/sglang-openai-server/SKILL.md).
 - Tensor/data/pipeline parallelism, multi-node serving, router/model gateway, Kubernetes, prefill-decode disaggregation: use [sub-skills/sglang-distributed-topology/SKILL.md](sub-skills/sglang-distributed-topology/SKILL.md).
 - JSON schema, regex, EBNF, structural tags, constrained decoding, choices/select, grammar backends: use [sub-skills/sglang-structured-outputs/SKILL.md](sub-skills/sglang-structured-outputs/SKILL.md).
 - Vision-language, image/audio/video request payloads, multimodal embeddings, diffusion/image generation CLI/server: use [sub-skills/sglang-multimodal-serving/SKILL.md](sub-skills/sglang-multimodal-serving/SKILL.md).

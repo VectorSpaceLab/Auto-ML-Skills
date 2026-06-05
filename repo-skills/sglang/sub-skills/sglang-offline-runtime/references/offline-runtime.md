@@ -2,7 +2,7 @@
 
 ## Public API Surface
 
-Installed package inspection confirmed these top-level symbols: `Runtime`, `RuntimeEndpoint(base_url, api_key=None, verify=None, chat_template_name=None)`, `set_default_backend(backend)`, `function(func=None, num_api_spec_tokens=None)`, `system`, `user`, `assistant`, `gen`, `select`, `image`, and `flush_cache`.
+Installed package inspection confirmed these top-level symbols: `Runtime`, `Engine`, `RuntimeEndpoint(base_url, api_key=None, verify=None, chat_template_name=None)`, `set_default_backend(backend)`, `function(func=None, num_api_spec_tokens=None)`, `system`, `user`, `assistant`, `gen`, `select`, `image`, `video`, and `flush_cache`.
 
 `sgl.gen` accepts generation controls including `max_tokens`, `min_tokens`, `n`, `stop`, `stop_token_ids`, `stop_regex`, `temperature`, `top_p`, `top_k`, `min_p`, frequency/presence penalties, logprob flags, `dtype`, `choices`, `regex`, and `json_schema`.
 
@@ -43,7 +43,29 @@ Notes:
 }
 ```
 
-Useful request fields include `text`, `input_ids`, `input_embeds`, `image_data`, `audio_data`, `sampling_params`, `rid`, logprob controls, `stream`, `lora_path`, `custom_logit_processor`, `return_hidden_states`, and `return_routed_experts`.
+Useful request fields include `text`, `input_ids`, `input_embeds`, `image_data`, `audio_data`, `video_data`, `sampling_params`, `rid`, logprob controls, `stream`, `lora_path`, `custom_logit_processor`, `return_hidden_states`, `return_routed_experts`, PD bootstrap fields, and routed data-parallel rank fields.
+
+`Engine.generate(...)` mirrors the native request surface for offline Python. It accepts `prompt` or `input_ids`, `sampling_params`, multimodal fields, logprob controls, LoRA, custom logit processors, hidden states, routed experts, streaming, PD bootstrap fields, and routing rank overrides.
+
+Minimal offline Engine smoke:
+
+```python
+import sglang as sgl
+
+engine = sgl.Engine(model_path="<MODEL_ID>", context_length=512, mem_fraction_static=0.25)
+try:
+    out = engine.generate(
+        prompt="Reply with OK.",
+        sampling_params={"max_new_tokens": 4, "temperature": 0.0},
+    )
+    print(out)
+finally:
+    engine.shutdown()
+```
+
+The bundled `scripts/run_offline_smoke.py` exposes the same guardrails for a real smoke: `--max-new-tokens` defaults to 4, `--context-length` defaults to 512, `--mem-fraction-static` defaults to 0.25, `--report-model-name` lets reports print a safe label instead of echoing a local model path, and `--out` saves the JSON report. `--dry-run` and `--help` do not import SGLang or load a model.
+
+Native chat is not a separate SGLang HTTP route in this skill. Use language frontend role helpers (`sgl.system`, `sgl.user`, `sgl.assistant`) for offline chat-shaped prompts, `/v1/chat/completions` for OpenAI-compatible chat, and `/api/chat` for Ollama-compatible chat.
 
 ## Sampling Parameters
 
@@ -66,3 +88,4 @@ The examples describe an Engine API for batch inference, embeddings, VLM, hidden
 - Use batch examples for throughput, not for single prompt correctness checks.
 - State that hidden states can reduce throughput and may rebuild CUDA graphs.
 - For speculative offline inference, route cache/performance tuning questions to `sglang-cache-performance`.
+- For language frontend programs with remote servers, use `RuntimeEndpoint`; for local smoke without HTTP, use `Engine` directly.
