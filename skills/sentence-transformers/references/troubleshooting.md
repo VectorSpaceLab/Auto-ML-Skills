@@ -1,97 +1,83 @@
 # Troubleshooting
 
-Read this for cross-cutting failures that apply across the package. Sub-skills include more specific troubleshooting files for dense embeddings, Cross Encoders, Sparse Encoders, training, and backend export.
+Read this when installation, imports, model loading, backend export, scoring, or migration behavior is confusing.
 
-## Import Or Install Problems
+## Fast Environment Check
 
-If `import sentence_transformers` fails, check the active Python first:
+Run the bundled diagnostic:
 
 ```bash
-python -m pip show sentence-transformers
-python - <<'PY'
-import sys
-print(sys.executable)
-print(sys.version)
-PY
+python skills/sentence-transformers/scripts/check_sentence_transformers_env.py
 ```
 
-Use Python `>=3.10`. If the package imports but multimodal, training, ONNX, or OpenVINO imports fail, install the matching extra.
-
-If importing triggers a long startup delay, isolate whether the delay is from `torch`, `transformers`, GPU discovery, or a broken site package:
+Or run the essential import check manually:
 
 ```bash
 python - <<'PY'
-import importlib, time
-for name in ["torch", "transformers", "sentence_transformers"]:
-    start = time.time()
-    importlib.import_module(name)
-    print(name, round(time.time() - start, 2), "s")
+import sentence_transformers
+from sentence_transformers import SentenceTransformer, CrossEncoder, SparseEncoder
+print(sentence_transformers.__version__)
+print(SentenceTransformer.__name__, CrossEncoder.__name__, SparseEncoder.__name__)
 PY
 ```
 
-## Model Download And Hub Access
+## Install And Import Symptoms
 
-Hub downloads require network access unless the model is cached or a local path is used. Use `local_files_only=True` for offline runs.
+| Symptom | Likely cause | Fix |
+| --- | --- | --- |
+| `ModuleNotFoundError: sentence_transformers` | package missing from current Python | Install with `pip install -U sentence-transformers`; verify `python -m pip show sentence-transformers` in the same interpreter. |
+| import fails inside `transformers`, `tokenizers`, `torch`, `scipy`, or `sklearn` | mixed or incompatible environment | Use a clean Python 3.10+ env and reinstall; run `python -m pip check`. |
+| multimodal import/input fails | missing extra or decoder package | Install `[image]`, `[audio]`, `[video]`, or `torchcodec` as required by the input type. |
+| training imports fail | missing training extras | Install `pip install -U "sentence-transformers[train]"` plus optional tracker packages. |
+| ONNX/OpenVINO backend cannot load | missing backend extra | Install `[onnx]`, `[onnx-gpu]`, or `[openvino]`. |
 
-Private or gated models require a token. Pass `token=...` to model constructors or configure Hugging Face Hub authentication outside the script.
+## Model Download And Hub Symptoms
 
-Only pass `trust_remote_code=True` for model repositories the user trusts. It allows model code from the repository to execute locally.
+| Symptom | Likely cause | Fix |
+| --- | --- | --- |
+| private/gated model cannot download | missing Hub token or approval | Authenticate with `huggingface-cli login`, set `HF_TOKEN`, or pass `token=...`. |
+| offline deployment fails | model files are not cached locally | Download once, save with `save_pretrained`, then load from that local directory with `local_files_only=True`. |
+| custom model errors or asks for remote code | model requires custom code | Only pass `trust_remote_code=True` for repositories you trust and pin `revision`. |
 
-## Optional Extras Missing
+## Retrieval And Scoring Issues
 
-Symptoms:
+| Symptom | Cause | Fix |
+| --- | --- | --- |
+| asymmetric search performs poorly | query/doc prompts not used or wrong model family | Use retrieval-tuned models plus `encode_query` and `encode_document`. |
+| cosine scores are low but ranking looks right | model trained for dot product or unnormalized embeddings | Use the model's recommended score function; for normalized embeddings dot product and cosine align. |
+| CrossEncoder scores are outside 0-1 | MS MARCO and some rerankers emit logits | Ranking is still valid; for 0-1 scores load with `activation_fn=torch.nn.Sigmoid()`. |
+| CrossEncoder is too slow | scoring too many pairs | First retrieve top-k with dense/sparse/BM25, then rerank only candidates. |
+| `semantic_search` runs out of memory | chunks too large or corpus too large | Lower `query_chunk_size` and `corpus_chunk_size`, or switch to ANN/vector DB. |
+| sparse search returns dense-looking tensors | sparse encoding conversion disabled | Use `convert_to_sparse_tensor=True` where supported and check `SparseEncoder.sparsity`. |
 
-- Image/audio/video inputs fail even though text inputs work.
-- `backend="onnx"` or `backend="openvino"` fails at load time.
-- Trainer imports complain about `datasets` or `accelerate`.
+## Backend And Performance Issues
 
-Fix by installing the relevant extra:
+| Symptom | Cause | Fix |
+| --- | --- | --- |
+| CPU inference is too slow | using default PyTorch backend | Try ONNX dynamic quantization, OpenVINO, smaller model, output quantization, or Matryoshka truncation. |
+| GPU inference is slower than expected | fp32, small batches, padding overhead, CPU tensors | Increase batch size, use fp16/bf16 on supported GPUs, keep tensors on GPU, consider flash attention. |
+| ONNX export repeats on every run | exported model was not saved | Call `model.save_pretrained(...)` after loading with `backend="onnx"`. |
+| ONNX outputs differ outside Sentence Transformers | pooling/normalization missing | ONNX export converts the Transformer component; apply the same pooling and normalization if using raw ONNX outside the package. |
+| OpenVINO static quantization requires data | calibration dataset missing | Provide dataset name/split/column or use dynamic ONNX quantization instead. |
+
+## Migration Symptoms
+
+| Symptom | Fix |
+| --- | --- |
+| deprecation warning for `sentence_transformers.losses` | import from `sentence_transformers.sentence_transformer.losses`. |
+| warning for `tokenizer_kwargs` | rename to `processor_kwargs`. |
+| warning for trainer `tokenizer` | rename to `processing_class`. |
+| custom CrossEncoder loss expects tuple/model output | update for `model(... )["scores"]` and optional `prompt`/`task` kwargs. |
+| positional CrossEncoder constructor arguments warn | use keyword arguments such as `num_labels=`, `max_length=`, `activation_fn=`, `device=`. |
+
+## Reproducible Debug Bundle
+
+When reporting or investigating an issue, collect:
 
 ```bash
-pip install -U "sentence-transformers[image]"
-pip install -U "sentence-transformers[train]"
-pip install -U "sentence-transformers[onnx]"
-pip install -U "sentence-transformers[openvino]"
+python -m pip check
+python -m pip show sentence-transformers torch transformers huggingface-hub
+python skills/sentence-transformers/scripts/check_sentence_transformers_env.py
 ```
 
-## Scores Look Wrong
-
-Dense embedding similarities depend on both the similarity function and normalization. If you plan to use dot product as cosine-like retrieval, encode with `normalize_embeddings=True`.
-
-For retrieval models with prompts, use `encode_query` for queries and `encode_document` for documents. Plain `encode` may skip query/document-specific prompts.
-
-MS MARCO Cross Encoder rerankers commonly return logits rather than probabilities. This is expected for ranking. If probabilities are needed, use a sigmoid activation, but do not compare sigmoid scores against raw logits.
-
-Sparse Encoder dot-product scores are not bounded to `[0, 1]`; large positive values can be normal.
-
-## Out Of Memory Or Slow Runs
-
-Reduce `batch_size`, use smaller models, use `truncate_dim` for Matryoshka-compatible dense models, use `max_active_dims` for sparse embeddings, or switch to ONNX/OpenVINO when supported.
-
-For large dense corpora, embed documents once, store the vectors, and use chunked `semantic_search` or an ANN index. Do not call a Cross Encoder over the whole corpus.
-
-For multi-GPU or multi-process embedding, use the dense sub-skill and the optimization sub-skill together.
-
-## Training Column Mismatch
-
-Trainer losses infer columns from the `datasets.Dataset`. Common formats include:
-
-- `(anchor, positive)` with no labels for in-batch-negative losses.
-- `(anchor, positive, negative)` for triplet-style or ranking losses.
-- `(text_a, text_b, score)` for similarity regression.
-- `(query, document, label)` for Cross Encoder binary scoring.
-- `(query, documents, scores)` for listwise reranker losses.
-
-If a loss fails at collate time, inspect dataset column names and compare them with [sub-skills/training-and-evaluation/references/data-formats.md](../sub-skills/training-and-evaluation/references/data-formats.md).
-
-## Backend Export Problems
-
-ONNX and OpenVINO export require the model family to be supported by the backend dependencies. Install the relevant extra, verify package availability with [../scripts/check_env.py](../scripts/check_env.py), then use [sub-skills/optimization-and-deployment/scripts/backend_availability_check.py](../sub-skills/optimization-and-deployment/scripts/backend_availability_check.py).
-
-If an exported model is slower than PyTorch for tiny batches, benchmark realistic batch sizes. Optimized backends usually matter most in repeated inference or larger deployment workloads.
-
-## Sparse Encoder Specific Pitfalls
-
-Sparse tensors may be large in dimensionality even when most values are zero. Keep them sparse where possible and avoid unnecessary dense conversion.
-
-For SPLADE training, wrap the main loss with `SpladeLoss` or `CachedSpladeLoss` so sparsity regularization is applied. `SparseMSELoss` is the notable standalone sparse loss for embedding-level distillation.
+For backend issues, also include the model id, backend (`torch`, `onnx`, `openvino`), `model_kwargs`, device, and whether the model was loaded from Hub or a local directory.

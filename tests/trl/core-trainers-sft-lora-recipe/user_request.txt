@@ -1,0 +1,1 @@
+I want to fine-tune a chat model with TRL using Python, not the CLI. My dataset has rows like {"messages": [{"role": "user", "content": "..."}, {"role": "assistant", "content": "..."}]}. Please give me a minimal SFTTrainer recipe with LoRA, the right config choices for assistant-only loss if applicable, and a safe import/check command before I start training.

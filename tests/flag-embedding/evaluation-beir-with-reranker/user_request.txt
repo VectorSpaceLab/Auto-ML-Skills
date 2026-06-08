@@ -1,0 +1,1 @@
+Set up a BEIR evaluation command for fiqa and arguana using BAAI/bge-m3 for retrieval and BAAI/bge-reranker-v2-m3 for reranking. I want markdown metrics for ndcg@10 and recall@100 and I need to know the extra packages to install.

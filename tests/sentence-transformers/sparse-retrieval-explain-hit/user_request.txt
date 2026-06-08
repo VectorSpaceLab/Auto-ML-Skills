@@ -1,0 +1,1 @@
+Use a SparseEncoder/SPLADE model to search a small document list, then explain why the top hit matched by printing the active tokens that contributed most to the sparse score.

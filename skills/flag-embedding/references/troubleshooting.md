@@ -1,108 +1,94 @@
 # Troubleshooting
 
-Read this when FlagEmbedding import, model loading, inference, fine-tuning, evaluation, or data preparation fails.
+Read this for cross-cutting FlagEmbedding install, import, model loading, device, and workflow failures.
 
-## Import Or Package Metadata Fails
+## Install And Import
 
-Check the install:
+Check the package first:
 
 ```bash
+python -m pip check
 python - <<'PY'
 import importlib.metadata as md
 import FlagEmbedding
-print("module OK", FlagEmbedding.__name__)
-print(md.distribution("FlagEmbedding").version)
+print(md.version("FlagEmbedding"))
+print(FlagEmbedding.__file__)
 PY
 ```
 
-If `FlagEmbedding[finetune]` fails because `flash-attn` cannot build, first install a Torch/CUDA combination compatible with the target machine, then retry the extra. For inference-only workflows, install `FlagEmbedding` without the fine-tuning extra.
+If import fails:
 
-## Auto Mapping Rejects A Model
+- Confirm `torch`, `transformers`, `datasets`, `accelerate`, `sentence_transformers`, `peft`, `ir-datasets`, `sentencepiece`, and `protobuf` are installed in the same Python environment.
+- Run `python scripts/check_flagembedding_env.py --show-torch` from this skill to inspect imports and torch backend visibility without downloading models.
+- Avoid Python versions unsupported by the current torch/transformers wheels. For ML environments, Python 3.10 or 3.11 is usually safer than a newer unreleased wheel path.
 
-Error pattern: model name not found in `AUTO_EMBEDDER_MAPPING` or `AUTO_RERANKER_MAPPING`.
+## Model Loading
 
-Use explicit class selection:
+`FlagAutoModel.from_finetuned()` and `FlagAutoReranker.from_finetuned()` infer the class from the basename of `model_name_or_path`. If a local checkpoint directory is named `checkpoint-123`, the auto loader uses the parent directory basename.
+
+When auto loading raises "Model name ... not found in the model mapping":
+
+1. Choose the correct explicit `model_class` from `references/model-overview.md`.
+2. Pass matching defaults such as `pooling_method`, `trust_remote_code`, and instruction format.
+3. Use the concrete class directly if needed, for example `FlagModel`, `BGEM3FlagModel`, `FlagLLMModel`, `FlagReranker`, or `LayerWiseFlagLLMReranker`.
+
+For Hugging Face models that require custom code, pass `trust_remote_code=True` only after the user accepts that remote model code will execute.
+
+## Device And Precision
+
+If a model unexpectedly uses all GPUs, pass an explicit device list:
 
 ```python
-from FlagEmbedding import FlagAutoModel
-model = FlagAutoModel.from_finetuned(
-    "path-or-hf-model",
-    model_class="encoder-only-base",
-    pooling_method="cls",
-    query_instruction_for_retrieval="Represent this sentence for searching relevant passages: ",
-)
+model = FlagAutoModel.from_finetuned("BAAI/bge-base-en-v1.5", devices=["cuda:0"])
 ```
 
-For rerankers:
+If CUDA is not available in torch:
 
-```python
-from FlagEmbedding import FlagAutoReranker
-reranker = FlagAutoReranker.from_finetuned(
-    "path-or-hf-reranker",
-    model_class="encoder-only-base",
-)
-```
+- Verify `python -c "import torch; print(torch.cuda.is_available(), torch.version.cuda)"`.
+- Confirm the installed torch wheel matches the host driver and GPU architecture.
+- Use `devices="cpu"` and `use_fp16=False` for CPU-only diagnosis.
 
-Choose the class from `references/model-overview.md`.
+If CPU inference fails with half-precision operations, set `use_fp16=False`. If GPU inference produces unsupported dtype issues, try `use_fp16=False` or `use_bf16=True` only for model families that support it.
 
-## Trust Remote Code
+## Output Shapes And Types
 
-Some mapped models require `trust_remote_code=True`, including several GTE and code-oriented models. Do not set it silently for untrusted model repositories. Explain the security implication and ask before loading unfamiliar remote code.
+Normal embedders return a one-dimensional vector for a single string and a two-dimensional array for a list of strings when `convert_to_numpy=True`.
 
-## Precision And Device Issues
+`BGEM3FlagModel.encode()` returns a dictionary when sparse or ColBERT modes are requested. Common keys are:
 
-`use_fp16=True` speeds inference and is common in examples, but CPU or unsupported GPU paths may fail. For CPU diagnosis, set `use_fp16=False` and `devices="cpu"` where supported.
+- `dense_vecs`
+- `lexical_weights`
+- `colbert_vecs`
 
-For BF16-capable GPUs, some decoder-only or pseudo-MoE workflows may prefer `use_bf16=True`. Do not set both FP16 and BF16 casually; choose based on hardware and model family.
+Rerankers return raw scores by default. Pass `normalize=True` to map reranker scores through sigmoid where the reranker implementation supports it.
 
-Large LLM embedders and rerankers can exceed GPU memory quickly. Reduce `batch_size`, `query_max_length`, `passage_max_length`, or `max_length`, and prefer encoder-only models for smoke tests.
+## Fine-Tuning Failures
 
-## Evaluation Dependencies
+Before launching `torchrun`, validate training data with `sub-skills/finetuning/scripts/validate_finetune_jsonl.py`.
 
-Evaluation examples mention:
+Common data failures:
 
-```bash
-python -m pip install pytrec_eval
-python -m pip install pytrec-eval-terrier
-python -m pip install beir
-python -m pip install mteb==1.15.0
-```
+- Missing `query`, `pos`, or `neg`.
+- `pos` or `neg` is not a list of strings.
+- `pos_scores` or `neg_scores` length does not match `pos` or `neg` when knowledge distillation is enabled.
+- `train_data` paths do not exist; the argument dataclasses raise `FileNotFoundError`.
 
-The original examples also used a GPU FAISS wheel URL. Prefer installing a FAISS build compatible with the target Python/CUDA environment; use CPU FAISS for data validation and small local tests.
+Common environment failures:
 
-## Training Data Errors
+- `flash-attn` build errors: install only when a decoder-only or training workflow needs flash attention, and match torch/CUDA/compiler versions.
+- `deepspeed` errors: confirm CUDA, compiler, torch, and the selected deepspeed config are compatible.
+- Out-of-memory: reduce per-device batch size, use gradient accumulation, shorten max lengths, lower train group size, disable cross-device negatives, or move to a smaller model.
 
-Training JSONL rows require at least:
+## Evaluation Failures
 
-```json
-{"query": "text", "pos": ["positive"], "neg": ["negative"]}
-```
+Before running a custom evaluation, validate dataset layout with `sub-skills/evaluation/scripts/validate_custom_eval_dataset.py`.
 
-Distillation rows add `pos_scores` and `neg_scores` with lengths matching `pos` and `neg`.
+Common benchmark dependency gaps:
 
-Embedder ICL rows may include `type`. Prompt-based reranker rows may include `prompt`.
+- MTEB examples require `mteb`.
+- BEIR examples require `beir`.
+- AIR-Bench examples require `air-benchmark`.
+- Many retrieval metrics need `pytrec_eval`; when installation fails, try `pytrec-eval-terrier`.
+- FAISS install differs by Python, CUDA, and platform. Choose CPU or GPU wheels deliberately.
 
-Run `sub-skills/data-preparation/scripts/validate_retrieval_jsonl.py` before training.
-
-## DeepSpeed Config Paths
-
-The source examples pass `--deepspeed` to JSON configs. This skill bundles config generators instead of relying on source repo paths. Use:
-
-```bash
-python sub-skills/finetuning/scripts/write_deepspeed_config.py --stage 0 --output ds_stage0.json
-python sub-skills/finetuning/scripts/write_deepspeed_config.py --stage 1 --output ds_stage1.json
-```
-
-Then pass `--deepspeed ./ds_stage0.json` or `--deepspeed ./ds_stage1.json`.
-
-## Benchmark Data Layout
-
-Custom evaluation requires a dataset directory with:
-
-```text
-corpus.jsonl
-<split>_queries.jsonl
-<split>_qrels.jsonl
-```
-
-or multiple child directories each containing that layout. Run `sub-skills/evaluation/scripts/check_eval_dataset.py` to catch missing files before starting a benchmark.
+If evaluation silently reuses old results, check `--overwrite`. If corpus embeddings are expensive, use `--corpus_embd_save_dir` deliberately and document cache reuse.

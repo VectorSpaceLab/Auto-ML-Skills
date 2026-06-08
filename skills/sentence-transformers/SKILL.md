@@ -1,110 +1,117 @@
 ---
 name: sentence-transformers
-description: "Helps agents use Hugging Face Sentence Transformers for embeddings, retrieval, reranking, sparse encoders, training, evaluation, quantization, and backend export."
-disable-model-invocation: true
+description: "Use sentence-transformers for embeddings, semantic search, reranking, sparse retrieval, model training/evaluation, ONNX/OpenVINO export, quantization, migration, and troubleshooting across SentenceTransformer, CrossEncoder, and SparseEncoder workflows."
 ---
 
 # Sentence Transformers
 
-Use this skill when a task involves the `sentence-transformers` Python package: dense or multimodal embeddings, semantic search, retrieve-and-rerank pipelines, sparse SPLADE-style embeddings, fine-tuning, evaluation, hard-negative mining, or model export for faster inference.
+Use this skill when a user wants to build with the `sentence-transformers` Python package: dense embeddings, semantic search, retrieve-and-rerank, CrossEncoder scoring, SparseEncoder/SPLADE retrieval, training, evaluation, model export, optimization, or migration help.
 
-Sentence Transformers exposes Python APIs rather than a primary command-line interface. Pick the closest sub-skill first, then read only the linked reference files you need.
+Keep this file as the router. Load the nearest sub-skill and references for implementation details before writing code.
 
-## Installation
+## Install And Verify
 
-Public package install:
+Public install requirements: Python 3.10+, PyTorch 1.11+, and Transformers 4.41+.
 
 ```bash
 pip install -U sentence-transformers
-```
-
-Common extras:
-
-```bash
-pip install -U "sentence-transformers[train]"
-pip install -U "sentence-transformers[image]"
-pip install -U "sentence-transformers[audio]"
-pip install -U "sentence-transformers[video]"
-pip install -U "sentence-transformers[onnx]"
-pip install -U "sentence-transformers[onnx-gpu]"
-pip install -U "sentence-transformers[openvino]"
-```
-
-For a public main-branch or editable install, use the project repository rather than a local checkout:
-
-```bash
-git clone https://github.com/huggingface/sentence-transformers.git
-cd sentence-transformers
-pip install -e ".[train]"
-```
-
-Minimum public requirements from package metadata: Python `>=3.10`, `torch>=1.11.0`, `transformers>=4.41.0,<6.0.0`, `huggingface-hub>=0.23.0`, `numpy`, `scikit-learn`, `scipy`, `typing_extensions`, and `tqdm`.
-
-Minimal import check:
-
-```bash
 python - <<'PY'
 import sentence_transformers
 from sentence_transformers import SentenceTransformer, CrossEncoder, SparseEncoder
 print(sentence_transformers.__version__)
-print(SentenceTransformer, CrossEncoder, SparseEncoder)
+print(SentenceTransformer.__name__, CrossEncoder.__name__, SparseEncoder.__name__)
 PY
 ```
 
-For a broader local diagnostic without downloading models, run [scripts/check_env.py](scripts/check_env.py).
+Extras:
 
-## Choose A Sub-Skill
+```bash
+pip install -U "sentence-transformers[image]"       # image-capable models
+pip install -U "sentence-transformers[audio]"       # audio-capable models
+pip install -U "sentence-transformers[video]"       # video-capable models
+pip install -U "sentence-transformers[train]"       # trainers, datasets, accelerate
+pip install -U "sentence-transformers[onnx]"        # ONNX CPU
+pip install -U "sentence-transformers[onnx-gpu]"    # ONNX GPU
+pip install -U "sentence-transformers[openvino]"    # OpenVINO
+```
 
-Use [sub-skills/sentence-transformer/SKILL.md](sub-skills/sentence-transformer/SKILL.md) for:
+For conda, the base package is available from conda-forge:
 
-- `SentenceTransformer` dense embeddings for text, image, audio, video, or mixed-modal inputs.
-- `encode`, `encode_query`, `encode_document`, embedding similarity, semantic search, clustering, paraphrase mining, and custom embedding modules.
+```bash
+conda install -c conda-forge sentence-transformers
+```
 
-Use [sub-skills/cross-encoder/SKILL.md](sub-skills/cross-encoder/SKILL.md) for:
+Conda does not provide pip extras; install extras with pip when needed.
 
-- `CrossEncoder` pair scoring, passage ranking, reranking retrieved candidates, pair classification, and multimodal reranking.
-- Understanding logits, activation functions, `predict`, `rank`, and second-stage retrieval workflows.
+## Route By Task
 
-Use [sub-skills/sparse-encoder/SKILL.md](sub-skills/sparse-encoder/SKILL.md) for:
+- Dense embeddings, semantic textual similarity, clustering, paraphrase mining, dense semantic search, multimodal embeddings, query/document prompts: read `sub-skills/dense-embeddings/SKILL.md`.
+- CrossEncoder pair scoring, reranking, retrieve-and-rerank, pair classification, MS MARCO logits, multimodal rerankers: read `sub-skills/reranking/SKILL.md`.
+- SparseEncoder/SPLADE embeddings, sparse semantic search, token-level interpretability, Qdrant/OpenSearch sparse integration, hybrid retrieval: read `sub-skills/sparse-retrieval/SKILL.md`.
+- Training, fine-tuning, loss selection, evaluator selection, hard-negative mining, dataset shapes, trainer arguments: read `sub-skills/training-evaluation/SKILL.md`. If the repo-local `train-sentence-transformers` skill is installed, use it for full production training templates.
+- ONNX, OpenVINO, backend selection, fp16/bf16 inference, output embedding quantization, Matryoshka truncation, Hub publishing, migration and deprecations: read `sub-skills/optimization-deployment/SKILL.md`.
 
-- `SparseEncoder` and SPLADE-style sparse embeddings.
-- Sparse semantic search, sparse similarity, sparsity stats, decoding active terms, search-engine integration, and hybrid dense+sparse retrieval.
+## Cross-Cutting References
 
-Use [sub-skills/training-and-evaluation/SKILL.md](sub-skills/training-and-evaluation/SKILL.md) for:
+- `references/package-overview.md`: package architecture, installation extras, model classes, supported inputs, and import-path guidance.
+- `references/troubleshooting.md`: install, import, download, backend, scoring, and migration symptoms.
+- `scripts/check_sentence_transformers_env.py`: safe environment/import/backend diagnostic. Run it before deeper debugging or after installing extras.
 
-- Fine-tuning embedding, reranker, or sparse encoder models.
-- Dataset formats, loss selection, trainers, training arguments, evaluators, hard-negative mining, distributed training, and model cards.
+## Core Model Choice
 
-Use [sub-skills/optimization-and-deployment/SKILL.md](sub-skills/optimization-and-deployment/SKILL.md) for:
+| User intent | Class | Typical output | Notes |
+| --- | --- | --- | --- |
+| embeddings, vector search, clustering, STS, paraphrase mining | `SentenceTransformer` | dense vectors | Efficient first-stage retrieval and similarity. |
+| reranking, pair scoring, pair classification | `CrossEncoder` | one score or class logits per pair | More accurate per pair but slower; use on candidates. |
+| learned sparse retrieval, SPLADE, token interpretability | `SparseEncoder` | sparse vectors over vocabulary dimensions | Good for sparse search engines and hybrid retrieval. |
 
-- ONNX and OpenVINO backends, dynamic/static quantization, embedding quantization, Matryoshka truncation, multi-device inference, and push/save deployment decisions.
+Use `encode_query` and `encode_document` for retrieval models with query/document prompts or Router modules. Use plain `encode` for symmetric similarity, clustering, classification features, or models without retrieval-specific prompts.
 
-## Shared References
+## Safe Minimal Examples
 
-Read [references/installation-and-capabilities.md](references/installation-and-capabilities.md) when you need install options, extras, model-family boundaries, public dependencies, or a capability map.
+Dense embeddings:
 
-Read [references/troubleshooting.md](references/troubleshooting.md) when imports fail, model downloads fail, optional extras are missing, Hub access is blocked, training columns do not match a loss, a backend export fails, or scores look wrong.
+```python
+from sentence_transformers import SentenceTransformer
 
-## Default Workflow
+model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
+texts = ["The weather is lovely today.", "It is sunny outside.", "He drove to the stadium."]
+embeddings = model.encode(texts)
+scores = model.similarity(embeddings, embeddings)
+```
 
-1. Identify whether the user needs embeddings, reranking, sparse retrieval, training/evaluation, or deployment optimization.
-2. Open the matching sub-skill `SKILL.md`.
-3. Run `python scripts/check_env.py` if the environment is unknown.
-4. Prefer `encode_query` and `encode_document` for retrieval models that define prompts; use plain `encode` for generic embedding tasks.
-5. Prefer `CrossEncoder.rank` for reranking a query against documents; use `predict` for explicit input pairs or classification-style workflows.
-6. For training, match the dataset column pattern to the loss before writing code; many failures are column/loss mismatches.
-7. For export or quantization, install the relevant extra and verify backend support before loading a model with `backend="onnx"` or `backend="openvino"`.
+Reranking:
 
-## Important Defaults
+```python
+from sentence_transformers import CrossEncoder
 
-Model loading from Hugging Face Hub may download weights unless `local_files_only=True` is set or a local model path is used. Private or gated models require a Hugging Face token.
+model = CrossEncoder("cross-encoder/ms-marco-MiniLM-L6-v2")
+query = "How many people live in Berlin?"
+passages = ["Berlin had a population of 3,520,031.", "Berlin is known for museums."]
+ranks = model.rank(query, passages, return_documents=True)
+```
 
-Set `trust_remote_code=True` only when the model repository is trusted and the task requires custom model code.
+Sparse retrieval:
 
-Dense retrieval often benefits from `normalize_embeddings=True` plus dot product or cosine similarity. Cross Encoders are usually stronger but slower because each query-document pair is scored jointly.
+```python
+from sentence_transformers import SparseEncoder
+from sentence_transformers.util import semantic_search
 
-MS MARCO Cross Encoder rerankers often return raw logits. If the user needs probabilities in `[0, 1]`, pass an explicit sigmoid activation at prediction time or model construction time, but do not change the ranking just to rescale scores.
+model = SparseEncoder("naver/splade-cocondenser-ensembledistil")
+corpus_embeddings = model.encode_document(["Mars rovers explore Mars."], convert_to_tensor=True)
+query_embeddings = model.encode_query(["What explores Mars?"], convert_to_tensor=True)
+hits = semantic_search(query_embeddings, corpus_embeddings, score_function=model.similarity)
+```
 
-Multimodal inputs require the matching package extra and a model whose `modalities` and `supports(...)` methods show the modality is available.
+## Decision Points
 
-The `evals/` directory, if present in this generated skill, is a development artifact for quality review and is not part of the public runtime instructions.
+- Retrieval with short queries and longer documents is asymmetric: prefer retrieval-tuned models and `encode_query`/`encode_document`.
+- Similar sentence/question matching is symmetric: a general embedding model and `encode` are often enough.
+- Large corpora need an index. `util.semantic_search` is exact and practical up to roughly 1M entries; use FAISS, hnswlib, Annoy, Elasticsearch, OpenSearch, Qdrant, or another vector database beyond that.
+- CrossEncoders should rerank top-k candidates, not score an entire large corpus pair-by-pair.
+- MS MARCO CrossEncoder models often return logits; ranking is unaffected, but load with `activation_fn=torch.nn.Sigmoid()` when calibrated 0-1 scores are required.
+- Multimodal models require matching extras such as `[image]`, `[audio]`, or `[video]`; inspect `model.modalities` and `model.supports(...)`.
+
+## Evidence Base
+
+This generated skill was built from package metadata, docs, examples, tests, source modules, the existing training skill, and live installed-package inspection of `sentence-transformers` 5.6.0.dev0 APIs. Generated runtime guidance avoids machine-specific setup details.

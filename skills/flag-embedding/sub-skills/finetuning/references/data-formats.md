@@ -1,80 +1,84 @@
 # Fine-Tuning Data Formats
 
-Read this before creating or validating FlagEmbedding training datasets.
+Read this before writing or validating FlagEmbedding training data.
 
-## Base Training JSONL
+## JSONL Row
 
-Training data is line-delimited JSON. Each row must include:
+Training data is JSONL: one JSON object per line.
+
+Required fields for embedder and reranker training:
 
 ```json
-{"query": "query text", "pos": ["positive passage"], "neg": ["negative passage"]}
+{"query": "query text", "pos": ["positive text"], "neg": ["negative text"]}
 ```
 
-`query` is a string. `pos` is a list of positive texts. `neg` is a list of negative texts. If a source dataset has no negatives, mine hard negatives or sample negatives from a corpus before training.
+Field rules:
 
-Rows can live in a single `.jsonl` file or in a directory containing multiple `.jsonl` files. The `--train_data` argument accepts one or more files/directories.
+- `query`: string.
+- `pos`: non-empty list of positive passage/text strings.
+- `neg`: list of negative passage/text strings. It can be empty only if a later step will sample or mine negatives, but most training commands expect negatives.
 
-## Knowledge Distillation Fields
+Optional fields:
 
-For distillation, include:
+- `pos_scores`: list of numbers aligned one-to-one with `pos`.
+- `neg_scores`: list of numbers aligned one-to-one with `neg`.
+- `prompt`: prompt or instruction text that can override query instructions or be used in reranker inputs.
+- `type`: used by `bge-en-icl` style embedder training; examples include task categories such as normal, symmetric classification, or clustering variants.
+
+## Knowledge Distillation
+
+When using `--knowledge_distillation True`, include both score fields:
 
 ```json
 {
-  "query": "query text",
-  "pos": ["positive passage"],
-  "neg": ["negative passage"],
-  "pos_scores": [4.2],
-  "neg_scores": [-1.3]
+  "query": "what is BGE?",
+  "pos": ["BGE is a family of embedding models."],
+  "neg": ["A cooking recipe."],
+  "pos_scores": [0.98],
+  "neg_scores": [0.05]
 }
 ```
 
-`len(pos_scores)` must equal `len(pos)`. `len(neg_scores)` must equal `len(neg)`. Set `--knowledge_distillation True` only when these fields are present and valid.
+Validation should confirm:
 
-Use the data-preparation sub-skill's reranker scoring workflow to generate these fields.
+- `len(pos_scores) == len(pos)`
+- `len(neg_scores) == len(neg)`
+- Scores are numeric.
 
-## Prompt And ICL Fields
+## Reranker Prompt Rows
 
-Embedder rows may include:
+Reranker training uses the same `query`, `pos`, and `neg` fields. For prompt-based decoder rerankers, `prompt` can control the final input shape where the effective input is query, separator, passage, separator, prompt.
 
-```json
-{"prompt": "instruction text", "type": "normal"}
-```
-
-`prompt` covers or overrides query instruction behavior for that example. `type` is used by ICL workflows and may include values such as `normal`, `symmetric_class`, or `symmetric_clustering`.
-
-Prompt-based reranker rows may include:
+Example:
 
 ```json
-{"prompt": "Given a query A and passage B, determine whether B answers A."}
+{
+  "query": "what is panda?",
+  "pos": ["The giant panda is a bear species endemic to China."],
+  "neg": ["Pandas is a Python data analysis library."],
+  "prompt": "Given a query A and a passage B, determine whether the passage answers the query."
+}
 ```
 
-The decoder reranker input format combines query, passage, and prompt according to query/passage instruction settings.
+## Candidate Pool For Hard Negatives
 
-## Practical Dataset Checks
+When using an external candidate pool for hard-negative mining, use JSONL rows containing a `text` field:
 
-Before training, verify:
-
-```text
-Every line is valid JSON.
-Every row has query, pos, and neg.
-query is a non-empty string.
-pos and neg are non-empty lists of strings.
-No distillation score list length mismatch exists.
-For ICL workflows, type/prompt conventions match the intended runner.
+```json
+{"text": "candidate passage one"}
+{"text": "candidate passage two"}
 ```
 
-Run:
+If no candidate pool is provided, hard-negative mining can retrieve from negatives in the input file.
+
+## Local Validation
+
+Use the bundled validator:
 
 ```bash
-python sub-skills/data-preparation/scripts/validate_retrieval_jsonl.py --input train.jsonl --mode train
+python scripts/validate_finetune_jsonl.py train.jsonl --task embedder
+python scripts/validate_finetune_jsonl.py train.jsonl --task reranker --require-scores
+python scripts/validate_finetune_jsonl.py candidates.jsonl --candidate-pool
 ```
 
-## Hard Negatives
-
-Hard-negative mining retrieves candidate passages for each query and samples negatives from a rank range, excluding positives and the query text. The source helper defaults to a range such as `10-210`; examples use `2-200` for harder negatives.
-
-If negatives are too difficult, sample from a later rank range, such as `60-300`. If negatives are too easy, sample from earlier ranks.
-
-## Length Bucketing
-
-Long-sequence training benefits from splitting rows by maximum token length across query, positives, and negatives. Use the data-preparation sub-skill's length-splitting script for this workflow.
+The validator is intentionally conservative and does not download models or import FlagEmbedding.

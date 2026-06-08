@@ -1,0 +1,1 @@
+My GRPO training run in TRL is not improving. The logs show reward is almost constant and frac_reward_zero_std is high. I am using a custom reward function with a dataset column named solution. How should I inspect the reward function and adjust the GRPO setup before scaling the run?
