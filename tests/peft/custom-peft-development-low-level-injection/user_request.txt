@@ -1,0 +1,1 @@
+I need to inject a LoRA adapter into a plain torch module but keep the original class instead of wrapping it in a PeftModel. Show me the low-level API, how to save and reload only the adapter state dict, and what PEFT utilities I lose with this approach.

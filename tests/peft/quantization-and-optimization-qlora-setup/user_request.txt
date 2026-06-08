@@ -1,0 +1,1 @@
+I want to fine-tune a 7B causal LM with QLoRA on one GPU. Please give me the PEFT and Transformers setup: bitsandbytes config, any model preparation call before wrapping, the LoRA target choice, and the main merge/deployment caveats.

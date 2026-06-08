@@ -1,0 +1,1 @@
+I already load two PEFT adapters for inference and now want to use torch.compile for speed. What order should I load, set, and compile things in, and how do I validate that the compiled model still produces correct outputs?
