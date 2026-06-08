@@ -1,7 +1,6 @@
 ---
 name: create-skill-for-a-repo
 description: "Creates a repo-specific Agent Skill from a local repository by inspecting source files and an installed Python package environment. Use when the user asks to create a skill for a repo, generate repo-specific skills, analyze a local Python package, or build skills for Claude Code, Codex, or similar coding agents."
-disable-model-invocation: true
 ---
 
 # Create Skill for a Repo
