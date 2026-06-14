@@ -1,0 +1,1 @@
+I see a TRLExperimentalWarning when trying to use KTO in TRL. Is KTO stable? Please show the recommended import path, a minimal training skeleton, the expected data format, and what I should check if I am reviewing a PR that adds a paper-based experimental trainer.

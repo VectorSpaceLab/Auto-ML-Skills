@@ -1,74 +1,74 @@
 ---
 name: finetuning
-description: "Helps agents fine-tune FlagEmbedding embedders and rerankers with torchrun, DeepSpeed, LoRA, and retrieval JSONL data."
-disable-model-invocation: true
+description: "Use for FlagEmbedding embedder or reranker fine-tuning, JSONL train-data format, hard-negative mining, teacher-score generation, torchrun commands, LoRA, deepspeed, and training troubleshooting."
 ---
 
-# FlagEmbedding Fine-Tuning
+# FlagEmbedding Finetuning
 
-Use this sub-skill when the user wants to train or fine-tune a FlagEmbedding embedder or reranker, prepare training commands, choose training modules, validate JSONL train data, add distillation scores, or configure DeepSpeed.
+Use this sub-skill when the user wants to fine-tune a BGE embedder or reranker, prepare retrieval training data, mine hard negatives, add teacher scores, choose train modules, validate JSONL data, or debug training failures.
 
 ## Install
 
-Fine-tuning needs the extra dependencies:
+Fine-tuning uses optional dependencies:
 
 ```bash
 python -m pip install -U "FlagEmbedding[finetune]"
 ```
 
-If `flash-attn` or `deepspeed` installation fails, resolve the target Torch/CUDA compatibility first. For CPU-only or inference-only work, do not install the fine-tuning extra unnecessarily.
+The `finetune` extra includes `deepspeed` and `flash-attn`. These are sensitive to torch, CUDA, compiler, and Python versions. If the user only needs data validation or CPU-side planning, do not install or compile heavy CUDA extras until needed.
 
-## Choose The Training Module
+## Read These First
 
-Use these module entry points with `torchrun`:
+- `references/data-formats.md` for embedder/reranker train JSONL schemas, score fields, prompts, and examples.
+- `references/training-workflows.md` for torchrun module names, standard embedder/reranker recipes, M3, decoder-only, ICL, LoRA, hard-negative mining, teacher scores, and split-by-length workflows.
+- `references/troubleshooting.md` for missing data, optional dependency, CUDA, deepspeed, flash-attn, OOM, and output-checkpoint issues.
 
-| Workflow | Module |
-| --- | --- |
-| Encoder-only embedder | `FlagEmbedding.finetune.embedder.encoder_only.base` |
-| BGE-M3 embedder | `FlagEmbedding.finetune.embedder.encoder_only.m3` |
-| Decoder-only/LLM embedder | `FlagEmbedding.finetune.embedder.decoder_only.base` |
-| ICL decoder-only embedder | `FlagEmbedding.finetune.embedder.decoder_only.icl` |
-| Encoder-only reranker | `FlagEmbedding.finetune.reranker.encoder_only.base` |
-| Decoder-only/LLM reranker | `FlagEmbedding.finetune.reranker.decoder_only.base` |
-| Layerwise decoder-only reranker | `FlagEmbedding.finetune.reranker.decoder_only.layerwise` |
+Run:
 
-Read [references/training-workflows.md](references/training-workflows.md) for command templates adapted from the repository examples.
+- `scripts/validate_finetune_jsonl.py` before training, hard-negative mining, or teacher scoring.
+- `scripts/add_reranker_scores.py` when the user asks to add teacher scores with a reranker. This loads a model and can download checkpoints.
+- `scripts/mine_hard_negatives.py` when the user asks to mine negatives. This loads an embedder and requires FAISS.
+- `scripts/split_by_length.py` when the user asks to bucket training rows by token length. This loads a tokenizer and can download it.
 
-## Validate Data First
+## Training Data Basics
 
-Training data is JSONL. Each row must include:
+Each JSONL row must contain:
 
 ```json
-{"query": "text", "pos": ["positive text"], "neg": ["negative text"]}
+{"query": "question text", "pos": ["positive passage"], "neg": ["negative passage"]}
 ```
 
-Distillation rows add `pos_scores` and `neg_scores` with matching lengths. Embedder ICL data may add `type`; prompt-based reranker data may add `prompt`.
+Optional fields:
 
-Read [references/data-formats.md](references/data-formats.md) for schemas and examples. Run the bundled validator:
+- `pos_scores` and `neg_scores` for knowledge distillation.
+- `prompt` for query/reranker prompt handling.
+- `type` for `bge-en-icl` style embedder fine-tuning.
+
+Validate a file:
 
 ```bash
-python ../data-preparation/scripts/validate_retrieval_jsonl.py --input train.jsonl --mode train
+python scripts/validate_finetune_jsonl.py train.jsonl --task embedder
+python scripts/validate_finetune_jsonl.py train.jsonl --task reranker --require-scores
 ```
 
-From this sub-skill directory, the same script is linked through the data-preparation sub-skill rather than duplicated.
+## Choose A Training Module
 
-## Build Configs
+Embedder modules:
 
-The original examples use DeepSpeed stage 0 or stage 1 config files. This skill bundles a generator:
+- `FlagEmbedding.finetune.embedder.encoder_only.base`: standard encoder-only embedder.
+- `FlagEmbedding.finetune.embedder.encoder_only.m3`: BGE-M3/unified fine-tuning.
+- `FlagEmbedding.finetune.embedder.decoder_only.base`: decoder-only embedding models with optional LoRA.
+- `FlagEmbedding.finetune.embedder.decoder_only.icl`: ICL embedding models.
+
+Reranker modules:
+
+- `FlagEmbedding.finetune.reranker.encoder_only.base`: encoder-only rerankers.
+- `FlagEmbedding.finetune.reranker.decoder_only.base`: decoder-only LLM rerankers.
+- `FlagEmbedding.finetune.reranker.decoder_only.layerwise`: layerwise LLM rerankers.
+
+## Minimal Encoder Embedder Command Shape
 
 ```bash
-python scripts/write_deepspeed_config.py --stage 0 --output ds_stage0.json
-python scripts/write_deepspeed_config.py --stage 1 --output ds_stage1.json
-```
-
-Then pass `--deepspeed ./ds_stage0.json` or `--deepspeed ./ds_stage1.json`.
-
-## Command Construction Pattern
-
-Start from a small run, then scale:
-
-```bash
-export WANDB_MODE=disabled
 torchrun --nproc_per_node 1 \
   -m FlagEmbedding.finetune.embedder.encoder_only.base \
   --model_name_or_path BAAI/bge-base-en-v1.5 \
@@ -77,36 +77,72 @@ torchrun --nproc_per_node 1 \
   --train_group_size 8 \
   --query_max_len 512 \
   --passage_max_len 512 \
-  --pad_to_multiple_of 8 \
-  --query_instruction_for_retrieval "Represent this sentence for searching relevant passages: " \
-  --query_instruction_format "{}{}" \
-  --knowledge_distillation False \
-  --output_dir ./outputs/bge-base-ft \
+  --output_dir ./outputs/bge-base-finetuned \
   --overwrite_output_dir \
   --learning_rate 1e-5 \
+  --fp16 \
   --num_train_epochs 1 \
   --per_device_train_batch_size 2 \
   --dataloader_drop_last True \
   --logging_steps 10 \
-  --save_steps 500 \
+  --save_steps 1000 \
   --sentence_pooling_method cls \
   --normalize_embeddings True
 ```
 
-## References
+Add `--deepspeed path/to/ds_stage0.json` only when the environment is ready for deepspeed and the user wants it.
 
-Read [references/training-workflows.md](references/training-workflows.md) for embedder, M3, decoder-only, ICL, reranker, LoRA, layerwise, and DeepSpeed command templates.
+## Minimal Encoder Reranker Command Shape
 
-Read [references/data-formats.md](references/data-formats.md) for JSONL row schemas, distillation score fields, prompt fields, and dataset directory behavior.
+```bash
+torchrun --nproc_per_node 1 \
+  -m FlagEmbedding.finetune.reranker.encoder_only.base \
+  --model_name_or_path BAAI/bge-reranker-v2-m3 \
+  --train_data ./train.jsonl \
+  --cache_path ./cache/data \
+  --train_group_size 8 \
+  --query_max_len 512 \
+  --passage_max_len 512 \
+  --output_dir ./outputs/reranker-finetuned \
+  --overwrite_output_dir \
+  --learning_rate 6e-5 \
+  --fp16 \
+  --num_train_epochs 1 \
+  --per_device_train_batch_size 2 \
+  --gradient_accumulation_steps 1 \
+  --logging_steps 10 \
+  --save_steps 1000
+```
 
-Read [references/arguments.md](references/arguments.md) for important verified argument groups and defaults.
+## Data Preparation Helpers
 
-Read [references/troubleshooting.md](references/troubleshooting.md) for common training failures: missing negatives, distillation length mismatch, DeepSpeed config paths, CUDA OOM, LoRA target modules, and `trust_remote_code`.
+Hard-negative mining, teacher scoring, and length bucketing are side-effectful and may download models, use GPUs, or write new files. Do not run them unless the user requested them.
 
-## Scripts
+Hard negatives:
 
-Run [scripts/write_deepspeed_config.py](scripts/write_deepspeed_config.py) to create a reusable DeepSpeed config in the current project.
+```bash
+python scripts/mine_hard_negatives.py \
+  --input_file train.jsonl \
+  --output_file train_minedHN.jsonl \
+  --range_for_sampling 2-200 \
+  --negative_number 15 \
+  --embedder_name_or_path BAAI/bge-base-en-v1.5
+```
 
-Read or adapt [scripts/build_training_command.py](scripts/build_training_command.py) to construct a conservative `torchrun` command for a selected workflow.
+Teacher scores:
 
-Use the data-preparation sub-skill scripts for hard-negative mining, reranker teacher scoring, and train JSONL validation.
+```bash
+python scripts/add_reranker_scores.py \
+  --input_file train_minedHN.jsonl \
+  --output_file train_score.jsonl \
+  --reranker_name_or_path BAAI/bge-reranker-v2-m3
+```
+
+Split by length:
+
+```bash
+python scripts/split_by_length.py \
+  --input_path train_data \
+  --output_dir train_data_split \
+  --model_name_or_path BAAI/bge-m3
+```

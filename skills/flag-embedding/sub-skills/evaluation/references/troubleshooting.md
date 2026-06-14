@@ -1,66 +1,63 @@
 # Evaluation Troubleshooting
 
-Read this when FlagEmbedding evaluation commands fail or metrics are missing.
+Read this when FlagEmbedding benchmark or custom evaluation commands fail.
 
 ## Missing Dependencies
 
-Install benchmark dependencies explicitly:
+Install only the benchmark extras needed:
+
+- MTEB: `mteb`.
+- BEIR: `beir`.
+- AIR-Bench: `air-benchmark`.
+- Metrics: `pytrec_eval`; if it fails to build/install, try `pytrec-eval-terrier`.
+- Retrieval index: FAISS CPU/GPU wheel matched to Python, CUDA, and platform.
+
+Run a help command before a long evaluation:
 
 ```bash
-python -m pip install pytrec_eval
-python -m pip install pytrec-eval-terrier
-python -m pip install beir
-python -m pip install mteb==1.15.0
+python -m FlagEmbedding.evaluation.beir --help
 ```
 
-Use either `pytrec_eval` or `pytrec-eval-terrier` depending on platform compatibility. Install a FAISS package matching the target environment.
+## Custom Dataset Errors
 
-## Dataset Files Missing
-
-For custom datasets, run:
+Validate first:
 
 ```bash
-python sub-skills/evaluation/scripts/check_eval_dataset.py --dataset-dir ./eval_data --splits test
+python scripts/validate_custom_eval_dataset.py ./my_eval --splits test
 ```
 
-For benchmark datasets, verify `--dataset_names` and `--splits` are valid for that benchmark. For example, MIRACL uses language codes as dataset names; MLDR has language names and `train/dev/test`; MSMARCO has `passage` and `document`.
+Common issues:
 
-## AIR-Bench Metrics Not Printed
+- Missing `corpus.jsonl`.
+- Split mismatch, for example command uses `--splits dev` but only `test_queries.jsonl` exists.
+- Query or corpus ids use inconsistent key names.
+- Qrels reference ids missing from corpus or query files.
+- JSONL files contain arrays instead of one JSON object per line.
 
-The AIR-Bench module generates search results and then points to the official AIR-Bench metric submission/computation flow. This is expected behavior.
+## Stale Outputs
 
-## Memory Or Runtime Too High
+If results look unchanged:
 
-Reduce:
+- Check `--output_dir`.
+- Check `--eval_output_path`.
+- Set `--overwrite True` only when the user wants to replace existing outputs.
+- Clear or change `--corpus_embd_save_dir` if old corpus embeddings should not be reused.
 
-```text
---embedder_batch_size
---reranker_batch_size
---embedder_query_max_length
---embedder_passage_max_length
---reranker_max_length
---search_top_k
---rerank_top_k
-```
+## Dataset Downloads And Caches
 
-For a quick run, evaluate fewer `--dataset_names`, fewer `--splits`, and smaller `--k_values`.
+`--dataset_dir` can be a download target for supported benchmarks or a required local path for custom data. `--cache_path` controls dataset cache. `--cache_dir` controls model cache.
 
-## Reranker Not Used
+Use `--force_redownload True` only when the user wants to refresh downloaded datasets.
 
-Pass `--reranker_name_or_path` to enable reranking. Without it, evaluation runs embedder retrieval only.
+## Reranker Issues
 
-If using a custom reranker checkpoint, pass `--reranker_model_class`.
+If reranking fails:
 
-## Existing Outputs Are Reused
+- First run retrieval without `--reranker_name_or_path` to isolate embedder/index problems.
+- Verify `--reranker_model_class` for custom rerankers.
+- Reduce `--rerank_top_k` and `--reranker_batch_size`.
+- Check `--reranker_query_max_length` and `--reranker_max_length`.
 
-Set `--overwrite True` only when replacing existing results is intended. Otherwise stale search results can make it look like a new configuration had no effect.
+## Metric Or Output Method Errors
 
-## Instruction Formatting
-
-Evaluation parsers replace literal `\n` in instruction formats. In shell commands, quote formats containing braces and newlines:
-
-```bash
---query_instruction_format_for_retrieval "Instruct: {}\nQuery: {}"
-```
-
-For custom models, set `--embedder_model_class`, `--pooling_method`, and instruction formats explicitly.
+Use `--eval_output_method json` or `markdown`. MTEB official output may be JSON-oriented. Keep metric names aligned with the benchmark; common retrieval metrics include `ndcg_at_10`, `recall_at_100`, and MKQA-style `qa_recall_at_20`.

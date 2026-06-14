@@ -1,0 +1,1 @@
+Train a CrossEncoder reranker from query, document, label triples. I need the right loss for binary relevance, an evaluator for reranking samples, and notes about early stopping because rerankers can regress.

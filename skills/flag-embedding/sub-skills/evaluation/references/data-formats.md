@@ -1,67 +1,73 @@
 # Evaluation Data Formats
 
-Read this when creating a custom retrieval dataset for `FlagEmbedding.evaluation.custom` or validating benchmark cache inputs.
+Read this when preparing custom FlagEmbedding retrieval evaluation data.
 
-## Custom Retrieval Layout
-
-A dataset directory must contain:
+## Single Dataset Layout
 
 ```text
-corpus.jsonl
-<split>_queries.jsonl
-<split>_qrels.jsonl
+dataset_dir/
+  corpus.jsonl
+  test_queries.jsonl
+  test_qrels.jsonl
 ```
 
-For multiple datasets, `dataset_dir` may contain child directories, each with the same three-file layout.
+For a different split, replace `test` with the split name:
 
-## Corpus File
+```text
+dev_queries.jsonl
+dev_qrels.jsonl
+```
 
-Recommended JSONL shape:
+## Multiple Dataset Layout
+
+`dataset_dir` may contain multiple dataset subdirectories, each with the same required files:
+
+```text
+dataset_dir/
+  dataset_a/
+    corpus.jsonl
+    test_queries.jsonl
+    test_qrels.jsonl
+  dataset_b/
+    corpus.jsonl
+    test_queries.jsonl
+    test_qrels.jsonl
+```
+
+Use `--dataset_names dataset_a dataset_b` when evaluating selected subdirectories.
+
+## JSONL Shapes
+
+`corpus.jsonl` should have one document per line. Common accepted keys are:
 
 ```json
 {"id": "doc1", "text": "document text"}
+{"_id": "doc2", "title": "optional title", "text": "document text"}
 ```
 
-Some loaders also accept fields such as `title`; keep `id` unique and text content non-empty.
-
-## Queries File
-
-Recommended JSONL shape:
+`<split>_queries.jsonl` should have one query per line:
 
 ```json
 {"id": "q1", "text": "query text"}
+{"_id": "q2", "text": "another query"}
 ```
 
-The split prefix in the filename must match `--splits`. For `--splits dev test`, provide `dev_queries.jsonl`, `dev_qrels.jsonl`, `test_queries.jsonl`, and `test_qrels.jsonl`.
-
-## Qrels File
-
-Recommended JSONL shape:
+`<split>_qrels.jsonl` should map queries to relevant documents. Common accepted shapes:
 
 ```json
-{"qid": "q1", "docid": "doc1", "relevance": 1}
+{"query-id": "q1", "corpus-id": "doc1", "score": 1}
+{"qid": "q1", "docid": "doc2", "relevance": 1}
+{"query_id": "q1", "doc_id": "doc3", "score": 1}
 ```
 
-Use integer relevance values when possible. Every `qid` should exist in the queries file. Every `docid` should exist in the corpus file.
+Because loader expectations can vary by benchmark integration, keep ids as strings and use the most explicit key names possible.
 
 ## Validation
 
 Run:
 
 ```bash
-python sub-skills/evaluation/scripts/check_eval_dataset.py --dataset-dir ./eval_data --splits test
+python scripts/validate_custom_eval_dataset.py ./my_eval --splits test
 ```
 
-The bundled script checks required files and common id consistency for simple JSONL schemas.
-
-## Output Files
-
-Evaluation commands commonly write:
-
-```text
-search result files under --output_dir
-optional corpus embeddings under --corpus_embd_save_dir
-aggregate metrics at --eval_output_path
-```
-
-Use `--overwrite True` only when replacing existing results is intended.
+The validator checks required files, JSONL parseability, id/text presence, qrel references, and empty files. It is conservative and self-contained.

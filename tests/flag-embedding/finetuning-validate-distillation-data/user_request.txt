@@ -1,0 +1,1 @@
+I’m about to fine-tune a BGE-M3 embedder with knowledge distillation. My train.jsonl has query, pos, neg, pos_scores, and neg_scores fields. Show me how to validate the file before torchrun and what schema problems I should fix first.

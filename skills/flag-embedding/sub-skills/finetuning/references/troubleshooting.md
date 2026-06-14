@@ -1,84 +1,82 @@
 # Fine-Tuning Troubleshooting
 
-Read this when a FlagEmbedding training command fails or produces unusable outputs.
+Read this when a FlagEmbedding training or data-preparation workflow fails.
 
-## Data Validation Fails
+## Validate Data First
 
-Required fields are `query`, `pos`, and `neg`. `pos` and `neg` must be lists of strings. For distillation, score list lengths must match text list lengths.
-
-Fix data before changing trainer flags. Invalid rows often cause late, unclear tokenizer or collator errors.
-
-## No Negatives Available
-
-Training rows need negatives. Use hard-negative mining from the data-preparation sub-skill or sample random negatives from a candidate corpus. Random negatives are acceptable for a first pipeline test but usually weaker for retrieval quality.
-
-## Knowledge Distillation Mismatch
-
-Only set `--knowledge_distillation True` when every row has valid `pos_scores` and `neg_scores`.
-
-Generate scores with the data-preparation reranker-score workflow. Verify that the scoring model is appropriate for the target domain.
-
-## DeepSpeed Config Not Found
-
-Generate configs in the current project:
+Run:
 
 ```bash
-python sub-skills/finetuning/scripts/write_deepspeed_config.py --stage 0 --output ds_stage0.json
-python sub-skills/finetuning/scripts/write_deepspeed_config.py --stage 1 --output ds_stage1.json
+python scripts/validate_finetune_jsonl.py train.jsonl --task embedder
 ```
 
-Then pass the local path to `--deepspeed`.
+For distillation:
 
-## CUDA OOM
-
-Reduce:
-
-```text
---per_device_train_batch_size
---query_max_len
---passage_max_len
---max_len
---train_group_size
+```bash
+python scripts/validate_finetune_jsonl.py train.jsonl --require-scores
 ```
 
-Enable or keep:
+Fix all schema errors before launching `torchrun`.
 
-```text
---gradient_checkpointing
---deepspeed ./ds_stage1.json
---fp16 or --bf16, depending on hardware
-```
+## Missing Train Data
 
-For decoder-only models, use LoRA and keep target modules focused.
+The data argument classes check that each `--train_data` path exists and raise `FileNotFoundError` if not. Use absolute or working-directory-correct paths in generated commands.
 
-## LoRA Target Modules Fail
+If the user passes a directory, confirm it contains JSONL files matching the required row schema.
 
-The examples use:
+## Knowledge Distillation Errors
 
-```text
-q_proj k_proj v_proj o_proj
-```
+If `--knowledge_distillation True` is set:
 
-for rerankers and:
+- Include `pos_scores` and `neg_scores`.
+- Align each scores list to the corresponding `pos` or `neg` list.
+- Use numeric scores.
+- Confirm `--kd_loss_type` matches the model family; M3 examples use `m3_kd_loss`.
 
-```text
-q_proj k_proj v_proj o_proj gate_proj down_proj up_proj
-```
+## CUDA, Deepspeed, And Flash Attention
 
-for decoder-only embedders. If the base model uses different module names, inspect the model architecture and adjust `--target_modules`.
+`FlagEmbedding[finetune]` may involve CUDA-sensitive packages. If installation or import fails:
 
-## Trust Remote Code
+- Verify `python -c "import torch; print(torch.__version__, torch.version.cuda, torch.cuda.is_available())"`.
+- Confirm the torch wheel matches the host GPU driver.
+- Install `flash-attn` only for workflows that actually use `--use_flash_attn`.
+- Use `--deepspeed` only after deepspeed imports and the config is valid.
+- Avoid Python versions without wheels for torch, deepspeed, or flash-attn.
 
-Layerwise MiniCPM examples pass `--trust_remote_code True`. Do not set this for untrusted remote repositories without user approval.
+## Out Of Memory
 
-## Slow Or Stalled Training
+Reduce memory pressure:
 
-Check that dataset caching is going to a writable location via `--cache_path`. Use `--max_example_num_per_dataset` for short tests. Increase `--logging_steps` after the pipeline is stable.
+- Lower `--per_device_train_batch_size`.
+- Increase `--gradient_accumulation_steps`.
+- Reduce `--train_group_size`.
+- Shorten `--query_max_len`, `--passage_max_len`, or `--max_len`.
+- Disable `--negatives_cross_device`.
+- Use gradient checkpointing when supported.
+- Use LoRA for decoder-only models.
+- Move from a large to base/small model for smoke tests.
 
-## Wrong Pooling Or Instruction Format
+## Wrong Module
 
-Encoder-only BGE examples use `--sentence_pooling_method cls` and `--query_instruction_format "{}{}"`.
+Choose the module by model family:
 
-Decoder-only examples use `--sentence_pooling_method last_token` and instruction formats like `<instruct>{}\n<query>{}`.
+- BGE v1/v1.5 encoder embedder: `embedder.encoder_only.base`.
+- BGE-M3: `embedder.encoder_only.m3`.
+- Decoder-only embedder: `embedder.decoder_only.base`.
+- ICL embedder: `embedder.decoder_only.icl`.
+- Encoder-only reranker: `reranker.encoder_only.base`.
+- Decoder-only reranker: `reranker.decoder_only.base`.
+- Layerwise reranker: `reranker.decoder_only.layerwise`.
 
-Wrong pooling can produce a model that trains but performs poorly.
+If the model requires remote code, pass `--trust_remote_code True` only after the user accepts the risk.
+
+## Checkpoint Output Problems
+
+If no checkpoint appears:
+
+- Check `--output_dir`.
+- Check `--save_steps` relative to total steps.
+- Check whether training exited before the first save.
+- Use `--overwrite_output_dir` only when the user wants existing contents overwritten.
+
+For LoRA workflows, decide whether to save adapters only or use `--save_merged_lora_model True`.

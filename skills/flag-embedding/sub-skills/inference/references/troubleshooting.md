@@ -1,67 +1,54 @@
 # Inference Troubleshooting
 
-Read this for embedder and reranker runtime issues.
+Read this when an embedding or reranking workflow fails after the package imports.
 
-## Avoid Downloading During Basic Diagnosis
+## Auto Mapping Error
 
-Run the bundled no-download script first:
+Symptom:
 
-```bash
-python sub-skills/inference/scripts/smoke_inference_no_download.py
+```text
+Model name '...' not found in the model mapping
 ```
 
-It checks imports, signatures, and auto mappings without instantiating Hugging Face models.
+Fix:
 
-## Model Not Found In Mapping
+- For encoder-only BGE checkpoints, pass `model_class="encoder-only-base"` and a known `pooling_method` such as `cls`.
+- For BGE-M3 checkpoints, pass `model_class="encoder-only-m3"`.
+- For decoder-only embedding checkpoints, use `decoder-only-base`, `decoder-only-icl`, or `decoder-only-pseudo_moe`.
+- For rerankers, use `encoder-only-base`, `decoder-only-base`, `decoder-only-layerwise`, or `decoder-only-lightweight`.
 
-For embedders:
+## Unexpected Device Use
+
+If `devices` is omitted, FlagEmbedding can use every visible CUDA device. Pass explicit devices to avoid surprising resource use:
 
 ```python
-from FlagEmbedding import FlagAutoModel
-model = FlagAutoModel.from_finetuned(
-    "local-or-new-model",
-    model_class="encoder-only-base",
-    pooling_method="cls",
-)
+devices=["cuda:0"]
+devices="cpu"
 ```
 
-For rerankers:
-
-```python
-from FlagEmbedding import FlagAutoReranker
-reranker = FlagAutoReranker.from_finetuned(
-    "local-or-new-reranker",
-    model_class="encoder-only-base",
-)
-```
-
-Choose `model_class` from the root model overview. Do not guess between encoder-only and decoder-only; inspect the base architecture or model card.
-
-## M3 Output Confusion
-
-`BGEM3FlagModel.encode()` returns a dictionary when M3-specific modes are used. Dense vectors are under `dense_vecs`, lexical sparse weights under `lexical_weights`, and ColBERT vectors under `colbert_vecs`.
-
-If downstream code expects a NumPy array, pass `return_dense=True, return_sparse=False, return_colbert_vecs=False` and read `result["dense_vecs"]`, or use an encoder-only model whose `encode()` returns vectors directly.
+For CPU inference, pass `use_fp16=False`.
 
 ## Query Instructions Not Applied
 
-For retrieval queries, use `encode_queries()`. It applies `query_instruction_for_retrieval` with `query_instruction_format`.
+Use `encode_queries()` instead of `encode()` when query instructions should be applied. Pass `query_instruction_for_retrieval` and `query_instruction_format` at model construction.
 
-For corpus/passages, use `encode_corpus()`. Passages normally should not receive query instructions.
+For passages, use `encode_corpus()` unless the task explicitly requires passage instructions.
 
-## Device Or Precision Failure
+## Result Type Confusion
 
-If `use_fp16=True` fails:
+Normal embedders return vectors directly. BGE-M3 returns a dictionary when using sparse or ColBERT modes. Rerankers return scores, not vectors.
 
-1. Retry with `use_fp16=False`.
-2. Use a single device or CPU for diagnosis.
-3. Reduce `batch_size`, `query_max_length`, `passage_max_length`, or `max_length`.
-4. For decoder-only models on BF16-capable GPUs, consider `use_bf16=True`.
+If downstream code expects numpy arrays, keep `convert_to_numpy=True`. If it expects torch tensors, pass `convert_to_numpy=False` where supported and handle device placement.
 
-## Trust Remote Code
+## Slow Or Memory-Heavy Runs
 
-Some mapped non-BGE models set `trust_remote_code=True`. Ask before loading untrusted remote model code. For internal or audited models, pass `trust_remote_code=True` explicitly when required.
+- Reduce `batch_size`.
+- Lower `query_max_length`, `passage_max_length`, or `max_length`.
+- Use a smaller model.
+- Use one explicit GPU before trying multi-device multiprocessing.
+- Disable ColBERT vectors unless needed.
+- For reranking many passages, retrieve top-k with embeddings first, then rerank only the shortlist.
 
-## Reranker Score Interpretation
+## Optional Remote Code
 
-Raw reranker scores can be negative or positive and should be compared within the same model and input setup. `normalize=True` applies sigmoid and returns values in `[0, 1]`, but that is not guaranteed to be calibrated across domains.
+Some mapped models set or require `trust_remote_code=True`. Only enable it when the model family requires custom code and the user accepts the risk.

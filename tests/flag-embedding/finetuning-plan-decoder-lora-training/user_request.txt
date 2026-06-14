@@ -1,0 +1,1 @@
+I need a starting torchrun command to LoRA fine-tune a decoder-only embedding model like BAAI/bge-multilingual-gemma2 on my retrieval JSONL. Keep it practical for 2 GPUs and mention which flags I should tune first if I hit OOM.

@@ -1,89 +1,90 @@
 ---
 name: flag-embedding
-description: "Helps agents use FlagEmbedding for BGE embedding inference, reranking, fine-tuning, evaluation, and retrieval data preparation."
-disable-model-invocation: true
+description: "Use when working with FlagEmbedding or BGE models for embedding inference, reranking, fine-tuning, retrieval evaluation, model-class selection, data validation, or troubleshooting."
 ---
 
-# FlagEmbedding
+# FlagEmbedding Skill
 
-Use this repo skill when a task involves the `FlagEmbedding` Python package, BGE embedders, BGE rerankers, retrieval data preparation, fine-tuning, or benchmark evaluation.
-
-FlagEmbedding is a retrieval toolkit for Search and RAG. The public package exposes embedders, rerankers, training module entry points, evaluation module entry points, and helper workflows for hard-negative mining, teacher scoring, and sequence-length splitting.
+Use this skill for the FlagEmbedding Python package, the BGE model family, and related embedding, reranking, fine-tuning, and evaluation workflows. It is a router: read only the sub-skill and references needed for the user's task.
 
 ## Install
 
-For inference and evaluation basics:
+For inference-only work:
 
 ```bash
 python -m pip install -U FlagEmbedding
 ```
 
-For fine-tuning:
+For fine-tuning or training-data preparation:
 
 ```bash
 python -m pip install -U "FlagEmbedding[finetune]"
 ```
 
-The package metadata requires `torch`, `transformers>=4.44.2,<6.0.0`, `datasets>=2.19.0`, `accelerate>=0.20.1`, `sentence_transformers`, `peft`, `ir-datasets`, `sentencepiece`, and `protobuf`. Fine-tuning extras add `deepspeed` and `flash-attn`.
+For development from a source checkout:
 
-Run this import check before giving a detailed workflow:
+```bash
+python -m pip install -e .
+python -m pip install -e ".[finetune]"
+```
+
+Core runtime dependencies include `torch`, `transformers`, `datasets`, `accelerate`, `sentence_transformers`, `peft`, `ir-datasets`, `sentencepiece`, and `protobuf`. Fine-tuning extras add `deepspeed` and `flash-attn`, which are CUDA/compiler-sensitive and should be installed only when the training workflow needs them.
+
+Verify a usable package environment with:
 
 ```bash
 python - <<'PY'
-import FlagEmbedding
-print("FlagEmbedding import OK")
-print([name for name in ["FlagAutoModel", "FlagAutoReranker", "BGEM3FlagModel"] if hasattr(FlagEmbedding, name)])
+import importlib.metadata as md
+from FlagEmbedding import FlagAutoModel, FlagAutoReranker
+print(md.version("FlagEmbedding"))
+print(FlagAutoModel.__name__, FlagAutoReranker.__name__)
 PY
 ```
 
-For a more complete local check that avoids model downloads, run [scripts/check_flag_embedding_env.py](scripts/check_flag_embedding_env.py).
+Run `scripts/check_flagembedding_env.py` when you need a reusable import, version, and torch backend check that does not download models.
 
-## Sub-Skills
+## Route Tasks
 
-Use [sub-skills/inference/SKILL.md](sub-skills/inference/SKILL.md) for embedding vectors, M3 dense/sparse/ColBERT outputs, query/passage scoring, cross-encoder reranking, LLM rerankers, layerwise rerankers, lightweight rerankers, custom model-class selection, and inference API signatures.
+- Use `sub-skills/inference/SKILL.md` for embedding vectors, query/passages similarity, BGE-M3 dense/sparse/ColBERT modes, reranker scores, model-class selection, multi-device inference, and API troubleshooting.
+- Use `sub-skills/finetuning/SKILL.md` for embedder or reranker training commands, JSONL train-data format, hard-negative mining, teacher-score generation, LoRA/deepspeed choices, and training-data validation.
+- Use `sub-skills/evaluation/SKILL.md` for MTEB, BEIR, MSMARCO, MIRACL, MLDR, MKQA, AIR-Bench, BRIGHT, or custom retrieval evaluation commands and dataset layout.
 
-Use [sub-skills/finetuning/SKILL.md](sub-skills/finetuning/SKILL.md) for `torchrun -m FlagEmbedding.finetune...` workflows, embedder training, reranker training, LoRA arguments, DeepSpeed configs, training JSONL schemas, and distillation fields.
+## Shared References
 
-Use [sub-skills/evaluation/SKILL.md](sub-skills/evaluation/SKILL.md) for `python -m FlagEmbedding.evaluation...` commands, MTEB, BEIR, MSMARCO, MIRACL, MLDR, MKQA, AIR-Bench, BRIGHT, and custom retrieval datasets.
+- Read `references/model-overview.md` to choose between BGE embedders, BGE-M3, LLM-based embedders, rerankers, and explicit `model_class` values.
+- Read `references/troubleshooting.md` for install/import failures, model loading problems, device selection, optional dependency issues, and result-shape surprises.
+- Read `references/evidence-and-coverage.md` when auditing what repository evidence informed this generated skill and how public capabilities map to bundled files.
 
-Use [sub-skills/data-preparation/SKILL.md](sub-skills/data-preparation/SKILL.md) for hard-negative mining, adding reranker teacher scores, splitting training data by token length, and validating retrieval JSONL files.
+## Shared Safe Scripts
 
-## Repo-Level References
+- Run `scripts/check_flagembedding_env.py` after installation or dependency changes. It imports FlagEmbedding, reports package/API availability, and checks torch device visibility without model downloads.
 
-Read [references/package-overview.md](references/package-overview.md) when you need public package facts, installation variants, dependency notes, exported top-level classes, and module-entry-point overview.
+Example:
 
-Read [references/model-overview.md](references/model-overview.md) when choosing `FlagAutoModel` or `FlagAutoReranker` model names, `model_class` values, pooling methods, trust-remote-code defaults, query-instruction formats, and model family tradeoffs.
+```bash
+python scripts/check_flagembedding_env.py --show-torch
+```
 
-Read [references/troubleshooting.md](references/troubleshooting.md) when imports fail, Hugging Face model loading fails, CUDA/precision choices are unclear, evaluation dependencies are missing, or auto model mapping rejects a local checkpoint.
+## Public API Anchors
 
-## Repo-Level Scripts
+The package exports these public inference names from `FlagEmbedding`:
 
-Run [scripts/check_flag_embedding_env.py](scripts/check_flag_embedding_env.py) to verify importability, installed package metadata, exported classes, auto-mapping names, and API signatures without downloading any model.
+- Embedder loaders/classes: `FlagAutoModel`, `FlagModel`, `BGEM3FlagModel`, `FlagLLMModel`, `FlagICLModel`, `FlagPseudoMoEModel`, `EmbedderModelClass`.
+- Reranker loaders/classes: `FlagAutoReranker`, `FlagReranker`, `FlagLLMReranker`, `LayerWiseFlagLLMReranker`, `LightWeightFlagLLMReranker`, `RerankerModelClass`.
+- Base classes for custom implementations: `AbsEmbedder`, `AbsReranker`.
 
-Run [scripts/print_model_mappings.py](scripts/print_model_mappings.py) to print supported embedder/reranker auto mappings from the installed package. Use this before writing model-selection guidance because package mappings can change.
+The auto loaders infer model class from known model names. For local checkpoints, custom checkpoints, or unknown Hugging Face model ids, pass an explicit `model_class` value described in `references/model-overview.md` and the inference API reference.
 
-## Capability Inventory
+## Backend Guidance
 
-FlagEmbedding exposes these main user-facing capabilities:
+For normal API inspection and CPU inference, CUDA is optional. For large BGE or decoder-only models, prefer an available GPU and pass `devices=["cuda:0"]` or a list of devices. If `devices` is omitted, FlagEmbedding chooses CUDA devices when torch sees them, then NPU/MUSA/MPS when available, otherwise CPU.
 
-| Capability | Primary route | Deep reference |
-| --- | --- | --- |
-| Embedding inference | `inference` | `sub-skills/inference/references/embedder-api.md` |
-| Reranking inference | `inference` | `sub-skills/inference/references/reranker-api.md` |
-| Model selection | root and `inference` | `references/model-overview.md` |
-| Embedder fine-tuning | `finetuning` | `sub-skills/finetuning/references/training-workflows.md` |
-| Reranker fine-tuning | `finetuning` | `sub-skills/finetuning/references/training-workflows.md` |
-| Training data schemas | `finetuning` and `data-preparation` | `sub-skills/finetuning/references/data-formats.md` |
-| Benchmark evaluation | `evaluation` | `sub-skills/evaluation/references/evaluation-workflows.md` |
-| Custom dataset evaluation | `evaluation` | `sub-skills/evaluation/references/data-formats.md` |
-| Hard-negative mining | `data-preparation` | `sub-skills/data-preparation/references/workflows.md` |
-| Teacher-score distillation data | `data-preparation` | `sub-skills/data-preparation/references/workflows.md` |
-| Length bucketing | `data-preparation` | `sub-skills/data-preparation/references/workflows.md` |
+Use `use_fp16=True` for faster GPU inference on many models; use `use_fp16=False` on CPU or when half precision causes unsupported operation errors. Some decoder-only and training workflows use BF16 or LoRA-specific settings; route to the relevant sub-skill before changing precision.
 
-## Ground Rules
+## Safety Rules For Future Agents
 
-Prefer `FlagAutoModel.from_finetuned(...)` and `FlagAutoReranker.from_finetuned(...)` for known model names. For custom local checkpoints or model names absent from the auto mappings, set `model_class` explicitly.
-
-Do not default to running model downloads, training, or benchmark downloads during diagnosis. Start with import/signature checks, data validation, and command construction. Make download/training commands explicit to the user.
-
-When writing runnable examples, keep model cache paths generic, such as `./cache/model` or `$HF_HOME`, and keep output directories under a task-specific working directory.
+- Do not run full model downloads, benchmark datasets, hard-negative mining, teacher-score generation, or training jobs unless the user asked for that side effect.
+- Prefer local model paths when the user already has checkpoints.
+- Validate JSONL training data and custom evaluation datasets before launching long jobs.
+- Treat `trust_remote_code=True` as a deliberate user-facing risk decision; use it only when the selected model family requires it.
+- Keep local machine paths, temporary inspection environments, and private cache locations out of user-facing generated instructions.
