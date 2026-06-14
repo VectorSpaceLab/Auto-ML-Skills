@@ -21,6 +21,7 @@ Use this sub-skill after the root `llama-factory` router selects `llamafactory-a
 ## Bundled Scripts
 
 - [scripts/check_env.py](scripts/check_env.py): bundled helper; run `python scripts/check_env.py --help` before use.
+- [scripts/init_adapter.py](scripts/init_adapter.py): standalone PiSSA/LoftQ adapter initializer; run `python scripts/init_adapter.py --help` before use.
 - [scripts/inspect_init_output.py](scripts/inspect_init_output.py): bundled helper; run `python scripts/inspect_init_output.py --help` before use.
 - [scripts/make_init_command.py](scripts/make_init_command.py): bundled helper; run `python scripts/make_init_command.py --help` before use.
 - [scripts/preflight_init.py](scripts/preflight_init.py): bundled helper; run `python scripts/preflight_init.py --help` before use.

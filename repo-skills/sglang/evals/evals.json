@@ -1,0 +1,35 @@
+{
+  "skill_name": "sglang",
+  "evals": [
+    {
+      "id": "openai-server-smoke",
+      "prompt": "Use this repo skill to start a local SGLang OpenAI-compatible server with a small public model placeholder, validate health and /v1/models, run one chat request if a model is available, then shut it down.",
+      "checks": [
+        "Routes to sglang-openai-server.",
+        "Uses public model ID or <MODEL_ID>, not creator-local paths.",
+        "Uses server_helper.py and openai_client_smoke.py.",
+        "Includes shutdown."
+      ]
+    },
+    {
+      "id": "structured-json",
+      "prompt": "Use this repo skill to build a native /generate payload that returns a JSON object with city and date fields, validate the constraint, and explain regex/json_schema exclusivity.",
+      "checks": [
+        "Routes to sglang-structured-outputs.",
+        "Uses validate_constraints.py.",
+        "Uses max_new_tokens for native API.",
+        "Mentions only one of regex/json_schema/ebnf."
+      ]
+    },
+    {
+      "id": "distributed-router-plan",
+      "prompt": "Use this repo skill to plan a two-worker SGLang router deployment with cache-aware routing, Prometheus metrics, and health checks.",
+      "checks": [
+        "Routes to sglang-distributed-topology and benchmarks-observability if needed.",
+        "Validates worker URLs/topology.",
+        "Mentions router policy, health checks, and auth/security.",
+        "Does not require reading the source repo."
+      ]
+    }
+  ]
+}

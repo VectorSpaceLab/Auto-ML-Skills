@@ -16,14 +16,55 @@ import re
 import shutil
 import time
 
-import safetensors
-import safetensors.torch
-import torch
-import torch.distributed.checkpoint as dist_cp
-from transformers import AutoConfig
-from typing_extensions import override
+try:
+    import safetensors
+    import safetensors.torch
+    import torch
+    import torch.distributed.checkpoint as dist_cp
+    from transformers import AutoConfig
+    from typing_extensions import override
 
-from slime.backends.megatron_utils.megatron_to_hf import convert_to_hf, remove_padding
+    from slime.backends.megatron_utils.megatron_to_hf import convert_to_hf, remove_padding
+
+    RUNTIME_IMPORT_ERROR = None
+except ImportError as exc:
+    # Keep the command-line interface inspectable in lightweight environments.
+    # Actual conversion still requires the installed slime runtime stack.
+    safetensors = None
+    torch = None
+    AutoConfig = None
+    convert_to_hf = None
+    remove_padding = None
+    RUNTIME_IMPORT_ERROR = exc
+
+    def override(func):
+        return func
+
+    class _DummyFileSystemReader:
+        pass
+
+    class _DummyDefaultLoadPlanner:
+        pass
+
+    class _DummyTensorStorageMetadata:
+        pass
+
+    class _DummyStorageMeta:
+        pass
+
+    class _DummyDefaultPlanner:
+        DefaultLoadPlanner = _DummyDefaultLoadPlanner
+
+    class _DummyMetadata:
+        TensorStorageMetadata = _DummyTensorStorageMetadata
+
+    class _DummyDistCp:
+        FileSystemReader = _DummyFileSystemReader
+        StorageMeta = _DummyStorageMeta
+        default_planner = _DummyDefaultPlanner
+        metadata = _DummyMetadata
+
+    dist_cp = _DummyDistCp()
 
 
 class UnpicklerWrapper(pickle.Unpickler):
@@ -180,6 +221,13 @@ def main() -> int:
     parser.add_argument("--chunk-size", type=int, default=5 * 1024**3)
     parser.add_argument("--vocab-size", type=int, default=None)
     args = parser.parse_args()
+
+    if RUNTIME_IMPORT_ERROR is not None:
+        raise SystemExit(
+            "Missing runtime dependency for checkpoint conversion: "
+            f"{RUNTIME_IMPORT_ERROR}. Install slime with its training/export dependencies "
+            "before running a conversion."
+        )
 
     if os.path.exists(args.output_dir) and not args.force:
         raise ValueError(f"Output directory {args.output_dir} already exists. Use --force to overwrite it.")

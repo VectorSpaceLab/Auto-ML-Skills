@@ -78,5 +78,7 @@ See [references/installation.md](references/installation.md) for optional extras
 - [references/troubleshooting.md](references/troubleshooting.md): repo-wide import, dependency, GPU, data, and output-location issues.
 - [scripts/check_llama_factory_env.py](scripts/check_llama_factory_env.py): safe import and optional-dependency check for a fresh environment.
 - [scripts/inspect_package.py](scripts/inspect_package.py): read-only package/API inspection helper.
+- [scripts/make_demo_data.py](scripts/make_demo_data.py): creates tiny local demo datasets for sub-skill smoke checks.
+- [scripts/lf_skill_common.py](scripts/lf_skill_common.py): shared helper library used by bundled LLaMA-Factory scripts; read it when adapting scripts.
 
 The `evals/` directory is a development artifact for self-refine checks and is not linked as runtime documentation.
