@@ -1,1 +1,0 @@
-I want to evaluate my own retrieval dataset with FlagEmbedding. I have documents, queries, and qrels but not sure how to lay out the files. Show the expected directory structure, example JSONL rows, and a validation command before I run the custom evaluator.

@@ -1,1 +1,0 @@
-I am fine-tuning a Transformers sequence classification model with LoRA. The base model creates a randomly initialized classifier head, and I need the adapter checkpoint to reload with the trained head later. Show me the PEFT config and the save/load checks I should use.

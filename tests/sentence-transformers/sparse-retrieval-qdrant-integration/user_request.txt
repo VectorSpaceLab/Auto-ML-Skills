@@ -1,1 +1,0 @@
-I need to index SparseEncoder outputs in Qdrant for repeated queries. What dependencies and service assumptions do I need, and how should I avoid rebuilding the sparse index for every query?

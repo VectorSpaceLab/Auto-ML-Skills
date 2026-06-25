@@ -1,1 +1,0 @@
-Export my sentence-transformers embedding model to ONNX for CPU inference, optimize it once, save the exported files so startup does not re-export, and show how to load a specific optimized ONNX filename later.

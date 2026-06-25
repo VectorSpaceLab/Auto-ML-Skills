@@ -1,1 +1,0 @@
-Fine-tune a dense sentence-transformers retriever on my dataset with columns `question` and `answer`. Use an appropriate loss, tell me how to run a one-step smoke test, and add an information retrieval evaluator for held-out qrels.

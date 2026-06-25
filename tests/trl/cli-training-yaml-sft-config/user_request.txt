@@ -1,1 +1,0 @@
-I have a long TRL SFT command and want to move it into a YAML config so I can run it reproducibly. The model is Qwen/Qwen2.5-0.5B, the dataset is trl-lib/Capybara, I want output_dir Qwen2.5-0.5B-SFT, batch size 2, gradient accumulation 8, one epoch, no external logging, and packing enabled. Show the config and the command to launch it.

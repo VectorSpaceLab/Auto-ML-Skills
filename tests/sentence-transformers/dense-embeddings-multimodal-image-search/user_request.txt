@@ -1,1 +1,0 @@
-I want to try a multimodal embedding model for image search: text queries should retrieve local image files. Show me the sentence-transformers setup, how to check whether the model supports images, and a minimal example that avoids remote URLs.

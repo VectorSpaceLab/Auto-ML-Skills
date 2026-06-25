@@ -1,1 +1,0 @@
-My `cross-encoder/ms-marco-MiniLM-L6-v2` reranker returns scores like 8.2 and -4.1 instead of values between 0 and 1. Is my model broken? Show the correct way to get probability-like scores if I need them.

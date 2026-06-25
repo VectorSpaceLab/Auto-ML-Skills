@@ -1,1 +1,0 @@
-I want to run TRL GRPO with vLLM in server mode because generation should use separate GPUs from training. Please show the server command, the GRPOConfig fields to point at the server, and the checks I should run so I do not mistake a normal TRL install for a working vLLM backend.

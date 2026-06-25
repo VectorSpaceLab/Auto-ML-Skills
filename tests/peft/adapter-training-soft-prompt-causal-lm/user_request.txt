@@ -1,1 +1,0 @@
-I want to train a causal language model using a learned soft prompt instead of LoRA. I have a short initialization phrase and a tokenizer. Which PEFT config should I use, what fields matter, and what should my training loop look like?

@@ -1,1 +1,0 @@
-I installed FlagEmbedding and want a quick no-download check that the package imports correctly, then a minimal example I can run with BAAI/bge-base-en-v1.5 to embed one query and one passage on cuda:0 if I approve the model download. Please include the exact commands and what output shape I should expect.

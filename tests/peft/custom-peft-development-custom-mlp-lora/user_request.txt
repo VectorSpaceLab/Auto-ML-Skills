@@ -1,1 +1,0 @@
-I have a plain PyTorch MLP, not a Transformers model, and I want to apply LoRA to the first hidden Linear layer while still training and saving the output layer normally. Show me how to find the target names, build the PEFT config, and smoke test save/load.

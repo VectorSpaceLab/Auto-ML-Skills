@@ -1,1 +1,0 @@
-I want to start using Hugging Face PEFT in a fresh Python environment. Give me the install commands and a minimal smoke check that proves PEFT, torch, transformers, and the core LoRA APIs import correctly before I start training anything.
