@@ -1,40 +1,44 @@
-# Troubleshooting
+# LangGraph Cross-Cutting Troubleshooting
 
-## Import Failures
+## Import and Installation Failures
 
-- `ModuleNotFoundError: langgraph`: install `langgraph`.
-- `ModuleNotFoundError: langgraph.checkpoint.sqlite`: install `langgraph-checkpoint-sqlite`.
-- `ModuleNotFoundError: langgraph.checkpoint.postgres`: install `langgraph-checkpoint-postgres`.
-- `langgraph` CLI command missing: install `langgraph-cli` or `langgraph-cli[inmem]`.
+| Symptom | Likely cause | Recovery |
+| --- | --- | --- |
+| `ModuleNotFoundError: langgraph` | Core package is not installed in the active Python | Install `langgraph` in the environment actually running the code; rerun a minimal `StateGraph` smoke check. |
+| `ModuleNotFoundError: langgraph_cli` or command `langgraph` missing | CLI package is separate | Install `langgraph-cli`; use `langgraph --help` to verify the console script. |
+| `ImportError: no pq wrapper available` from `psycopg` | Postgres checkpoint package has `psycopg` but no binary/system `libpq` provider | Install `psycopg[binary]` or configure a supported system `libpq` installation. |
+| Provider model import fails | LangGraph does not bundle model providers | Install the matching LangChain provider package and configure credentials outside code. |
 
-## Graph Build Failures
+## Version or Package Boundary Confusion
 
-- Node name is unknown: call `add_node()` before adding edges to that node.
-- `START` used as an end node or `END` used as a start node: reverse the edge.
-- Conditional graph visualization shows edges to every node: add a `path_map` or a `Literal[...]` return type on the router.
-- Multiple parallel writes to the same state key fail or overwrite unexpectedly: annotate that key with a reducer such as `operator.add` or `add_messages`.
+- The Python SDK is for calling a running LangGraph API server; it is not needed to compile and invoke a local graph.
+- The JS SDK content in this repository has moved to the standalone LangGraph.js repository; use this skill only for the relocation/status and Python SDK guidance.
+- `langgraph-prebuilt` is bundled with `langgraph`, but it can still be installed as a separate distribution for narrow dependency control.
 
-## Runtime Failures
+## State, Runtime, and Persistence Confusion
 
-- A compiled graph ignores later builder edits: rebuild or recompile after all nodes and edges are added.
-- A checkpointed graph errors about missing configurable keys: invoke with `{"configurable": {"thread_id": "stable-id"}}`.
-- Interrupt resume repeats earlier node logic: this is expected. Keep side effects before `interrupt()` idempotent or move them after resume.
-- ToolNode cannot find messages: pass a state containing the configured `messages_key`, a message list, or direct tool-call dictionaries.
+- A `StateGraph` builder cannot be invoked directly; call `.compile()` first.
+- Persistent runs need a `thread_id` under `config={"configurable": {"thread_id": "..."}}`.
+- Use the same checkpointer and same `thread_id` when validating resume behavior.
+- Keep state updates compatible with the declared schema; parallel writes to the same key usually need a reducer.
 
-## Persistence Failures
+## CLI and Deployment Confusion
 
-- Postgres checkpointer needs `.setup()` before first use.
-- Manual Postgres connections should use autocommit and dict-style rows for the documented saver path.
-- Use unique `thread_id` values for independent conversations or runs. Reuse a `thread_id` only when intentionally continuing state.
+- Validate `langgraph.json` before starting a server or building an image.
+- `langgraph dev` is for local hot-reload development; `langgraph up` is Docker-based and defaults to a different server style and port behavior.
+- Avoid committing secrets in `env` mappings; prefer `.env` files or deployment secret stores.
+- Docker-based commands require a working container runtime and may need network access to pull base images.
 
-## Streaming Failures
+## Security Notes
 
-- `stream_mode="messages"` requires model/token callbacks; pure deterministic nodes usually show `values`, `updates`, `debug`, or `tasks` more clearly.
-- Async streams must be consumed with `async for`.
-- Include `subgraphs=True` when subgraph namespaces are required.
+- For checkpoint data from untrusted or shared stores, set `LANGGRAPH_STRICT_MSGPACK=true` or configure an explicit serializer allowlist.
+- Do not place API keys in examples, bundled scripts, generated config fixtures, or test cases.
+- Do not run arbitrary source notebooks or deployment scripts as verification unless their network, credential, hardware, and side-effect requirements are understood.
 
-## CLI And Platform Failures
+## Where to Drill Down
 
-- `langgraph dev` needs a `langgraph.json` with valid dependency entries and graph import specs.
-- A graph spec should look like `./package/module.py:graph` or an importable module path plus exported graph variable.
-- Hosted deployment requires service credentials and environment variables; local config validation can run without provider keys.
+- Graph compile/runtime errors: `../sub-skills/graph-runtime/references/troubleshooting.md`
+- Tool-call or prebuilt agent errors: `../sub-skills/prebuilt-agents/references/troubleshooting.md`
+- Checkpointer/store errors: `../sub-skills/persistence/references/troubleshooting.md`
+- CLI/config/deployment errors: `../sub-skills/cli-deployment/references/troubleshooting.md`
+- SDK/auth/streaming errors: `../sub-skills/sdk-clients/references/troubleshooting.md`
