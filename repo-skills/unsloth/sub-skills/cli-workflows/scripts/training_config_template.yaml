@@ -1,0 +1,59 @@
+# Unsloth CLI training config template.
+# Copy this file, replace placeholder values, then validate with:
+#   unsloth train --config your-config.yaml --dry-run
+# The dry-run prints resolved settings and exits before model or dataset loading.
+
+# Required for a real run: Hugging Face model id or local base-model path.
+# Do not point `training_type: full` at a LoRA adapter directory.
+model: YOUR_ORG/YOUR_BASE_MODEL
+
+data:
+  # Choose one dataset source style.
+  # For a hosted dataset, set dataset and leave local_dataset commented.
+  dataset: YOUR_ORG/YOUR_DATASET
+  # For local files/folders, comment dataset and provide one or more entries.
+  # local_dataset:
+  #   - ./data/train.jsonl
+  format_type: auto  # auto, alpaca, chatml, or sharegpt
+
+training:
+  training_type: lora  # lora or full
+  max_seq_length: 2048
+  load_in_4bit: true
+  output_dir: ./outputs/YOUR_RUN_NAME
+  num_epochs: 1
+  learning_rate: 0.0002
+  batch_size: 2
+  gradient_accumulation_steps: 4
+  warmup_steps: 5
+  max_steps: 0
+  save_steps: 0
+  weight_decay: 0.01
+  random_seed: 3407
+  packing: false
+  train_on_completions: false
+  gradient_checkpointing: unsloth  # unsloth, true, or none
+
+lora:
+  lora_r: 16
+  lora_alpha: 16
+  lora_dropout: 0.0
+  target_modules: q_proj,k_proj,v_proj,o_proj,gate_proj,up_proj,down_proj
+  vision_all_linear: false
+  use_rslora: false
+  use_loftq: false
+  finetune_vision_layers: true
+  finetune_language_layers: true
+  finetune_attention_modules: true
+  finetune_mlp_modules: true
+
+logging:
+  enable_wandb: false
+  wandb_project: unsloth-training
+  # Prefer environment variables or a secret manager over storing tokens here:
+  #   HF_TOKEN=... unsloth train --config your-config.yaml
+  #   WANDB_API_KEY=... unsloth train --config your-config.yaml
+  # hf_token: null
+  # wandb_token: null
+  enable_tensorboard: false
+  tensorboard_dir: runs
