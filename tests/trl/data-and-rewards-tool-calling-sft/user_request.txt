@@ -1,1 +1,0 @@
-I am building an SFT dataset for a model that should learn tool calling. Each example has user messages, an assistant tool call with JSON arguments, a tool response, and the final assistant answer. What TRL dataset shape should I use, how do I create the tools column from Python functions, and what should I watch out for with datasets features?

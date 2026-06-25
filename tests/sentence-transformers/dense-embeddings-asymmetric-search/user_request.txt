@@ -1,1 +1,0 @@
-Build a small semantic search prototype with sentence-transformers. I have a list of short questions and a corpus of longer FAQ answers, so please use the right query/document encoding pattern, return the top 5 answers per question, and include a minimal script I can adapt.

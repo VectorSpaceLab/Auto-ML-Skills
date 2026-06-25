@@ -1,1 +1,0 @@
-I have three LoRA adapters trained from the same base causal LM and want to try a merged adapter for inference. Show me how to load them with names, create a weighted merged adapter, activate it, and decide whether to call merge_and_unload.

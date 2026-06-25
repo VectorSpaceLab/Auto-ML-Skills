@@ -1,1 +1,0 @@
-I only want to run a small MTEB eval for NFCorpus and SciDocsRR with BAAI/bge-m3 on one GPU. Give me the install and command, and make sure the results go to a JSON file.

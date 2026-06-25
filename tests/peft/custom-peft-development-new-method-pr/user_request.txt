@@ -1,1 +1,0 @@
-I want to contribute a new parameter-efficient finetuning method to huggingface/peft. What files and registrations do I need to add, what tests/docs/examples are expected, and what should I do before opening an AI-assisted PR?

@@ -1,1 +1,0 @@
-Help me rerank five candidate passages for one query with BAAI/bge-reranker-v2-m3. I want normalized 0-1 scores, sorted output, and notes on how to reduce memory use if the batch is large.

@@ -1,9 +1,0 @@
-megatron:
-  - name: default
-    role: actor
-    overrides:
-      lr: 1.0e-6
-  - name: default
-    role: critic
-    overrides:
-      lr: 1.0e-5

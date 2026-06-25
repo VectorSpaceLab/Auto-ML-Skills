@@ -1,7 +1,0 @@
-interface:
-  display_name: "LLaMA-Factory Repo Skill"
-  short_description: "Run LLaMA-Factory workflows with routed sub-skills"
-  default_prompt: "Use $llama-factory to prepare an SFT smoke run, validate the dataset, generate a config, and explain how to launch training with the installed LLaMA-Factory package."
-
-policy:
-  allow_implicit_invocation: false

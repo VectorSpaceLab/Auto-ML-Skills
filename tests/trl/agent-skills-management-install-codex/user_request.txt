@@ -1,1 +1,0 @@
-How do I install the TRL-provided agent skill into Codex for this project, list what TRL skills are available, and remove it later if I do not want it? I also want to know the difference between project and global target scopes.

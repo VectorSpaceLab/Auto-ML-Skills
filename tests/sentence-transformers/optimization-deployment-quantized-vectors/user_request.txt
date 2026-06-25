@@ -1,1 +1,0 @@
-My vector store cost is too high. Show how to use sentence-transformers to produce int8 or binary embeddings, explain when calibration embeddings matter, and include a quick smoke check that compares shapes and dtypes.

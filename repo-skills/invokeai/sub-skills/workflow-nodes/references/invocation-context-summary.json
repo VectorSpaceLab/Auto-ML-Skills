@@ -1,0 +1,88 @@
+{
+  "name": "InvocationContext",
+  "description": "Safe per-node facade for images, tensors, conditioning, models, logging, config, progress utilities, and boards inside BaseInvocation.invoke(self, context).",
+  "interfaces": [
+    {
+      "name": "ImagesInterface",
+      "description": "Methods to save, get, and inspect images and image metadata.",
+      "methods": [
+        {"name": "get_dto", "signature": "(image_name: str) -> ImageDTO", "description": "Gets an image as an ImageDTO object."},
+        {"name": "get_metadata", "signature": "(image_name: str) -> Optional[MetadataField]", "description": "Gets an image's metadata, if it has any."},
+        {"name": "get_path", "signature": "(image_name: str, thumbnail: bool = False) -> Path", "description": "Gets the internal path to an image or thumbnail."},
+        {"name": "get_pil", "signature": "(image_name: str, mode: Optional[Literal['L', 'RGB', 'RGBA', 'CMYK', 'YCbCr', 'LAB', 'HSV', 'I', 'F']] = None) -> Image", "description": "Gets a copy of an image as a PIL Image object, optionally converted to a color mode."},
+        {"name": "save", "signature": "(image: Image, board_id: Optional[str] = None, image_category: ImageCategory = ImageCategory.GENERAL, metadata: Optional[MetadataField] = None) -> ImageDTO", "description": "Saves a PIL image and returns its DTO; automatically applies workflow metadata and WithBoard/WithMetadata defaults."}
+      ]
+    },
+    {
+      "name": "TensorsInterface",
+      "description": "Methods to save and load tensor payloads by generated name.",
+      "methods": [
+        {"name": "load", "signature": "(name: str) -> Tensor", "description": "Loads a tensor by name and returns a copy."},
+        {"name": "save", "signature": "(tensor: Tensor) -> str", "description": "Saves a tensor and returns its name."}
+      ]
+    },
+    {
+      "name": "ConditioningInterface",
+      "description": "Methods to save and load conditioning data by generated name.",
+      "methods": [
+        {"name": "load", "signature": "(name: str) -> ConditioningFieldData", "description": "Loads conditioning data by name and returns a copy."},
+        {"name": "save", "signature": "(conditioning_data: ConditioningFieldData) -> str", "description": "Saves conditioning data and returns its name."}
+      ]
+    },
+    {
+      "name": "ModelsInterface",
+      "description": "Common API for checking, searching, downloading, and loading models.",
+      "methods": [
+        {"name": "download_and_cache_model", "signature": "(source: str | AnyHttpUrl) -> Path", "description": "Downloads/caches a model-like resource and returns its path."},
+        {"name": "exists", "signature": "(identifier: Union[str, ModelIdentifierField]) -> bool", "description": "Checks if a model exists by key or model field."},
+        {"name": "get_absolute_path", "signature": "(config_or_path: Union[AnyModelConfig, Path, str]) -> Path", "description": "Resolves a model config or path to an absolute path."},
+        {"name": "get_config", "signature": "(identifier: Union[str, ModelIdentifierField]) -> AnyModelConfig", "description": "Gets a model config by key or model field."},
+        {"name": "load", "signature": "(identifier: Union[str, ModelIdentifierField], submodel_type: Optional[SubModelType] = None) -> LoadedModel", "description": "Loads a registered model or submodel."},
+        {"name": "load_by_attrs", "signature": "(name: str, base: BaseModelType, type: ModelType, submodel_type: Optional[SubModelType] = None) -> LoadedModel", "description": "Loads a unique model found by name/base/type attributes."},
+        {"name": "load_local_model", "signature": "(model_path: Path, loader: Optional[Callable[[Path], AnyModel]] = None) -> LoadedModelWithoutConfig", "description": "Loads a local model file without a model database config."},
+        {"name": "load_remote_model", "signature": "(source: str | AnyHttpUrl, loader: Optional[Callable[[Path], AnyModel]] = None) -> LoadedModelWithoutConfig", "description": "Downloads/caches and loads a remote model file without a database config."},
+        {"name": "search_by_attrs", "signature": "(name: Optional[str] = None, base: Optional[BaseModelType] = None, type: Optional[ModelType] = None, format: Optional[ModelFormat] = None) -> list[AnyModelConfig]", "description": "Searches registered models by attributes."},
+        {"name": "search_by_path", "signature": "(path: Path) -> list[AnyModelConfig]", "description": "Searches registered models by path."}
+      ]
+    },
+    {
+      "name": "LoggerInterface",
+      "description": "App logger methods exposed to nodes.",
+      "methods": [
+        {"name": "debug", "signature": "(message: str) -> None", "description": "Logs a debug message."},
+        {"name": "error", "signature": "(message: str) -> None", "description": "Logs an error message."},
+        {"name": "info", "signature": "(message: str) -> None", "description": "Logs an info message."},
+        {"name": "warning", "signature": "(message: str) -> None", "description": "Logs a warning message."}
+      ]
+    },
+    {
+      "name": "ConfigInterface",
+      "description": "Read-only access to the current app config object.",
+      "methods": [
+        {"name": "get", "signature": "() -> InvokeAIAppConfig", "description": "Gets the app config."}
+      ]
+    },
+    {
+      "name": "UtilInterface",
+      "description": "Cancellation, progress, and diffusion step callback utilities.",
+      "methods": [
+        {"name": "flux2_step_callback", "signature": "(intermediate_state: PipelineIntermediateState) -> None", "description": "Emits a Flux 2 step progress event."},
+        {"name": "flux_step_callback", "signature": "(intermediate_state: PipelineIntermediateState) -> None", "description": "Emits a Flux step progress event."},
+        {"name": "is_canceled", "signature": "() -> bool", "description": "Checks if the current session has been canceled."},
+        {"name": "sd_step_callback", "signature": "(intermediate_state: PipelineIntermediateState, base_model: BaseModelType) -> None", "description": "Emits a Stable Diffusion step progress event."},
+        {"name": "signal_progress", "signature": "(message: str, percentage: float | None = None, image: Image | None = None, image_size: tuple[int, int] | None = None) -> None", "description": "Emits a progress message and optional preview."}
+      ]
+    },
+    {
+      "name": "BoardsInterface",
+      "description": "Methods to interact with user boards.",
+      "methods": [
+        {"name": "add_image_to_board", "signature": "(board_id: str, image_name: str) -> None", "description": "Adds an image to a board."},
+        {"name": "create", "signature": "(board_name: str) -> BoardDTO", "description": "Creates a board for the current user."},
+        {"name": "get_all", "signature": "() -> list[BoardDTO]", "description": "Gets all boards accessible to the current user."},
+        {"name": "get_all_image_names_for_board", "signature": "(board_id: str) -> list[str]", "description": "Gets image names for a board."},
+        {"name": "get_dto", "signature": "(board_id: str) -> BoardDTO", "description": "Gets a board DTO."}
+      ]
+    }
+  ]
+}

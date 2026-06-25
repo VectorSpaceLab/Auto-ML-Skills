@@ -1,80 +1,81 @@
 ---
 name: langgraph
-description: "Use when a user wants an agent to build, inspect, debug, or deploy LangGraph stateful graph, checkpoint, interrupt, streaming, prebuilt tool-agent, subgraph, multi-agent, Platform, Studio, CLI, or server workflows from natural language."
+description: "Build, run, persist, deploy, and operate LangGraph Python applications using the core runtime, prebuilt agents, checkpointing, CLI, and SDK clients."
 disable-model-invocation: true
 ---
 
 # LangGraph
 
-This is the router for the LangGraph repo skill. Use it to choose the nearest focused sub-skill, then read only that sub-skill plus the linked references/scripts. Do not require the source repository checkout; work from public package installs, public API docs, and the bundled helper scripts.
+Use this skill when a task involves LangGraph, the low-level orchestration framework for building stateful agents and long-running workflows. It covers the Python monorepo packages `langgraph`, `langgraph-prebuilt`, `langgraph-checkpoint`, `langgraph-checkpoint-sqlite`, `langgraph-checkpoint-postgres`, `langgraph-cli`, and `langgraph-sdk`.
 
-## Public Install
+## Quick Start
 
-Prefer a clean Python environment supported by the current LangGraph packages.
+Install the core package for most application work:
 
 ```bash
-python -m pip install -U pip setuptools wheel
 pip install -U langgraph
-python -c "from langgraph.graph import StateGraph; print(StateGraph.__name__)"
 ```
 
-Optional public packages:
+For focused packages or deployment tooling:
 
 ```bash
-pip install -U "langgraph-cli[inmem]"
+pip install -U langgraph-cli
+pip install -U langgraph-sdk
 pip install -U langgraph-checkpoint-sqlite
-pip install -U langgraph-checkpoint-postgres
+pip install -U langgraph-checkpoint-postgres "psycopg[binary]"
 ```
 
-Run the root checks after installation:
+Minimal import and graph smoke check:
 
-```bash
-python scripts/check_langgraph_env.py
-python scripts/inspect_langgraph_api.py --summary
+```python
+from typing_extensions import TypedDict
+from langgraph.graph import END, START, StateGraph
+
+class State(TypedDict):
+    value: int
+
+def inc(state: State) -> State:
+    return {"value": state["value"] + 1}
+
+builder = StateGraph(State)
+builder.add_node("inc", inc)
+builder.add_edge(START, "inc")
+builder.add_edge("inc", END)
+app = builder.compile()
+assert app.invoke({"value": 1})["value"] == 2
 ```
 
-See [references/installation.md](references/installation.md) for package choices and [references/troubleshooting.md](references/troubleshooting.md) for cross-cutting failures.
+## Route by Task
 
-## Route To Sub-Skills
+- **Custom graphs and runtime behavior**: Use `sub-skills/graph-runtime/SKILL.md` for `StateGraph`, reducers, node signatures, conditional edges, `Command`, `Send`, interrupts, streaming, subgraphs, low-level `Pregel`, and runtime debugging.
+- **Prebuilt agents and tools**: Use `sub-skills/prebuilt-agents/SKILL.md` for `create_react_agent`, `ToolNode`, `ValidationNode`, injected state/store/runtime, tool-call errors, structured responses, and human interrupt payloads.
+- **Persistence and memory**: Use `sub-skills/persistence/SKILL.md` for checkpointers, `thread_id`, checkpoint resume, SQLite, Postgres, in-memory savers, `InMemoryStore`, semantic search, and serde hardening.
+- **CLI and deployment**: Use `sub-skills/cli-deployment/SKILL.md` for `langgraph new`, `dev`, `up`, `build`, `dockerfile`, `validate`, `langgraph.json`, Docker/server configuration, and local deployment troubleshooting.
+- **SDK clients and streaming**: Use `sub-skills/sdk-clients/SKILL.md` for Python async/sync SDK clients, assistants, threads, runs, cron, store APIs, v3 thread-centric streaming, auth headers, and JS SDK relocation status.
 
-- **Graph API, StateGraph, MessageGraph, reducers, nodes, edges, conditional routing, Command, and Send.**: [sub-skills/langgraph-graph-state-skill/SKILL.md](sub-skills/langgraph-graph-state-skill/SKILL.md)
-- **Graph visualization, `get_graph()`, Mermaid, xray, `path_map`, and diagram debugging.**: [sub-skills/langgraph-graph-visualization-introspection-skill/SKILL.md](sub-skills/langgraph-graph-visualization-introspection-skill/SKILL.md)
-- **Node reliability policies: retry, cache, timeout, defer, error handlers, and clear-cache checks.**: [sub-skills/langgraph-node-policy-cache-retry-timeout-skill/SKILL.md](sub-skills/langgraph-node-policy-cache-retry-timeout-skill/SKILL.md)
-- **Checkpoints, thread memory, `thread_id`, bare interrupts, resume, and human-in-the-loop.**: [sub-skills/langgraph-checkpoint-interrupt-skill/SKILL.md](sub-skills/langgraph-checkpoint-interrupt-skill/SKILL.md)
-- **Checkpoint persistence backends: InMemory, SQLite, Postgres, async savers, and setup.**: [sub-skills/langgraph-persistence-backends-skill/SKILL.md](sub-skills/langgraph-persistence-backends-skill/SKILL.md)
-- **Checkpoint serialization/security: strict msgpack, allowlists, encrypted serializers, and migration.**: [sub-skills/langgraph-checkpoint-serde-security-skill/SKILL.md](sub-skills/langgraph-checkpoint-serde-security-skill/SKILL.md)
-- **Agent Inbox / HumanInterrupt schema payloads, action approval, and list-shaped resume responses.**: [sub-skills/langgraph-human-inbox-interrupt-skill/SKILL.md](sub-skills/langgraph-human-inbox-interrupt-skill/SKILL.md)
-- **Prebuilt `create_react_agent`, `ToolNode`, `tools_condition`, tool errors, and fake tool-agent checks.**: [sub-skills/langgraph-prebuilt-tools-agent-skill/SKILL.md](sub-skills/langgraph-prebuilt-tools-agent-skill/SKILL.md)
-- **Advanced prebuilt agent options: `response_format`, hooks, `ToolNode` wrappers, and injected state/store.**: [sub-skills/langgraph-prebuilt-advanced-agent-skill/SKILL.md](sub-skills/langgraph-prebuilt-advanced-agent-skill/SKILL.md)
-- **Streaming, stream modes, events, async invoke/stream, custom output, and subgraph stream namespaces.**: [sub-skills/langgraph-streaming-async-skill/SKILL.md](sub-skills/langgraph-streaming-async-skill/SKILL.md)
-- **Subgraphs, parent commands, multi-agent handoffs, map-reduce Send fan-out, and hierarchical agent patterns.**: [sub-skills/langgraph-subgraphs-multi-agent-skill/SKILL.md](sub-skills/langgraph-subgraphs-multi-agent-skill/SKILL.md)
-- **Store/runtime context, injected store/state, configurable values, and runtime API drift.**: [sub-skills/langgraph-store-runtime-context-skill/SKILL.md](sub-skills/langgraph-store-runtime-context-skill/SKILL.md)
-- **Long-term semantic memory stores, namespaces, search, TTL, and cross-thread memory.**: [sub-skills/langgraph-semantic-store-memory-skill/SKILL.md](sub-skills/langgraph-semantic-store-memory-skill/SKILL.md)
-- **Functional API with `@task`, `@entrypoint`, checkpointed functions, and compact workflows.**: [sub-skills/langgraph-functional-api-skill/SKILL.md](sub-skills/langgraph-functional-api-skill/SKILL.md)
-- **State debugging, `get_state`, `get_state_history`, `update_state`, and time travel.**: [sub-skills/langgraph-state-debug-time-travel-skill/SKILL.md](sub-skills/langgraph-state-debug-time-travel-skill/SKILL.md)
-- **Local LLM validation with Transformers/Hugging Face models inside graph nodes.**: [sub-skills/langgraph-local-llm-validation-skill/SKILL.md](sub-skills/langgraph-local-llm-validation-skill/SKILL.md)
-- **LangGraph Platform, Studio, CLI, dev server, langgraph.json, server build, and deployment preparation.**: [sub-skills/langgraph-platform-cli-skill/SKILL.md](sub-skills/langgraph-platform-cli-skill/SKILL.md)
-- **Deployment config auditing, env vars, dependencies, auth hooks, and server packaging.**: [sub-skills/langgraph-deployment-config-skill/SKILL.md](sub-skills/langgraph-deployment-config-skill/SKILL.md)
-- **Remote SDK clients, threads/runs, streaming sessions, auth, hosted/local server calls.**: [sub-skills/langgraph-remote-sdk-skill/SKILL.md](sub-skills/langgraph-remote-sdk-skill/SKILL.md)
-- **Configuration, package integration, version migration, common errors, and repo-wide troubleshooting.**: [sub-skills/langgraph-configuration-troubleshooting-skill/SKILL.md](sub-skills/langgraph-configuration-troubleshooting-skill/SKILL.md)
+## Shared References and Scripts
 
-## Execution Contract
+- Read `references/repo-provenance.md` when deciding whether this skill matches a checkout or should be refreshed.
+- Read `references/package-map.md` to map user requests to the monorepo packages, install commands, import modules, and common optional dependencies.
+- Read `references/troubleshooting.md` for cross-cutting install, import, config, service, security, and version-mismatch failures before drilling into a sub-skill’s troubleshooting file.
+- Run `scripts/run_core_smokes.py --help` or selected smoke checks when validating a LangGraph environment without relying on the original repository checkout.
 
-1. Clarify whether the user needs a local graph workflow, an agent/tool workflow, checkpointed/human-in-loop behavior, streaming, subgraph composition, or deployment.
-2. Read the selected sub-skill `SKILL.md`, then load one linked reference only when needed.
-3. Use bundled scripts for import checks, API inspection, minimal smoke tests, and config validation before adapting real user code.
-4. Keep examples no-key by default. Ask for provider credentials only when the user explicitly wants a real model or hosted service run.
-5. For durable state, require a checkpointer and a `config={"configurable": {"thread_id": "..."}}`.
-6. Report exact commands, user artifact paths, stream modes, state transitions, checkpoint IDs when relevant, and unresolved version or provider risks.
+## Common Decisions
 
-## Shared Resources
+- Choose `StateGraph` when a task needs custom state schemas, deterministic routing, reducers, subgraphs, or precise interrupt/resume control.
+- Choose prebuilt agent APIs when the task is primarily a tool-calling chat agent and does not need a fully custom graph loop.
+- Use an in-memory checkpointer only for tests, local demos, or debugging; use SQLite for lightweight local persistence and Postgres for durable multi-process or production persistence.
+- Use `langgraph dev` for local hot-reload development, `langgraph up` for a local Docker API server, `langgraph build` for an image, and `langgraph dockerfile` when a user needs to review or customize the generated container recipe.
+- Use the SDK only when there is a running LangGraph API server or deployment; local graph construction/invocation does not require `langgraph-sdk`.
 
-- [references/coverage-matrix.md](references/coverage-matrix.md): maps public capability families to sub-skills and smoke scripts.
-- [references/installation.md](references/installation.md): public package install, optional extras, and import checks.
-- [references/troubleshooting.md](references/troubleshooting.md): common graph, checkpoint, prebuilt, streaming, CLI, and deployment failures.
-- [scripts/check_langgraph_env.py](scripts/check_langgraph_env.py): safe import and version check for public packages.
-- [scripts/inspect_langgraph_api.py](scripts/inspect_langgraph_api.py): read-only API signature helper.
-- [scripts/run_all_smokes.py](scripts/run_all_smokes.py): runs bundled no-key smoke scripts and prints pass/fail JSON.
-- [scripts/validate_skill_tree.py](scripts/validate_skill_tree.py): validates this skill tree's frontmatter, links, paths, and local-path leakage.
+## Verification Checklist
 
-The `evals/` directory is a development artifact for extraction and test notes. It is not runtime documentation.
+1. Confirm package imports with the relevant sub-skill smoke script.
+2. Compile a minimal graph before adding persistence, tools, or deployment configuration.
+3. If persistence is involved, invoke with `config={"configurable": {"thread_id": "..."}}` and verify resume/list behavior.
+4. If serving with the CLI, validate `langgraph.json` before running `dev`, `up`, or `build`.
+5. If using the SDK, verify URL/auth selection and streaming mode against the server being targeted.
+
+## Safety and Scope
+
+This skill is self-contained. Do not require the original LangGraph repository checkout for runtime use. The bundled references and scripts distill repo evidence into reusable guidance; original tests and examples remain verification evidence, not runtime dependencies.

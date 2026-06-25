@@ -1,0 +1,5 @@
+{
+  "data.train.crop_size": 128,
+  "data.train.max_extra_msa": 512,
+  "data.common.max_recycling_iters": 3
+}

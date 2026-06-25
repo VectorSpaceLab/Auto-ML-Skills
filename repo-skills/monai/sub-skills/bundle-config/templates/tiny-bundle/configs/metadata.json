@@ -1,0 +1,39 @@
+{
+  "schema": "https://github.com/Project-MONAI/MONAI-extra-test-data/releases/download/0.8.1/meta_schema_20220324.json",
+  "version": "0.1.0",
+  "monai_version": "replace-with-runtime-version",
+  "pytorch_version": "replace-with-runtime-version",
+  "numpy_version": "replace-with-runtime-version",
+  "required_packages_version": {},
+  "task": "Tiny synthetic Bundle smoke test",
+  "description": "A tiny CPU-safe Bundle skeleton for checking MONAI Bundle config parsing.",
+  "authors": "Example",
+  "copyright": "Example",
+  "network_data_format": {
+    "inputs": {
+      "image": {
+        "type": "image",
+        "format": "magnitude",
+        "modality": "n/a",
+        "num_channels": 1,
+        "spatial_shape": [16, 16],
+        "dtype": "float32",
+        "value_range": [0, 1],
+        "is_patch_data": false,
+        "channel_def": {"0": "image"}
+      }
+    },
+    "outputs": {
+      "pred": {
+        "type": "image",
+        "format": "classes",
+        "num_channels": 2,
+        "spatial_shape": [16, 16],
+        "dtype": "float32",
+        "value_range": [],
+        "is_patch_data": false,
+        "channel_def": {"0": "background", "1": "foreground"}
+      }
+    }
+  }
+}

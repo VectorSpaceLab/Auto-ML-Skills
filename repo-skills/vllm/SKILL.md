@@ -1,81 +1,52 @@
 ---
 name: vllm
-description: "Use when a user wants an agent to run vLLM offline inference, OpenAI-compatible serving, engine configuration, LoRA, structured outputs, embeddings, multimodal, distributed serving, performance tuning, benchmarking, profiling, and troubleshooting workflows from natural language using public vLLM installs and bundled helper scripts."
+description: "Route vLLM tasks across offline inference, OpenAI-compatible serving, structured/tool/reasoning, multimodal/LoRA/pooling, and deployment/performance workflows."
 disable-model-invocation: true
 ---
 
 # vLLM
 
-This is the router for the vLLM repo skill. Use it to choose the focused sub-skill, then read only that sub-skill plus the linked bundled references/scripts. Do not reopen the original source checkout or depend on the inspection environment used to create this skill.
+Use this skill when the user asks how to install, use, serve, configure, troubleshoot, or optimize vLLM, the high-throughput inference and serving engine for LLMs. This root skill is a router; open the focused sub-skill before writing substantial commands or code.
 
-## Public Install
+## First Checks
 
-Prefer a clean Python 3.10-3.13 environment. For NVIDIA CUDA wheels:
+- Confirm whether the user wants **in-process Python inference** or an **OpenAI-compatible HTTP server**.
+- Ask for the model identifier/path, hardware target, and whether model downloads, remote code, local media, or credentials are allowed before running live model commands.
+- Treat GPU execution, model downloads, multi-node launches, and benchmark runs as environment-gated; prefer help/static checks until the user confirms resources.
+- Use `references/repo-provenance.md` to check whether this skill is aligned with the current vLLM checkout.
+- Use `references/troubleshooting.md` for cross-cutting install/import/backend triage before routing to workflow-specific troubleshooting.
 
-```bash
-python -m pip install -U pip uv
-uv pip install vllm --torch-backend=auto
-python -c "import importlib.metadata as m; print(m.version('vllm'))"
-vllm --help
-```
+## Route by Workflow
 
-For a normal pip environment where PyTorch is already matched to the host accelerator:
+| User asks for | Open |
+| --- | --- |
+| Python `LLM`, `SamplingParams`, `generate`, `chat`, `encode`, `embed`, `classify`, `score`, output extraction, or offline smoke scripts | `sub-skills/offline-inference/SKILL.md` |
+| `vllm serve`, OpenAI clients, `/v1` endpoints, `chat`, `complete`, `run-batch`, model discovery, server/client errors | `sub-skills/openai-serving/SKILL.md` |
+| Structured outputs, JSON schema, regex/grammar constraints, tool calling, reasoning parsers, chat templates, streaming tool-call deltas | `sub-skills/structured-tool-reasoning/SKILL.md` |
+| Multimodal image/audio/video payloads, media allowlists, LoRA/adapters, embeddings, rerank, score, pooling outputs | `sub-skills/modalities-adapters-pooling/SKILL.md` |
+| Memory planning, parallelism, quantization, KV cache/offload, disaggregated serving, Ray/torchrun, metrics, profiling, benchmarks | `sub-skills/deployment-performance/SKILL.md` |
 
-```bash
-pip install vllm
-python scripts/check_env.py
-```
+## Common Starting Points
 
-For ROCm, TPU, Ascend, or Apple Silicon, use the public vLLM ecosystem package/image for that platform rather than a private checkout. See [references/installation.md](references/installation.md) for platform notes and the public install decision tree.
+- **Install/import sanity**: vLLM supports Python 3.10 through 3.14 in package metadata; runtime builds are backend-specific. For source installs, follow the project’s current documented environment workflow instead of mixing package managers.
+- **Minimal import check**: `python -c "import vllm; print(vllm.__version__)"` verifies importability, but it does not prove a model/backend can run.
+- **CLI discovery**: `vllm --help`, `vllm serve --help`, and `vllm serve --help=all` expose current command groups and flags.
+- **Server default**: `vllm serve [model_tag] [options]` launches an OpenAI-compatible server; if omitted, current CLI help documents a default small Qwen model, but production commands should pass an explicit model.
+- **Offline default**: `LLM(model=...)` plus `SamplingParams(max_tokens=...)` is the main in-process path; chat models usually need `LLM.chat` or an explicit chat template rather than raw `generate` prompts.
 
-## Route To Sub-Skills
+## Bundled Root Helpers
 
-- **Offline `LLM` inference, `SamplingParams`, chat templates, batch generation, CLI `vllm chat`/`complete`/`run-batch`.**: [sub-skills/vllm-offline-inference/SKILL.md](sub-skills/vllm-offline-inference/SKILL.md)
-- **OpenAI-compatible server lifecycle and `/v1/models`, chat, completions, responses, embeddings, score/rerank/classify/pooling, audio/realtime, health, metrics, tokenization.**: [sub-skills/vllm-openai-serving/SKILL.md](sub-skills/vllm-openai-serving/SKILL.md)
-- **Serving and engine configuration: YAML config, tensor/pipeline parallel, dtype, memory, max model length, quantization, chat templates.**: [sub-skills/vllm-serving-config/SKILL.md](sub-skills/vllm-serving-config/SKILL.md)
-- **LoRA adapter loading, multi-LoRA serving, runtime adapter updates, resolver plugins, adapter request payloads.**: [sub-skills/vllm-lora-adapters/SKILL.md](sub-skills/vllm-lora-adapters/SKILL.md)
-- **Structured outputs, guided decoding, JSON schema, regex, choice constraints, grammar, tool calling, reasoning outputs.**: [sub-skills/vllm-structured-outputs/SKILL.md](sub-skills/vllm-structured-outputs/SKILL.md)
-- **Embeddings, pooling, classification, reranking/score, offline `encode`/`score`, and OpenAI embedding-style requests.**: [sub-skills/vllm-embeddings-pooling/SKILL.md](sub-skills/vllm-embeddings-pooling/SKILL.md)
-- **Multimodal image/video/audio inputs, prompt placeholders/embeddings, processor kwargs, multimodal chat payloads, speech/realtime endpoints.**: [sub-skills/vllm-multimodal/SKILL.md](sub-skills/vllm-multimodal/SKILL.md)
-- **Distributed serving: Ray/Ray Serve, multiprocessing, tensor/pipeline/data parallel, expert parallel, multi-node, Kubernetes, disaggregated prefill, NIXL/KV transfer.**: [sub-skills/vllm-distributed-serving/SKILL.md](sub-skills/vllm-distributed-serving/SKILL.md)
-- **KV cache, prefix caching, chunked prefill, speculative decoding, AWQ/GPTQ/FP8 and KV-cache quant, torch compile/CUDA graph, DBO, memory/concurrency tuning.**: [sub-skills/vllm-performance-tuning/SKILL.md](sub-skills/vllm-performance-tuning/SKILL.md)
-- **Benchmarks, profiling, latency/throughput/serve/startup/mm-processor runs, benchmark result inspection.**: [sub-skills/vllm-benchmarks-profiling/SKILL.md](sub-skills/vllm-benchmarks-profiling/SKILL.md)
-- **Environment checks, package/API inspection, install failures, CUDA/ROCm issues, logs, metrics, common serving and runtime errors.**: [sub-skills/vllm-observability-troubleshooting/SKILL.md](sub-skills/vllm-observability-troubleshooting/SKILL.md)
+- `scripts/vllm_skill_doctor.py`: checks Python import, distribution metadata, CLI availability, and selected backend facts without downloading models or starting a server.
 
-## Execution Contract
+Sub-skills also include focused helpers for offline smoke planning, serve command construction, OpenAI client smoke checks, structured request validation, multimodal payload validation, environment summaries, and memory command planning.
 
-1. Resolve model, endpoint mode, output directory, accelerator, smoke/full target, and whether network/model downloads are allowed.
-2. Prefer public model IDs in examples. For small text-generation smoke docs use `Qwen/Qwen3-0.6B` when available, or a caller-provided model ID; do not bake local model paths into skill outputs.
-3. Read the nearest sub-skill `SKILL.md`, then one or two linked references only as needed.
-4. Run bundled validation scripts first. All bundled scripts support `--help` without loading a model.
-5. Launch real vLLM work through package APIs (`vllm.LLM`, `llm.generate`, `llm.chat`, `llm.encode`, `llm.score`) or package CLIs (`vllm serve`, `vllm bench`, `vllm chat`, `vllm complete`, `vllm run-batch`).
-6. Manage server lifecycle explicitly: choose a free localhost port, record PID/logs, wait for `/health` or `/v1/models`, run client smoke checks, and shut down unless the user asked to keep it running.
-7. Save configs, commands, request/response snippets, benchmark JSON, and logs beside the user's output artifacts.
-8. Report exact artifact paths, command outcomes, and unresolved limitations such as missing GPU, model access, unsupported architecture, or long-running downloads.
+## Safety Defaults
 
-## Routing Priorities
+- Do not start a server, download a model, enable `trust_remote_code`, read arbitrary local media, execute tool calls, or run distributed/benchmark commands unless the user explicitly approves the required resources and side effects.
+- For local media in OpenAI-compatible multimodal requests, require a narrow `--allowed-local-media-path`; for remote media, use explicit `--allowed-media-domain` entries.
+- For API keys, tokens, Hugging Face credentials, and server auth, describe required environment variables or headers without echoing secret values.
+- For performance problems, collect environment and configuration facts first, then propose bounded experiments; avoid broad benchmark suites unless requested.
 
-- If a request includes both server launch and payload construction, first use `vllm-serving-config` for args, then `vllm-openai-serving` for lifecycle, then the feature sub-skill for the endpoint payload.
-- If a request includes both LoRA and structured output, use `vllm-lora-adapters` for model naming/server flags and `vllm-structured-outputs` for request constraints.
-- If a request includes embeddings or scoring, do not route to generation-only workflows unless the user also asks for text generation.
-- If a request mentions performance numbers, route to `vllm-benchmarks-profiling` for measurement and `vllm-performance-tuning` for changes after a baseline exists.
-- If imports, endpoints, or CLI names are uncertain, use `vllm-observability-troubleshooting` and `scripts/inspect_api.py` before choosing version-sensitive flags.
-- For distributed work, generate and validate commands before launching; multi-node side effects require explicit user intent.
-- For multimodal work, validate payload/media shape before server startup because prompt placeholders and processor kwargs are model-specific.
-- For all smoke tests, choose bounded token counts and deterministic parameters unless the user requests sampling behavior.
+## Verification Scope
 
-## Shared Resources
-
-- [references/coverage-matrix.md](references/coverage-matrix.md): maps vLLM capability families to sub-skills and artifacts.
-- [references/installation.md](references/installation.md): public install, platform choices, import checks, and package entrypoints.
-- [references/api-surface.md](references/api-surface.md): verified public Python APIs, CLI families, and endpoint families.
-- [references/model-selection.md](references/model-selection.md): model choice heuristics for small smoke tests and production sizing.
-- [references/troubleshooting.md](references/troubleshooting.md): repo-wide environment, dependency, GPU, serving, and model-loading failures.
-- [scripts/check_env.py](scripts/check_env.py): safe package, dependency, accelerator, and CLI inspection.
-- [scripts/inspect_api.py](scripts/inspect_api.py): read-only signature/entrypoint inspection helper.
-- [scripts/validate_serve_config.py](scripts/validate_serve_config.py): validates a minimal `vllm serve --config` YAML without model loading.
-- [scripts/openai_client_smoke.py](scripts/openai_client_smoke.py): localhost OpenAI-compatible endpoint smoke client.
-- [scripts/start_openai_server.sh](scripts/start_openai_server.sh): lifecycle helper for a short-lived `vllm serve` process.
-- [scripts/vllm_skill_common.py](scripts/vllm_skill_common.py): shared helper library used by bundled scripts.
-
-The `evals/` directory is a development artifact for self-refine checks and is not linked as runtime documentation.
+This skill was generated from vLLM source, docs, examples, tests, package metadata, and a CPU/precompiled package-inspection environment. Live GPU model serving, model downloads, multi-node runs, and native benchmark execution remain user-environment gated and should be verified with the user’s actual hardware and model.

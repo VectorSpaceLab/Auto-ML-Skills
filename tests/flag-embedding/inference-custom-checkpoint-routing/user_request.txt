@@ -1,1 +1,0 @@
-I have a local embedding checkpoint that was fine-tuned from BAAI/bge-large-en-v1.5, but FlagAutoModel says the model name is not in the mapping. Show me how to load it correctly for retrieval, including the model_class, pooling method, query instruction, and a one-GPU device setting.

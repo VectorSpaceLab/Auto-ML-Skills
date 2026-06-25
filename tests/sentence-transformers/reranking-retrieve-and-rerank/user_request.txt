@@ -1,1 +1,0 @@
-I already have BM25 returning the top 100 passages for each query, but the ordering is weak. Use sentence-transformers to rerank those candidates with a CrossEncoder and show how to keep my original document IDs in the final top 10.

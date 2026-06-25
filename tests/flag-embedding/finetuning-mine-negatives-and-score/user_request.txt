@@ -1,1 +1,0 @@
-I have a retrieval train.jsonl with weak negatives. I want to mine harder negatives with BAAI/bge-base-en-v1.5, then add teacher scores using BAAI/bge-reranker-v2-m3. Give me a safe sequence of commands and note which steps will download models or use GPU/FAISS.

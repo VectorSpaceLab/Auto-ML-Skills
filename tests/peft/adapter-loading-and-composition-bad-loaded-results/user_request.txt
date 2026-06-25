@@ -1,1 +1,0 @@
-My PEFT adapter directory loads without crashing, but the classification predictions after reload look random. I trained a task head and also added a few tokenizer tokens during training. Help me debug the loading code and list the checks that usually catch this.
