@@ -1,0 +1,83 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.python-version
+
+# Python packaging and build artifacts
+build/
+dist/
+downloads/
+eggs/
+.eggs/
+*.egg-info/
+*.egg
+pip-wheel-metadata/
+wheelhouse/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+.env/
+
+# Installer and dependency manager artifacts
+pip-log.txt
+pip-delete-this-directory.txt
+Pipfile.lock
+poetry.lock
+pdm.lock
+.pdm-python
+.pdm-build/
+.uv/
+uv.lock
+
+# Test, coverage, lint, and type-check caches
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.pytest_cache/
+.tox/
+.nox/
+.hypothesis/
+.mypy_cache/
+.pyre/
+.pytype/
+.ruff_cache/
+.cache/
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+
+# Local environment and secrets
+.env.local
+.env.*.local
+*.env
+*.pem
+*.key
+*.crt
+
+# Logs and runtime files
+*.log
+*.pid
+*.seed
+*.tmp
+*.temp
+tmp/
+temp/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Project-local generated artifacts
+repo-skills/**/__pycache__/
+repo-skills/**/*.py[cod]
