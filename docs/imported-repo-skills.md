@@ -6,7 +6,7 @@ The catalog is organized by primary workflow area. Some repositories naturally s
 
 `Skill updated` records the date when the repository-specific skill entry was last refreshed. `Python package version(s)` records the version declared by the source checkout when a Python package version can be read from packaging metadata or package version files. Monorepos may list several core Python packages. `dynamic from VCS` means the package version is generated from Git metadata at build time and no static resolved version file was present in the checkout. `not declared` means the source checkout did not expose a single readable Python package version; when an exact source tag exists, it is shown as a fallback hint. `Commit` shows the short SHA for readability and links to the full GitHub commit for precise source identification.
 
-## ML Infrastructure and Training Frameworks
+## ML Infrastructure and Training Frameworks (5)
 
 | Repository | Skill | Skill updated | Python package version(s) | Commit | Skill coverage |
 |---|---|---:|---|---|---|
@@ -16,7 +16,7 @@ The catalog is organized by primary workflow area. Some repositories naturally s
 | [optuna/optuna](https://github.com/optuna/optuna) | [Open](../repo-skills/optuna/SKILL.md) | 2026-06-25 | `optuna 5.0.0.dev` | [`243c156`](https://github.com/optuna/optuna/commit/243c156d9dda5093fa4358c6923fb22cd721fd04) | Hyperparameter optimization workflows, including studies, trials, samplers, pruners, storage backends, callbacks, visualization, and integrations. |
 | [pyg-team/pytorch_geometric](https://github.com/pyg-team/pytorch_geometric) | [Open](../repo-skills/pytorch-geometric/SKILL.md) | 2026-06-25 | `torch-geometric 2.9.0` | [`1f0661c`](https://github.com/pyg-team/pytorch_geometric/commit/1f0661ce88272d03f654b6bb0a2a3cb76b3e6aff) | PyTorch Geometric workflows, including `Data` and `HeteroData`, loaders, transforms, GNN layers, sampling, explainers, and scalable graph training. |
 
-## Data Preparation and Model Evaluation
+## Data Preparation and Model Evaluation (7)
 
 | Repository | Skill | Skill updated | Python package version(s) | Commit | Skill coverage |
 |---|---|---:|---|---|---|
@@ -28,7 +28,7 @@ The catalog is organized by primary workflow area. Some repositories naturally s
 | [python-pillow/Pillow](https://github.com/python-pillow/Pillow) | [Open](../repo-skills/pillow/SKILL.md) | 2026-06-25 | `Pillow 12.3.0.dev0` | [`2d18dac`](https://github.com/python-pillow/Pillow/commit/2d18dacf0b4a4c1ceab2f07f65394431a4c3428e) | Image loading and preprocessing workflows, including modes, EXIF orientation, resizing and resampling, alpha channels, metadata, and file-format behavior. |
 | [pytorch/vision](https://github.com/pytorch/vision) | [Open](../repo-skills/torchvision/SKILL.md) | 2026-06-25 | `torchvision 0.29.0a0` | [`65eb7b9`](https://github.com/pytorch/vision/commit/65eb7b9e26750ae59e2748d340d8b0ff58b28bec) | TorchVision workflows, including datasets, v2 transforms, TVTensors, image and video IO, model weights, visualization, and reference training utilities. |
 
-## LLM Training, Fine-Tuning, Serving, and Infrastructure
+## LLM Training, Fine-Tuning, Serving, and Infrastructure (15)
 
 | Repository | Skill | Skill updated | Python package version(s) | Commit | Skill coverage |
 |---|---|---:|---|---|---|
@@ -48,7 +48,7 @@ The catalog is organized by primary workflow area. Some repositories naturally s
 | [unslothai/unsloth](https://github.com/unslothai/unsloth) | [Open](../repo-skills/unsloth/SKILL.md) | 2026-06-25 | `unsloth 2026.6.8` | [`dbc13f0`](https://github.com/unslothai/unsloth/commit/dbc13f02c989d6efc6c830796a4226c3f9a6cca6) | Fast local fine-tuning workflows, including model patching, LoRA and QLoRA settings, quantization, local inference, and export to serving formats. |
 | [vllm-project/vllm](https://github.com/vllm-project/vllm) | [Open](../repo-skills/vllm/SKILL.md) | 2026-06-25 | `dynamic from VCS` | [`183a430`](https://github.com/vllm-project/vllm/commit/183a430c137db3d5cd0b9025b816f26ee87328e7) | vLLM inference and serving workflows, including engine arguments, batching, OpenAI-compatible serving, structured outputs, tool calling, LoRA, pooling, and multimodal inputs. |
 
-## Agents and Agentic Workflows
+## Agents and Agentic Workflows (12)
 
 | Repository | Skill | Skill updated | Python package version(s) | Commit | Skill coverage |
 |---|---|---:|---|---|---|
@@ -65,7 +65,7 @@ The catalog is organized by primary workflow area. Some repositories naturally s
 | [openai/openai-agents-python](https://github.com/openai/openai-agents-python) | [Open](../repo-skills/openai-agents-python/SKILL.md) | 2026-06-25 | `openai-agents 0.17.6` | [`28d2a6c`](https://github.com/openai/openai-agents-python/commit/28d2a6c8382992b80421c9179997492e5fc39ce0) | OpenAI Agents SDK workflows, including agents, tools, handoffs, tracing, guardrails, sessions, model settings, and structured outputs. |
 | [pydantic/pydantic-ai](https://github.com/pydantic/pydantic-ai) | [Open](../repo-skills/pydantic-ai/SKILL.md) | 2026-06-25 | `dynamic from VCS` | [`88fb4e3`](https://github.com/pydantic/pydantic-ai/commit/88fb4e34eb24bb39d08a900bfe5f631d7df49484) | Typed agent workflows, including model settings, dependency injection, tool schemas, retries, structured result handling, graphs, evaluations, and examples. |
 
-## RAG, Document AI, and Knowledge Systems
+## RAG, Document AI, and Knowledge Systems (11)
 
 | Repository | Skill | Skill updated | Python package version(s) | Commit | Skill coverage |
 |---|---|---:|---|---|---|
@@ -81,7 +81,7 @@ The catalog is organized by primary workflow area. Some repositories naturally s
 | [run-llama/llama_index](https://github.com/run-llama/llama_index) | [Open](../repo-skills/llama-index/SKILL.md) | 2026-06-25 | `llama-index 0.14.22` | [`9f66e8a`](https://github.com/run-llama/llama_index/commit/9f66e8a649856524ef0ff081a23d58cd071b6ae4) | LlamaIndex workflows, including ingestion, indexing, retrievers, query engines, node parsers, agents, workflows, structured outputs, and integrations. |
 | [unstructured-io/unstructured](https://github.com/Unstructured-IO/unstructured) | [Open](../repo-skills/unstructured/SKILL.md) | 2026-06-25 | `unstructured 0.23.1` | [`5ead69a`](https://github.com/Unstructured-IO/unstructured/commit/5ead69ad146986a647ccbb4219ce94844710f4a9) | Unstructured document ingestion workflows, including partitioning, file-type dependencies, OCR options, element metadata, chunking, and RAG preparation. |
 
-## Embedding, Retrieval, and Reranking
+## Embedding, Retrieval, and Reranking (8)
 
 | Repository | Skill | Skill updated | Python package version(s) | Commit | Skill coverage |
 |---|---|---:|---|---|---|
@@ -94,7 +94,7 @@ The catalog is organized by primary workflow area. Some repositories naturally s
 | [stanford-futuredata/ColBERT](https://github.com/stanford-futuredata/ColBERT) | [Open](../repo-skills/colbert/SKILL.md) | 2026-06-25 | `colbert-ai 0.2.22` | [`cc4f3dc`](https://github.com/stanford-futuredata/ColBERT/commit/cc4f3dc91c0b45d2d08c251d9d95178285c65f1c) | Late-interaction retrieval workflows, including data preparation, configuration inspection, training, indexing, searching, and RAG integration. |
 | [texttron/tevatron](https://github.com/texttron/tevatron) | [Open](../repo-skills/tevatron/SKILL.md) | 2026-06-25 | `tevatron 0.0.1` | [`f0fc1e8`](https://github.com/texttron/tevatron/commit/f0fc1e8b73ecda0075e69bed66ab72611413979e) | Neural retrieval workflows, including data preparation, dense and sparse retriever training, multimodal training, encoding, FAISS retrieval, reranking, and evaluation. |
 
-## Reinforcement Learning, Alignment, and Embodied AI
+## Reinforcement Learning, Alignment, and Embodied AI (8)
 
 | Repository | Skill | Skill updated | Python package version(s) | Commit | Skill coverage |
 |---|---|---:|---|---|---|
@@ -107,7 +107,7 @@ The catalog is organized by primary workflow area. Some repositories naturally s
 | [volcengine/verl](https://github.com/volcengine/verl) | [Open](../repo-skills/verl/SKILL.md) | 2026-06-25 | `dynamic from VCS` | [`8a69493`](https://github.com/volcengine/verl/commit/8a694930275061f52ebd538c906ef8819af56dbd) | Distributed LLM post-training workflows, including PPO, GRPO, SFT, rollout tools, reward functions, actor/critic setup, checkpoints, and cluster configuration. |
 | [vwxyzjn/cleanrl](https://github.com/vwxyzjn/cleanrl) | [Open](../repo-skills/cleanrl/SKILL.md) | 2026-06-25 | `cleanrl 2.0.0b1` | [`fe8d8a0`](https://github.com/vwxyzjn/cleanrl/commit/fe8d8a03c41a7ef5b523e2e354bd01c363e786bb) | Single-file RL experiment workflows, including algorithm scripts, evaluation utilities, reproducible runs, logging, experiment operations, and repository maintenance. |
 
-## MLOps, AutoML, Workflow Orchestration, and Data Quality
+## MLOps, AutoML, Workflow Orchestration, and Data Quality (12)
 
 | Repository | Skill | Skill updated | Python package version(s) | Commit | Skill coverage |
 |---|---|---:|---|---|---|
@@ -124,7 +124,7 @@ The catalog is organized by primary workflow area. Some repositories naturally s
 | [treeverse/dvc](https://github.com/treeverse/dvc) | [Open](../repo-skills/dvc/SKILL.md) | 2026-06-25 | `dvc 0.1.dev1+g8131c32c3` | [`8131c32`](https://github.com/treeverse/dvc/commit/8131c32c336b2f0cb47cb8782141d899a4876b8e) | Data and experiment versioning workflows, including pipelines, remotes, cache behavior, metrics, params, plots, Python APIs, and reproducibility. |
 | [wandb/wandb](https://github.com/wandb/wandb) | [Open](../repo-skills/wandb/SKILL.md) | 2026-06-25 | `wandb 0.27.3.dev1` | [`12d9004`](https://github.com/wandb/wandb/commit/12d9004340791a09ef4fc0a3f4b6c1bf4076a8b4) | Weights & Biases workflows, including experiment tracking, offline and local runs, artifacts, registries, sweeps, reports, dashboards, and service integration. |
 
-## Computer Vision, Multimodal Models, and Segmentation
+## Computer Vision, Multimodal Models, and Segmentation (10)
 
 | Repository | Skill | Skill updated | Python package version(s) | Commit | Skill coverage |
 |---|---|---:|---|---|---|
@@ -139,7 +139,18 @@ The catalog is organized by primary workflow area. Some repositories naturally s
 | [open-mmlab/mmsegmentation](https://github.com/open-mmlab/mmsegmentation) | [Open](../repo-skills/mmsegmentation/SKILL.md) | 2026-06-25 | `mmseg 1.2.2` | [`b040e14`](https://github.com/open-mmlab/mmsegmentation/commit/b040e147adfa027bbc071b624bedf0ae84dfc922) | MMSegmentation workflows, including config inheritance, dataset formats, semantic segmentation training, testing, visualization, evaluation, and model customization. |
 | [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics) | [Open](../repo-skills/ultralytics/SKILL.md) | 2026-06-25 | `ultralytics 8.4.72` | [`7413c42`](https://github.com/ultralytics/ultralytics/commit/7413c429a6a8406ef3003364bf98f7cfef0c260d) | Ultralytics YOLO workflows, including CLI and Python APIs, dataset YAML, train/val/predict modes, export, tracking, and task-specific configuration. |
 
-## Protein Structure, Protein Design, and Biomolecular Models
+## Text-to-Image, Diffusion, and Image Generation (6)
+
+| Repository | Skill | Skill updated | Python package version(s) | Commit | Skill coverage |
+|---|---|---:|---|---|---|
+| [AUTOMATIC1111/stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui) | [Open](../repo-skills/stable-diffusion-webui/SKILL.md) | 2026-06-25 | not declared (source tag `v1.10.1`) | [`82a973c`](https://github.com/AUTOMATIC1111/stable-diffusion-webui/commit/82a973c04367123ae98bd9abdf80d9eda9b910e2) | Stable Diffusion WebUI workflows, including launch flags, model paths, extensions, REST API automation, scripts, generation parameters, and troubleshooting. |
+| [comfyanonymous/ComfyUI](https://github.com/comfyanonymous/ComfyUI) | [Open](../repo-skills/comfy-ui/SKILL.md) | 2026-06-25 | `ComfyUI 0.25.0` | [`0d8b751`](https://github.com/comfyanonymous/ComfyUI/commit/0d8b7510bdc5409f4a76c3191e122ddea50f4aa2) | ComfyUI workflows, including server launch, API automation, workflow JSON validation, node graphs, model paths, custom nodes, and execution. |
+| [huggingface/diffusers](https://github.com/huggingface/diffusers) | [Open](../repo-skills/diffusers/SKILL.md) | 2026-06-25 | `diffusers 0.39.0.dev0` | [`2d0110f`](https://github.com/huggingface/diffusers/commit/2d0110f8182d18834d5039b19232e5761023b5f6) | Diffusion pipeline workflows, including schedulers, adapters, LoRA, ControlNet, img2img, inpainting, memory optimization, training recipes, and modular pipeline APIs. |
+| [invoke-ai/InvokeAI](https://github.com/invoke-ai/InvokeAI) | [Open](../repo-skills/invokeai/SKILL.md) | 2026-06-25 | `InvokeAI 6.13.0.post1` | [`de66582`](https://github.com/invoke-ai/InvokeAI/commit/de66582b91929de0e4220619955ae43c04cd4a6d) | InvokeAI workflows, including server operations, model management, queues, canvas workflows, node authoring, workflow records, and deployment-oriented inference. |
+| [kohya-ss/sd-scripts](https://github.com/kohya-ss/sd-scripts) | [Open](../repo-skills/sd-scripts/SKILL.md) | 2026-06-25 | not declared | [`c162e90`](https://github.com/kohya-ss/sd-scripts/commit/c162e9039cc3228057b3fc6ae64ce770b87ab9bf) | Stable Diffusion training workflows, including LoRA, DreamBooth, textual inversion, dataset preparation, generation, training commands, and model utilities. |
+| [lllyasviel/ControlNet](https://github.com/lllyasviel/ControlNet) | [Open](../repo-skills/control-net/SKILL.md) | 2026-06-25 | not declared | [`ed85cd1`](https://github.com/lllyasviel/ControlNet/commit/ed85cd1e25a5ed592f7d8178495b4483de0331bf) | ControlNet workflows, including annotators, preprocessing, conditioning inputs, Gradio inference apps, training datasets, model variants, and weight utilities. |
+
+## Protein Structure, Protein Design, and Biomolecular Models (9)
 
 | Repository | Skill | Skill updated | Python package version(s) | Commit | Skill coverage |
 |---|---|---:|---|---|---|
@@ -153,7 +164,7 @@ The catalog is organized by primary workflow area. Some repositories naturally s
 | [RosettaCommons/RFdiffusion](https://github.com/RosettaCommons/RFdiffusion) | [Open](../repo-skills/rfdiffusion/SKILL.md) | 2026-06-25 | `rfdiffusion 1.1.0` | [`2d0c003`](https://github.com/RosettaCommons/RFdiffusion/commit/2d0c003df46b9db41d119321f15403dec3716cd9) | Protein backbone generation workflows, including motif scaffolding, binder design, symmetric oligomers, scaffold-guided design, macrocycles, contig syntax, and sampling options. |
 | [sokrypton/ColabFold](https://github.com/sokrypton/ColabFold) | [Open](../repo-skills/colabfold/SKILL.md) | 2026-06-25 | `colabfold 1.6.1` | [`e809493`](https://github.com/sokrypton/ColabFold/commit/e809493da50dfa66fcbf0057ec17f5fdedecf8c6) | ColabFold workflows, including FASTA, CSV, and A3M validation, MSA generation, local and Colab prediction, batch runs, and output interpretation. |
 
-## Molecules, Drug Discovery, Chemistry, and Materials
+## Molecules, Drug Discovery, Chemistry, and Materials (10)
 
 | Repository | Skill | Skill updated | Python package version(s) | Commit | Skill coverage |
 |---|---|---:|---|---|---|
@@ -168,7 +179,7 @@ The catalog is organized by primary workflow area. Some repositories naturally s
 | [openmm/openmm](https://github.com/openmm/openmm) | [Open](../repo-skills/openmm/SKILL.md) | 2026-06-25 | not declared | [`3153fff`](https://github.com/openmm/openmm/commit/3153ffff84f59eb814173c7c945201c0e74f0646) | Molecular simulation workflows, including force fields, systems, integrators, reporters, platforms, custom forces, performance settings, and unit handling. |
 | [rdkit/rdkit](https://github.com/rdkit/rdkit) | [Open](../repo-skills/rdkit/SKILL.md) | 2026-06-25 | not declared | [`73ef780`](https://github.com/rdkit/rdkit/commit/73ef78025c9a265e42b8c9578775de18b11f1829) | Cheminformatics workflows, including molecule parsing and validation, descriptors, fingerprints, conformers, reactions, drawing, and file IO. |
 
-## Bioinformatics, Genomics, Omics, and Single-Cell Analysis
+## Bioinformatics, Genomics, Omics, and Single-Cell Analysis (9)
 
 | Repository | Skill | Skill updated | Python package version(s) | Commit | Skill coverage |
 |---|---|---:|---|---|---|
@@ -182,7 +193,7 @@ The catalog is organized by primary workflow area. Some repositories naturally s
 | [scverse/squidpy](https://github.com/scverse/squidpy) | [Open](../repo-skills/squidpy/SKILL.md) | 2026-06-25 | `squidpy 0.1.dev1+g9f9d50028` | [`9f9d500`](https://github.com/scverse/squidpy/commit/9f9d5002885fc63cf7f4281f07303af660879704) | Spatial omics workflows, including spatial graphs, image containers, neighborhood enrichment, ligand-receptor analysis, plotting, and image analysis. |
 | [snakemake/snakemake](https://github.com/snakemake/snakemake) | [Open](../repo-skills/snakemake/SKILL.md) | 2026-06-25 | `snakemake 9.23.1` | [`3d933e6`](https://github.com/snakemake/snakemake/commit/3d933e63e8b51a520d65aac2d3f3b2c19b1b36fd) | Reproducible workflow workflows, including Snakefile authoring, rules, wildcards, resources, profiles, checkpoints, cluster execution, and programmatic inspection. |
 
-## Medical Imaging and Clinical AI
+## Medical Imaging and Clinical AI (8)
 
 | Repository | Skill | Skill updated | Python package version(s) | Commit | Skill coverage |
 |---|---|---:|---|---|---|
@@ -194,14 +205,3 @@ The catalog is organized by primary workflow area. Some repositories naturally s
 | [TissueImageAnalytics/tiatoolbox](https://github.com/TissueImageAnalytics/tiatoolbox) | [Open](../repo-skills/tiatoolbox/SKILL.md) | 2026-06-25 | `TIA-Centre 2.1.2`; `tiatoolbox 2.1.2` | [`2560759`](https://github.com/TissueImageAnalytics/tiatoolbox/commit/2560759c6979ad4e82837bfcb03148d6937f5188) | Computational pathology workflows, including whole-slide IO, patch extraction, stain normalization, annotations, visualization, preprocessing, and model inference. |
 | [TorchIO-project/torchio](https://github.com/TorchIO-project/torchio) | [Open](../repo-skills/torchio/SKILL.md) | 2026-06-25 | `torchio 2.0.0a1` | [`7b20416`](https://github.com/TorchIO-project/torchio/commit/7b20416071b6cf69aa8e07dc1fda907fa379bb60) | Medical image preprocessing workflows, including subjects, image loading, transforms, augmentation, samplers, queues, patch-based training, inference, and CLI conversion. |
 | [wasserth/TotalSegmentator](https://github.com/wasserth/TotalSegmentator) | [Open](../repo-skills/totalsegmentator/SKILL.md) | 2026-06-25 | `TotalSegmentator 2.14.0` | [`c7b4d69`](https://github.com/wasserth/TotalSegmentator/commit/c7b4d69d8b178ba2ede129c54e17d7a6c9c86779) | CT segmentation workflows, including task selection, input and output formats, model variants, runtime configuration, postprocessing, and resource settings. |
-
-## Text-to-Image, Diffusion, and Image Generation
-
-| Repository | Skill | Skill updated | Python package version(s) | Commit | Skill coverage |
-|---|---|---:|---|---|---|
-| [AUTOMATIC1111/stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui) | [Open](../repo-skills/stable-diffusion-webui/SKILL.md) | 2026-06-25 | not declared (source tag `v1.10.1`) | [`82a973c`](https://github.com/AUTOMATIC1111/stable-diffusion-webui/commit/82a973c04367123ae98bd9abdf80d9eda9b910e2) | Stable Diffusion WebUI workflows, including launch flags, model paths, extensions, REST API automation, scripts, generation parameters, and troubleshooting. |
-| [comfyanonymous/ComfyUI](https://github.com/comfyanonymous/ComfyUI) | [Open](../repo-skills/comfy-ui/SKILL.md) | 2026-06-25 | `ComfyUI 0.25.0` | [`0d8b751`](https://github.com/comfyanonymous/ComfyUI/commit/0d8b7510bdc5409f4a76c3191e122ddea50f4aa2) | ComfyUI workflows, including server launch, API automation, workflow JSON validation, node graphs, model paths, custom nodes, and execution. |
-| [huggingface/diffusers](https://github.com/huggingface/diffusers) | [Open](../repo-skills/diffusers/SKILL.md) | 2026-06-25 | `diffusers 0.39.0.dev0` | [`2d0110f`](https://github.com/huggingface/diffusers/commit/2d0110f8182d18834d5039b19232e5761023b5f6) | Diffusion pipeline workflows, including schedulers, adapters, LoRA, ControlNet, img2img, inpainting, memory optimization, training recipes, and modular pipeline APIs. |
-| [invoke-ai/InvokeAI](https://github.com/invoke-ai/InvokeAI) | [Open](../repo-skills/invokeai/SKILL.md) | 2026-06-25 | `InvokeAI 6.13.0.post1` | [`de66582`](https://github.com/invoke-ai/InvokeAI/commit/de66582b91929de0e4220619955ae43c04cd4a6d) | InvokeAI workflows, including server operations, model management, queues, canvas workflows, node authoring, workflow records, and deployment-oriented inference. |
-| [kohya-ss/sd-scripts](https://github.com/kohya-ss/sd-scripts) | [Open](../repo-skills/sd-scripts/SKILL.md) | 2026-06-25 | not declared | [`c162e90`](https://github.com/kohya-ss/sd-scripts/commit/c162e9039cc3228057b3fc6ae64ce770b87ab9bf) | Stable Diffusion training workflows, including LoRA, DreamBooth, textual inversion, dataset preparation, generation, training commands, and model utilities. |
-| [lllyasviel/ControlNet](https://github.com/lllyasviel/ControlNet) | [Open](../repo-skills/control-net/SKILL.md) | 2026-06-25 | not declared | [`ed85cd1`](https://github.com/lllyasviel/ControlNet/commit/ed85cd1e25a5ed592f7d8178495b4483de0331bf) | ControlNet workflows, including annotators, preprocessing, conditioning inputs, Gradio inference apps, training datasets, model variants, and weight utilities. |
