@@ -26,7 +26,7 @@ class ContextAnswerer:
 
 
 def main() -> None:
-    store = InMemoryDocumentStore(index="skillsmith-retrieval-rag-smoke")
+    store = InMemoryDocumentStore(index="disco-retrieval-rag-smoke")
     writer = DocumentWriter(document_store=store, policy=DuplicatePolicy.OVERWRITE)
     documents = [
         Document(id="paris", content="Jean lives in Paris and likes retrieval.", meta={"city": "Paris", "lang": "en"}),

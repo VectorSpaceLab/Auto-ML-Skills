@@ -1,6 +1,6 @@
 # Repo Provenance
 
-schema: `skillsmith.repo-provenance.v1`
+schema: `disco.repo-provenance.v1`
 
 ## Source Snapshot
 
@@ -11,7 +11,7 @@ schema: `skillsmith.repo-provenance.v1`
 - Branch: `main`
 - Exact tag: none detected
 - Remote URL: `https://github.com/hiyouga/LlamaFactory.git`
-- Working tree state during generation: dirty because new `skills/` files were created for this SkillSmith run
+- Working tree state during generation: dirty because new `skills/` files were created for this DisCo run
 
 ## Decision Policy
 

@@ -51,4 +51,4 @@ This reference summarizes the repository evidence used to build the runtime skil
 - Safe native/static candidates: root checkout/config check, annotator utility tiny-array check, Gradio AST signature extraction, Fill50K tiny fixture validator, model weight mapping self-test/config dry-run.
 - Unsafe or skipped native candidates: Gradio server launches, detector model execution, tutorial training, real checkpoint conversion, full image generation, model/tokenizer downloads.
 
-Verification artifacts produced during SkillQED review record which candidates were selected, run, or skipped; this runtime skill only preserves the public evidence and source-script decisions.
+Verification artifacts produced during DisCo review record which candidates were selected, run, or skipped; this runtime skill only preserves the public evidence and source-script decisions.

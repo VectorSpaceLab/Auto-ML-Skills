@@ -10,20 +10,20 @@ pages.
 
 ## Update Workflow
 
-Use the live SkillQED user copy at
-`~/.skillqed/agent/skills/repo-skills-router/` as the primary writable router.
+Use the live DisCo user copy at
+`~/.disco/agent/skills/repo-skills-router/` as the primary writable router.
 Do not update another same-named `repo-skills-router` directory before this live
 copy has been updated. Do not push router changes into another agent tool from
 this maintenance workflow. Export or merge into another agent only through the
 dedicated `import-repo-skills-to-agent` meta skill after the user explicitly asks for
 that target tool.
 
-All maintenance that is part of an approved or auto-authorized SkillQED import
+All maintenance that is part of an approved or auto-authorized DisCo import
 must run inside the global import lock provided by the
 `verify-repo-skill` meta skill's `scripts/with_import_lock.mjs` helper.
-The lock is rooted at `$SKILLQED_CODING_AGENT_DIR/locks/repo-skills-import.lockdir`
-when `SKILLQED_CODING_AGENT_DIR` is set, otherwise
-`~/.skillqed/agent/locks/repo-skills-import.lockdir`. It must cover the runtime
+The lock is rooted at `$DISCO_CODING_AGENT_DIR/locks/repo-skills-import.lockdir`
+when `DISCO_CODING_AGENT_DIR` is set, otherwise
+`~/.disco/agent/locks/repo-skills-import.lockdir`. It must cover the runtime
 skill copy, first-time router creation from the template, fresh metadata and
 skill-root reads, generated router writes, stale-file removal, and post-write
 validation.
@@ -36,7 +36,7 @@ directory and writing or updating the skill's
 Inside the locked transaction:
 
 1. Copy only the verified runtime skill directory into
-   `~/.skillqed/agent/skills/<skill-id>/`.
+   `~/.disco/agent/skills/<skill-id>/`.
 2. Ensure that `<skill-id>/references/repo-routing-metadata.json` exists and
    contains the skill's structured usage-scenario routing metadata.
 3. Run `node scripts/update_repo_skills_router.mjs --agent-dir <agent-dir> --already-locked`.

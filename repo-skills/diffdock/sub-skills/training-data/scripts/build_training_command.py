@@ -174,7 +174,7 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     parser.add_argument("--split-test", default="data/splits/timesplit_test")
     parser.add_argument("--cache-path", default=None)
     parser.add_argument("--log-dir", default="workdir")
-    parser.add_argument("--run-name", default="skillqed_planned_run")
+    parser.add_argument("--run-name", default="disco_planned_run")
     parser.add_argument("--limit-complexes", type=int, default=None)
     parser.add_argument("--n-epochs", type=int, default=None)
     parser.add_argument("--batch-size", type=int, default=None)

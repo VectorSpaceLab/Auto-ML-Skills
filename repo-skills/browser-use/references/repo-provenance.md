@@ -8,7 +8,7 @@ Read this before deciding whether this skill is current for a Browser Use checko
 
 ```json
 {
-  "schema": "skillsmith.repo-provenance.v1",
+  "schema": "disco.repo-provenance.v1",
   "generated_at_utc": "2026-06-21T00:00:00Z",
   "repository": {
     "name": "browser-use",
@@ -19,8 +19,8 @@ Read this before deciding whether this skill is current for a Browser Use checko
     "commit": "48c3c882ac5f5557c011cb0c8edfc53962da5899",
     "working_tree": "dirty",
     "dirty_paths": [
-      "generated SkillSmith runtime skill directory",
-      "generated SkillSmith review artifact directory"
+      "generated DisCo runtime skill directory",
+      "generated DisCo review artifact directory"
     ]
   },
   "packages": [

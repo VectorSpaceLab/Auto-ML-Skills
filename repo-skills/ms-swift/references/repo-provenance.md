@@ -1,6 +1,6 @@
 # Repository Provenance
 
-- Schema: `skillqed.repo-provenance.v1`
+- Schema: `disco.repo-provenance.v1`
 - Source repository: ModelScope ms-swift
 - Source identifier: `modelscope/ms-swift`
 - Source commit: `f576f413ed5c7aad99133fc9f49ed8249d46f057`
@@ -8,7 +8,7 @@
 - Source tag: none detected
 - Source package version: `4.4.0.dev0`
 - Source checkout state at initial evidence capture: clean
-- Working tree after generation: dirty only because generated SkillQED output was written under `skills/`
+- Working tree after generation: dirty only because generated DisCo output was written under `skills/`
 - Generated skill id: `ms-swift`
 - Generated from repository evidence and installed-package inspection on: 2026-06-22
 - Remote URL: `https://github.com/modelscope/ms-swift`

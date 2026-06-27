@@ -8,7 +8,7 @@ Read this before deciding whether this skill is current for a checkout of TRL. I
 
 ```json
 {
-  "schema": "skillsmith.repo-provenance.v1",
+  "schema": "disco.repo-provenance.v1",
   "generated_at_utc": "2026-06-21T00:00:00Z",
   "repository": {
     "name": "trl",
@@ -44,4 +44,4 @@ Read this before deciding whether this skill is current for a checkout of TRL. I
 - If `git rev-parse HEAD` differs from `repository.commit`, treat the skill as potentially stale and run `refresh-skill-from-repo`.
 - If the current working tree dirty paths differ from `repository.dirty_paths`, run `refresh-skill-from-repo` before relying on this skill for changed code.
 - If package metadata, public trainer signatures, CLI entry points, optional extras, or environment integrations changed, run `refresh-skill-from-repo` even on the same commit.
-- The dirty path `skills/` was created by SkillSmith generation and is not TRL source behavior evidence.
+- The dirty path `skills/` was created by DisCo generation and is not TRL source behavior evidence.

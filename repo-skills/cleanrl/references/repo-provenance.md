@@ -61,7 +61,7 @@ Read this before deciding whether this skill is current for a CleanRL checkout. 
     "vcs": "git",
     "working_tree": "clean-before-skill-generation"
   },
-  "schema": "skillqed.repo-provenance.v1"
+  "schema": "disco.repo-provenance.v1"
 }
 ```
 

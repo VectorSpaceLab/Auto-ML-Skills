@@ -1,6 +1,6 @@
 # Repository Provenance
 
-schema: `skillsmith.repo-provenance.v1`
+schema: `disco.repo-provenance.v1`
 
 ## Source Snapshot
 
@@ -9,7 +9,7 @@ schema: `skillsmith.repo-provenance.v1`
 - Branch: `master`
 - Exact tag: none detected
 - Remote URL: omitted-private-or-unknown
-- Working tree state at generation: dirty because the generated `skills/` tree was added during this SkillSmith run
+- Working tree state at generation: dirty because the generated `skills/` tree was added during this DisCo run
 - Package distribution version observed in inspection environment: `2.8.1.dev20260621163742`
 - Package import version observed from `deepchem.__version__`: `2.8.1.dev`
 

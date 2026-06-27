@@ -6,7 +6,7 @@ OpenAI-compatible provider routing, gateway/proxy servers, model endpoint mappin
 
 ## Repo Skill Options
 
-<!-- SKILLQED_SCENARIO:ai-gateway-and-llm-provider-integration:START -->
+<!-- DISCO_SCENARIO:ai-gateway-and-llm-provider-integration:START -->
 ### `litellm`
 
 Role: Use for LiteLLM Python SDK, AI Gateway proxy, model routing, provider endpoint mapping, MCP/A2A agent tooling, pass-through routes, guardrails, virtual keys, spend tracking, and troubleshooting across OpenAI-compatible LLM.
@@ -15,7 +15,7 @@ Best for: agent tools, providers and endpoints, proxy server, routing, and sdk c
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
 Useful entry points: `litellm/SKILL.md`, `litellm/sub-skills/agent-tools/`, `litellm/sub-skills/providers-and-endpoints/`, `litellm/sub-skills/proxy-server/`, `litellm/sub-skills/routing/`, `litellm/sub-skills/sdk-core/`.
 
-<!-- SKILLQED_SCENARIO:ai-gateway-and-llm-provider-integration:END -->
+<!-- DISCO_SCENARIO:ai-gateway-and-llm-provider-integration:END -->
 
 ## How To Choose
 

@@ -6,7 +6,7 @@ Stable Diffusion or Diffusers pipelines, ComfyUI node graphs, image generation s
 
 ## Repo Skill Options
 
-<!-- SKILLQED_SCENARIO:image-generation-and-lora-training-workflows:START -->
+<!-- DISCO_SCENARIO:image-generation-and-lora-training-workflows:START -->
 ### `comfy-ui`
 
 Role: Use ComfyUI as a modular AI content-creation engine: launch and automate the server, submit API workflows, validate graph JSON, author custom nodes, and configure model paths/backends.
@@ -55,7 +55,7 @@ Best for: Running or configuring WebUI, constructing API requests, writing WebUI
 Avoid when: Use Diffusers-specific skills for Python pipeline APIs outside WebUI, ComfyUI-specific skills for node graphs, or generic repository maintenance skills when the task is only source editing without WebUI domain behavior.
 Useful entry points: `stable-diffusion-webui/SKILL.md`, `stable-diffusion-webui/sub-skills/launch-and-config/SKILL.md`, `stable-diffusion-webui/sub-skills/api-automation/SKILL.md`, `stable-diffusion-webui/sub-skills/assets-and-models/SKILL.md`, `stable-diffusion-webui/sub-skills/extension-scripting/SKILL.md`, `stable-diffusion-webui/sub-skills/training-and-postprocessing/SKILL.md`.
 
-<!-- SKILLQED_SCENARIO:image-generation-and-lora-training-workflows:END -->
+<!-- DISCO_SCENARIO:image-generation-and-lora-training-workflows:END -->
 
 ## How To Choose
 

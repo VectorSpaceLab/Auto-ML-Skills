@@ -6,7 +6,7 @@ Bulk RNA-seq raw-count differential expression analysis, DESeq2-like Python work
 
 ## Repo Skill Options
 
-<!-- SKILLQED_SCENARIO:bulk-rna-seq-differential-expression-analysis:START -->
+<!-- DISCO_SCENARIO:bulk-rna-seq-differential-expression-analysis:START -->
 ### `pydeseq2`
 
 Role: Use PyDESeq2 as a Python package for bulk RNA-seq differential expression workflows from data validation through fitted models and statistical results.
@@ -15,7 +15,7 @@ Best for: Preparing PyDESeq2 inputs, running DeseqDataSet.deseq2 workflows, comp
 Avoid when: Use single-cell omics skills for Scanpy/scvi single-cell workflows, general pandas/AnnData skills for non-DEA data wrangling, R/Bioconductor guidance for unsupported DESeq2-only features, and Python repository maintenance for editing PyDESeq2 source code.
 Useful entry points: `pydeseq2/SKILL.md`, `pydeseq2/sub-skills/data-io-validation/SKILL.md`, `pydeseq2/sub-skills/dea-workflows/SKILL.md`, `pydeseq2/sub-skills/statistics-and-results/SKILL.md`, `pydeseq2/sub-skills/model-fitting-internals/SKILL.md`.
 
-<!-- SKILLQED_SCENARIO:bulk-rna-seq-differential-expression-analysis:END -->
+<!-- DISCO_SCENARIO:bulk-rna-seq-differential-expression-analysis:END -->
 
 ## How To Choose
 

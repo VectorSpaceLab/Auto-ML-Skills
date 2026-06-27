@@ -8,7 +8,7 @@ Read this before deciding whether this skill is current for a checkout of Huggin
 
 ```json
 {
-  "schema": "skillsmith.repo-provenance.v1",
+  "schema": "disco.repo-provenance.v1",
   "generated_at_utc": "2026-06-21T00:00:00Z",
   "repository": {
     "name": "accelerate",
@@ -82,4 +82,4 @@ Read this before deciding whether this skill is current for a checkout of Huggin
 - If `git rev-parse HEAD` differs from the recorded commit, treat the skill as potentially stale and run `refresh-skill-from-repo`.
 - If the working tree changes in package source, docs, examples, tests, configs, or entry point metadata, run `refresh-skill-from-repo`.
 - If package metadata or public console scripts change even on the same commit, refresh this skill.
-- The recorded dirty path is the generated SkillSmith output under `skills/`; unrelated dirty source/docs/test paths should be treated as a staleness signal.
+- The recorded dirty path is the generated DisCo output under `skills/`; unrelated dirty source/docs/test paths should be treated as a staleness signal.

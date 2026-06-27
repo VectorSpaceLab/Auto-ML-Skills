@@ -43,7 +43,7 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     mode.add_argument("--run", action="store_true", help="execute the local smoke DAG with hailtop.batch.LocalBackend")
     parser.add_argument(
         "--name",
-        default="skillqed-local-smoke",
+        default="disco-local-smoke",
         help="Batch name to use in --run mode (default: %(default)s)",
     )
     return parser.parse_args(argv)

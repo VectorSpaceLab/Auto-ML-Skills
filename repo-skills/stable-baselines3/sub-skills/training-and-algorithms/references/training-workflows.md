@@ -34,8 +34,8 @@ DQN("MlpPolicy", "CartPole-v1", learning_starts=0, buffer_size=500, train_freq=1
 For a bundled command-line smoke, use:
 
 ```bash
-python skills/skillsmith/stable-baselines3/sub-skills/training-and-algorithms/scripts/train_smoke.py --help
-python skills/skillsmith/stable-baselines3/sub-skills/training-and-algorithms/scripts/train_smoke.py --algorithm A2C --timesteps 16
+python skills/disco/stable-baselines3/sub-skills/training-and-algorithms/scripts/train_smoke.py --help
+python skills/disco/stable-baselines3/sub-skills/training-and-algorithms/scripts/train_smoke.py --algorithm A2C --timesteps 16
 ```
 
 ## On-Policy Workflow: A2C and PPO

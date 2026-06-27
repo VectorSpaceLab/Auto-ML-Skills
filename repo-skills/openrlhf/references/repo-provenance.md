@@ -1,6 +1,6 @@
 # Repo Provenance
 
-schema: `skillsmith.repo-provenance.v1`
+schema: `disco.repo-provenance.v1`
 
 ## Source Snapshot
 
@@ -10,7 +10,7 @@ schema: `skillsmith.repo-provenance.v1`
 - Commit: `3f8ae08c99db23a3532abc3159144f6a0821a6d0`
 - Exact tag: none detected
 - Package version: `0.10.4`
-- Working tree state at generation: dirty because the generated `skills/` tree was added during SkillSmith generation
+- Working tree state at generation: dirty because the generated `skills/` tree was added during DisCo generation
 
 ## Evidence Paths
 

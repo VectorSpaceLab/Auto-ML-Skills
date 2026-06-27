@@ -6,11 +6,11 @@ Read this before deciding whether this skill is current for a checkout of the Pe
 
 ## Snapshot
 
-The source evidence snapshot was captured before writing the generated `skills/` output. Generated SkillQED files under `skills/` are not source evidence for PettingZoo behavior.
+The source evidence snapshot was captured before writing the generated `skills/` output. Generated DisCo files under `skills/` are not source evidence for PettingZoo behavior.
 
 ```json
 {
-  "schema": "skillqed.repo-provenance.v1",
+  "schema": "disco.repo-provenance.v1",
   "generated_at_utc": "2026-06-22T18:22:01Z",
   "repository": {
     "name": "PettingZoo",
@@ -77,5 +77,5 @@ The source evidence snapshot was captured before writing the generated `skills/`
 
 - If `git rev-parse HEAD` differs from `repository.commit`, treat the skill as potentially stale and run `refresh-repo-skill`.
 - If package metadata, public environment modules, test helper signatures, optional dependency groups, or docs/tutorial workflows changed, run `refresh-repo-skill`.
-- If a checkout is dirty only because it contains this generated `skills/` directory, compare source paths outside generated SkillQED output before deciding that PettingZoo behavior changed.
+- If a checkout is dirty only because it contains this generated `skills/` directory, compare source paths outside generated DisCo output before deciding that PettingZoo behavior changed.
 - If PettingZoo adds, removes, or renames environment families, extras, wrappers, or compliance helpers, refresh the skill even on the same commit.

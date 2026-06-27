@@ -52,7 +52,7 @@ print(Config.from_name("pythia-14m").name)
 - `references/capability-map.md`: workflow-to-sub-skill routing, optional dependency ownership, and safe native verification candidates.
 - `references/troubleshooting.md`: cross-cutting install/import, optional dependency, hardware, download, CLI config, data, checkpoint, and path failures.
 - `references/repo-provenance.md`: source repository snapshot and refresh baseline for detecting stale skill content.
-- `references/repo-routing-metadata.json`: structured routing metadata consumed by SkillQED import tooling.
+- `references/repo-routing-metadata.json`: structured routing metadata consumed by DisCo import tooling.
 
 ## Shared Script
 

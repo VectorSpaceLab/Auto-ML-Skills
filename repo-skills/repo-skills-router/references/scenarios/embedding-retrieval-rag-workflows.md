@@ -6,7 +6,7 @@ Embedding models, semantic or sparse search, reranking, vector or graph RAG, ret
 
 ## Repo Skill Options
 
-<!-- SKILLQED_SCENARIO:embedding-retrieval-rag-workflows:START -->
+<!-- DISCO_SCENARIO:embedding-retrieval-rag-workflows:START -->
 ### `beir`
 
 Role: Provides self-contained routing and workflow guidance for the BEIR Python package and examples.
@@ -143,7 +143,7 @@ Best for: Building and maintaining txtai Embeddings indexes, writing query/filte
 Avoid when: The task is about generic vector databases not using txtai, or about serving an already-built index over FastAPI without changing query logic.
 Useful entry points: `txtai/SKILL.md`, `txtai/sub-skills/embeddings-search/SKILL.md`.
 
-<!-- SKILLQED_SCENARIO:embedding-retrieval-rag-workflows:END -->
+<!-- DISCO_SCENARIO:embedding-retrieval-rag-workflows:END -->
 
 ## How To Choose
 

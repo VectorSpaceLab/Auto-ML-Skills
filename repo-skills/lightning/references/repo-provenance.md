@@ -11,7 +11,7 @@
 
 ## Dirty State Summary
 
-The checkout contained newly generated SkillSmith artifacts during integration. Relevant source evidence files were otherwise treated as read-only.
+The checkout contained newly generated DisCo artifacts during integration. Relevant source evidence files were otherwise treated as read-only.
 
 ```text
   ?? skills/

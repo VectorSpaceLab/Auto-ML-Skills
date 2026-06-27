@@ -1,6 +1,6 @@
 # Repo Provenance
 
-schema: skillsmith.repo-provenance.v1
+schema: disco.repo-provenance.v1
 
 ## Source Snapshot
 
@@ -9,7 +9,7 @@ schema: skillsmith.repo-provenance.v1
 - Git commit: `bfdd2d4e91a77ef4d3e005324a2ecc166b358898`
 - Git branch: `main`
 - Exact tag: none recorded
-- Working tree state at generation: dirty because SkillSmith-generated `skills/` content was present or being created
+- Working tree state at generation: dirty because DisCo-generated `skills/` content was present or being created
 - Remote URL: omitted-private-or-unknown
 
 ## Evidence Paths

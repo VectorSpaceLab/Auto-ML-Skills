@@ -36,7 +36,7 @@ Use this repo skill when a task mentions Protenix, biomolecular or protein struc
 - `references/package-overview.md` summarizes the package purpose, CLI surface, dependency profile, hardware assumptions, and workflow boundaries.
 - `references/troubleshooting.md` covers cross-cutting install/import, CLI visibility, package version, checkpoint/cache, CUDA/backend, external-tool, JSON, and data-root issues.
 - `references/repo-provenance.md` records the source snapshot and evidence paths used to generate this skill; read it before deciding whether a refresh is needed.
-- `references/repo-routing-metadata.json` is structured metadata consumed by SkillQED's `repo-skills-router` import flow.
+- `references/repo-routing-metadata.json` is structured metadata consumed by DisCo's `repo-skills-router` import flow.
 
 ## Shared Tool
 

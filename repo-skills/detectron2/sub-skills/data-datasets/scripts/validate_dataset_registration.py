@@ -26,7 +26,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--dataset-name",
-        default="skillqed_synthetic_dataset",
+        default="disco_synthetic_dataset",
         help="Catalog name for the synthetic smoke-test dataset.",
     )
     parser.add_argument(
@@ -39,7 +39,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--json-dataset-name",
-        default="skillqed_json_fixture_dataset",
+        default="disco_json_fixture_dataset",
         help="Catalog name used when registering --json fixture records.",
     )
     parser.add_argument(

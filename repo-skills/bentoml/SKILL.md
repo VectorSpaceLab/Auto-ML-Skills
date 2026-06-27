@@ -55,4 +55,4 @@ Use this repo skill for BentoML, a Python framework for building, serving, packa
 
 ## Version Notes
 
-This skill was generated from BentoML source commit `73c4dbead99be6515fa25fcd91e348ac30f5c22e` on branch `main` and installed package version `0.0.0.post1+g73c4dbead`. If the current checkout, package version, CLI flags, or public SDK signatures differ, run a SkillSmith refresh before relying on detailed guidance.
+This skill was generated from BentoML source commit `73c4dbead99be6515fa25fcd91e348ac30f5c22e` on branch `main` and installed package version `0.0.0.post1+g73c4dbead`. If the current checkout, package version, CLI flags, or public SDK signatures differ, run a DisCo refresh before relying on detailed guidance.

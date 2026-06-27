@@ -7,7 +7,7 @@ This page separates read-only checks from expensive or mutating maintainer actio
 These are appropriate before suggesting a build or while answering a build-system question:
 
 ```bash
-python skills/skillqed/simpleitk/sub-skills/builds-and-wrapping/scripts/check_build_metadata.py /path/to/SimpleITK
+python skills/disco/simpleitk/sub-skills/builds-and-wrapping/scripts/check_build_metadata.py /path/to/SimpleITK
 python - <<'PY'
 import SimpleITK as sitk
 print(sitk.Version())

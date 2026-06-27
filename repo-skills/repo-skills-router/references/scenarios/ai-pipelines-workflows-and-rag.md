@@ -6,7 +6,7 @@ Pipeline and workflow frameworks that combine embeddings, LLMs, agents, task cha
 
 ## Repo Skill Options
 
-<!-- SKILLQED_SCENARIO:ai-pipelines-workflows-and-rag:START -->
+<!-- DISCO_SCENARIO:ai-pipelines-workflows-and-rag:START -->
 ### `txtai`
 
 Role: Helps agents choose between deterministic txtai workflows and agentic/LLM/RAG orchestration, then use the correct sub-skill.
@@ -15,7 +15,7 @@ Best for: Composing task pipelines, debugging lazy workflows, selecting LLM/RAG/
 Avoid when: The user only needs a generic LangChain/LlamaIndex answer or asks for a non-txtai orchestration framework.
 Useful entry points: `txtai/SKILL.md`, `txtai/sub-skills/pipelines-and-workflows/SKILL.md`, `txtai/sub-skills/agents-and-llm-orchestration/SKILL.md`.
 
-<!-- SKILLQED_SCENARIO:ai-pipelines-workflows-and-rag:END -->
+<!-- DISCO_SCENARIO:ai-pipelines-workflows-and-rag:END -->
 
 ## How To Choose
 

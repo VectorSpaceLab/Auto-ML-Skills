@@ -15,7 +15,7 @@ PRIVATE_PATTERNS = tuple(
         "/" + "root" + "/",
         "/" + "share" + "/",
         "github" + "-repos",
-        ".skillsmith" + "/agent/envs",
+        ".disco" + "/agent/envs",
         "conda" + "-prefix",
         "repo_env" + "_report.json",
     ]

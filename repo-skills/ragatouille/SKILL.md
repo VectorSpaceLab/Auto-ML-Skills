@@ -56,7 +56,7 @@ If import then fails through `fast_pytorch_kmeans` on `psutil`, install `psutil`
 
 - `references/evidence-summary.md`: source files, docs, examples, tests, and installed-package facts distilled into this skill.
 - `references/repo-provenance.md`: public source snapshot and evidence paths for future staleness checks.
-- `references/repo-routing-metadata.json`: structured scenario metadata used by SkillQED's repo-skills router.
+- `references/repo-routing-metadata.json`: structured scenario metadata used by DisCo's repo-skills router.
 - `references/troubleshooting.md`: cross-cutting installation, import, backend, network, and workflow safety guidance.
 - `scripts/check_ragatouille_environment.py`: safe import/signature/backend checker that does not load models, download checkpoints, train, or upload artifacts.
 

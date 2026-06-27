@@ -8,7 +8,7 @@ Read this before deciding whether this skill is current for a checkout of the re
 
 ```json
 {
-  "schema": "skillsmith.repo-provenance.v1",
+  "schema": "disco.repo-provenance.v1",
   "generated_at_utc": "2026-06-21T10:40:00Z",
   "repository": {
     "name": "ColBERT",

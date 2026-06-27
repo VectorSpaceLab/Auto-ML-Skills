@@ -41,5 +41,5 @@ The generated skill is self-contained for planning, validation, troubleshooting,
 
 - [install-and-runtime.md](references/install-and-runtime.md) covers setup, Docker/conda expectations, optional dependencies, and environment checks.
 - [troubleshooting.md](references/troubleshooting.md) covers cross-cutting failure modes shared by sub-skills.
-- [repo-routing-metadata.json](references/repo-routing-metadata.json) is consumed by SkillQED's managed repo-skills-router during import.
+- [repo-routing-metadata.json](references/repo-routing-metadata.json) is consumed by DisCo's managed repo-skills-router during import.
 - [repo-provenance.md](references/repo-provenance.md) records the source snapshot and evidence baseline.

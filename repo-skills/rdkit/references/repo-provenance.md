@@ -1,6 +1,6 @@
 # RDKit Repo Provenance
 
-schema: `skillsmith.repo-provenance.v1`
+schema: `disco.repo-provenance.v1`
 
 This file is the refresh baseline for the generated `rdkit` skill.
 
@@ -12,7 +12,7 @@ This file is the refresh baseline for the generated `rdkit` skill.
 - Exact tag: none detected
 - Remote URL: omitted-private-or-unknown
 - Source version variables from `CMakeLists.txt`: `RDKit_Year=2026`, `RDKit_Month=09`, `RDKit_Revision=1`, `RDKit_RevisionModifier=pre`, `RDKit_ABI=1`
-- Working tree state at generation: dirty because new SkillSmith output was created under `skills/`
+- Working tree state at generation: dirty because new DisCo output was created under `skills/`
 
 ## Inspection Package Facts
 
@@ -44,7 +44,7 @@ Primary evidence used to generate this skill:
 - benchmarks, fuzzers, broad regression timing scripts, and long-running tests except as evidence for skip decisions
 - secondary Java/C#/web wrapper surfaces unless needed for routing
 - duplicate translated docs under `Docs/Book_jp`
-- `skills/tests/`, which is the SkillSmith review/test artifact area rather than runtime skill content
+- `skills/tests/`, which is the DisCo review/test artifact area rather than runtime skill content
 
 ## Refresh Guidance
 

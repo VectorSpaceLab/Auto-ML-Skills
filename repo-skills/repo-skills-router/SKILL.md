@@ -8,7 +8,7 @@ description: "Use this two-layer router for imported repository skills. Read it 
 ## Purpose
 
 Use this skill as the maintained router for repo-specific skills imported into
-SkillQED's managed skill library. It helps another agent pick a relevant repo
+DisCo's managed skill library. It helps another agent pick a relevant repo
 skill as reference for a user request without reading every imported skill.
 
 The router uses two-layer progressive disclosure:
@@ -36,8 +36,8 @@ selected repo skill's detailed instructions.
 ## Maintenance After Skill Import
 
 When a verified repo-specific skill is imported after user approval, update the
-live SkillQED router by running the managed updater script inside the global
-SkillQED import lock instead of editing router Markdown by hand. See
+live DisCo router by running the managed updater script inside the global
+DisCo import lock instead of editing router Markdown by hand. See
 [references/maintenance.md](references/maintenance.md).
 
 ## Usage Scenario Quick Map
@@ -45,7 +45,7 @@ SkillQED import lock instead of editing router Markdown by hand. See
 Keep this section short. It should route a future agent to the right scenario
 page, not document the repo skills in full.
 
-<!-- SKILLQED_REPO_SKILLS_ROUTER_SCENARIOS:START -->
+<!-- DISCO_REPO_SKILLS_ROUTER_SCENARIOS:START -->
 | Usage scenario | When to read | Scenario page | Representative repo skills |
 | --- | --- | --- | --- |
 | `agent-frameworks-tooling-and-sandboxed-llm-workflows` | LLM agent frameworks, browser automation agents, tool calling, graph/state runtimes, hosted or sandbox execution, MCP, CLIs, and production agent operations. | `references/scenarios/agent-frameworks-tooling-and-sandboxed-llm-workflows.md` | `adk-python`, `autogen`, `browser-use`, `camel-ai`, `crewai`, `haystack`, `langchain`, `langgraph`, `litellm`, `llama-index`, `mcp-agent`, `openai-agents-python`, `pydantic-ai`, `smolagents` |
@@ -78,4 +78,4 @@ page, not document the repo skills in full.
 | `reinforcement-learning-workflows` | Gymnasium environments, Stable-Baselines3 algorithms, RL vectorization, policies, evaluation, experiment scripts, replay buffers, collectors, action masks, multi-agent RL environments, and PPO-family rollout-agent training. | `references/scenarios/reinforcement-learning-workflows.md` | `cleanrl`, `openrlhf`, `pettingzoo`, `stable-baselines3`, `tianshou`, `trl`, `verl` |
 | `scientific-python-data-workflows` | NumPy-style array analysis combined with molecular simulation trajectories, coordinate transformations, or per-frame scientific computations in Python. | `references/scenarios/scientific-python-data-workflows.md` | `mdanalysis` |
 | `single-cell-omics-and-scanpy-workflows` | AnnData/MuData setup, Scanpy preprocessing/QC, graph analysis, marker genes, probabilistic scvi-tools models, multimodal/spatial omics, and single-cell plotting/reporting. | `references/scenarios/single-cell-omics-and-scanpy-workflows.md` | `anndata`, `pyscenic`, `scanpy`, `scvi-tools`, `squidpy` |
-<!-- SKILLQED_REPO_SKILLS_ROUTER_SCENARIOS:END -->
+<!-- DISCO_REPO_SKILLS_ROUTER_SCENARIOS:END -->

@@ -6,7 +6,7 @@ Medical image transforms, nnU-Net planning/training/inference, MONAI bundles, To
 
 ## Repo Skill Options
 
-<!-- SKILLQED_SCENARIO:medical-imaging-and-segmentation-workflows:START -->
+<!-- DISCO_SCENARIO:medical-imaging-and-segmentation-workflows:START -->
 ### `antspy`
 
 Role: Provides repo-specific guidance for the ANTsPy/antspyx Python package and its ANTs/ITK-backed medical image workflows.
@@ -71,7 +71,7 @@ Best for: Planning and troubleshooting TotalSegmentator runs; discovering valid 
 Avoid when: Use a general MONAI, nnU-Net, TorchIO, or medical-imaging skill when the task is not TotalSegmentator-specific; avoid using this skill as clinical validation guidance or as a generic medical diagnosis tool.
 Useful entry points: `totalsegmentator/SKILL.md`, `totalsegmentator/sub-skills/capability-discovery/SKILL.md`, `totalsegmentator/sub-skills/segmentation-workflows/SKILL.md`, `totalsegmentator/sub-skills/outputs-and-statistics/SKILL.md`, `totalsegmentator/sub-skills/runtime-configuration/SKILL.md`, `totalsegmentator/sub-skills/dicom-and-formats/SKILL.md`, `totalsegmentator/sub-skills/auxiliary-analysis/SKILL.md`, `totalsegmentator/sub-skills/advanced-training/SKILL.md`.
 
-<!-- SKILLQED_SCENARIO:medical-imaging-and-segmentation-workflows:END -->
+<!-- DISCO_SCENARIO:medical-imaging-and-segmentation-workflows:END -->
 
 ## How To Choose
 

@@ -1,6 +1,6 @@
 # Repository Provenance
 
-schema: `skillsmith.repo-provenance.v1`
+schema: `disco.repo-provenance.v1`
 
 This skill was generated from repository evidence for `scvi-tools`.
 
@@ -11,7 +11,7 @@ This skill was generated from repository evidence for `scvi-tools`.
 - Branch: `main`
 - Exact tag: none detected
 - Working tree state: dirty at generation time
-- Dirty summary: untracked `skills/` tree containing generated SkillSmith runtime and review/test artifacts
+- Dirty summary: untracked `skills/` tree containing generated DisCo runtime and review/test artifacts
 - Package version: `1.4.3`
 - Remote URL: omitted-private-or-unknown
 

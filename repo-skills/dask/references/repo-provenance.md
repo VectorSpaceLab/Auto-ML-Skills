@@ -1,6 +1,6 @@
 # Repository Provenance
 
-Schema: `skillsmith.repo-provenance.v1`
+Schema: `disco.repo-provenance.v1`
 
 This skill was generated from repository evidence for the Dask Python package.
 

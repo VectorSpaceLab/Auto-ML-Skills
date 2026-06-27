@@ -8,7 +8,7 @@ Read this before deciding whether this skill is current for a checkout of REINVE
 
 ```json
 {
-  "schema": "skillqed.repo-provenance.v1",
+  "schema": "disco.repo-provenance.v1",
   "generated_at_utc": "2026-06-22T19:38:24Z",
   "repository": {
     "name": "REINVENT4",

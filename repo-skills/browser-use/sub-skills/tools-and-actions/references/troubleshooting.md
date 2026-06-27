@@ -26,7 +26,7 @@ Start with the exact error text. Browser Use intentionally returns many web/acti
 Validation command:
 
 ```bash
-python skills/skillsmith/browser-use/sub-skills/tools-and-actions/scripts/validate_custom_tool.py
+python skills/disco/browser-use/sub-skills/tools-and-actions/scripts/validate_custom_tool.py
 ```
 
 ## Default Action Failures

@@ -8,7 +8,7 @@ Read this before deciding whether this skill is current for a checkout of Hail. 
 
 ```json
 {
-  "schema": "skillqed.repo-provenance.v1",
+  "schema": "disco.repo-provenance.v1",
   "generated_at_utc": "2026-06-23T18:51:09Z",
   "repository": {
     "name": "hail",
@@ -57,7 +57,7 @@ Read this before deciding whether this skill is current for a checkout of Hail. 
       "hail/python/benchmark"
     ],
     "existing_skill_evidence": [
-      "skills/skillqed/hail"
+      "skills/disco/hail"
     ],
     "excluded_major_areas": [
       "auth",

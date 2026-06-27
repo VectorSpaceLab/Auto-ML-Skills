@@ -8,7 +8,7 @@ Read this before deciding whether this skill is current for a checkout of the BE
 
 ```json
 {
-  "schema": "skillqed.repo-provenance.v1",
+  "schema": "disco.repo-provenance.v1",
   "generated_at_utc": "2026-06-22T18:46:32Z",
   "repository": {
     "name": "beir",
@@ -21,7 +21,7 @@ Read this before deciding whether this skill is current for a checkout of the BE
     "dirty_paths": [
       "skills/"
     ],
-    "note": "The source checkout was clean before SkillQED generated the runtime skill and review artifacts under skills/."
+    "note": "The source checkout was clean before DisCo generated the runtime skill and review artifacts under skills/."
   },
   "packages": [
     {

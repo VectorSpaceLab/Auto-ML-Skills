@@ -6,7 +6,7 @@ AnnData/MuData setup, Scanpy preprocessing/QC, graph analysis, marker genes, pro
 
 ## Repo Skill Options
 
-<!-- SKILLQED_SCENARIO:single-cell-omics-and-scanpy-workflows:START -->
+<!-- DISCO_SCENARIO:single-cell-omics-and-scanpy-workflows:START -->
 ### `anndata`
 
 Role: Provides package-specific AnnData guidance for object modeling, storage I/O, data combination, reference accessors, and extension namespaces.
@@ -47,7 +47,7 @@ Best for: Loading spatial omics inputs, validating AnnData/SpatialData keys, bui
 Avoid when: Use a Scanpy-focused skill for general non-spatial single-cell preprocessing and marker workflows; use computer-vision skills for generic image segmentation/modeling unrelated to Squidpy/SpatialData; use repository-maintenance skills for changing Squidpy source code itself.
 Useful entry points: `squidpy/SKILL.md`, `squidpy/sub-skills/datasets-and-io/SKILL.md`, `squidpy/sub-skills/graph-analysis/SKILL.md`, `squidpy/sub-skills/image-analysis/SKILL.md`, `squidpy/sub-skills/visualization/SKILL.md`, `squidpy/sub-skills/tools-workflows/SKILL.md`, `squidpy/sub-skills/experimental-imaging/SKILL.md`.
 
-<!-- SKILLQED_SCENARIO:single-cell-omics-and-scanpy-workflows:END -->
+<!-- DISCO_SCENARIO:single-cell-omics-and-scanpy-workflows:END -->
 
 ## How To Choose
 

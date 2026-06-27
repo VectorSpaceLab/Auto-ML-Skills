@@ -6,7 +6,7 @@ Distributed training loops, launchers, DeepSpeed/FSDP/TPU backends, PyTorch Ligh
 
 ## Repo Skill Options
 
-<!-- SKILLQED_SCENARIO:distributed-pytorch-training-and-large-model-workflows:START -->
+<!-- DISCO_SCENARIO:distributed-pytorch-training-and-large-model-workflows:START -->
 ### `accelerate`
 
 Role: Use Hugging Face Accelerate for PyTorch training-loop migration, distributed launch/configuration, DeepSpeed/FSDP/TPU backend setup, big-model inference/offload, checkpointing, tracking, and troubleshooting.
@@ -79,7 +79,7 @@ Best for: checkpoints and model ops, data and rewards, repo development, rollout
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
 Useful entry points: `verl/SKILL.md`, `verl/sub-skills/checkpoints-and-model-ops/`, `verl/sub-skills/data-and-rewards/`, `verl/sub-skills/repo-development/`, `verl/sub-skills/rollout-and-tools/`, `verl/sub-skills/setup-and-backends/`, `1 more sub-skills`.
 
-<!-- SKILLQED_SCENARIO:distributed-pytorch-training-and-large-model-workflows:END -->
+<!-- DISCO_SCENARIO:distributed-pytorch-training-and-large-model-workflows:END -->
 
 ## How To Choose
 

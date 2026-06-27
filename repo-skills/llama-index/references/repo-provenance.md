@@ -1,6 +1,6 @@
 # Repo Provenance
 
-- schema: skillsmith.repo-provenance.v1
+- schema: disco.repo-provenance.v1
 - Source project: LlamaIndex
 - Source repository identity: `run-llama/llama_index` from package metadata
 - Source commit: `9f66e8a649856524ef0ff081a23d58cd071b6ae4`

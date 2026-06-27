@@ -6,7 +6,7 @@ Document conversion, partitioning, OCR/table pipelines, Markdown conversion, doc
 
 ## Repo Skill Options
 
-<!-- SKILLQED_SCENARIO:document-processing-unstructured-data-and-rag-preparation:START -->
+<!-- DISCO_SCENARIO:document-processing-unstructured-data-and-rag-preparation:START -->
 ### `docling`
 
 Role: Use Docling to convert, parse, configure, extract, chunk, serve, and maintain document-processing workflows across Python APIs, CLI commands, optional pipelines, and repository edits.
@@ -39,7 +39,7 @@ Best for: chunking, data preparation, elements and metadata, embeddings, evaluat
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
 Useful entry points: `unstructured/SKILL.md`, `unstructured/sub-skills/chunking/`, `unstructured/sub-skills/data-preparation/`, `unstructured/sub-skills/elements-and-metadata/`, `unstructured/sub-skills/embeddings/`, `unstructured/sub-skills/evaluation/`, `1 more sub-skills`.
 
-<!-- SKILLQED_SCENARIO:document-processing-unstructured-data-and-rag-preparation:END -->
+<!-- DISCO_SCENARIO:document-processing-unstructured-data-and-rag-preparation:END -->
 
 ## How To Choose
 

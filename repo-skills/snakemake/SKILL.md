@@ -14,7 +14,7 @@ Use this skill when a user asks for help with Snakemake workflows: writing or re
 2. Confirm the installed Snakemake generation when commands or APIs matter: this skill targets Snakemake 9.23.1.
 3. Prefer non-mutating checks first: `snakemake --cores 1 --dry-run --printshellcmds`, `snakemake --lint`, DAG/rulegraph/summary commands, or the bundled smoke scripts.
 4. Do not add the legacy `--reason` flag. Snakemake 9.23.1 rejects it; dry-run output already prints job reasons.
-5. Keep workflow-generated artifacts separate from SkillSmith artifacts; Snakemake unit-test outputs such as `.tests/unit` are user workflow files, not repo-skill review files.
+5. Keep workflow-generated artifacts separate from DisCo artifacts; Snakemake unit-test outputs such as `.tests/unit` are user workflow files, not repo-skill review files.
 
 ## Route by Task
 

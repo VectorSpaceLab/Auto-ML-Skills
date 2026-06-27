@@ -1,6 +1,6 @@
 # Dipy Repo Provenance
 
-Schema: `skillqed.repo-provenance.v1`
+Schema: `disco.repo-provenance.v1`
 
 ## Source Snapshot
 
@@ -10,7 +10,7 @@ Schema: `skillqed.repo-provenance.v1`
 - Branch: `master`
 - Exact tag: none detected
 - Remote URL: `https://github.com/dipy/dipy`
-- Working tree state at generation: dirty because SkillQED generated new `skills/` content in the checkout
+- Working tree state at generation: dirty because DisCo generated new `skills/` content in the checkout
 - Relative changed paths summary: `skills/` untracked
 
 ## Package Snapshot

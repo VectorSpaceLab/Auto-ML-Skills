@@ -7,7 +7,7 @@
 - Commit: `4e448269bcf7136905b45c0ef5ac34c2254a1a3b`
 - Branch: `main`
 - Exact tag: none detected
-- Dirty state before SkillQED generation: clean for tracked files. Generated skill outputs are not part of the source baseline.
+- Dirty state before DisCo generation: clean for tracked files. Generated skill outputs are not part of the source baseline.
 
 ## Package Versions
 

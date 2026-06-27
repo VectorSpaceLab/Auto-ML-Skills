@@ -1,6 +1,6 @@
 # Repository Provenance
 
-Schema: `skillsmith.repo-provenance.v1`
+Schema: `disco.repo-provenance.v1`
 
 This skill was generated from Snakemake repository evidence and installed-package inspection.
 

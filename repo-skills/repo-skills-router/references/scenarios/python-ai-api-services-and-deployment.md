@@ -6,7 +6,7 @@ Python AI packages exposed as APIs, FastAPI services, OpenAI-compatible endpoint
 
 ## Repo Skill Options
 
-<!-- SKILLQED_SCENARIO:python-ai-api-services-and-deployment:START -->
+<!-- DISCO_SCENARIO:python-ai-api-services-and-deployment:START -->
 ### `stable-diffusion-webui`
 
 Role: Covers WebUI-specific API service launch, authentication, CORS/TLS/subpath flags, /sdapi route behavior, and server lifecycle hazards.
@@ -23,7 +23,7 @@ Best for: Creating service YAML, validating route families, starting Uvicorn, se
 Avoid when: The task only asks for local embeddings query syntax or deterministic workflow internals without service deployment.
 Useful entry points: `txtai/SKILL.md`, `txtai/sub-skills/api-and-deployment/SKILL.md`.
 
-<!-- SKILLQED_SCENARIO:python-ai-api-services-and-deployment:END -->
+<!-- DISCO_SCENARIO:python-ai-api-services-and-deployment:END -->
 
 ## How To Choose
 

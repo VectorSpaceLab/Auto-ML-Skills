@@ -6,7 +6,7 @@ SFT, DPO, GRPO, PPO, reward models, RLHF data/rewards, rollout engines, post-tra
 
 ## Repo Skill Options
 
-<!-- SKILLQED_SCENARIO:llm-post-training-rlhf-workflows:START -->
+<!-- DISCO_SCENARIO:llm-post-training-rlhf-workflows:START -->
 ### `ms-swift`
 
 Role: Explains ms-swift advanced RL and distributed execution routes with optional dependency and parallelism caveats.
@@ -47,7 +47,7 @@ Best for: checkpoints and model ops, data and rewards, repo development, rollout
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
 Useful entry points: `verl/SKILL.md`, `verl/sub-skills/checkpoints-and-model-ops/`, `verl/sub-skills/data-and-rewards/`, `verl/sub-skills/repo-development/`, `verl/sub-skills/rollout-and-tools/`, `verl/sub-skills/setup-and-backends/`, `1 more sub-skills`.
 
-<!-- SKILLQED_SCENARIO:llm-post-training-rlhf-workflows:END -->
+<!-- DISCO_SCENARIO:llm-post-training-rlhf-workflows:END -->
 
 ## How To Choose
 

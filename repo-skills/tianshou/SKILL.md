@@ -40,7 +40,7 @@ Use this repo skill when a user asks for Tianshou, `tianshou`, PyTorch + Gymnasi
 - `references/troubleshooting.md` covers install/import, optional dependency, data/config, CLI/API misuse, and workflow failure patterns shared across sub-skills.
 - `references/evaluation-and-benchmarks.md` explains safe evaluation, multi-seed launchers, rliable outputs, and benchmark-scale guardrails.
 - `references/repo-provenance.md` records the source commit, version, dirty state, and evidence paths used to generate this skill.
-- `references/repo-routing-metadata.json` is structured metadata consumed by SkillQED's `repo-skills-router` import.
+- `references/repo-routing-metadata.json` is structured metadata consumed by DisCo's `repo-skills-router` import.
 - `scripts/check_tianshou_install.py` performs a safe import/API smoke for installed Tianshou without training, downloads, or source checkout reads.
 
 ## Safe Smoke Commands

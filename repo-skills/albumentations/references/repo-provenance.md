@@ -1,6 +1,6 @@
 # Repository provenance
 
-- Schema: `skillsmith.repo-provenance.v1`
+- Schema: `disco.repo-provenance.v1`
 - Source project: Albumentations
 - Skill id: `albumentations`
 - Package version: `2.0.8`
@@ -8,7 +8,7 @@
 - Git branch: `main`
 - Exact tag: none detected
 - Remote URL: omitted-private-or-unknown
-- Working tree state at generation: dirty because this SkillSmith run added generated skill and review artifacts under `skills/`.
+- Working tree state at generation: dirty because this DisCo run added generated skill and review artifacts under `skills/`.
 
 ## Evidence paths
 

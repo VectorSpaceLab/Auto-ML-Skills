@@ -61,7 +61,7 @@ Read this before deciding whether this W&B skill is current for a checkout of th
     "vcs": "git",
     "working_tree": "clean"
   },
-  "schema": "skillsmith.repo-provenance.v1"
+  "schema": "disco.repo-provenance.v1"
 }
 ```
 

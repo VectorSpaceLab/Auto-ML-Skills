@@ -8,7 +8,7 @@ Read this before deciding whether this skill is current for a checkout of Prefec
 
 ```json
 {
-  "schema": "skillqed.repo-provenance.v1",
+  "schema": "disco.repo-provenance.v1",
   "generated_at_utc": "2026-06-23T00:00:00Z",
   "repository": {
     "name": "prefect",

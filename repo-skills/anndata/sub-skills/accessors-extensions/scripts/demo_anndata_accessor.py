@@ -35,8 +35,8 @@ def make_adata() -> AnnData:
     return adata
 
 
-@ad.register_anndata_namespace("skillqed_demo")
-class SkillQEDDemoNamespace:
+@ad.register_anndata_namespace("disco_demo")
+class DisCoDemoNamespace:
     def __init__(self, adata: AnnData) -> None:
         self._adata = adata
 
@@ -88,8 +88,8 @@ def run_demo() -> dict[str, object]:
         "json_payload": payload,
         "json_roundtrip": str(roundtrip_ref),
         "resolved_string": str(resolved_ref),
-        "namespace_missing": adata.skillqed_demo.missing([*refs, missing_ref]),
-        "namespace_validation": adata.skillqed_demo.require_obs_column("batch"),
+        "namespace_missing": adata.disco_demo.missing([*refs, missing_ref]),
+        "namespace_validation": adata.disco_demo.require_obs_column("batch"),
     }
 
 

@@ -6,7 +6,7 @@ Gymnasium environments, Stable-Baselines3 algorithms, RL vectorization, policies
 
 ## Repo Skill Options
 
-<!-- SKILLQED_SCENARIO:reinforcement-learning-workflows:START -->
+<!-- DISCO_SCENARIO:reinforcement-learning-workflows:START -->
 ### `cleanrl`
 
 Role: Routes CleanRL script-oriented RL training tasks to algorithm, CLI, optional dependency, and safe-run guidance.
@@ -63,7 +63,7 @@ Best for: checkpoints and model ops, data and rewards, repo development, rollout
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
 Useful entry points: `verl/SKILL.md`, `verl/sub-skills/checkpoints-and-model-ops/`, `verl/sub-skills/data-and-rewards/`, `verl/sub-skills/repo-development/`, `verl/sub-skills/rollout-and-tools/`, `verl/sub-skills/setup-and-backends/`, `1 more sub-skills`.
 
-<!-- SKILLQED_SCENARIO:reinforcement-learning-workflows:END -->
+<!-- DISCO_SCENARIO:reinforcement-learning-workflows:END -->
 
 ## How To Choose
 

@@ -99,7 +99,7 @@ See [references/security-and-files.md](references/security-and-files.md) for gua
 Run the bundled helper after editing tool code or snippets:
 
 ```bash
-python skills/skillsmith/browser-use/sub-skills/tools-and-actions/scripts/validate_custom_tool.py
+python skills/disco/browser-use/sub-skills/tools-and-actions/scripts/validate_custom_tool.py
 ```
 
 The helper checks imports, registry schema generation, injected parameter names, validation errors, domain filtering, and `ActionResult` normalization without launching a browser or making network calls.

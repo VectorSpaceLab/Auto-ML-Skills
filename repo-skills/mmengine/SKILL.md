@@ -14,7 +14,7 @@ Use this skill when a task mentions MMEngine, OpenMMLab engine utilities, `Confi
 - `references/troubleshooting.md`: Diagnose cross-cutting install/import, optional dependency, config, runner, data, model, visualization, and distributed issues.
 - `scripts/mmengine_import_check.py`: Run a safe import/API smoke check for the installed `mmengine` package before deeper debugging.
 - `references/repo-provenance.md`: Check the source version and evidence baseline used to create this skill.
-- `references/repo-routing-metadata.json`: Structured routing metadata consumed by SkillQED's managed repo-skills router.
+- `references/repo-routing-metadata.json`: Structured routing metadata consumed by DisCo's managed repo-skills router.
 
 ## Route by Task
 

@@ -49,7 +49,7 @@ The following were not used as runtime dependencies:
 - docs maintainer utilities such as `docs/autogen_rst.py`, `docs/create_toc.py`, and `docs/nbstripout.py`
 - binary/game assets such as VizDoom WAD files
 - build/cache/local-environment directories
-- SkillQED review/test artifact directories
+- DisCo review/test artifact directories
 
 ## Installed-Package Inspection Baseline
 

@@ -12,7 +12,7 @@ Add scenarios only when at least one imported repo skill belongs there. Prefer
 user-facing task families over implementation taxonomy. A repo skill may appear
 in multiple scenarios when it genuinely supports multiple kinds of requests.
 
-<!-- SKILLQED_REPO_SKILLS_ROUTER_SCENARIOS:START -->
+<!-- DISCO_REPO_SKILLS_ROUTER_SCENARIOS:START -->
 | Usage scenario | When to read | Scenario page | Representative repo skills |
 | --- | --- | --- | --- |
 | `agent-frameworks-tooling-and-sandboxed-llm-workflows` | LLM agent frameworks, browser automation agents, tool calling, graph/state runtimes, hosted or sandbox execution, MCP, CLIs, and production agent operations. | `scenarios/agent-frameworks-tooling-and-sandboxed-llm-workflows.md` | `adk-python`, `autogen`, `browser-use`, `camel-ai`, `crewai`, `haystack`, `langchain`, `langgraph`, `litellm`, `llama-index`, `mcp-agent`, `openai-agents-python`, `pydantic-ai`, `smolagents` |
@@ -45,7 +45,7 @@ in multiple scenarios when it genuinely supports multiple kinds of requests.
 | `reinforcement-learning-workflows` | Gymnasium environments, Stable-Baselines3 algorithms, RL vectorization, policies, evaluation, experiment scripts, replay buffers, collectors, action masks, multi-agent RL environments, and PPO-family rollout-agent training. | `scenarios/reinforcement-learning-workflows.md` | `cleanrl`, `openrlhf`, `pettingzoo`, `stable-baselines3`, `tianshou`, `trl`, `verl` |
 | `scientific-python-data-workflows` | NumPy-style array analysis combined with molecular simulation trajectories, coordinate transformations, or per-frame scientific computations in Python. | `scenarios/scientific-python-data-workflows.md` | `mdanalysis` |
 | `single-cell-omics-and-scanpy-workflows` | AnnData/MuData setup, Scanpy preprocessing/QC, graph analysis, marker genes, probabilistic scvi-tools models, multimodal/spatial omics, and single-cell plotting/reporting. | `scenarios/single-cell-omics-and-scanpy-workflows.md` | `anndata`, `pyscenic`, `scanpy`, `scvi-tools`, `squidpy` |
-<!-- SKILLQED_REPO_SKILLS_ROUTER_SCENARIOS:END -->
+<!-- DISCO_REPO_SKILLS_ROUTER_SCENARIOS:END -->
 
 ## Scenario Registry
 
@@ -86,7 +86,7 @@ Each generated scenario page has this shape:
 [Task descriptions that should route to this scenario.]
 
 ## Repo Skill Options
-<!-- SKILLQED_SCENARIO:<scenario>:START -->
+<!-- DISCO_SCENARIO:<scenario>:START -->
 ### `<skill-name>`
 
 Role: [one-sentence practical role in this scenario.]
@@ -94,7 +94,7 @@ Read when: [user terms, repo names, task shapes, data/model/API signals.]
 Best for: [specific workflows this skill should support.]
 Avoid when: [clear non-fit or better scenario/skill.]
 Useful entry points: [root SKILL.md, sub-skills, references, scripts.]
-<!-- SKILLQED_SCENARIO:<scenario>:END -->
+<!-- DISCO_SCENARIO:<scenario>:END -->
 
 ## How To Choose
 [Compare similar repo skills in this same scenario.]

@@ -40,7 +40,7 @@ python scripts/rag_smoke_check.py
 If working in the Haystack repository checkout, follow the repository’s Hatch policy for execution, for example:
 
 ```bash
-hatch -e test run python skills/skillsmith/haystack/sub-skills/retrieval-and-rag/scripts/rag_smoke_check.py
+hatch -e test run python skills/disco/haystack/sub-skills/retrieval-and-rag/scripts/rag_smoke_check.py
 ```
 
 ## References

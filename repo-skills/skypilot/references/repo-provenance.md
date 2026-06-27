@@ -8,7 +8,7 @@ Read this before deciding whether this skill is current for a SkyPilot checkout.
 
 ```json
 {
-  "schema": "skillqed.repo-provenance.v1",
+  "schema": "disco.repo-provenance.v1",
   "generated_at_utc": "2026-06-22T19:07:50Z",
   "repository": {
     "name": "skypilot",
@@ -21,7 +21,7 @@ Read this before deciding whether this skill is current for a SkyPilot checkout.
     "dirty_paths": [
       "skills/"
     ],
-    "dirty_state_note": "The source checkout was clean before this generated skill was written. The listed dirty path is the generated SkillQED output tree."
+    "dirty_state_note": "The source checkout was clean before this generated skill was written. The listed dirty path is the generated DisCo output tree."
   },
   "packages": [
     {

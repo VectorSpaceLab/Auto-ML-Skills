@@ -6,7 +6,7 @@ LLM benchmark configuration, evaluation harness runs, OpenCompass configs, task 
 
 ## Repo Skill Options
 
-<!-- SKILLQED_SCENARIO:language-model-evaluation-workflows:START -->
+<!-- DISCO_SCENARIO:language-model-evaluation-workflows:START -->
 ### `evaluate`
 
 Role: Use Hugging Face Evaluate to load metrics, comparisons, and measurements; compute and combine results; run evaluator pipelines; create custom modules; troubleshoot optional dependencies, cache, Hub, and CLI workflows.
@@ -39,7 +39,7 @@ Best for: Planning torchtune evaluation commands and config edits after a compat
 Avoid when: The request is about writing custom Eleuther tasks or using lm-evaluation-harness directly outside torchtune.
 Useful entry points: `torchtune/sub-skills/inference-evaluation-quantization/SKILL.md`, `torchtune/sub-skills/cli-and-config/SKILL.md`.
 
-<!-- SKILLQED_SCENARIO:language-model-evaluation-workflows:END -->
+<!-- DISCO_SCENARIO:language-model-evaluation-workflows:END -->
 
 ## How To Choose
 
