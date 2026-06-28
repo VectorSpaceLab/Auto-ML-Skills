@@ -1,0 +1,14 @@
+[
+  {
+    "name": "minimal_protein",
+    "sequences": [
+      {
+        "proteinChain": {
+          "sequence": "ACDEFGHIK",
+          "count": 1,
+          "id": ["A"]
+        }
+      }
+    ]
+  }
+]

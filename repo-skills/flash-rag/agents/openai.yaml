@@ -1,7 +1,0 @@
-interface:
-  display_name: "FlashRAG Repo Skill"
-  short_description: "Run FlashRAG workflows with routed sub-skills"
-  default_prompt: "Use $flash-rag to validate a JSONL corpus, build a BM25s index, run a retrieval smoke test, and inspect the result."
-
-policy:
-  allow_implicit_invocation: false

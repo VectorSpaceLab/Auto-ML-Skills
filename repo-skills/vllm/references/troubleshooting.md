@@ -1,60 +1,47 @@
-# vLLM Troubleshooting Reference
+# Cross-Cutting Troubleshooting
 
-## Triage Order
+Use this reference before diving into sub-skill-specific troubleshooting when the symptom is broad: install/import failure, backend mismatch, CLI discovery failure, model download/auth, or confusing workflow routing.
 
-1. Run `python scripts/check_env.py --json`.
-2. Run `python scripts/inspect_api.py --json` if API names or schemas are uncertain.
-3. Confirm accelerator visibility: `nvidia-smi`, `rocm-smi`, or platform-specific equivalent.
-4. Confirm model access and cache location.
-5. Reproduce with a small public model and minimal args.
-6. Add back tensor parallelism, quantization, LoRA, structured outputs, or multimodal features one at a time.
+## Import or Install Fails
 
-## Common Failures
+1. Check the active Python can import vLLM:
+   ```bash
+   python -c "import vllm; print(vllm.__version__)"
+   ```
+2. Check package metadata and dependency consistency:
+   ```bash
+   python -m pip show vllm
+   python -m pip check
+   ```
+3. If building from a vLLM checkout, use the repository’s documented `uv` workflow and do not mix system Python packages with the repo environment.
+4. Match the install variant to the hardware backend: CPU, CUDA, ROCm, XPU, TPU, or vendor-specific builds have different requirements and wheels.
 
-- Import fails: incompatible Python, PyTorch, CUDA/ROCm wheel, missing shared library, or wrong accelerator package.
-- CLI help hangs or is slow: heavy imports and platform probing. Use metadata checks first and apply timeouts.
-- OOM at startup: reduce `--max-model-len`, reduce `--gpu-memory-utilization`, use quantized weights, reduce parallel replicas, or use a smaller model.
-- OOM during requests: reduce `max_tokens`, batch/concurrency, context length, or KV cache pressure.
-- HTTP 401/403 for model load: gated Hugging Face model or missing token.
-- Chat output is malformed: wrong or missing chat template; use `llm.chat` or set `--chat-template`.
-- Structured output fails: schema too complex, unsupported backend, insufficient `max_tokens`, or unsupported parameter name for this version.
-- Embedding endpoint returns generation-shaped output: wrong model runner or endpoint.
-- LoRA request ignored: server missing `--enable-lora`, adapter name mismatch, adapter rank exceeds configured maximum, or runtime updates disabled.
-- Ray/multi-node errors: port/firewall/NCCL interface mismatch, missing password/address, inconsistent package versions, or object store pressure.
-- Benchmark result has failed requests: server not warm, wrong endpoint type, overloaded request rate, or model ID mismatch.
+## CLI Is Missing or Flags Differ
 
-## Server Debugging
+- Confirm `vllm` is installed in the Python environment that owns the shell path.
+- Prefer `python -m pip show vllm` plus `which vllm` or platform equivalent to catch mixed environments.
+- Use `vllm --help`, `vllm serve --help`, and `vllm serve --help=all` for current flags instead of relying on stale snippets.
+- Route CLI/server behavior to `sub-skills/openai-serving/`; route memory/parallelism flags to `sub-skills/deployment-performance/`.
 
-Use a free localhost port for smoke:
+## Backend or Hardware Mismatch
 
-```bash
-vllm serve Qwen/Qwen3-0.6B --host 127.0.0.1 --port 8000 --generation-config vllm
-curl -fsS http://127.0.0.1:8000/health
-curl -fsS http://127.0.0.1:8000/v1/models
-```
+Symptoms include CUDA unavailable, Triton disabled, unsupported dtype, missing kernels, NCCL/Ray failures, OOM, or unexpectedly slow CPU fallback.
 
-Keep logs:
+- Collect Python, torch, CUDA/ROCm, GPU count, driver, and vLLM version facts before changing commands.
+- Avoid claiming GPU readiness from an import-only check; run a bounded model/backend smoke only when the user confirms hardware and model availability.
+- For OOM or capacity planning, route to `sub-skills/deployment-performance/` and adjust `--tensor-parallel-size`, `--gpu-memory-utilization`, `--max-model-len`, `--kv-cache-memory-bytes`, dtype, quantization, or CPU offload deliberately.
 
-```bash
-mkdir -p run
-vllm serve ... > run/server.log 2>&1 &
-echo $! > run/server.pid
-```
+## Model Download, Auth, or Remote Code
 
-Shutdown:
+- Hugging Face model access may require credentials or license acceptance.
+- `trust_remote_code=True` or `--trust-remote-code` executes model repository code; ask before enabling it.
+- Prefer explicit model identifiers and revisions for reproducibility.
+- For local model paths, verify files exist and match the model architecture expected by vLLM.
 
-```bash
-kill "$(cat run/server.pid)"
-```
+## Wrong Workflow Route
 
-## Environment Variables Worth Checking
-
-- `CUDA_VISIBLE_DEVICES`
-- `HIP_VISIBLE_DEVICES`
-- `VLLM_USE_MODELSCOPE`
-- `VLLM_API_KEY`
-- `VLLM_ALLOW_RUNTIME_LORA_UPDATING`
-- `HF_HOME`, `HF_TOKEN`, `TRANSFORMERS_CACHE`
-- NCCL variables such as `NCCL_SOCKET_IFNAME`, `NCCL_DEBUG`
-
-Do not blindly set many environment variables. Change one variable at a time and record why.
+- Python-only script and output objects: `sub-skills/offline-inference/`.
+- HTTP server/client, `/v1`, auth, port, and model discovery: `sub-skills/openai-serving/`.
+- JSON schema, grammar, tools, reasoning parsers, and streaming tool-call deltas: `sub-skills/structured-tool-reasoning/`.
+- Images/audio/video, LoRA/adapters, embeddings, rerank, score, and pooling shapes: `sub-skills/modalities-adapters-pooling/`.
+- Deployment, metrics, profiling, parallelism, memory, quantization, and benchmarks: `sub-skills/deployment-performance/`.

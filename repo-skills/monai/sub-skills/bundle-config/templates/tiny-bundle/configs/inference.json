@@ -1,0 +1,14 @@
+{
+  "dims": 2,
+  "network_def": {
+    "_target_": "monai.networks.nets.UNet",
+    "spatial_dims": "@dims",
+    "in_channels": 1,
+    "out_channels": 2,
+    "channels": [4, 8],
+    "strides": [2]
+  },
+  "run": [
+    "$print('tiny bundle config parsed')"
+  ]
+}
