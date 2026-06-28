@@ -6,7 +6,7 @@ AlphaFold, ColabFold, Boltz, Chai-1, ESM, ProteinMPNN, RFdiffusion, MSA generati
 
 ## Repo Skill Options
 
-<!-- SKILLQED_SCENARIO:protein-structure-prediction-and-design-workflows:START -->
+<!-- DISCO_SCENARIO:protein-structure-prediction-and-design-workflows:START -->
 ### `alphafold3`
 
 Role: Use `alphafold3` for AlphaFold 3 input preparation, prediction command planning, output interpretation, and Python API inspection. Covers the local AlphaFold 3 inference package, its JSON dialect, run_alphafold workflow, outputs.
@@ -79,7 +79,7 @@ Best for: binder design, guided potentials, macrocycle design, motif scaffolding
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
 Useful entry points: `rfdiffusion/SKILL.md`, `rfdiffusion/sub-skills/binder-design/`, `rfdiffusion/sub-skills/guided-potentials/`, `rfdiffusion/sub-skills/macrocycle-design/`, `rfdiffusion/sub-skills/motif-scaffolding/`, `rfdiffusion/sub-skills/partial-diffusion/`, `3 more sub-skills`.
 
-<!-- SKILLQED_SCENARIO:protein-structure-prediction-and-design-workflows:END -->
+<!-- DISCO_SCENARIO:protein-structure-prediction-and-design-workflows:END -->
 
 ## How To Choose
 

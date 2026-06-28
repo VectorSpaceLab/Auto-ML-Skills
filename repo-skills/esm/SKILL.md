@@ -42,7 +42,7 @@ For ESMFold and inverse folding, expect additional optional dependencies beyond 
 - Read [`references/troubleshooting.md`](references/troubleshooting.md) for cross-cutting install/import, model download/cache, optional dependency, backend, CLI, and data issues.
 - Read [`references/model-downloads-and-caches.md`](references/model-downloads-and-caches.md) before running workflows that download pretrained weights or use `--model-dir`.
 - Read [`references/repo-provenance.md`](references/repo-provenance.md) to decide whether this generated skill is stale relative to the source repository state.
-- `references/repo-routing-metadata.json` is structured metadata for SkillQED import and router generation.
+- `references/repo-routing-metadata.json` is structured metadata for DisCo import and router generation.
 
 ## Safe Usage Defaults
 

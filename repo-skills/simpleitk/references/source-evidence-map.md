@@ -16,7 +16,7 @@ This runtime reference records the repository evidence distilled into the Simple
 | `docs/source/` | public install, concepts, IO, registration, build, and setup docs | agent-facing references and troubleshooting |
 | `Examples/` | runnable patterns for IO, DICOM, filters, segmentation, registration, elastix, and language wrappers | recipe distillation and safe bundled smoke scripts |
 | `Wrapping/Python/tests/` and `Testing/Unit/` | behavioral edge cases for image indexing, NumPy conversion, IO, transforms, filters, and optional wrappers | verification candidates and failure-mode coverage |
-| `skills/simpleitk/` | existing repo-local skill content for image core, IO, and filtering | adapted into the SkillQED runtime tree after path and API corrections |
+| `skills/simpleitk/` | existing repo-local skill content for image core, IO, and filtering | adapted into the DisCo runtime tree after path and API corrections |
 
 ## Excluded or De-Prioritized Evidence
 

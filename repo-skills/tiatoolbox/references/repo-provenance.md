@@ -1,6 +1,6 @@
 # Repo Provenance
 
-schema: skillqed.repo-provenance.v1
+schema: disco.repo-provenance.v1
 
 ## Source Snapshot
 

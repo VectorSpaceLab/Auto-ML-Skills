@@ -25,7 +25,7 @@ FORBIDDEN = [
     "/" + "share/",
     "github" + "-repos",
     "production" + "_batches",
-    ".skillqed/" + "agent/envs",
+    ".disco/" + "agent/envs",
     "skills/" + "tests/invokeai",
 ]
 

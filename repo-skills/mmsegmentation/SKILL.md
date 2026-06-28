@@ -38,7 +38,7 @@ Use this repo skill when a task involves OpenMMLab MMSegmentation: semantic segm
 ## Shared References
 
 - [repo-provenance](references/repo-provenance.md) records the source snapshot and evidence baseline for refresh decisions.
-- [repo-routing-metadata](references/repo-routing-metadata.json) is used by SkillQED's managed router during import.
+- [repo-routing-metadata](references/repo-routing-metadata.json) is used by DisCo's managed router during import.
 - [install-and-compatibility](references/install-and-compatibility.md) covers dependency and backend compatibility.
 - [troubleshooting](references/troubleshooting.md) covers cross-cutting install/import/backend/config/data failures.
 

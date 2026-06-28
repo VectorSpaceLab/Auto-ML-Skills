@@ -6,7 +6,7 @@ Computational materials, crystal structures, entries and phase stability, Materi
 
 ## Repo Skill Options
 
-<!-- SKILLQED_SCENARIO:materials-science-and-crystal-structure-workflows:START -->
+<!-- DISCO_SCENARIO:materials-science-and-crystal-structure-workflows:START -->
 ### `pymatgen`
 
 Role: Provides self-contained routing and workflow references for using pymatgen APIs and CLIs safely across major computational materials workflows.
@@ -15,7 +15,7 @@ Best for: Structure/local-environment analysis, compatibility-corrected entries,
 Avoid when: The task is generic molecular drug-discovery chemistry, molecular generative modeling, non-materials simulation trajectories, or package development unrelated to pymatgen APIs/CLIs.
 Useful entry points: `pymatgen/SKILL.md`, `pymatgen/sub-skills/structures-local-environments-and-transformations/SKILL.md`, `pymatgen/sub-skills/entries-thermodynamics-and-batteries/SKILL.md`, `pymatgen/sub-skills/external-data-access/SKILL.md`, `pymatgen/sub-skills/surfaces-interfaces-and-electrochemistry/SKILL.md`, `pymatgen/sub-skills/spectra-diffraction-and-visualization/SKILL.md`, `pymatgen/sub-skills/cli-and-configuration/SKILL.md`.
 
-<!-- SKILLQED_SCENARIO:materials-science-and-crystal-structure-workflows:END -->
+<!-- DISCO_SCENARIO:materials-science-and-crystal-structure-workflows:END -->
 
 ## How To Choose
 

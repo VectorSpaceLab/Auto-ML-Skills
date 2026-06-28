@@ -6,7 +6,7 @@ Dataset loading, schemas, streaming, format conversion, metric/evaluator modules
 
 ## Repo Skill Options
 
-<!-- SKILLQED_SCENARIO:dataset-processing-evaluation-and-hub-workflows:START -->
+<!-- DISCO_SCENARIO:dataset-processing-evaluation-and-hub-workflows:START -->
 ### `datasets`
 
 Role: Use `datasets` when working with Hugging Face Datasets: loading local or Hub datasets, defining Features schemas, processing/streaming datasets, converting formats, sharing to the Hub, managing cache/offline behavior, or using.
@@ -55,7 +55,7 @@ Best for: cli and automation, contributing to mteb, evaluation workflows, models
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
 Useful entry points: `mteb/SKILL.md`, `mteb/sub-skills/cli-and-automation/`, `mteb/sub-skills/contributing-to-mteb/`, `mteb/sub-skills/evaluation-workflows/`, `mteb/sub-skills/models-and-encoders/`, `mteb/sub-skills/results-and-leaderboard/`, `1 more sub-skills`.
 
-<!-- SKILLQED_SCENARIO:dataset-processing-evaluation-and-hub-workflows:END -->
+<!-- DISCO_SCENARIO:dataset-processing-evaluation-and-hub-workflows:END -->
 
 ## How To Choose
 

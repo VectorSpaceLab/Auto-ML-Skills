@@ -1,6 +1,6 @@
 # Repo Provenance
 
-- Schema: `skillqed.repo-provenance.v1`
+- Schema: `disco.repo-provenance.v1`
 - Source repository: CAMEL-AI local checkout; remote URL omitted-private-or-unknown.
 - Source commit: `51ae9bb92be2b124927e9d9822210873e4b29c16`
 - Branch: `master`
@@ -8,7 +8,7 @@
 - Package distribution: `camel-ai`
 - Package/import version verified during generation: `0.2.91a4`
 - Python package import root: `camel`
-- Working tree state at generation: dirty only because this SkillQED-generated `skills/` tree was added during generation; no pre-existing tracked source changes were reported before writing skill artifacts.
+- Working tree state at generation: dirty only because this DisCo-generated `skills/` tree was added during generation; no pre-existing tracked source changes were reported before writing skill artifacts.
 
 ## Evidence Paths
 

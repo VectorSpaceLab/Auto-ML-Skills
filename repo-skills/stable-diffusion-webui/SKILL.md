@@ -31,7 +31,7 @@ This skill is self-contained guidance distilled from the Stable Diffusion WebUI 
 ## Root References And Tools
 
 - [repo-provenance.md](references/repo-provenance.md): source snapshot, evidence paths, dirty-state baseline, and refresh cues.
-- [repo-routing-metadata.json](references/repo-routing-metadata.json): structured scenario metadata for SkillQED managed routing.
+- [repo-routing-metadata.json](references/repo-routing-metadata.json): structured scenario metadata for DisCo managed routing.
 - [overview.md](references/overview.md): capability map, repository shape, safety model, and cross-sub-skill workflow patterns.
 - [troubleshooting.md](references/troubleshooting.md): cross-cutting install/import, optional dependency, backend, server, security, and workflow triage.
 - [inspect_webui_source.py](scripts/inspect_webui_source.py): optional stdlib helper that summarizes CLI flags and API routes from a WebUI checkout without importing WebUI or loading models.

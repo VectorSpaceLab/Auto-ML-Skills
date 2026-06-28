@@ -28,7 +28,7 @@ Use this sub-skill when the user asks how to define, migrate, validate, or troub
 Run the bundled validator against a Python definitions file before apply/materialization work:
 
 ```bash
-python skills/skillsmith/feast/sub-skills/feature-definitions/scripts/validate_feature_definitions.py path/to/features.py
+python skills/disco/feast/sub-skills/feature-definitions/scripts/validate_feature_definitions.py path/to/features.py
 ```
 
 Expected output lists discovered Feast object types/names and reports local validation warnings/errors. The script imports the installed `feast` package if available, never calls `FeatureStore.apply`, `plan`, `materialize`, `push`, retrieval APIs, or any server command, and does not require a Feast source checkout.

@@ -1,6 +1,6 @@
 # Repository Provenance
 
-schema: `skillqed.repo-provenance.v1`
+schema: `disco.repo-provenance.v1`
 
 ## Source Snapshot
 
@@ -10,7 +10,7 @@ schema: `skillqed.repo-provenance.v1`
 - Commit: `f53447b62f446e630c79fa24e6de79677fc076d9`
 - Exact tag: none detected at the source commit
 - Working tree state: dirty at generation time
-- Dirty-state summary: `skills/` was untracked and contained generated SkillQED runtime and review artifacts.
+- Dirty-state summary: `skills/` was untracked and contained generated DisCo runtime and review artifacts.
 
 ## Package Snapshot
 

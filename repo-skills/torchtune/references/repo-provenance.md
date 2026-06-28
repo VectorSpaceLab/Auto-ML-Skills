@@ -8,7 +8,7 @@ Read this before deciding whether this skill is current for a checkout of torcht
 
 ```json
 {
-  "schema": "skillqed.repo-provenance.v1",
+  "schema": "disco.repo-provenance.v1",
   "generated_at_utc": "2026-06-24T00:00:00Z",
   "repository": {
     "name": "torchtune",
@@ -64,6 +64,6 @@ Read this before deciding whether this skill is current for a checkout of torcht
 ## Refresh Check
 
 - If `git rev-parse HEAD` differs from `repository.commit`, treat this skill as potentially stale and run `refresh-repo-skill`.
-- If the current working tree has non-SkillQED changes in `torchtune/`, `recipes/`, `docs/source/`, `tests/`, `pyproject.toml`, or `README.md`, run `refresh-repo-skill`.
+- If the current working tree has non-DisCo changes in `torchtune/`, `recipes/`, `docs/source/`, `tests/`, `pyproject.toml`, or `README.md`, run `refresh-repo-skill`.
 - If `tune --help`, `torchtune._recipe_registry.get_all_recipes()`, public model/dataset exports, or recipe configs differ from the facts above, refresh before relying on command or API guidance.
 - If package metadata starts reporting a concrete version different from `version.txt`, refresh the package/version notes.

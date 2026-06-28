@@ -20,7 +20,7 @@ Use this repo skill when a user asks about Unsloth, Unsloth Core, Unsloth Studio
 - Read `references/install-and-backends.md` before advising installation, optional extras, hardware backends, Core-vs-Studio choices, or safe import checks.
 - Read `references/troubleshooting.md` for cross-cutting install/import, optional dependency, CUDA/MLX/ROCm, network/cache, token, and routing failures.
 - Read `references/repo-provenance.md` when deciding whether this skill is stale relative to the source repository.
-- `references/repo-routing-metadata.json` is structured metadata for SkillQED import routing; future agents normally do not need to read it manually.
+- `references/repo-routing-metadata.json` is structured metadata for DisCo import routing; future agents normally do not need to read it manually.
 
 ## Shared Script
 

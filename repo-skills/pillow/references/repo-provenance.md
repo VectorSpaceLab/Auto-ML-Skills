@@ -1,6 +1,6 @@
 # Repo Provenance
 
-Schema: `skillsmith.repo-provenance.v1`
+Schema: `disco.repo-provenance.v1`
 
 This skill was generated from the Pillow repository snapshot below.
 
@@ -54,7 +54,7 @@ These paths were intentionally excluded or de-prioritized for runtime skill extr
 - `.ci/`, `.github/`, `wheels/`, `winbuild/`, `depends/`, and `RELEASING.md` because they are maintainer/release/build infrastructure rather than primary end-user Pillow API workflows.
 - `docs/releasenotes/` except as broad version-change context.
 - `Tests/oss-fuzz/`, crash, leak, and large-memory checks because they are fuzzing, expensive, unsafe, or maintainer-only validation surfaces.
-- SkillSmith review/test artifact directories because they are generated quality artifacts, not runtime skill evidence.
+- DisCo review/test artifact directories because they are generated quality artifacts, not runtime skill evidence.
 
 ## Refresh Guidance
 

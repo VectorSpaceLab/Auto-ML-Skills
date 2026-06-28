@@ -6,7 +6,7 @@ Graph neural network tasks, graph construction, message passing, graph datasets,
 
 ## Repo Skill Options
 
-<!-- SKILLQED_SCENARIO:graph-learning-workflows:START -->
+<!-- DISCO_SCENARIO:graph-learning-workflows:START -->
 ### `dgl`
 
 Role: Guides DGL graph APIs, GNN model construction, message passing, sparse operations, and full-graph training workflows.
@@ -15,7 +15,7 @@ Best for: Constructing DGL graphs, debugging graph feature schemas, implementing
 Avoid when: The task is about a different graph-learning framework such as PyG only, or about generic graph algorithms without DGL APIs. The data format is not for DGL or GraphBolt, or the task only needs generic CSV validation without graph semantics. The task is generic distributed systems work with no DGL partition or graph training surface, or when the user asks to run a cluster without confirming hosts and workspace safety.
 Useful entry points: `dgl/SKILL.md`, `dgl/sub-skills/graph-apis/SKILL.md`, `dgl/sub-skills/message-passing-training/SKILL.md`, `dgl/sub-skills/datasets-and-io/SKILL.md`, `dgl/sub-skills/dataloading-graphbolt/SKILL.md`, `dgl/sub-skills/dglgo-cli/SKILL.md`, `dgl/sub-skills/distributed-tools/SKILL.md`, `dgl/references/troubleshooting.md`.
 
-<!-- SKILLQED_SCENARIO:graph-learning-workflows:END -->
+<!-- DISCO_SCENARIO:graph-learning-workflows:END -->
 
 ## How To Choose
 

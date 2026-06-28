@@ -8,7 +8,7 @@ Read this before deciding whether this skill is current for a checkout of the re
 
 ```json
 {
-  "schema": "skillsmith.repo-provenance.v1",
+  "schema": "disco.repo-provenance.v1",
   "generated_at_utc": "2026-06-21T00:00:00Z",
   "repository": {
     "name": "graphrag",
@@ -21,7 +21,7 @@ Read this before deciding whether this skill is current for a checkout of the re
     "dirty_paths": [
       "skills/"
     ],
-    "dirty_note": "No pre-existing source modifications were observed during evidence collection; the dirty path is the generated SkillSmith output."
+    "dirty_note": "No pre-existing source modifications were observed during evidence collection; the dirty path is the generated DisCo output."
   },
   "packages": [
     {"name": "graphrag", "version": "3.1.0", "import_names": ["graphrag"]},

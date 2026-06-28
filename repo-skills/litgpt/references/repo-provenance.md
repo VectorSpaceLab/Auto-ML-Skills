@@ -8,7 +8,7 @@ Read this before deciding whether this LitGPT skill is current for a checkout of
 
 ```json
 {
-  "schema": "skillqed.repo-provenance.v1",
+  "schema": "disco.repo-provenance.v1",
   "generated_at_utc": "2026-06-22T15:00:00Z",
   "repository": {
     "name": "litgpt",

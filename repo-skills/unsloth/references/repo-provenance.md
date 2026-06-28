@@ -14,7 +14,7 @@ Generated for the `unsloth` repository from a Git checkout.
 
 ## Working Tree State
 
-The source checkout was dirty because SkillQED-generated runtime skill and review artifacts were being created under `skills/` during this run. No pre-existing repo-local skill was found before generation.
+The source checkout was dirty because DisCo-generated runtime skill and review artifacts were being created under `skills/` during this run. No pre-existing repo-local skill was found before generation.
 
 ## Evidence Paths
 

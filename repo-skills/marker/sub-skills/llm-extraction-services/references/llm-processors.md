@@ -26,7 +26,7 @@ Marker’s default `PdfConverter` processor list includes LLM processors, but th
 
 ## Processor safety expectations
 
-LLM processors send cropped page/block images and prompt text to the configured provider. Confirm privacy requirements before enabling remote Gemini, Vertex, Claude, OpenAI-compatible, or Azure services. Use Ollama only when a local model is acceptable and running. Bundled SkillQED scripts do not send images or prompts to any provider.
+LLM processors send cropped page/block images and prompt text to the configured provider. Confirm privacy requirements before enabling remote Gemini, Vertex, Claude, OpenAI-compatible, or Azure services. Use Ollama only when a local model is acceptable and running. Bundled DisCo scripts do not send images or prompts to any provider.
 
 ## Manual processor overrides
 

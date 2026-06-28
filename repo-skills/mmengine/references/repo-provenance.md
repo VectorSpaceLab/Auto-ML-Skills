@@ -1,13 +1,13 @@
 # Repo Provenance
 
-- Schema: skillqed.repo-provenance.v1
+- Schema: disco.repo-provenance.v1
 - Source repository: OpenMMLab MMEngine
 - Remote URL: https://github.com/open-mmlab/mmengine
 - Commit: 508cb3268f25029787ed8dacb855809da0dca56a
 - Branch: main
 - Exact tag: v0.11.0rc2
 - Package version: 0.11.0rc2
-- Working tree state at generation: dirty; generated SkillQED outputs under `skills/` were being created during this run.
+- Working tree state at generation: dirty; generated DisCo outputs under `skills/` were being created during this run.
 
 ## Evidence Paths
 

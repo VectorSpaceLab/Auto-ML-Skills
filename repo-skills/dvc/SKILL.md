@@ -28,7 +28,7 @@ Use this skill when a task names DVC, Data Version Control, `dvc` CLI commands, 
 
 - Read `references/troubleshooting.md` for install/import, optional extra, no-repo, remote/cache, and command-routing failures that span several sub-skills.
 - Read `references/repo-provenance.md` before deciding whether this skill matches a current DVC checkout or should be refreshed.
-- Read `references/repo-routing-metadata.json` only when importing this skill through SkillQED's managed repo-skills-router.
+- Read `references/repo-routing-metadata.json` only when importing this skill through DisCo's managed repo-skills-router.
 - Run `scripts/check_dvc_install.py --help` for a safe local package and CLI smoke-check helper.
 
 ## Decision Pattern

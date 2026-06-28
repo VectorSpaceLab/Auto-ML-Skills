@@ -8,7 +8,7 @@ Read this before deciding whether this skill is current for a checkout of LiteLL
 
 ```json
 {
-  "schema": "skillsmith.repo-provenance.v1",
+  "schema": "disco.repo-provenance.v1",
   "generated_at_utc": "2026-06-21T06:41:29Z",
   "repository": {
     "name": "litellm",
@@ -68,4 +68,4 @@ Read this before deciding whether this skill is current for a checkout of LiteLL
 
 ## Notes
 
-The dirty state may include the generated `skills/` output from this SkillSmith run. Treat source-code changes outside generated skill artifacts as stronger staleness signals than the generated artifacts themselves.
+The dirty state may include the generated `skills/` output from this DisCo run. Treat source-code changes outside generated skill artifacts as stronger staleness signals than the generated artifacts themselves.

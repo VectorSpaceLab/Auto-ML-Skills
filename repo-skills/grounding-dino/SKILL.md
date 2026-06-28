@@ -45,4 +45,4 @@ Read `references/install-and-models.md` before changing dependencies, compiling 
 - `references/prompt-and-threshold-guide.md`: prompt punctuation, class lists, thresholds, token spans, and no-detection diagnosis.
 - `references/troubleshooting.md`: cross-cutting install, import, model, data, device, and workflow failures.
 - `references/repo-provenance.md`: source commit, dirty-state baseline, package version, and evidence paths.
-- `references/repo-routing-metadata.json`: structured SkillQED router metadata used during managed import.
+- `references/repo-routing-metadata.json`: structured DisCo router metadata used during managed import.

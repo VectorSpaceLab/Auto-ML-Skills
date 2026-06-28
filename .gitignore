@@ -14,6 +14,21 @@ eggs/
 *.egg
 pip-wheel-metadata/
 wheelhouse/
+*.tgz
+*.tar.gz
+*.zip
+
+# Generated standalone runtime layout
+/bin/
+/bin-build/
+
+# JavaScript/TypeScript dependencies and build output
+/src/node_modules/
+/src/packages/*/node_modules/
+/src/packages/*/dist/
+/src/packages/coding-agent/binaries/
+/src/packages/coding-agent/*.bun-build
+*.tsbuildinfo
 
 # Virtual environments
 .venv/
@@ -47,20 +62,34 @@ htmlcov/
 .pytype/
 .ruff_cache/
 .cache/
+/coverage/
+/src/coverage/
+/src/packages/*/coverage/
+/.nyc_output/
+/src/.nyc_output/
+/src/packages/*/.nyc_output/
 
 # Jupyter notebooks
 .ipynb_checkpoints/
 
 # Local environment and secrets
+.env
 .env.local
+.env.*
 .env.*.local
+!.env.example
 *.env
 *.pem
 *.key
 *.crt
+scripts/dev/
 
 # Logs and runtime files
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 *.pid
 *.seed
 *.tmp
@@ -79,5 +108,6 @@ desktop.ini
 *~
 
 # Project-local generated artifacts
+site/
 repo-skills/**/__pycache__/
 repo-skills/**/*.py[cod]

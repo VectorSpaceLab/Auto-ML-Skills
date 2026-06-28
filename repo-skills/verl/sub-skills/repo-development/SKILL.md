@@ -20,7 +20,7 @@ Use this sub-skill when changing verl repository internals, tests, docs, generat
 Run the bundled helper from the repository root to print suggestions only; it does not execute tests, mutate files, call GitHub, or invoke pre-commit:
 
 ```bash
-python skills/skillsmith/verl/sub-skills/repo-development/scripts/select_verl_tests.py --changed-paths verl/trainer/config/ppo_trainer.yaml tests/test_base_config_on_cpu.py
+python skills/disco/verl/sub-skills/repo-development/scripts/select_verl_tests.py --changed-paths verl/trainer/config/ppo_trainer.yaml tests/test_base_config_on_cpu.py
 ```
 
 The helper accepts `--from-file` for newline-separated changed paths and `--json` for machine-readable output.

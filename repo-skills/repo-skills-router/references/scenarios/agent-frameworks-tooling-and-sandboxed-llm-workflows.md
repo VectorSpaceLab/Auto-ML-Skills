@@ -6,7 +6,7 @@ LLM agent frameworks, browser automation agents, tool calling, graph/state runti
 
 ## Repo Skill Options
 
-<!-- SKILLQED_SCENARIO:agent-frameworks-tooling-and-sandboxed-llm-workflows:START -->
+<!-- DISCO_SCENARIO:agent-frameworks-tooling-and-sandboxed-llm-workflows:START -->
 ### `adk-python`
 
 Role: Provides self-contained routing and task guidance for building, running, debugging, evaluating, deploying, and maintaining ADK Python applications and the ADK Python source repository.
@@ -119,7 +119,7 @@ Best for: agent workflows, cli and ui, execution and safety, model providers, an
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
 Useful entry points: `smolagents/SKILL.md`, `smolagents/sub-skills/agent-workflows/`, `smolagents/sub-skills/cli-and-ui/`, `smolagents/sub-skills/execution-and-safety/`, `smolagents/sub-skills/model-providers/`, `smolagents/sub-skills/tools-and-integrations/`.
 
-<!-- SKILLQED_SCENARIO:agent-frameworks-tooling-and-sandboxed-llm-workflows:END -->
+<!-- DISCO_SCENARIO:agent-frameworks-tooling-and-sandboxed-llm-workflows:END -->
 
 ## How To Choose
 

@@ -41,7 +41,7 @@ Use this skill when a user asks about the SPLADE Python repository: sparse lexic
 
 - Read `references/repo-provenance.md` to check the source commit, dirty state, version, and evidence baseline before deciding whether this skill is stale.
 - Read `references/troubleshooting.md` for cross-cutting install/import, Hydra/OmegaConf, optional dependency, data/download, and hardware failures.
-- Read `references/repo-routing-metadata.json` only when updating SkillQED routing metadata.
+- Read `references/repo-routing-metadata.json` only when updating DisCo routing metadata.
 
 ## Routing Patterns
 

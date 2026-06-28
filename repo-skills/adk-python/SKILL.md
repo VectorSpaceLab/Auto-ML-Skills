@@ -30,7 +30,7 @@ Use this repo skill when a task involves Google Agent Development Kit for Python
 
 - [Capability Map](references/capability-map.md) maps common user request families to sub-skills, bundled scripts, and validation expectations.
 - [Troubleshooting](references/troubleshooting.md) covers cross-cutting install/import, optional dependency, CLI, credential, server, and repository-staleness failures.
-- [Repository Routing Metadata](references/repo-routing-metadata.json) is structured metadata used by SkillQED's managed `repo-skills-router` during import.
+- [Repository Routing Metadata](references/repo-routing-metadata.json) is structured metadata used by DisCo's managed `repo-skills-router` during import.
 
 ## Safe Defaults
 

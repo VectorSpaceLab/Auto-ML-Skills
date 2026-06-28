@@ -6,7 +6,7 @@ Embodied AI simulation, navigation/rearrangement tasks, habitat-style configs, d
 
 ## Repo Skill Options
 
-<!-- SKILLQED_SCENARIO:embodied-ai-simulation:START -->
+<!-- DISCO_SCENARIO:embodied-ai-simulation:START -->
 ### `habitat-lab`
 
 Role: Routes agents to self-contained Habitat-Lab guidance for setup, configs, environments, datasets, baseline training/evaluation, HITL interaction, and extension patterns.
@@ -15,7 +15,7 @@ Best for: Composing configs, diagnosing imports/data/backend issues, building En
 Avoid when: The task is only about low-level Habitat-Sim C++/viewer APIs outside Habitat-Lab, a different embodied-AI framework, or running large training/benchmark/data-download jobs without user approval.
 Useful entry points: `habitat-lab/SKILL.md`, `habitat-lab/sub-skills/setup-and-configuration/SKILL.md`, `habitat-lab/sub-skills/tasks-datasets-and-envs/SKILL.md`, `habitat-lab/sub-skills/baselines-training-and-evaluation/SKILL.md`, `habitat-lab/sub-skills/hitl-apps-and-interaction/SKILL.md`, `habitat-lab/sub-skills/extension-patterns/SKILL.md`.
 
-<!-- SKILLQED_SCENARIO:embodied-ai-simulation:END -->
+<!-- DISCO_SCENARIO:embodied-ai-simulation:END -->
 
 ## How To Choose
 

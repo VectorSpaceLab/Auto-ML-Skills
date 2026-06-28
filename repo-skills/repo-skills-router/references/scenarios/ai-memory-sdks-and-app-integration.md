@@ -6,7 +6,7 @@ Persistent memory SDKs, memory search/update/delete flows, self-hosted memory se
 
 ## Repo Skill Options
 
-<!-- SKILLQED_SCENARIO:ai-memory-sdks-and-app-integration:START -->
+<!-- DISCO_SCENARIO:ai-memory-sdks-and-app-integration:START -->
 ### `mem0`
 
 Role: Routes Mem0 SDK and OSS memory tasks to concrete Python/TypeScript APIs, configuration, and troubleshooting guidance.
@@ -15,7 +15,7 @@ Best for: Hosted Platform SDK calls, OSS Memory setup, provider/vector/LLM/reran
 Avoid when: The task is about an unrelated memory library, generic vector database theory, or a paper-to-skills workflow rather than the Mem0 repository. The task only needs raw database/vector-store internals or non-Mem0 CLI tooling. The user wants hosted Platform SDK usage or in-process OSS Memory without deploying services.
 Useful entry points: `mem0/SKILL.md`, `mem0/sub-skills/sdk-memory/SKILL.md`, `mem0/sub-skills/provider-configuration/SKILL.md`, `mem0/sub-skills/cli-memory/SKILL.md`, `mem0/sub-skills/integrations-plugins/SKILL.md`, `mem0/sub-skills/self-hosted-openmemory/SKILL.md`.
 
-<!-- SKILLQED_SCENARIO:ai-memory-sdks-and-app-integration:END -->
+<!-- DISCO_SCENARIO:ai-memory-sdks-and-app-integration:END -->
 
 ## How To Choose
 

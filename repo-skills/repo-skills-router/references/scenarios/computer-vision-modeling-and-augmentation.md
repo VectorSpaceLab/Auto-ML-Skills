@@ -6,7 +6,7 @@ Image augmentation, PIL/Pillow operations, vision datasets/transforms, classific
 
 ## Repo Skill Options
 
-<!-- SKILLQED_SCENARIO:computer-vision-modeling-and-augmentation:START -->
+<!-- DISCO_SCENARIO:computer-vision-modeling-and-augmentation:START -->
 ### `albumentations`
 
 Role: Build, debug, serialize, and integrate Albumentations 2.x augmentation pipelines for images, masks, bboxes, keypoints, volumes, and PyTorch-style datasets.
@@ -103,7 +103,7 @@ Best for: data and configuration, export and deployment, inference and results, 
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
 Useful entry points: `ultralytics/SKILL.md`, `ultralytics/sub-skills/data-and-configuration/`, `ultralytics/sub-skills/export-and-deployment/`, `ultralytics/sub-skills/inference-and-results/`, `ultralytics/sub-skills/model-families-and-tasks/`, `ultralytics/sub-skills/repo-development/`, `2 more sub-skills`.
 
-<!-- SKILLQED_SCENARIO:computer-vision-modeling-and-augmentation:END -->
+<!-- DISCO_SCENARIO:computer-vision-modeling-and-augmentation:END -->
 
 ## How To Choose
 

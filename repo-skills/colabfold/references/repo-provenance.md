@@ -8,7 +8,7 @@ Read this before deciding whether this skill is current for a checkout of ColabF
 
 ```json
 {
-  "schema": "skillsmith.repo-provenance.v1",
+  "schema": "disco.repo-provenance.v1",
   "generated_at_utc": "2026-06-21T08:20:00Z",
   "repository": {
     "name": "ColabFold",

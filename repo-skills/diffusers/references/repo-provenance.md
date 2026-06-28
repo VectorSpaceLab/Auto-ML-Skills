@@ -8,7 +8,7 @@ Read this before deciding whether this skill is current for a checkout of the re
 
 ```json
 {
-  "schema": "skillsmith.repo-provenance.v1",
+  "schema": "disco.repo-provenance.v1",
   "generated_at_utc": "2026-06-21T00:00:00Z",
   "repository": {
     "name": "diffusers",
@@ -70,9 +70,9 @@ Read this before deciding whether this skill is current for a checkout of the re
       "scripts/convert_stable_diffusion_checkpoint_to_onnx.py"
     ],
     "existing_repo_skills": [
-      "skills/skillsmith/diffusers/sub-skills/schedulers",
-      "skills/skillsmith/diffusers/sub-skills/adapters-and-loaders",
-      "skills/skillsmith/diffusers/sub-skills/modular-pipelines"
+      "skills/disco/diffusers/sub-skills/schedulers",
+      "skills/disco/diffusers/sub-skills/adapters-and-loaders",
+      "skills/disco/diffusers/sub-skills/modular-pipelines"
     ],
     "excluded": [
       "benchmarks",

@@ -1,6 +1,6 @@
 # Squidpy Repo Provenance
 
-Schema: `skillqed.repo-provenance.v1`
+Schema: `disco.repo-provenance.v1`
 
 This skill was generated from a Squidpy source checkout and live package inspection. It is intended to be self-contained for future agents; source repository files were evidence, not runtime dependencies.
 

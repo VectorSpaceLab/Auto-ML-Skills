@@ -1,6 +1,6 @@
 # Repository Provenance
 
-schema: `skillsmith.repo-provenance.v1`
+schema: `disco.repo-provenance.v1`
 
 ## Source Snapshot
 
@@ -12,7 +12,7 @@ schema: `skillsmith.repo-provenance.v1`
 - Branch: `master`
 - Exact tag: `v2.8.0`
 - Remote URL: `https://github.com/MIC-DKFZ/nnUNet.git`
-- Working tree state at generation: dirty checkout with untracked SkillSmith outputs and one untracked top-level file named `=0.19.3`.
+- Working tree state at generation: dirty checkout with untracked DisCo outputs and one untracked top-level file named `=0.19.3`.
 
 ## Evidence Paths
 

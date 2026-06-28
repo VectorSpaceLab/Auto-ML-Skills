@@ -6,7 +6,7 @@ Experiment tracking, AutoML/HPO, model registries, artifacts, sweeps, Launch job
 
 ## Repo Skill Options
 
-<!-- SKILLQED_SCENARIO:ml-experiment-tracking-and-mlops-workflows:START -->
+<!-- DISCO_SCENARIO:ml-experiment-tracking-and-mlops-workflows:START -->
 ### `autogluon`
 
 Role: Provides repo-specific routing and practical API guidance for AutoGluon's tabular, time-series, and multimodal predictor families.
@@ -63,7 +63,7 @@ Best for: artifacts and registries, cli and local workflows, experiment tracking
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
 Useful entry points: `wandb/SKILL.md`, `wandb/sub-skills/artifacts-and-registries/`, `wandb/sub-skills/cli-and-local-workflows/`, `wandb/sub-skills/experiment-tracking/`, `wandb/sub-skills/public-api-and-automation/`, `wandb/sub-skills/sweeps-and-launch/`.
 
-<!-- SKILLQED_SCENARIO:ml-experiment-tracking-and-mlops-workflows:END -->
+<!-- DISCO_SCENARIO:ml-experiment-tracking-and-mlops-workflows:END -->
 
 ## How To Choose
 

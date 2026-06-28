@@ -8,7 +8,7 @@ Read this before deciding whether this skill is current for a checkout of FlashR
 
 ```json
 {
-  "schema": "skillsmith.repo-provenance.v1",
+  "schema": "disco.repo-provenance.v1",
   "generated_at_utc": "2026-06-21T00:00:00Z",
   "repository": {
     "name": "FlashRAG",
@@ -43,4 +43,4 @@ Read this before deciding whether this skill is current for a checkout of FlashR
 - If `git rev-parse HEAD` differs from `repository.commit`, treat this skill as potentially stale and run `refresh-skill-from-repo`.
 - If the working tree has public source, docs, examples, scripts, config, or package metadata changes not represented here, refresh the skill.
 - If package metadata, optional extras, public factories, pipeline names, metric names, or CLI arguments changed even on the same commit, refresh the skill.
-- If only SkillSmith review artifacts changed outside the runtime skill directory, the runtime skill is not stale for FlashRAG usage.
+- If only DisCo review artifacts changed outside the runtime skill directory, the runtime skill is not stale for FlashRAG usage.

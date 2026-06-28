@@ -8,7 +8,7 @@ Read this before deciding whether this skill is current for a checkout of LMDepl
 
 ```json
 {
-  "schema": "skillqed.repo-provenance.v1",
+  "schema": "disco.repo-provenance.v1",
   "generated_at_utc": "2026-06-22T16:30:00Z",
   "repository": {
     "name": "lmdeploy",
@@ -21,7 +21,7 @@ Read this before deciding whether this skill is current for a checkout of LMDepl
     "dirty_paths": [
       "skills/"
     ],
-    "dirty_note": "The source checkout was clean before SkillQED created the generated skill and review artifacts under skills/."
+    "dirty_note": "The source checkout was clean before DisCo created the generated skill and review artifacts under skills/."
   },
   "packages": [
     {

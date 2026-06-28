@@ -6,7 +6,7 @@ Transformers model usage, local generation, fine-tuning, serving CLIs, PEFT adap
 
 ## Repo Skill Options
 
-<!-- SKILLQED_SCENARIO:llm-finetuning-training-serving-workflows:START -->
+<!-- DISCO_SCENARIO:llm-finetuning-training-serving-workflows:START -->
 ### `accelerate`
 
 Role: Use Hugging Face Accelerate for PyTorch training-loop migration, distributed launch/configuration, DeepSpeed/FSDP/TPU backend setup, big-model inference/offload, checkpointing, tracking, and troubleshooting.
@@ -159,7 +159,7 @@ Best for: deployment performance, modalities adapters pooling, offline inference
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
 Useful entry points: `vllm/SKILL.md`, `vllm/sub-skills/deployment-performance/`, `vllm/sub-skills/modalities-adapters-pooling/`, `vllm/sub-skills/offline-inference/`, `vllm/sub-skills/openai-serving/`, `vllm/sub-skills/structured-tool-reasoning/`.
 
-<!-- SKILLQED_SCENARIO:llm-finetuning-training-serving-workflows:END -->
+<!-- DISCO_SCENARIO:llm-finetuning-training-serving-workflows:END -->
 
 ## How To Choose
 

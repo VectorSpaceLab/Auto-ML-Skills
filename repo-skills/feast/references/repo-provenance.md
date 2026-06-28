@@ -8,7 +8,7 @@ Read this before deciding whether this skill is current for a Feast checkout. If
 
 ```json
 {
-  "schema": "skillsmith.repo-provenance.v1",
+  "schema": "disco.repo-provenance.v1",
   "generated_at_utc": "2026-06-21T00:00:00Z",
   "repository": {
     "name": "feast",
@@ -19,7 +19,7 @@ Read this before deciding whether this skill is current for a Feast checkout. If
     "commit": "eb042f04f5d9bdd7dafbaf654d5b5ec2a2572d9f",
     "working_tree": "dirty-generated-skill-only",
     "dirty_paths": [
-      "skills/skillsmith/",
+      "skills/disco/",
       "skills/tests/"
     ]
   },

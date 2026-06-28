@@ -6,7 +6,7 @@ Read this before deciding whether this skill is current for a LightRAG checkout.
 
 ## Snapshot
 
-schema: `skillqed.repo-provenance.v1`
+schema: `disco.repo-provenance.v1`
 
 | Field | Value |
 | --- | --- |

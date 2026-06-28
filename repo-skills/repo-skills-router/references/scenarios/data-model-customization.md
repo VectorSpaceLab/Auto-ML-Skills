@@ -6,7 +6,7 @@ Dataset schemas, message rows, column mappings, model/template registries, custo
 
 ## Repo Skill Options
 
-<!-- SKILLQED_SCENARIO:data-model-customization:START -->
+<!-- DISCO_SCENARIO:data-model-customization:START -->
 ### `ms-swift`
 
 Role: Covers ms-swift data formats, preprocessors, external plugins, registries, and template/model selection.
@@ -23,7 +23,7 @@ Best for: Adapting torchtune data/model config components and validating small d
 Avoid when: The task is generic dataset conversion unrelated to torchtune recipes or a different ML framework's registry.
 Useful entry points: `torchtune/sub-skills/data-and-datasets/SKILL.md`, `torchtune/sub-skills/models-and-modules/SKILL.md`, `torchtune/sub-skills/cli-and-config/SKILL.md`.
 
-<!-- SKILLQED_SCENARIO:data-model-customization:END -->
+<!-- DISCO_SCENARIO:data-model-customization:END -->
 
 ## How To Choose
 

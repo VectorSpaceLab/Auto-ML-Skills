@@ -41,7 +41,7 @@ Use this repo skill when a user asks about Marker, `marker-pdf`, `marker_single`
 - `references/troubleshooting.md`: cross-cutting install/import, optional dependency, device, model/cache, credential, and workflow routing failures.
 - `references/benchmark-notes.md`: performance and benchmark context without making benchmark scripts a runtime dependency.
 - `references/repo-provenance.md`: source snapshot and evidence paths used to generate this skill.
-- `references/repo-routing-metadata.json`: structured routing metadata for SkillQED import.
+- `references/repo-routing-metadata.json`: structured routing metadata for DisCo import.
 
 ## Safety Defaults
 

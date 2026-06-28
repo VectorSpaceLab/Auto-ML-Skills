@@ -208,8 +208,8 @@ Interpretation:
 ## Use the Bundled Smoke Check
 
 ```bash
-python skills/skillqed/tiatoolbox/sub-skills/wsi-io/scripts/wsi_io_smoke.py --help
-python skills/skillqed/tiatoolbox/sub-skills/wsi-io/scripts/wsi_io_smoke.py --mode tiny
+python skills/disco/tiatoolbox/sub-skills/wsi-io/scripts/wsi_io_smoke.py --help
+python skills/disco/tiatoolbox/sub-skills/wsi-io/scripts/wsi_io_smoke.py --mode tiny
 ```
 
 The smoke check uses only `numpy` plus `VirtualWSIReader`; it does not download files or require a WSI fixture.

@@ -134,7 +134,7 @@ Hydra overrides are parsed by both the shell and Hydra. Preserve these rules:
 - Quote list-like overrides with single quotes: `'contigmap.contigs=[100-200]'`.
 - Quote nested potential lists with single quotes outside and double quotes inside.
 - Avoid shell glob characters in unquoted values.
-- Use absolute or user-relative paths for model/checkpoint paths; avoid paths from a SkillSmith generation environment.
+- Use absolute or user-relative paths for model/checkpoint paths; avoid paths from a DisCo generation environment.
 - Do not insert spaces inside one Hydra override except where the documented contig syntax requires a chain-break space for other workflows.
 
 ## Output Checklist

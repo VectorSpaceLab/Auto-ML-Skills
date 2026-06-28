@@ -161,4 +161,4 @@ For multi-node clusters, choose an access mode and storage class that support mo
 
 ## Source Script Decisions
 
-No source repository scripts were copied for this sub-skill. The bundled `scripts/resource_checklist.py` is an adapted SkillQED helper that prints safe, provider/resource/storage preflight guidance from user-supplied arguments. It intentionally avoids SkyPilot imports, credential reads, kubeconfig reads, cloud API calls, and infrastructure mutations.
+No source repository scripts were copied for this sub-skill. The bundled `scripts/resource_checklist.py` is an adapted DisCo helper that prints safe, provider/resource/storage preflight guidance from user-supplied arguments. It intentionally avoids SkyPilot imports, credential reads, kubeconfig reads, cloud API calls, and infrastructure mutations.

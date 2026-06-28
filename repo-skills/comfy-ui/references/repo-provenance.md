@@ -11,7 +11,7 @@
 - Commit: `0d8b7510bdc5409f4a76c3191e122ddea50f4aa2`
 - Exact tag: none detected
 - Remote URL: omitted-private-or-unknown
-- Working tree state at generation: dirty because SkillSmith-created files were present under `skills/`
+- Working tree state at generation: dirty because DisCo-created files were present under `skills/`
 
 ## Evidence Paths
 
@@ -54,7 +54,7 @@ Excluded from runtime skill extraction except where named as evidence above:
 - model artifact directories under `models/` except `models/configs/`
 - runtime user data/output directories such as `input/` and `output/`
 - CI/release packaging internals not needed for user-facing workflows
-- SkillSmith review/test artifacts under `skills/tests/`
+- DisCo review/test artifacts under `skills/tests/`
 
 ## Inspection Notes
 

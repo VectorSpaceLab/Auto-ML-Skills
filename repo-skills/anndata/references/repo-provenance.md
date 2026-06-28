@@ -8,7 +8,7 @@ Read this before deciding whether this skill is current for a checkout of the re
 
 ```json
 {
-  "schema": "skillqed.repo-provenance.v1",
+  "schema": "disco.repo-provenance.v1",
   "generated_at_utc": "2026-06-24T00:00:00Z",
   "repository": {
     "name": "anndata",
@@ -32,7 +32,7 @@ Read this before deciding whether this skill is current for a checkout of the re
     "docs": ["README.md", "docs/api.md", "docs/concatenation.rst", "docs/accessors.rst", "docs/fileformat-prose.md", "docs/tutorials/zarr-v3.md", "docs/interoperability.md", "docs/typing.md"],
     "tests": ["tests", "src/anndata/tests"],
     "metadata": ["pyproject.toml"],
-    "existing_skills": ["skills/anndata", "skills/skillqed/anndata", "skills/skillqed/anndata-2"]
+    "existing_skills": ["skills/anndata", "skills/disco/anndata", "skills/disco/anndata-2"]
   }
 }
 ```

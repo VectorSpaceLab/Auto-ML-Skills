@@ -9,11 +9,11 @@
 - Exact tag: none detected
 - Package distribution: `SPLADE`
 - Package version: `2.1`
-- Working tree state at generation: dirty because SkillQED generated `skills/` runtime and review artifacts in this checkout
+- Working tree state at generation: dirty because DisCo generated `skills/` runtime and review artifacts in this checkout
 
 ## Dirty-State Summary
 
-Generated runtime files were created under `skills/splade/`. Review/test artifacts were also created in the repository's SkillQED artifact area.
+Generated runtime files were created under `skills/splade/`. Review/test artifacts were also created in the repository's DisCo artifact area.
 
 No pre-existing source changes were detected before skill generation.
 

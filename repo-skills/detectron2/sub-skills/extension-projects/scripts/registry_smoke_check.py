@@ -34,7 +34,7 @@ def run_smoke_check(verbose: bool = True) -> int:
         )
         return 1
 
-    registry = Registry("SKILLQED_TOY_EXTENSION")
+    registry = Registry("DISCO_TOY_EXTENSION")
 
     @registry.register()
     class ToyExtension:

@@ -8,7 +8,7 @@ Read this before deciding whether this skill is current for a checkout of the re
 
 ```json
 {
-  "schema": "skillqed.repo-provenance.v1",
+  "schema": "disco.repo-provenance.v1",
   "generated_at_utc": "2026-06-22T16:37:25Z",
   "repository": {
     "name": "openai-agents-python",
@@ -90,5 +90,5 @@ Read this before deciding whether this skill is current for a checkout of the re
 
 - If `git rev-parse HEAD` differs from `repository.commit`, treat the skill as potentially stale and run `refresh-repo-skill`.
 - If source files, public docs, examples, tests, package metadata, optional extras, or maintainer policy files changed since this snapshot, run `refresh-repo-skill`.
-- Ignore generated SkillQED runtime and review outputs when judging whether the original source checkout was dirty for this baseline.
+- Ignore generated DisCo runtime and review outputs when judging whether the original source checkout was dirty for this baseline.
 - If `openai-agents` package metadata or public entry points differ from the snapshot even on the same commit, run `refresh-repo-skill`.

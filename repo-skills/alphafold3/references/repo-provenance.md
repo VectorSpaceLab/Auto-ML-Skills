@@ -1,6 +1,6 @@
 # Repo Provenance
 
-schema: `skillsmith.repo-provenance.v1`
+schema: `disco.repo-provenance.v1`
 
 This skill was generated from AlphaFold 3 repository evidence and live package inspection.
 

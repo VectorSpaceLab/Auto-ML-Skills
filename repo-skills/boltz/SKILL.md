@@ -44,7 +44,7 @@ boltz predict --help
 - `references/package-overview.md` — package purpose, installed facts, dependency/back-end expectations, and workflow map.
 - `references/troubleshooting.md` — cross-cutting install/import, cache, GPU, data/config, CLI, and external dependency failures.
 - `references/repo-provenance.md` — source repository snapshot used to generate this skill.
-- `references/repo-routing-metadata.json` — structured routing metadata used by SkillQED's managed repo-skills router.
+- `references/repo-routing-metadata.json` — structured routing metadata used by DisCo's managed repo-skills router.
 - `scripts/boltz_environment_check.py` — safe local environment and CLI preflight helper.
 
 ## Cross-Workflow Guardrails

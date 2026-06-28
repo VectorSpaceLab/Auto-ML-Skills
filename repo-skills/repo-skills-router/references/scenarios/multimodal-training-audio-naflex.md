@@ -6,7 +6,7 @@ OpenCLIP training commands, open_clip_train, CSV/WebDataset data, task-era Train
 
 ## Repo Skill Options
 
-<!-- SKILLQED_SCENARIO:multimodal-training-audio-naflex:START -->
+<!-- DISCO_SCENARIO:multimodal-training-audio-naflex:START -->
 ### `open-clip`
 
 Role: Routes complex OpenCLIP training, audio, and variable-resolution/generative workflows to focused sub-skills with safe helper scripts.
@@ -15,7 +15,7 @@ Best for: Constructing training commands, validating data layouts, planning CLAP
 Avoid when: The user only needs generic distributed training advice with no OpenCLIP-specific APIs, or asks to reproduce a research paper from scratch rather than use this repository package.
 Useful entry points: `open-clip/SKILL.md`, `open-clip/sub-skills/training/SKILL.md`, `open-clip/sub-skills/audio-clap/SKILL.md`, `open-clip/sub-skills/naflex-generative/SKILL.md`.
 
-<!-- SKILLQED_SCENARIO:multimodal-training-audio-naflex:END -->
+<!-- DISCO_SCENARIO:multimodal-training-audio-naflex:END -->
 
 ## How To Choose
 

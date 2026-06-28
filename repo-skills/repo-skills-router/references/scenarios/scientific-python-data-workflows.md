@@ -6,7 +6,7 @@ NumPy-style array analysis combined with molecular simulation trajectories, coor
 
 ## Repo Skill Options
 
-<!-- SKILLQED_SCENARIO:scientific-python-data-workflows:START -->
+<!-- DISCO_SCENARIO:scientific-python-data-workflows:START -->
 ### `mdanalysis`
 
 Role: Explains how MDAnalysis exposes molecular data as arrays and per-frame objects for scientific Python workflows.
@@ -15,7 +15,7 @@ Best for: Building robust scientific Python scripts around molecular trajectory 
 Avoid when: The data is not molecular simulation data, no MDAnalysis APIs are involved, or a generic NumPy/Pandas workflow is sufficient.
 Useful entry points: `mdanalysis/SKILL.md`, `mdanalysis/sub-skills/analysis-workflows/SKILL.md`, `mdanalysis/sub-skills/transformations-writing/SKILL.md`.
 
-<!-- SKILLQED_SCENARIO:scientific-python-data-workflows:END -->
+<!-- DISCO_SCENARIO:scientific-python-data-workflows:END -->
 
 ## How To Choose
 

@@ -6,7 +6,7 @@ Workflow engines, DAGs, assets, Snakefiles, lazy/parallel task graphs, distribut
 
 ## Repo Skill Options
 
-<!-- SKILLQED_SCENARIO:data-orchestration-and-parallel-computing:START -->
+<!-- DISCO_SCENARIO:data-orchestration-and-parallel-computing:START -->
 ### `apache-airflow`
 
 Role: Routes Airflow tasks to focused guidance for authoring, operations, providers, deployment, and contribution tooling.
@@ -79,7 +79,7 @@ Best for: configuration data, debugging reporting, deployment storage, execution
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
 Useful entry points: `snakemake/SKILL.md`, `snakemake/sub-skills/configuration-data/`, `snakemake/sub-skills/debugging-reporting/`, `snakemake/sub-skills/deployment-storage/`, `snakemake/sub-skills/execution-cli/`, `snakemake/sub-skills/python-api-plugins/`, `1 more sub-skills`.
 
-<!-- SKILLQED_SCENARIO:data-orchestration-and-parallel-computing:END -->
+<!-- DISCO_SCENARIO:data-orchestration-and-parallel-computing:END -->
 
 ## How To Choose
 

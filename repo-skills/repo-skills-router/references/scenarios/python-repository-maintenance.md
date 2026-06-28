@@ -6,7 +6,7 @@ Tasks that edit, review, test, document, package, or maintain Python source repo
 
 ## Repo Skill Options
 
-<!-- SKILLQED_SCENARIO:python-repository-maintenance:START -->
+<!-- DISCO_SCENARIO:python-repository-maintenance:START -->
 ### `cleanrl`
 
 Role: Keeps CleanRL changes aligned with single-file implementation conventions, docs/tests, optional extras, and focused validation.
@@ -55,7 +55,7 @@ Best for: Repository changes that require Stable Diffusion WebUI domain context 
 Avoid when: Use a generic Python maintenance skill when the task is formatting, linting, packaging, or CI plumbing with no WebUI-specific behavior.
 Useful entry points: `stable-diffusion-webui/SKILL.md`, `stable-diffusion-webui/scripts/inspect_webui_source.py`.
 
-<!-- SKILLQED_SCENARIO:python-repository-maintenance:END -->
+<!-- DISCO_SCENARIO:python-repository-maintenance:END -->
 
 ## How To Choose
 

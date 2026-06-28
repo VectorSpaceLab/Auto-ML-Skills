@@ -8,7 +8,7 @@
 - Commit: `7b20416071b6cf69aa8e07dc1fda907fa379bb60`
 - Exact tag: none detected at generation time
 - Package version: `2.0.0a1`
-- Working tree state: dirty because SkillSmith generated `skills/` artifacts in this checkout
+- Working tree state: dirty because DisCo generated `skills/` artifacts in this checkout
 
 ## Evidence Paths
 

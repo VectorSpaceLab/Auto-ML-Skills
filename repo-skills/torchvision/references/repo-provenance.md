@@ -1,6 +1,6 @@
 # Repo Provenance
 
-- Schema: `skillsmith.repo-provenance.v1`
+- Schema: `disco.repo-provenance.v1`
 - Skill id: `torchvision`
 - Source project: TorchVision / PyTorch Vision
 - VCS: git
@@ -9,7 +9,7 @@
 - Exact tag: none detected
 - Package version from checkout metadata: `0.29.0a0`
 - Live inspection package version used for stable API signatures: `torchvision 0.27.1+cpu`
-- Dirty state at generation: dirty because the generated `skills/` directory was added during SkillSmith creation
+- Dirty state at generation: dirty because the generated `skills/` directory was added during DisCo creation
 - Dirty paths summary: `skills/` untracked/generated
 - Remote URL: omitted-private-or-unknown
 

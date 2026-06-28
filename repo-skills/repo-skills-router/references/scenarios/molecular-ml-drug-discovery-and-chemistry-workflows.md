@@ -6,7 +6,7 @@ Cheminformatics, molecule processing, molecular property prediction, featurizati
 
 ## Repo Skill Options
 
-<!-- SKILLQED_SCENARIO:molecular-ml-drug-discovery-and-chemistry-workflows:START -->
+<!-- DISCO_SCENARIO:molecular-ml-drug-discovery-and-chemistry-workflows:START -->
 ### `aizynthfinder`
 
 Role: Provides self-contained routing and references for using AiZynthFinder CLI/API workflows, configuration assets, result analysis, and extension points.
@@ -79,7 +79,7 @@ Best for: Preparing and validating REINVENT4 run configs, choosing CLI flags, de
 Avoid when: The task is general cheminformatics unrelated to REINVENT4, asks to reproduce the REINVENT4 paper from scratch, or requires long production training/external scoring execution without user approval.
 Useful entry points: `reinvent4/SKILL.md`, `reinvent4/sub-skills/sampling/SKILL.md`, `reinvent4/sub-skills/scoring/SKILL.md`, `reinvent4/sub-skills/learning/SKILL.md`, `reinvent4/sub-skills/data-pipeline/SKILL.md`, `reinvent4/sub-skills/enumeration/SKILL.md`.
 
-<!-- SKILLQED_SCENARIO:molecular-ml-drug-discovery-and-chemistry-workflows:END -->
+<!-- DISCO_SCENARIO:molecular-ml-drug-discovery-and-chemistry-workflows:END -->
 
 ## How To Choose
 

@@ -8,7 +8,7 @@ Read this before deciding whether this skill is current for a checkout of the re
 
 ```json
 {
-  "schema": "skillqed.repo-provenance.v1",
+  "schema": "disco.repo-provenance.v1",
   "generated_at_utc": "2026-06-22T00:00:00Z",
   "repository": {
     "name": "mcp-agent",
@@ -17,7 +17,7 @@ Read this before deciding whether this skill is current for a checkout of the re
     "branch": "main",
     "tag": null,
     "commit": "f62d849350816588b1c6294e7914bbe4d8b84072",
-    "working_tree": "dirty-skillqed-generated-only",
+    "working_tree": "dirty-disco-generated-only",
     "dirty_paths": [
       "skills/"
     ]
@@ -58,7 +58,7 @@ Run `refresh-repo-skill` when any of these are true:
 
 - The current checkout commit differs from `f62d849350816588b1c6294e7914bbe4d8b84072`.
 - The package version, optional extras, CLI entry points, config schema, or public imports differ from this snapshot.
-- The current dirty tree contains source/docs/examples/tests/config changes beyond SkillQED-generated `skills/` output.
+- The current dirty tree contains source/docs/examples/tests/config changes beyond DisCo-generated `skills/` output.
 - Major docs, examples, workflow APIs, server/auth behavior, Temporal executor behavior, or CLI commands changed.
 
 This provenance intentionally omits local environment prefixes, Python executable paths, cache paths, and inspection-machine details.

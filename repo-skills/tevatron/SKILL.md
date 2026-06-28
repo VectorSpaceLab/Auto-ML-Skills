@@ -48,7 +48,7 @@ Most end-to-end retrieval tasks follow this order:
 
 - `references/repo-provenance.md`: read before deciding whether this skill is current for a Tevatron checkout or should be refreshed.
 - `references/troubleshooting.md`: cross-cutting install/import, optional dependency, backend, data, and command failure guidance.
-- `references/repo-routing-metadata.json`: structured metadata used by `repo-skills-router` during SkillQED import.
+- `references/repo-routing-metadata.json`: structured metadata used by `repo-skills-router` during DisCo import.
 - `scripts/check_tevatron_environment.py`: safe dependency/import probe for Tevatron workflows; it reports availability but does not download models or run training.
 
 ## Installation Guidance

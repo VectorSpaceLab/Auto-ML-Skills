@@ -6,7 +6,7 @@
 - Source branch: `main`
 - Exact tag: none detected
 - Remote URL: omitted-private-or-unknown
-- Working tree state at generation: dirty because SkillSmith-generated files were added under `skills/`
+- Working tree state at generation: dirty because DisCo-generated files were added under `skills/`
 - Package version from metadata and installed inspection: `5.0.1.dev0`
 - Python support from package metadata: `>=3.10.0`
 - Console entry point: `datasets-cli=datasets.commands.datasets_cli:main`
@@ -28,4 +28,4 @@
 - `.github/` and maintainer CI configuration
 - `benchmarks/` because benchmark workflows are expensive and not part of the selected runtime skill scope
 - `utils/release.py` because it is maintainer-only release automation
-- `skills/tests/` because it is SkillSmith review/test artifact output
+- `skills/tests/` because it is DisCo review/test artifact output
