@@ -495,10 +495,12 @@ YAML-sensitive content.
 
 Generated repo skills use `repo-skills-router` for discovery. Include
 `disable-model-invocation: true` in every generated root and sub-skill
-frontmatter by default so bulk imported repo skills do not flood a target
-agent's model-visible skill list. The live `repo-skills-router` is the
+frontmatter by default so bulk imported repo skills do not flood compatible
+agents' model-visible skill lists. The live `repo-skills-router` is the
 exception: it must remain model-visible and must not include
-`disable-model-invocation: true`.
+`disable-model-invocation: true`. Codex exports add target-side
+`agents/openai.yaml` policy files during `import-repo-skills-to-agent`; do not
+add those files to the source repo skill during creation.
 
 ## Write Repo Provenance
 
@@ -646,7 +648,8 @@ Avoid:
 - Generated root or sub-skill `SKILL.md` frontmatter missing
   `disable-model-invocation: true`.
 - A `repo-skills-router` `SKILL.md` that includes
-  `disable-model-invocation: true`, which would hide the routing entry point.
+  `disable-model-invocation: true`, which would hide the routing entry point
+  in compatible agents.
 - Uppercase, underscored, dotted, spaced, or otherwise invalid skill identifiers in generated directory names, frontmatter `name` fields, or `reports/self-refine/evals.json` `skill_name` under the review/test artifact directory.
 - Sub-skill frontmatter `name` values that differ from the `sub-skills/<id>/`
   directory basename, workflow `subSkill` option, or usability target id.

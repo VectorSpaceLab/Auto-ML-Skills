@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { execFileSync } from "node:child_process";
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { DefaultPackageManager } from "../../core/package-manager.ts";
@@ -299,5 +300,58 @@ describe("repo skills router and export meta-skill constraints", () => {
     expect(skill).toContain("Preserve target-only scenario rows and scenario pages");
     expect(skill).toContain("the target router does not gain entries for unselected DisCo source");
     expect(skill).toContain("Keep the two-layer structure");
+    expect(skill).toContain("Treat the target as Codex");
+    expect(skill).toContain("scripts/apply_codex_openai_policy.py");
+    expect(skill).toContain("policy.allow_implicit_invocation: false");
+    expect(skill).toContain("preserve unrelated");
+    expect(skill).toContain("do not rely on `disable-model-invocation: true` alone");
+    expect(skill).toContain("for Codex targets, number of `agents/openai.yaml` policy files written");
+  });
+
+  it("provides a Codex policy helper that preserves existing OpenAI metadata", () => {
+    const tempRoot = mkdtempSync(join(tmpdir(), "disco-codex-policy-"));
+    try {
+      const skillDir = join(tempRoot, "target-skill");
+      const nestedSkillDir = join(skillDir, "sub-skills", "first", "sub-skills", "second");
+      const routerDir = join(tempRoot, "repo-skills-router");
+      mkdirSync(join(skillDir, "agents"), { recursive: true });
+      mkdirSync(nestedSkillDir, { recursive: true });
+      mkdirSync(routerDir, { recursive: true });
+
+      writeFileSync(join(skillDir, "SKILL.md"), "---\nname: target-skill\ndescription: \"Target\"\n---\n");
+      writeFileSync(join(nestedSkillDir, "SKILL.md"), "---\nname: second\ndescription: \"Nested\"\n---\n");
+      writeFileSync(join(routerDir, "SKILL.md"), "---\nname: repo-skills-router\ndescription: \"Router\"\n---\n");
+      writeFileSync(
+        join(skillDir, "agents", "openai.yaml"),
+        [
+          "interface:",
+          '  display_name: "Target Skill"',
+          "policy:",
+          "  allow_implicit_invocation: true",
+          "dependencies:",
+          "  tools: []",
+          "",
+        ].join("\n"),
+      );
+
+      execFileSync("python3", [
+        join(process.cwd(), "src/disco/skills/import-repo-skills-to-agent/scripts/apply_codex_openai_policy.py"),
+        skillDir,
+        routerDir,
+      ]);
+
+      const rootPolicy = readFileSync(join(skillDir, "agents", "openai.yaml"), "utf-8");
+      const nestedPolicyPath = join(nestedSkillDir, "agents", "openai.yaml");
+
+      expect(rootPolicy).toContain("interface:");
+      expect(rootPolicy).toContain('display_name: "Target Skill"');
+      expect(rootPolicy).toContain("dependencies:");
+      expect(rootPolicy).toContain("allow_implicit_invocation: false");
+      expect(existsSync(nestedPolicyPath)).toBe(true);
+      expect(readFileSync(nestedPolicyPath, "utf-8")).toBe("policy:\n  allow_implicit_invocation: false\n");
+      expect(existsSync(join(routerDir, "agents", "openai.yaml"))).toBe(false);
+    } finally {
+      rmSync(tempRoot, { recursive: true, force: true });
+    }
   });
 });

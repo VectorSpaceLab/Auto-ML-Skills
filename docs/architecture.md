@@ -229,7 +229,8 @@ Generated repo skills are expected to include:
   state, and evidence paths;
 - `references/repo-routing-metadata.json` for managed router placement;
 - `disable-model-invocation: true` in repo-skill root and sub-skill frontmatter
-  so the model-visible entry point remains `repo-skills-router`;
+  so compatible agents keep `repo-skills-router` as the model-visible entry
+  point;
 - bundled references or scripts instead of links to the original checkout when
   future use depends on those details.
 
@@ -261,6 +262,11 @@ The managed library is an import/export source, not necessarily the runtime
 skill source for every downstream agent. Use `import-repo-skills-to-agent` to
 export managed skills and the router into targets such as `~/.agents`,
 `~/.codex`, or `~/.claude`.
+
+When exporting to Codex, the import workflow also adds target-side
+`agents/openai.yaml` files with `policy.allow_implicit_invocation: false` to
+non-router repo skills, because Codex does not use the
+`disable-model-invocation` frontmatter field for that policy.
 
 Approved or auto-authorized imports are serialized with the verification
 workflow's import lock. The same locked transaction copies the runtime skill

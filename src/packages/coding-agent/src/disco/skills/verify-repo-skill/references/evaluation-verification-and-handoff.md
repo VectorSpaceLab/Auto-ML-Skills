@@ -86,7 +86,7 @@ review/test artifact directory as `reports/self-refine/evals.json`:
         "Every sub-skill frontmatter name exactly matches its sub-skills/<id>/ directory basename, usability target id, and workflow subSkill id when workflow metadata is available",
         "Sub-skill names avoid redundantly repeating the root repo skill id unless needed to disambiguate sibling sub-skills",
         "Every generated root and sub-skill frontmatter description is wrapped in double quotes",
-        "Every generated root and sub-skill SKILL.md frontmatter contains disable-model-invocation: true so repo-skills-router remains the model-visible entry point",
+        "Every generated root and sub-skill SKILL.md frontmatter contains disable-model-invocation: true for compatible agents; Codex target visibility is controlled during import",
         "The generated skill tree covers every public capability identified in the coverage matrix",
         "The main-agent sub-skill plan records boundaries, evidence sources, required outputs, cross-links, and acceptance rubrics for each sub-skill",
         "The relevant sub-skill has enough references, scripts, examples, parameters, and troubleshooting to complete the task without reopening the original repo",
@@ -248,8 +248,8 @@ Before finishing, confirm:
 - Every generated repo root and sub-skill `SKILL.md` contains
   `disable-model-invocation: true`.
 - The live or generated `repo-skills-router/SKILL.md` does not contain
-  `disable-model-invocation: true`, because it must stay in the model-visible
-  skill list as the routing entry point.
+  `disable-model-invocation: true`, because it must remain the routing entry
+  point for compatible agents.
 - The generated root directory basename is a canonical lowercase-hyphen skill id, not a raw mixed-case repo name.
 - Every `name` field uses only lowercase letters, numbers, and hyphens, is no longer than 64 characters, and matches the corresponding generated skill directory basename.
 - Every sub-skill directory basename under `sub-skills/`, sub-skill

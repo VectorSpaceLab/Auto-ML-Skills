@@ -15,8 +15,8 @@ The static pass checks:
 
 - Generated skill directory and root `SKILL.md` existence.
 - Frontmatter validity, lowercase-hyphen IDs, double-quoted descriptions,
-  `disable-model-invocation: true` on repo root/sub-skill files, and
-  model-visible `repo-skills-router` behavior.
+  `disable-model-invocation: true` on repo root/sub-skill files for compatible
+  agents, and `repo-skills-router` routing behavior.
 - Root routes, sub-skill routes, bundled reference/script links, and relative Markdown links.
 - Public install/import guidance.
 - Local path, virtualenv, conda, and `pip show Location` leaks.
