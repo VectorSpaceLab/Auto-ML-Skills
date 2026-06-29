@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.0.3
+
+- Added Codex-target export handling for imported repo skills by writing
+  target-side `agents/openai.yaml` policies that keep non-router repo skill
+  descriptions out of Codex implicit invocation while preserving
+  `repo-skills-router` as the routing entry point.
+- Clarified repo-skill creation, extension, verification, and architecture docs
+  so source repo skills stay agent-neutral; Codex-specific policy files are
+  added only during `import-repo-skills-to-agent`.
+- Synchronized package versions for the `0.0.3` release.
+
 ## 0.0.2
 
 - Initial DisCo release under the `@auto-ml-skills` npm scope.

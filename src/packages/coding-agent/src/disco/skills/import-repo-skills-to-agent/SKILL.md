@@ -33,6 +33,12 @@ Resolve the target skills root as follows:
 4. Create the target skills root only after confirming the source library is
    readable.
 
+Treat the target as Codex when the user names `codex`, `~/.codex`, `$CODEX_HOME`,
+or another path whose agent/tool root basename is `.codex`. For Codex targets,
+non-router repo skills need an additional target-side `agents/openai.yaml`
+policy file so Codex keeps their `description` out of the initial model-visible
+skills list while leaving `repo-skills-router` visible.
+
 ## Source Selection
 
 The user may import the whole managed repo-skill library or a selected subset.
@@ -89,6 +95,11 @@ Then inspect every selected skill directory:
 6. For every selected non-router repo skill, require
    `references/repo-routing-metadata.json` unless the user explicitly imports a
    skill for manual use only and declines router participation.
+
+Do not require source repo skills to contain `agents/openai.yaml`. The source
+library stays agent-neutral except for the existing Claude/DisCo
+`disable-model-invocation` frontmatter. Add Codex-specific `agents/openai.yaml`
+only to the copied target skill directories when the target is Codex.
 
 Do not silently import invalid skills. Report validation failures by skill id,
 source path, and exact reason. If the user selected a subset, a validation
@@ -182,18 +193,41 @@ After merging, verify that all scenario page links in `SKILL.md` and
    destructive changes.
 6. Copy approved skills. Prefer directory-level replacement for approved
    overwrites, preserving permissions when possible.
-7. Build a filtered source `repo-skills-router` for the exact non-router repo
+7. If the target is Codex, run
+   `scripts/apply_codex_openai_policy.py <target-skill-dir>...` for every
+   copied or overwritten non-router repo skill directory. This writes
+   `agents/openai.yaml` beside the root `SKILL.md` and every descendant
+   `SKILL.md` under that skill directory with:
+
+   ```yaml
+   policy:
+     allow_implicit_invocation: false
+   ```
+
+   If an `agents/openai.yaml` file already exists, preserve unrelated
+   `interface`, `dependencies`, and other metadata while setting only
+   `policy.allow_implicit_invocation` to `false`. Never run this on
+   `repo-skills-router`, because it must remain the model-visible routing
+   entry point. This is a target normalization step only; do not modify the
+   DisCo source skill directory.
+8. Build a filtered source `repo-skills-router` for the exact non-router repo
    skills that were approved for copy/overwrite, then merge or copy that
    filtered router.
-8. Re-validate the target copy:
+9. Re-validate the target copy:
    - non-router repo skills still contain `disable-model-invocation: true`;
+   - for Codex targets, each copied or overwritten non-router root skill and
+     descendant skill contains `agents/openai.yaml` with
+     `policy.allow_implicit_invocation: false`;
+   - for Codex targets, `repo-skills-router` does not contain
+     `agents/openai.yaml` with `policy.allow_implicit_invocation: false`;
    - `repo-skills-router` remains model-visible;
    - router links point to existing files;
    - selected skills are present and unselected skills were not modified;
    - the target router does not gain entries for unselected DisCo source
      skills, except for unrelated entries that already existed in the target
      router before this import.
-9. Report imported, overwritten, skipped, and merged items with exact paths.
+10. Report imported, overwritten, skipped, merged items, and any Codex
+    `agents/openai.yaml` files written with exact paths.
 
 ## Safety Checks
 
@@ -210,6 +244,10 @@ After merging, verify that all scenario page links in `SKILL.md` and
   `repo-skills-router` skill is the model-visible entry point; imported
   non-router repo skills should be hidden from automatic model invocation and
   read only after router selection or explicit user request.
+- For Codex targets, do not rely on `disable-model-invocation: true` alone.
+  Codex uses `agents/openai.yaml` with
+  `policy.allow_implicit_invocation: false` to keep non-router repo skill
+  descriptions out of the initial model-visible skill list.
 - Do not let subset import leak all DisCo-managed repo skills through
   `repo-skills-router`. The router content imported from DisCo must be scoped
   to the selected skills that are actually present in the target.
@@ -225,5 +263,6 @@ End with a concise import summary:
 - skills overwritten after approval;
 - skills skipped and validation or conflict reason;
 - router action: copied, merged, unchanged, or unavailable;
+- for Codex targets, number of `agents/openai.yaml` policy files written;
 - any manual follow-up needed, such as restarting the target agent so it reloads
   skills.

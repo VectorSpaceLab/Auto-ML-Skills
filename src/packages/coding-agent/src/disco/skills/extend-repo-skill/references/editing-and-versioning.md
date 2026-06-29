@@ -19,8 +19,9 @@ disable-model-invocation: true
 ```
 
 Preserve or add `disable-model-invocation: true` on repo root and sub-skill
-frontmatter so imported repo skills stay behind `repo-skills-router`. Do not
-add it to `repo-skills-router` itself; the router must remain model-visible.
+frontmatter so imported repo skills stay behind `repo-skills-router` in
+compatible agents. Do not add it to `repo-skills-router` itself; Codex target
+visibility is handled during `import-repo-skills-to-agent`.
 
 ## Edit In Place
 

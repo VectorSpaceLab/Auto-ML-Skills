@@ -109,9 +109,12 @@ checklist in the conversation.
   mechanism.
 - Every generated root and sub-skill `SKILL.md` frontmatter must double-quote
   `description` and include `disable-model-invocation: true` so imported repo
-  skills are routed through `repo-skills-router` instead of all appearing in a
-  target agent's model-visible skill list. The `repo-skills-router` skill
-  itself is the exception and must remain model-visible.
+  skills are routed through `repo-skills-router` in compatible targets instead
+  of all appearing in the model-visible skill list. The `repo-skills-router`
+  skill itself is the exception and must remain model-visible. Codex exports
+  add the required `agents/openai.yaml` policy during
+  `import-repo-skills-to-agent`; do not add Codex-specific files to the source
+  repo skill during creation.
 - Every generated package repo skill should include troubleshooting guidance for install/import, optional dependencies, data/config validation, CLI/API misuse, and workflow-specific failure modes when those surfaces exist. Put cross-cutting package issues in root `references/troubleshooting.md` and workflow-specific failures in the nearest sub-skill `references/troubleshooting.md`.
 - Every generated sub-skill directory basename, `SKILL.md` frontmatter `name`, workflow `subSkill` option, coverage/depth matrix output location, and usability target id must use the same canonical lowercase-hyphen sub-skill id. Do not add the repo name to sub-skill ids unless it is truly needed to disambiguate two sibling sub-skills, because the root skill already names the repository.
 - Keep generated root and sub-skill `SKILL.md` files router-like. Move API tables, workflow depth, CLI catalogs, model lists, data schemas, long examples, and troubleshooting matrices into the nearest bundled `references/`.

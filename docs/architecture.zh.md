@@ -219,8 +219,8 @@ generated repo skills 预期包含：
   dirty state 和 evidence paths；
 - `references/repo-routing-metadata.json`，用于 managed router placement；
 - repo-skill root 和 sub-skill frontmatter 中的
-  `disable-model-invocation: true`，确保 model-visible entry point 仍然是
-  `repo-skills-router`；
+  `disable-model-invocation: true`，让兼容的 agent 保持
+  `repo-skills-router` 作为 model-visible entry point；
 - 当未来使用依赖相关细节时，使用 bundled references 或 scripts，而不是链接
   到原始 checkout。
 
@@ -251,6 +251,10 @@ scenario 页面和候选 skill。
 managed library 是 import/export source，不一定是所有下游 agent 的 runtime
 skill source。使用 `import-repo-skills-to-agent` 可以把 managed skills 和
 router 导出到 `~/.agents`、`~/.codex` 或 `~/.claude` 等目标。
+
+导出到 Codex 时，import workflow 还会在目标侧为非 router repo skills 写入
+`agents/openai.yaml`，设置 `policy.allow_implicit_invocation: false`，因为
+Codex 不使用 `disable-model-invocation` frontmatter 字段表达这个 policy。
 
 批准或 auto-authorized 的导入会通过 verification workflow 的 import lock
 串行化。同一个 locked transaction 会复制 runtime skill directory，验证
