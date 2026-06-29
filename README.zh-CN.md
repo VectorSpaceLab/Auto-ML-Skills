@@ -116,6 +116,52 @@ cp -R repo-skills/* ~/.disco/agent/skills/
 
 复制后重启 DisCo，让 managed skill index 重新加载。
 
+### 安装 Workflow Meta Skills
+
+顶层 [`meta-skills/`](meta-skills/) 目录包含可复制到其他 agent 的 workflow
+skills。它们用于让 Codex、Claude Code 或其他 agent 在不依赖完整 DisCo CLI
+的情况下运行 DisCo 风格的 repo-skill 或 paper-to-skill workflow。
+
+如果本地还没有 checkout，先 clone 这个仓库：
+
+```bash
+git clone https://github.com/VectorSpaceLab/Auto-ML-Skills.git
+cd Auto-ML-Skills
+```
+
+安装全部 workflow meta skills 到 Codex：
+
+```bash
+mkdir -p ~/.codex/skills
+cp -R meta-skills/* ~/.codex/skills/
+```
+
+安装全部 workflow meta skills 到 Claude Code：
+
+```bash
+mkdir -p ~/.claude/skills
+cp -R meta-skills/* ~/.claude/skills/
+```
+
+如果只需要把 paper workflow 安装到 Codex，复制这七个目录：
+
+```bash
+mkdir -p ~/.codex/skills
+cp -R \
+  meta-skills/create-paper-skills \
+  meta-skills/paper-skills-distiller \
+  meta-skills/plan-paper-skill-modules \
+  meta-skills/create-paper-module-skill \
+  meta-skills/prepare-paper-recovery-env \
+  meta-skills/recover-paper-result \
+  meta-skills/analyze-paper-recovery \
+  ~/.codex/skills/
+```
+
+workflow 列表、Claude Code paper-only 安装命令、可直接复制给 agent 执行的
+自动 clone 安装指令，以及默认 workflow artifact layout 见
+[`meta-skills/README.md`](meta-skills/README.md)。
+
 ## 🚀 Quick Start <a id="quick-start"></a>
 
 ### 在 Codex 或 Claude Code 中使用 Repo Skills
@@ -237,7 +283,8 @@ checklist 见 [CONTRIBUTING_CN.md](CONTRIBUTING_CN.md)。
 | --- | --- |
 | [Imported Repo Skills Catalog](docs/imported-repo-skills.md) | 已包含 runtime repo skills 的公开目录，按工作流领域组织，并记录上游 baseline。 |
 | [Architecture](docs/architecture.md) | 仓库分层、DisCo 源码布局、skill authoring pipeline、runtime skill 形态和 managed library model。 |
-| [DisCo Skill Workflows](src/packages/coding-agent/src/disco/skills/README.md) | 集成在 DisCo CLI 中的内置 package/repo、verification、import 和 paper-to-skill workflows。 |
+| [Workflow Meta Skills](meta-skills/README.md) | 可复制到外部 agent 的 package/repo 和 paper-to-skill workflow skills。 |
+| [DisCo CLI README](src/packages/coding-agent/README.md) | DisCo CLI 的 repo-skill 创建、导入、验证和 paper-to-skill workflow 使用说明。 |
 | [贡献指南](CONTRIBUTING_CN.md) | generated repo skills、router/catalog、文档、meta skills 和 CLI 源码贡献规范。 |
 
 ## 🙏 Acknowledgement <a id="acknowledgement"></a>

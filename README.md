@@ -122,6 +122,53 @@ cp -R repo-skills/* ~/.disco/agent/skills/
 
 Restart DisCo after copying so the managed skill index is reloaded.
 
+### Install Workflow Meta Skills
+
+The top-level [`meta-skills/`](meta-skills/) directory contains workflow skills
+for agents that should run DisCo-style repo-skill or paper-to-skill workflows
+without relying on the full DisCo CLI.
+
+If you do not already have a local checkout, clone this repository first:
+
+```bash
+git clone https://github.com/VectorSpaceLab/Auto-ML-Skills.git
+cd Auto-ML-Skills
+```
+
+Install all workflow meta skills into Codex:
+
+```bash
+mkdir -p ~/.codex/skills
+cp -R meta-skills/* ~/.codex/skills/
+```
+
+Install all workflow meta skills into Claude Code:
+
+```bash
+mkdir -p ~/.claude/skills
+cp -R meta-skills/* ~/.claude/skills/
+```
+
+To install only the paper workflow into Codex, copy these seven directories:
+
+```bash
+mkdir -p ~/.codex/skills
+cp -R \
+  meta-skills/create-paper-skills \
+  meta-skills/paper-skills-distiller \
+  meta-skills/plan-paper-skill-modules \
+  meta-skills/create-paper-module-skill \
+  meta-skills/prepare-paper-recovery-env \
+  meta-skills/recover-paper-result \
+  meta-skills/analyze-paper-recovery \
+  ~/.codex/skills/
+```
+
+See [`meta-skills/README.md`](meta-skills/README.md) for the workflow list,
+Claude Code paper-only install command, copy-and-run agent installation
+prompts that clone the repository automatically, and default workflow artifact
+layout.
+
 ## 🚀 Quick Start <a id="quick-start"></a>
 
 ### Use Repo Skills In Codex Or Claude Code
@@ -248,7 +295,8 @@ checklist.
 | --- | --- |
 | [Imported Repo Skills Catalog](docs/imported-repo-skills.md) | Public catalog of included runtime repo skills, grouped by workflow area with upstream baselines. |
 | [Architecture](docs/architecture.md) | Repository layers, DisCo source layout, skill authoring pipeline, runtime skill shape, and managed library model. |
-| [DisCo Skill Workflows](src/packages/coding-agent/src/disco/skills/README.md) | Bundled package/repo, verification, import, and paper-to-skill workflows integrated in the DisCo CLI. |
+| [Workflow Meta Skills](meta-skills/README.md) | Copyable package/repo and paper-to-skill workflow skills for external agents. |
+| [DisCo CLI README](src/packages/coding-agent/README.md) | DisCo CLI usage for repo-skill creation, import, verification, and paper-to-skill workflows. |
 | [Contributing](CONTRIBUTING.md) | Contribution rules for generated repo skills, router/catalog updates, documentation, meta skills, and CLI source. |
 
 ## 🙏 Acknowledgement <a id="acknowledgement"></a>
