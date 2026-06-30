@@ -7,6 +7,14 @@ Bulk RNA-seq raw-count differential expression analysis, DESeq2-like Python work
 ## Repo Skill Options
 
 <!-- DISCO_SCENARIO:bulk-rna-seq-differential-expression-analysis:START -->
+### `omicverse`
+
+Role: OmicVerse provides bulk RNA-seq and enrichment helpers plus table validation guidance alongside its broader multi-omics platform.
+Read when: Read `omicverse` when the task mentions `ov.bulk`, `pyDEG`, `deseq2_normalize`, `geneset_enrichment`, `geneset_enrichment_GSEA`, `pyGSEA`, `temporal_clusters`, bulk count matrices, contrasts, pathway enrichment, or OmicVerse-specific wrappers around bulk analysis.
+Best for: OmicVerse-specific bulk/enrichment APIs and cross-routing from bulk outputs into OmicVerse plotting, reports, and multi-omics table workflows.
+Avoid when: Use `pydeseq2` when the user is directly using PyDESeq2 classes or needs DESeq2 internals independent of OmicVerse.
+Useful entry points: `omicverse/SKILL.md`, `omicverse/sub-skills/multiomics-statistics/SKILL.md`.
+
 ### `pydeseq2`
 
 Role: Use PyDESeq2 as a Python package for bulk RNA-seq differential expression workflows from data validation through fitted models and statistical results.
@@ -19,4 +27,4 @@ Useful entry points: `pydeseq2/SKILL.md`, `pydeseq2/sub-skills/data-io-validatio
 
 ## How To Choose
 
-Use this scenario for package-specific bulk RNA-seq DEA workflows. Do not route general Scanpy/single-cell tasks here unless the user explicitly asks for PyDESeq2 or bulk count differential expression. Choose `pydeseq2` when the user is using PyDESeq2 or asks for DESeq2-like bulk RNA-seq analysis in Python. Start at the root router, then pick data I/O before model construction, DEA workflows for fitting, statistics/results after fitting, or model-fitting internals for staged normalization/VST/debugging.
+Use this scenario for package-specific bulk RNA-seq DEA workflows. Do not route general Scanpy/single-cell tasks here unless the user explicitly asks for PyDESeq2 or bulk count differential expression. Choose `omicverse` for bulk/enrichment tasks written with `ov.bulk` or OmicVerse table workflows; choose `pydeseq2` for direct PyDESeq2 object modeling and low-level DESeq2 troubleshooting. Choose `pydeseq2` when the user is using PyDESeq2 or asks for DESeq2-like bulk RNA-seq analysis in Python. Start at the root router, then pick data I/O before model construction, DEA workflows for fitting, statistics/results after fitting, or model-fitting internals for staged normalization/VST/debugging.

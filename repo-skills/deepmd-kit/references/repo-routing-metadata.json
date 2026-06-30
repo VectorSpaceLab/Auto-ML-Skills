@@ -1,0 +1,40 @@
+{
+  "skills": {
+    "deepmd-kit": {
+      "scenarios": [
+        {
+          "id": "molecular-ml-drug-discovery-and-chemistry-workflows",
+          "title": "Molecular ML, Drug Discovery, and Chemistry Workflows",
+          "when_to_read": "Molecular machine-learning potentials, DeePMD/Deep Potential training, frozen model inference, model-deviation analysis, molecular dynamics with machine-learned potentials, LAMMPS pair_style deepmd, i-PI coupling, and chemistry simulation data preparation.",
+          "role": "Guides DeePMD-kit installation, data/config preparation, model training/fine-tuning, frozen-model inference, model operations, LAMMPS/i-PI/native integrations, and troubleshooting for Deep Potential workflows.",
+          "read_when": "The request names DeePMD-kit, deepmd-kit, DeePMD, Deep Potential, DeepPot, the `dp` CLI, `DeepPot`, `type.raw`, `type_map.raw`, DeePMD system `set.*` folders, `input.json` for DeePMD training, `.pb` or `.pth` DeePMD model artifacts, `dp test`, `dp model-devi`, `dp eval-desc`, `pair_style deepmd`, `deepspin`, or asks for ML interatomic potential training/inference/deployment in molecular dynamics.",
+          "best_for": "Installing and validating DeePMD-kit backends, preparing DeePMD data/configs, drafting and troubleshooting `dp train`/freeze/fine-tune workflows, running Python/CLI inference and model operations, and writing LAMMPS/i-PI/native integration guidance for DeePMD models.",
+          "avoid_when": "The task is generic cheminformatics, molecule featurization, OpenMM/MDAnalysis trajectory analysis without DeePMD models, or a different molecular ML package with its own skill. Use Python repository maintenance only when the user is editing this checkout rather than using DeePMD-kit workflows.",
+          "useful_entry_points": [
+            "deepmd-kit/SKILL.md",
+            "deepmd-kit/sub-skills/data-config/SKILL.md",
+            "deepmd-kit/sub-skills/training-models/SKILL.md",
+            "deepmd-kit/sub-skills/inference-model-ops/SKILL.md",
+            "deepmd-kit/sub-skills/integrations-development/SKILL.md"
+          ],
+          "selection_guidance": "Choose `deepmd-kit` for Deep Potential package workflows involving DeePMD data layouts, `dp` CLI commands, backend-specific model artifacts, DeepPot inference APIs, pretrained/fine-tuning routes, or LAMMPS/i-PI/native MD integration with DeePMD models."
+        },
+        {
+          "id": "python-repository-maintenance",
+          "title": "Python Repository Maintenance",
+          "when_to_read": "Editing, testing, building, documenting, or reviewing the DeePMD-kit Python/C++ repository checkout.",
+          "role": "Provides DeePMD-kit-specific maintainer guidance, targeted validation commands, backend-aware build cautions, C++ build timing expectations, lint/format policy, and conventional commit guidance.",
+          "read_when": "The request involves modifying DeePMD-kit source files, `deepmd/main.py`, backend modules, docs, examples, C++ APIs, LAMMPS/i-PI/native integration code, source builds, focused pytest selection, `ruff`, `uv`, `build_cc.sh`, or repository-specific CI/build failures.",
+          "best_for": "Planning safe DeePMD-kit code changes, selecting focused tests instead of the full suite, running build/lint commands with appropriate timeouts, and keeping changes consistent with maintainer instructions.",
+          "avoid_when": "The user only wants to train or run a DeePMD model as a package user; use the molecular workflow scenario entry points instead.",
+          "useful_entry_points": [
+            "deepmd-kit/SKILL.md",
+            "deepmd-kit/sub-skills/integrations-development/SKILL.md",
+            "deepmd-kit/sub-skills/installation-backends/SKILL.md"
+          ],
+          "selection_guidance": "Choose `deepmd-kit` in Python repository maintenance when the checkout-specific build/test rules, backend dependencies, C++ components, examples, or DeePMD-kit contributor conventions affect the task."
+        }
+      ]
+    }
+  }
+}

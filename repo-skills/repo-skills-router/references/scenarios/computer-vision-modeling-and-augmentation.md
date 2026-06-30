@@ -15,6 +15,14 @@ Best for: framework integration, pipeline composition, serialization and reprodu
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
 Useful entry points: `albumentations/SKILL.md`, `albumentations/sub-skills/framework-integration/`, `albumentations/sub-skills/pipeline-composition/`, `albumentations/sub-skills/serialization-and-reproducibility/`, `albumentations/sub-skills/targets-and-formats/`, `albumentations/sub-skills/transform-catalog/`.
 
+### `clip`
+
+Role: `clip` provides self-contained guidance for OpenAI CLIP model loading, tokenization, zero-shot prompt workflows, image/text embedding extraction, and responsible evaluation.
+Read when: Task mentions OpenAI CLIP, the `clip` Python package, `clip.load`, `clip.tokenize`, `encode_image`, `encode_text`, ViT-B/32, RN50, zero-shot image classification, image-text similarity, prompt templates for class labels, checkpoint cache/download errors, or CLIP CPU/CUDA/JIT issues.
+Best for: Loading released OpenAI CLIP models, scoring images against text labels, building tokenizer-safe zero-shot prompts, extracting CLIP image/text features, preparing linear-probe evaluation plans, and diagnosing CLIP package/runtime failures.
+Avoid when: Use a different skill for OpenCLIP, Hugging Face Transformers CLIP, SigLIP/BLIP-style models, training CLIP from scratch, general torchvision issues without CLIP APIs, or production surveillance/facial-recognition deployment tasks without explicit safety review.
+Useful entry points: `clip/SKILL.md`, `clip/sub-skills/model-loading-inference/SKILL.md`, `clip/sub-skills/prompt-engineering/SKILL.md`, `clip/sub-skills/feature-evaluation/SKILL.md`.
+
 ### `detectron2`
 
 Role: Guides Detectron2 configuration, datasets, training/evaluation, inference/visualization, deployment export, and extension/project workflows.
@@ -30,6 +38,14 @@ Read when: Signals include groundingdino imports, GroundingDINO_SwinT_OGC.py, Gr
 Best for: Single-image text-prompt detection, Python API usage, token-span debugging, COCO-style evaluation, pseudo-label dataset export, and safe web/downstream integration wrappers for GroundingDINO.
 Avoid when: Avoid for generic object detection unrelated to GroundingDINO, Hugging Face Transformers GroundingDINO APIs that intentionally bypass this repo package, full training/fine-tuning requests, or unrelated segmentation/image-generation models without GroundingDINO detections.
 Useful entry points: `grounding-dino/SKILL.md`, `grounding-dino/sub-skills/inference/`, `grounding-dino/sub-skills/evaluation/`, `grounding-dino/sub-skills/dataset-annotation/`, `grounding-dino/sub-skills/integrations/`.
+
+### `mmcv`
+
+Role: Use mmcv for OpenMMLab computer-vision foundations: image/video/flow utilities, dict-style transforms, PyTorch CNN builders, and compiled ops installation diagnostics.
+Read when: The user names MMCV, mmcv, mmcv-lite, OpenMMLab utilities, mmcv.transforms, mmcv.cnn, mmcv.ops, image/video/optical-flow helpers, transform pipeline dicts, ConvModule/build_layer configs, NMS/ROI/deformable ops, or errors such as No module named mmcv._ext.
+Best for: MMCV 2.2.0 package usage, media preprocessing, transform pipelines, CNN layer builders, package variant selection, and compiled ops troubleshooting.
+Avoid when: Avoid for downstream MMDetection/MMSeg model training recipes unless the task is specifically about MMCV APIs or install/build problems; avoid for generic Pillow/OpenCV/TorchVision tasks that do not use MMCV.
+Useful entry points: `mmcv/SKILL.md`, `mmcv/sub-skills/media-processing/SKILL.md`, `mmcv/sub-skills/data-transforms/SKILL.md`, `mmcv/sub-skills/cnn-model-building/SKILL.md`, `mmcv/sub-skills/ops-and-builds/SKILL.md`.
 
 ### `mmdetection`
 
@@ -71,6 +87,14 @@ Best for: automatic mask generation, onnx and browser, and prompted segmentation
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
 Useful entry points: `segment-anything/SKILL.md`, `segment-anything/sub-skills/automatic-mask-generation/`, `segment-anything/sub-skills/onnx-and-browser/`, `segment-anything/sub-skills/prompted-segmentation/`.
 
+### `segmentation-models-pytorch`
+
+Role: Provides package-specific routes for using segmentation_models_pytorch models, encoders, losses, metrics, and deployment helpers.
+Read when: Use when a request names segmentation_models_pytorch, SMP, Unet/FPN/DeepLabV3Plus/Segformer/DPT in SMP, encoder_name, encoder_weights, get_preprocessing_fn, DiceLoss/JaccardLoss/TverskyLoss/FocalLoss, smp.metrics.get_stats, save_pretrained, from_pretrained, ONNX export for SMP, or PyTorch semantic segmentation shape errors.
+Best for: Creating semantic segmentation models, selecting pretrained encoders and preprocessing, configuring segmentation losses/metrics, local model save/load, Hugging Face Hub sharing boundaries, ONNX/export readiness, and SMP-specific troubleshooting.
+Avoid when: Avoid for generic image augmentation without SMP, non-PyTorch segmentation frameworks, medical-imaging-specific MONAI/nnU-Net/TorchIO workflows, or repository maintenance tasks that are primarily about editing source code.
+Useful entry points: `segmentation-models-pytorch/SKILL.md`, `segmentation-models-pytorch/sub-skills/model-building/SKILL.md`, `segmentation-models-pytorch/sub-skills/encoders-preprocessing/SKILL.md`, `segmentation-models-pytorch/sub-skills/training-evaluation/SKILL.md`, `segmentation-models-pytorch/sub-skills/model-export/SKILL.md`.
+
 ### `tiatoolbox`
 
 Role: Use `tiatoolbox` when a vision request specifically names TIAToolbox or pathology-image APIs rather than a generic CV framework.
@@ -85,7 +109,7 @@ Role: Use PyTorch Image Models (timm) for model discovery, pretrained loading, t
 Read when: The request names `timm` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: benchmarking and results, cli workflows, data pipelines, export and interoperability, layers and components, and 2 other focused workflows.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `timm/SKILL.md`, `timm/sub-skills/benchmarking-and-results/`, `timm/sub-skills/cli-workflows/`, `timm/sub-skills/data-pipelines/`, `timm/sub-skills/export-and-interoperability/`, `timm/sub-skills/layers-and-components/`, `2 more sub-skills`.
+Useful entry points: `timm/SKILL.md`, `timm/sub-skills/benchmarking-and-results/`, `timm/sub-skills/cli-workflows/`, `timm/sub-skills/data-pipelines/`, `timm/sub-skills/export-and-interoperability/`, `timm/sub-skills/layers-and-components/`, `timm/sub-skills/model-library/`, `timm/sub-skills/training-workflows/`.
 
 ### `torchvision`
 
@@ -101,10 +125,18 @@ Role: Use `ultralytics` for Ultralytics YOLO package workflows: CLI/Python model
 Read when: The request names `ultralytics` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: data and configuration, export and deployment, inference and results, model families and tasks, repo development, and 2 other focused workflows.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `ultralytics/SKILL.md`, `ultralytics/sub-skills/data-and-configuration/`, `ultralytics/sub-skills/export-and-deployment/`, `ultralytics/sub-skills/inference-and-results/`, `ultralytics/sub-skills/model-families-and-tasks/`, `ultralytics/sub-skills/repo-development/`, `2 more sub-skills`.
+Useful entry points: `ultralytics/SKILL.md`, `ultralytics/sub-skills/data-and-configuration/`, `ultralytics/sub-skills/export-and-deployment/`, `ultralytics/sub-skills/inference-and-results/`, `ultralytics/sub-skills/model-families-and-tasks/`, `ultralytics/sub-skills/repo-development/`, `ultralytics/sub-skills/tracking-and-solutions/`, `ultralytics/sub-skills/training-and-validation/`.
+
+### `unilm`
+
+Role: Use unilm to choose and safely plan commands across UniLM vision, document AI, OCR, and vision-language subprojects.
+Read when: Requests mention BEiT, BEiT-2, BEiT-3, DiT, LayoutLM, LayoutLMv2, LayoutLMv3, LayoutXLM, MarkupLM, XDoc, TrOCR, VLMo, VL-BEiT, FUNSD, CORD, XFUND, PubLayNet, ICDAR, WebSRC, VQAv2, NLVR2, Detectron2, MMCV, OCR checkpoints, or document bounding boxes.
+Best for: Routing between image-only, document layout/form, OCR, webpage, and vision-language workflows while handling backend and dataset-schema pitfalls.
+Avoid when: Use image-generation-and-lora-training-workflows for diffusion/image generation tasks; within unilm, use multimodal-generation for TextDiffuser, Kosmos, audio, speech, or LatentLM.
+Useful entry points: `unilm/SKILL.md`, `unilm/sub-skills/vision-document-ai/SKILL.md`.
 
 <!-- DISCO_SCENARIO:computer-vision-modeling-and-augmentation:END -->
 
 ## How To Choose
 
-Choose by the named package and task shape: augmentation for Albumentations, image primitives for Pillow/TorchVision/TIMM, detection or segmentation for Detectron2/MMDetection/MMSeg/SAM/GroundingDINO, and export only when tied to a vision model workflow. Choose `albumentations` when the request names `albumentations`, centers on building, debugging, serializing, and integrating Albumentations 2.x augmentation pipelines for images, masks, bboxes, keypoints, volumes, and PyTorch-style datasets, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in computer vision modeling and augmentation. Choose `detectron2` for Detectron2-specific detection/segmentation work. For pure image preprocessing or general PyTorch model code, prefer a generic PyTorch/OpenCV skill unless the request depends on Detectron2 configs, catalogs, model zoo, trainers, structures, evaluators, or export APIs. Choose `detectron2` when training/evaluation depends on Detectron2 config keys, data catalogs, trainers, evaluators, or model zoo checkpoints. Pair the training route with data/config sub-skills when custom datasets or config overrides are involved. Choose `detectron2` for export/deployment tasks involving Detectron2 model inputs, `Instances`, official model families, or Detectron2 export helpers; use a generic deployment skill for unrelated model serving stacks.
+Choose by the named package and task shape: augmentation for Albumentations, image primitives for Pillow/TorchVision/TIMM, detection or segmentation for Detectron2/MMDetection/MMSeg/SAM/GroundingDINO, and export only when tied to a vision model workflow. Choose `albumentations` when the request names `albumentations`, centers on building, debugging, serializing, and integrating Albumentations 2.x augmentation pipelines for images, masks, bboxes, keypoints, volumes, and PyTorch-style datasets, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in computer vision modeling and augmentation. Choose `clip` when the user needs OpenAI CLIP package APIs, released CLIP model names, zero-shot image/text workflows, prompt template/tokenizer guidance, or CLIP feature-evaluation recipes rather than a generic computer-vision model workflow. Choose `detectron2` for Detectron2-specific detection/segmentation work. For pure image preprocessing or general PyTorch model code, prefer a generic PyTorch/OpenCV skill unless the request depends on Detectron2 configs, catalogs, model zoo, trainers, structures, evaluators, or export APIs. Choose `detectron2` when training/evaluation depends on Detectron2 config keys, data catalogs, trainers, evaluators, or model zoo checkpoints. Choose `mmsegmentation` for MMSegmentation-specific repo usage.

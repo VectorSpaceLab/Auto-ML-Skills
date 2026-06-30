@@ -1,0 +1,39 @@
+{
+  "skills": {
+    "segmentation-models-pytorch": {
+      "scenarios": [
+        {
+          "id": "computer-vision-modeling-and-augmentation",
+          "title": "Computer Vision Modeling and Augmentation",
+          "when_to_read": "Image segmentation tasks involving PyTorch semantic segmentation architectures, encoder/backbone selection, preprocessing, losses, metrics, save/load, model export, or SMP-specific troubleshooting.",
+          "role": "Provides package-specific routes for using segmentation_models_pytorch models, encoders, losses, metrics, and deployment helpers.",
+          "read_when": "Use when a request names segmentation_models_pytorch, SMP, Unet/FPN/DeepLabV3Plus/Segformer/DPT in SMP, encoder_name, encoder_weights, get_preprocessing_fn, DiceLoss/JaccardLoss/TverskyLoss/FocalLoss, smp.metrics.get_stats, save_pretrained, from_pretrained, ONNX export for SMP, or PyTorch semantic segmentation shape errors.",
+          "best_for": "Creating semantic segmentation models, selecting pretrained encoders and preprocessing, configuring segmentation losses/metrics, local model save/load, Hugging Face Hub sharing boundaries, ONNX/export readiness, and SMP-specific troubleshooting.",
+          "avoid_when": "Avoid for generic image augmentation without SMP, non-PyTorch segmentation frameworks, medical-imaging-specific MONAI/nnU-Net/TorchIO workflows, or repository maintenance tasks that are primarily about editing source code.",
+          "useful_entry_points": [
+            "segmentation-models-pytorch/SKILL.md",
+            "segmentation-models-pytorch/sub-skills/model-building/SKILL.md",
+            "segmentation-models-pytorch/sub-skills/encoders-preprocessing/SKILL.md",
+            "segmentation-models-pytorch/sub-skills/training-evaluation/SKILL.md",
+            "segmentation-models-pytorch/sub-skills/model-export/SKILL.md"
+          ],
+          "selection_guidance": "Choose segmentation-models-pytorch when the task combines PyTorch image segmentation with SMP package APIs, encoder registries, segmentation losses/metrics, or SMP save/export behavior; choose another vision skill when the package or framework named by the task is not SMP."
+        },
+        {
+          "id": "python-repository-maintenance",
+          "title": "Python Repository Maintenance",
+          "when_to_read": "Tasks that edit, test, document, package, or maintain a segmentation_models.pytorch checkout rather than only using SMP as a library.",
+          "role": "Provides focused maintainer routes for SMP source, docs, generated encoder tables, and pytest marker selection.",
+          "read_when": "Use when a request asks to modify segmentation_models_pytorch source files, add a decoder or encoder, change losses/metrics, update docs/models.rst or docs/encoders*.rst, run focused SMP pytest commands, use Makefile targets, or troubleshoot SMP contributor workflows.",
+          "best_for": "Selecting focused tests for changed SMP paths, understanding source ownership across decoders/encoders/losses/metrics, updating docs tables, and avoiding slow credentialed maintainer scripts unless explicitly requested.",
+          "avoid_when": "Avoid for ordinary SMP model usage, inference, training, preprocessing, save/load, or export questions where no repository edit is needed.",
+          "useful_entry_points": [
+            "segmentation-models-pytorch/SKILL.md",
+            "segmentation-models-pytorch/sub-skills/repo-development/SKILL.md"
+          ],
+          "selection_guidance": "Choose segmentation-models-pytorch for repository-maintenance tasks only when the current checkout or requested package is SMP; otherwise use the repo skill for the named Python project."
+        }
+      ]
+    }
+  }
+}

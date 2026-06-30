@@ -17,7 +17,7 @@
             "verl/sub-skills/repo-development/",
             "verl/sub-skills/rollout-and-tools/",
             "verl/sub-skills/setup-and-backends/",
-            "1 more sub-skills"
+            "verl/sub-skills/training-and-configs/"
           ],
           "selection_guidance": "Choose `verl` when the request names `verl`, centers on LLM post-training workflows: setup, data and rewards, PPO/GRPO/SFT configs, rollout tools, checkpoints, profiling, and repository maintenance, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in distributed pytorch training and large model workflows. Then route to checkpoints and model ops, data and rewards, repo development, or rollout and tools when those focused workflows match."
         },
@@ -36,7 +36,7 @@
             "verl/sub-skills/repo-development/",
             "verl/sub-skills/rollout-and-tools/",
             "verl/sub-skills/setup-and-backends/",
-            "1 more sub-skills"
+            "verl/sub-skills/training-and-configs/"
           ],
           "selection_guidance": "Choose `verl` when the request names `verl`, centers on LLM post-training workflows: setup, data and rewards, PPO/GRPO/SFT configs, rollout tools, checkpoints, profiling, and repository maintenance, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in llm post training rlhf workflows. Then route to checkpoints and model ops, data and rewards, repo development, or rollout and tools when those focused workflows match."
         },
@@ -55,7 +55,7 @@
             "verl/sub-skills/repo-development/",
             "verl/sub-skills/rollout-and-tools/",
             "verl/sub-skills/setup-and-backends/",
-            "1 more sub-skills"
+            "verl/sub-skills/training-and-configs/"
           ],
           "selection_guidance": "Choose `verl` when the request names `verl`, centers on LLM post-training workflows: setup, data and rewards, PPO/GRPO/SFT configs, rollout tools, checkpoints, profiling, and repository maintenance, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in reinforcement learning workflows. Then route to checkpoints and model ops, data and rewards, repo development, or rollout and tools when those focused workflows match."
         }

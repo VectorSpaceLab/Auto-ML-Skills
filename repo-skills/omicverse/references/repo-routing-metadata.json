@@ -1,0 +1,66 @@
+{
+  "skills": {
+    "omicverse": {
+      "scenarios": [
+        {
+          "id": "single-cell-omics-and-scanpy-workflows",
+          "title": "Single-Cell Omics and Scanpy Workflows",
+          "when_to_read": "AnnData, Scanpy-like preprocessing/QC, single-cell annotation, marker genes, batch correction, trajectory, spatial omics, and multi-omics analysis with OmicVerse.",
+          "role": "OmicVerse is a broad multi-omics analysis platform that extends AnnData/Scanpy-style workflows into single-cell, spatial, bulk, enrichment, metabolomics, proteomics, AIRR, genetics, and agentic analysis.",
+          "read_when": "Read `omicverse` when the task mentions OmicVerse, `import omicverse as ov`, `ov.pp`, `ov.single`, `ov.pl`, `ov.space`, `ov.es`, `ov.metabol`, `ov.protein`, `ov.airr`, `ov.genetics`, AnnData QC/preprocessing/plotting, SCSA, CellVote, GPTCelltype, Tangram, STAGATE, trajectory, pseudobulk, or multi-omics workflows spanning several OmicVerse modules.",
+          "best_for": "OmicVerse package-specific API choices, cross-domain omics routing, AnnData slot validation, optional dependency triage, bundled validators, CLI/MCP/JARVIS context, and workflows that combine core preprocessing with downstream biological interpretation.",
+          "avoid_when": "Use narrower skills such as `anndata`, `scanpy`, `scvi-tools`, `celltypist`, `pyscenic`, or `squidpy` when the user is specifically using those packages rather than OmicVerse wrappers or OmicVerse-integrated workflows.",
+          "useful_entry_points": [
+            "omicverse/SKILL.md",
+            "omicverse/sub-skills/core-analysis/SKILL.md",
+            "omicverse/sub-skills/single-cell-workflows/SKILL.md",
+            "omicverse/sub-skills/spatial-integration/SKILL.md"
+          ],
+          "selection_guidance": "Choose `omicverse` when the request names OmicVerse or combines AnnData preprocessing with OmicVerse-specific modules, plotting, spatial mapping, multi-omics statistics, or agent/MCP tooling; choose Scanpy/anndata/scvi/squidpy skills when the task is not using OmicVerse APIs."
+        },
+        {
+          "id": "bulk-rna-seq-differential-expression-analysis",
+          "title": "Bulk RNA-Seq Differential Expression Analysis",
+          "when_to_read": "Bulk RNA-seq, DESeq2-like workflows, count/metadata validation, contrasts, enrichment, GSEA/ORA, and time-course analysis through OmicVerse.",
+          "role": "OmicVerse provides bulk RNA-seq and enrichment helpers plus table validation guidance alongside its broader multi-omics platform.",
+          "read_when": "Read `omicverse` when the task mentions `ov.bulk`, `pyDEG`, `deseq2_normalize`, `geneset_enrichment`, `geneset_enrichment_GSEA`, `pyGSEA`, `temporal_clusters`, bulk count matrices, contrasts, pathway enrichment, or OmicVerse-specific wrappers around bulk analysis.",
+          "best_for": "OmicVerse-specific bulk/enrichment APIs and cross-routing from bulk outputs into OmicVerse plotting, reports, and multi-omics table workflows.",
+          "avoid_when": "Use `pydeseq2` when the user is directly using PyDESeq2 classes or needs DESeq2 internals independent of OmicVerse.",
+          "useful_entry_points": [
+            "omicverse/SKILL.md",
+            "omicverse/sub-skills/multiomics-statistics/SKILL.md"
+          ],
+          "selection_guidance": "Choose `omicverse` for bulk/enrichment tasks written with `ov.bulk` or OmicVerse table workflows; choose `pydeseq2` for direct PyDESeq2 object modeling and low-level DESeq2 troubleshooting."
+        },
+        {
+          "id": "molecular-ml-drug-discovery-and-chemistry-workflows",
+          "title": "Molecular ML, Drug Discovery, and Chemistry Workflows",
+          "when_to_read": "Molecular structure fetching, protein target structure checks, known-drug lookup, pockets, docking, and OmicVerse molecular biology/drug-binding helpers.",
+          "role": "OmicVerse includes molecular structure and docking-adjacent helpers as one specialist domain within its omics platform.",
+          "read_when": "Read `omicverse` when the task mentions `ov.mol`, `fetch_structure`, `predict_structure`, `known_drugs`, `pockets`, `druggability`, `dock`, OmicVerse molecular target workflows, or coordinating molecular outputs with omics analyses.",
+          "best_for": "OmicVerse-specific molecular helper routing, optional `mol`/`mol-dock` dependency planning, and safe validation before network structure fetches or docking tools.",
+          "avoid_when": "Use RDKit, Datamol, DeepChem, OpenMM, MDAnalysis, or docking-package skills when the task is primarily about those packages rather than OmicVerse molecular wrappers.",
+          "useful_entry_points": [
+            "omicverse/SKILL.md",
+            "omicverse/sub-skills/specialist-domains/SKILL.md"
+          ],
+          "selection_guidance": "Choose `omicverse` when molecular/drug-binding tasks are part of an OmicVerse analysis; choose dedicated chemistry or simulation skills when the request does not use OmicVerse APIs."
+        },
+        {
+          "id": "agent-frameworks-tooling-and-sandboxed-llm-workflows",
+          "title": "Agent Frameworks, Tooling, and Sandboxed LLM Workflows",
+          "when_to_read": "MCP servers, agent CLIs, JARVIS/gateway workflows, smart-agent configuration, registry manifests, and skill packaging through OmicVerse.",
+          "role": "OmicVerse exposes agent-facing analysis through CLI commands, MCP registry tools, JARVIS/gateway workflows, provider backends, and skill-seeker utilities.",
+          "read_when": "Read `omicverse` when the task mentions `omicverse-mcp`, Model Context Protocol, MCP phases, `omicverse claw`, JARVIS, gateway, OpenClaw, OmicClaw, `ov.Agent`, `OmicVerseAgent`, provider auth, `ov-skill-seeker`, registry tools, session handles, or exposing OmicVerse analysis to AI assistants.",
+          "best_for": "OmicVerse MCP/CLI flags, safe service-start decisions, registry/manifest inspection, stdio troubleshooting, JARVIS/gateway routing, and AI-assisted analysis workflows over AnnData.",
+          "avoid_when": "Use generic agent-framework or gateway skills when the request is not about OmicVerse's MCP server, CLI, agent runtime, or registry tools.",
+          "useful_entry_points": [
+            "omicverse/SKILL.md",
+            "omicverse/sub-skills/agentic-and-mcp/SKILL.md"
+          ],
+          "selection_guidance": "Choose `omicverse` for OmicVerse-specific MCP, CLI, JARVIS, gateway, smart-agent, or skill-seeker workflows; choose broader agent/gateway skills only when OmicVerse is not the runtime surface."
+        }
+      ]
+    }
+  }
+}

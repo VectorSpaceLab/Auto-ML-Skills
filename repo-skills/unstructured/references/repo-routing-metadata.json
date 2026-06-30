@@ -17,7 +17,7 @@
             "unstructured/sub-skills/elements-and-metadata/",
             "unstructured/sub-skills/embeddings/",
             "unstructured/sub-skills/evaluation/",
-            "1 more sub-skills"
+            "unstructured/sub-skills/partitioning/"
           ],
           "selection_guidance": "Choose `unstructured` when the request names `unstructured`, centers on RAG, clean/stage data, add embeddings, evaluate extraction quality, and diagnose optional dependency readiness, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in document processing unstructured data and rag preparation. Then route to chunking, data preparation, elements and metadata, or embeddings when those focused workflows match."
         }

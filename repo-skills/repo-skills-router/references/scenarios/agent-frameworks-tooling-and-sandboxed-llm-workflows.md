@@ -29,7 +29,7 @@ Role: Use this self-contained Browser Use repo skill for Python agents that auto
 Read when: The request names `browser-use` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: agent programming, browser control, cli and sessions, llm and output, production integrations, and tools and actions.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `browser-use/SKILL.md`, `browser-use/sub-skills/agent-programming/`, `browser-use/sub-skills/browser-control/`, `browser-use/sub-skills/cli-and-sessions/`, `browser-use/sub-skills/llm-and-output/`, `browser-use/sub-skills/production-integrations/`, `1 more sub-skills`.
+Useful entry points: `browser-use/SKILL.md`, `browser-use/sub-skills/agent-programming/`, `browser-use/sub-skills/browser-control/`, `browser-use/sub-skills/cli-and-sessions/`, `browser-use/sub-skills/llm-and-output/`, `browser-use/sub-skills/production-integrations/`, `browser-use/sub-skills/tools-and-actions/`.
 
 ### `camel-ai`
 
@@ -53,7 +53,7 @@ Role: Use Haystack to build, debug, evaluate, and maintain RAG, agent, pipeline,
 Read when: The request names `haystack` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: agents tools and hitl, data ingestion, evaluation and observability, generation and model components, pipelines and components, and 2 other focused workflows.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `haystack/SKILL.md`, `haystack/sub-skills/agents-tools-and-hitl/`, `haystack/sub-skills/data-ingestion/`, `haystack/sub-skills/evaluation-and-observability/`, `haystack/sub-skills/generation-and-model-components/`, `haystack/sub-skills/pipelines-and-components/`, `2 more sub-skills`.
+Useful entry points: `haystack/SKILL.md`, `haystack/sub-skills/agents-tools-and-hitl/`, `haystack/sub-skills/data-ingestion/`, `haystack/sub-skills/evaluation-and-observability/`, `haystack/sub-skills/generation-and-model-components/`, `haystack/sub-skills/pipelines-and-components/`, `haystack/sub-skills/repo-development/`, `haystack/sub-skills/retrieval-and-rag/`.
 
 ### `langchain`
 
@@ -61,7 +61,7 @@ Role: Work on the LangChain Python monorepo: package routing, core primitives, v
 Read when: The request names `langchain` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: agents and middleware, classic chains, core primitives, integrations, monorepo development, and testing and profiles.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `langchain/SKILL.md`, `langchain/sub-skills/agents-and-middleware/`, `langchain/sub-skills/classic-chains/`, `langchain/sub-skills/core-primitives/`, `langchain/sub-skills/integrations/`, `langchain/sub-skills/monorepo-development/`, `1 more sub-skills`.
+Useful entry points: `langchain/SKILL.md`, `langchain/sub-skills/agents-and-middleware/`, `langchain/sub-skills/classic-chains/`, `langchain/sub-skills/core-primitives/`, `langchain/sub-skills/integrations/`, `langchain/sub-skills/monorepo-development/`, `langchain/sub-skills/testing-and-profiles/`.
 
 ### `langgraph`
 
@@ -85,7 +85,7 @@ Role: Build, customize, troubleshoot, and maintain LlamaIndex Python application
 Read when: The request names `llama-index` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: agents and workflows, customization and structured outputs, indexing and querying, ingestion and loading, integrations and storage, and repo maintenance.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `llama-index/SKILL.md`, `llama-index/sub-skills/agents-and-workflows/`, `llama-index/sub-skills/customization-and-structured-outputs/`, `llama-index/sub-skills/indexing-and-querying/`, `llama-index/sub-skills/ingestion-and-loading/`, `llama-index/sub-skills/integrations-and-storage/`, `1 more sub-skills`.
+Useful entry points: `llama-index/SKILL.md`, `llama-index/sub-skills/agents-and-workflows/`, `llama-index/sub-skills/customization-and-structured-outputs/`, `llama-index/sub-skills/indexing-and-querying/`, `llama-index/sub-skills/ingestion-and-loading/`, `llama-index/sub-skills/integrations-and-storage/`, `llama-index/sub-skills/repo-maintenance/`.
 
 ### `mcp-agent`
 
@@ -94,6 +94,22 @@ Read when: The task mentions mcp-agent, MCPApp, Agent, AgentSpec, AugmentedLLM, 
 Best for: Creating/debugging mcp-agent apps, composing workflow patterns, exposing apps as MCP servers, validating config, operating the CLI/cloud deployment flow, adding Temporal durability, and configuring logging/tracing/provider integrations. Diagnosing mcp.servers entries, wiring Agent server_names, validating app server tool surfaces, handling OAuth/resource metadata, and preparing safe client install/deploy steps. Converting workflow code to Temporal, writing worker skeletons, designing pause/resume approvals, setting retry policies, and deciding what needs a running Temporal service.
 Avoid when: The task is only about generic MCP protocol usage without mcp-agent, or about another unrelated agent framework with no mcp-agent APIs/CLI/config. The task is generic CLI deployment with no MCP transport/auth detail; use the CLI/cloud route inside the same skill instead. The user only needs in-process pattern choice or one-shot local generation; use workflow-patterns or core-sdk instead.
 Useful entry points: `mcp-agent/SKILL.md`, `mcp-agent/sub-skills/core-sdk/SKILL.md`, `mcp-agent/sub-skills/workflow-patterns/SKILL.md`, `mcp-agent/sub-skills/mcp-server-integration/SKILL.md`, `mcp-agent/sub-skills/cli-cloud-operations/SKILL.md`, `mcp-agent/sub-skills/durable-execution/SKILL.md`, `mcp-agent/sub-skills/observability-integrations/SKILL.md`.
+
+### `meta-gpt`
+
+Role: Use meta-gpt for MetaGPT's multi-agent software-company framework, Data Interpreter, RoleZero agents, RAG/tool integrations, extension environments, and MetaGPT repository maintenance.
+Read when: Read meta-gpt when tasks mention MetaGPT, metagpt, MGX, software-company agents, Team/Role/Action/ActionNode, DataInterpreter, RoleZero, DataAnalyst, SWEAgent, AFlow, SPO, MetaGPT RAG, MetaGPT tools, config2.yaml, the metagpt CLI, generated workspace projects, or errors from MetaGPT provider/config/import workflows.
+Best for: Project generation from natural-language requirements, configuring and troubleshooting MetaGPT provider settings, custom multi-agent roles/actions, DI data-analysis agents, MetaGPT RAG/tool diagnostics, AFlow/SPO/environment extension setup, and focused MetaGPT source maintenance.
+Avoid when: Use a provider gateway skill for generic OpenAI-compatible proxy routing, a vector database skill for standalone vector client operations, or a generic Python maintenance skill when the task is not specific to MetaGPT APIs, CLI, config, examples, or tests.
+Useful entry points: `meta-gpt/SKILL.md`, `meta-gpt/sub-skills/software-company/SKILL.md`, `meta-gpt/sub-skills/data-interpreter/SKILL.md`, `meta-gpt/sub-skills/rag-and-tools/SKILL.md`, `meta-gpt/sub-skills/extensions-and-environments/SKILL.md`, `meta-gpt/sub-skills/maintainer-apis/SKILL.md`.
+
+### `omicverse`
+
+Role: OmicVerse exposes agent-facing analysis through CLI commands, MCP registry tools, JARVIS/gateway workflows, provider backends, and skill-seeker utilities.
+Read when: Read `omicverse` when the task mentions `omicverse-mcp`, Model Context Protocol, MCP phases, `omicverse claw`, JARVIS, gateway, OpenClaw, OmicClaw, `ov.Agent`, `OmicVerseAgent`, provider auth, `ov-skill-seeker`, registry tools, session handles, or exposing OmicVerse analysis to AI assistants.
+Best for: OmicVerse MCP/CLI flags, safe service-start decisions, registry/manifest inspection, stdio troubleshooting, JARVIS/gateway routing, and AI-assisted analysis workflows over AnnData.
+Avoid when: Use generic agent-framework or gateway skills when the request is not about OmicVerse's MCP server, CLI, agent runtime, or registry tools.
+Useful entry points: `omicverse/SKILL.md`, `omicverse/sub-skills/agentic-and-mcp/SKILL.md`.
 
 ### `openai-agents-python`
 
@@ -111,6 +127,14 @@ Best for: Agent construction, typed deps, streaming, tools/toolsets, structured 
 Avoid when: The task is about the standalone Pydantic validation library without Pydantic AI, an unrelated AI framework, or generic Python code with no Pydantic AI APIs.
 Useful entry points: `pydantic-ai/SKILL.md`, `pydantic-ai/sub-skills/agent-core/SKILL.md`, `pydantic-ai/sub-skills/tools-and-toolsets/SKILL.md`, `pydantic-ai/sub-skills/outputs-and-messages/SKILL.md`, `pydantic-ai/sub-skills/models-and-providers/SKILL.md`, `pydantic-ai/sub-skills/mcp-and-integrations/SKILL.md`, `pydantic-ai/sub-skills/evals-and-graph/SKILL.md`, `pydantic-ai/sub-skills/cli-and-apps/SKILL.md`.
 
+### `ragflow`
+
+Role: RAGFlow skill for agent canvas DSL, components, templates, tools, memory, MCP retrieval, sandbox/code execution, webhooks, sessions, and debug traces inside RAGFlow.
+Read when: Tasks mention RAGFlow agents, canvas DSL, components, templates, tool calls, memory, MCP ragflow_retrieval, sandbox/code executor, webhooks, component debug, agent sessions, or agent frontend canvas behavior.
+Best for: Maintaining or debugging RAGFlow's agent workflow engine and integrating it with retrieval, memory, MCP, backend APIs, and frontend canvas screens.
+Avoid when: Use another agent-framework skill when the task is about a different agent library or a generic MCP server unrelated to RAGFlow.
+Useful entry points: `ragflow/sub-skills/agent-workflows/SKILL.md`, `ragflow/sub-skills/frontend-integration/SKILL.md`, `ragflow/sub-skills/sdk-http-integration/SKILL.md`.
+
 ### `smolagents`
 
 Role: Build, debug, and operate Hugging Face smolagents agents, tools, model providers, secure executors, CLIs, and UI workflows with self-contained references and helpers.
@@ -118,6 +142,14 @@ Read when: The request names `smolagents` or asks for package-specific APIs, CLI
 Best for: agent workflows, cli and ui, execution and safety, model providers, and tools and integrations.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
 Useful entry points: `smolagents/SKILL.md`, `smolagents/sub-skills/agent-workflows/`, `smolagents/sub-skills/cli-and-ui/`, `smolagents/sub-skills/execution-and-safety/`, `smolagents/sub-skills/model-providers/`, `smolagents/sub-skills/tools-and-integrations/`.
+
+### `zenml`
+
+Role: The zenml skill explains how to adapt ZenML agent and LLM examples into credential-aware, deployment-ready pipeline workflows.
+Read when: The task mentions ZenML with agents, LLMOps, agent_comparison, deploying_agent, LangGraph/LangChain/LlamaIndex/OpenAI agents inside ZenML, deterministic fallbacks, DeploymentSettings, or agent service deployment.
+Best for: Adapting ZenML agent examples, separating provider credentials from smoke tests, configuring pipeline deployments for agents, and routing framework matrix limitations safely.
+Avoid when: Avoid for generic agent framework tasks that do not use ZenML pipelines, deployments, or repository examples; choose the framework-specific repo skill instead when available.
+Useful entry points: `zenml/sub-skills/deployments-and-agents/SKILL.md`, `zenml/sub-skills/pipeline-authoring/SKILL.md`, `zenml/sub-skills/stacks-and-integrations/SKILL.md`.
 
 <!-- DISCO_SCENARIO:agent-frameworks-tooling-and-sandboxed-llm-workflows:END -->
 

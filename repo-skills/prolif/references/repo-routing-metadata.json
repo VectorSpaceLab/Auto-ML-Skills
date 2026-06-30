@@ -1,0 +1,25 @@
+{
+  "skills": {
+    "prolif": {
+      "scenarios": [
+        {
+          "id": "molecular-ml-drug-discovery-and-chemistry-workflows",
+          "title": "Molecular ML, Drug Discovery, and Chemistry Workflows",
+          "when_to_read": "Cheminformatics, molecule processing, molecular property prediction, featurization, MoleculeNet, docking, molecular simulation, force fields, conformers, reactions, retrosynthesis, and chemistry model training.",
+          "role": "Use prolif for protein-ligand interaction fingerprint workflows that combine RDKit/MDAnalysis inputs, docking or trajectory structures, residue-level interaction definitions, fingerprint exports, and ProLIF plotting outputs.",
+          "read_when": "Tasks mention ProLIF, protein-ligand interaction fingerprints, IFPs from docking poses or MDAnalysis trajectories, residue-pair interaction metadata, WaterBridge, implicit hydrogen interactions, LigNetwork, Barcode, Complex3D, SDF/MOL2/PDBQT suppliers, or converting molecular structures into interaction fingerprint DataFrames/bitvectors.",
+          "best_for": "Preparing ProLIF Molecule objects, choosing interaction classes and parameters, running Fingerprint.run or run_from_iterable, exporting pandas/RDKit fingerprint results, and creating ProLIF interaction network/barcode/3D visualizations.",
+          "avoid_when": "Use a broader RDKit, MDAnalysis, OpenMM, or molecular-ML skill when the task is general molecule editing, trajectory analysis, simulation, force-field setup, molecular model training, or docking execution rather than ProLIF interaction fingerprint analysis.",
+          "useful_entry_points": [
+            "prolif/SKILL.md",
+            "prolif/sub-skills/molecules-and-io/SKILL.md",
+            "prolif/sub-skills/interactions/SKILL.md",
+            "prolif/sub-skills/fingerprints/SKILL.md",
+            "prolif/sub-skills/visualization/SKILL.md"
+          ],
+          "selection_guidance": "Choose prolif when the requested chemistry workflow needs ProLIF-specific interaction fingerprints, residue-level interaction metadata, ProLIF suppliers, or ProLIF plotting; choose adjacent molecular tooling skills only when ProLIF is not the package performing the fingerprint analysis."
+        }
+      ]
+    }
+  }
+}

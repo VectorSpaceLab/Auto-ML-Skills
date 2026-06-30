@@ -31,6 +31,14 @@ Best for: evaluator pipelines, hub and cli, module computation, and module loadi
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
 Useful entry points: `evaluate/SKILL.md`, `evaluate/sub-skills/evaluator-pipelines/`, `evaluate/sub-skills/hub-and-cli/`, `evaluate/sub-skills/module-computation/`, `evaluate/sub-skills/module-loading/`.
 
+### `fastmri`
+
+Role: Use `fastmri` when dataset/evaluation work depends on fastMRI split names, HDF5 keys, challenge target keys, reconstruction metrics, or prediction-file contracts.
+Read when: Requests mention checking fastMRI `.h5` keys, `kspace`, `reconstruction_rss`, `reconstruction_esc`, prediction files with dataset `reconstruction`, fastMRI MSE/NMSE/PSNR/SSIM metrics, `fastmri.evaluate`, v2 filename conversion, zero-filled baseline files, or target/prediction filename mismatches.
+Best for: Validating local fastMRI data and predictions, choosing target keys by challenge, running or explaining fastMRI metrics, and diagnosing output-file schema problems before submission-style packaging.
+Avoid when: The dataset task is not fastMRI HDF5 MRI reconstruction data, does not involve k-space/reconstruction target keys, or is better handled by a general dataset library skill.
+Useful entry points: `fastmri/SKILL.md`, `fastmri/sub-skills/data-loading/SKILL.md`, `fastmri/sub-skills/evaluation-submission/SKILL.md`.
+
 ### `great-expectations`
 
 Role: Guides coding agents through current GX Core Python APIs for context setup, data connection, expectation suites, validations, checkpoints, actions, and Data Docs.
@@ -53,7 +61,15 @@ Role: Use MTEB to evaluate embedding models, select tasks and benchmarks, valida
 Read when: The request names `mteb` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: cli and automation, contributing to mteb, evaluation workflows, models and encoders, results and leaderboard, and tasks and benchmarks.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `mteb/SKILL.md`, `mteb/sub-skills/cli-and-automation/`, `mteb/sub-skills/contributing-to-mteb/`, `mteb/sub-skills/evaluation-workflows/`, `mteb/sub-skills/models-and-encoders/`, `mteb/sub-skills/results-and-leaderboard/`, `1 more sub-skills`.
+Useful entry points: `mteb/SKILL.md`, `mteb/sub-skills/cli-and-automation/`, `mteb/sub-skills/contributing-to-mteb/`, `mteb/sub-skills/evaluation-workflows/`, `mteb/sub-skills/models-and-encoders/`, `mteb/sub-skills/results-and-leaderboard/`, `mteb/sub-skills/tasks-and-benchmarks/`.
+
+### `nemo`
+
+Role: Adds NeMo-specific speech/audio manifest, Lhotse, tarred dataset, tokenizer, ASR evaluator, CTC segmentation, and checkpoint utility guidance to dataset-processing tasks.
+Read when: The request names NeMo manifests, audio_filepath/duration/text JSONL, Lhotse CutSet or Shar, tarred audio datasets, NeMo tokenizer scripts, duration bins, dataset weights, ASR evaluator, CTC segmentation, speech data explorer, customization dataset preparation, or NeMo conversion utilities.
+Best for: Validating and planning NeMo speech/audio data pipelines, sharding audio manifests, estimating duration bins, routing ASR/TTS/audio data formats, and preflighting NeMo evaluator or tokenizer workflows.
+Avoid when: Use a generic dataset-processing skill when the data is not speech/audio and does not use NeMo JSON manifests, NeMo tools, Lhotse, tarred audio, or NeMo evaluators.
+Useful entry points: `nemo/SKILL.md`, `nemo/sub-skills/data-tools/SKILL.md`, `nemo/sub-skills/asr/SKILL.md`, `nemo/sub-skills/tts/SKILL.md`, `nemo/sub-skills/audio/SKILL.md`.
 
 <!-- DISCO_SCENARIO:dataset-processing-evaluation-and-hub-workflows:END -->
 

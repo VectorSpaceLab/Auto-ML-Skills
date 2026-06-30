@@ -17,7 +17,8 @@
             "peft/sub-skills/prompt-and-soft-methods/",
             "peft/sub-skills/repo-development/",
             "peft/sub-skills/save-load-merge/",
-            "2 more sub-skills"
+            "peft/sub-skills/specialized-tuners/",
+            "peft/sub-skills/training-and-integrations/"
           ],
           "selection_guidance": "Choose `peft` when the request names `peft`, centers on parameter-efficient fine-tuning adapters, LoRA and quantized workflows, prompt and soft methods, specialized tuners, save/load/merge operations, training integrations, and PEFT repository development, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in llm finetuning training serving workflows. Then route to adapter core, lora and quantization, prompt and soft methods, or repo development when those focused workflows match."
         }

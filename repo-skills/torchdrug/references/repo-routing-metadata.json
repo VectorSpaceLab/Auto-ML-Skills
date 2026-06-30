@@ -1,0 +1,70 @@
+{
+  "skills": {
+    "torchdrug": {
+      "scenarios": [
+        {
+          "id": "molecular-ml-drug-discovery-and-chemistry-workflows",
+          "title": "Molecular ML, Drug Discovery, and Chemistry Workflows",
+          "when_to_read": "Cheminformatics, molecule processing, molecular property prediction, featurization, molecule generation, retrosynthesis, and chemistry model training tasks.",
+          "role": "TorchDrug provides PyTorch graph-learning workflows for molecular property prediction, molecular pretraining, generation, retrosynthesis, and chemistry datasets.",
+          "read_when": "Tasks mention TorchDrug, TorchProtein, SMILES, RDKit molecule graphs, ClinTox, BACE, Tox21, ZINC250k, USPTO50k, GIN/RGCN molecular models, GCPN, GraphAF, G2Gs, retrosynthesis, scaffold splits, molecule property prediction, molecule generation, or drug-discovery graph neural networks.",
+          "best_for": "Building or debugging TorchDrug molecular datasets, feature choices, graph neural model/task pairs, Engine wiring, molecular generation planning, and retrosynthesis pipelines.",
+          "avoid_when": "Use RDKit/Datamol-specific skills for standalone cheminformatics operations, simulation skills for molecular dynamics, or generic PyTorch skills when no TorchDrug data/model/task APIs are involved.",
+          "useful_entry_points": [
+            "torchdrug/SKILL.md",
+            "torchdrug/sub-skills/graph-data/SKILL.md",
+            "torchdrug/sub-skills/molecular-workflows/SKILL.md",
+            "torchdrug/sub-skills/training-engine/SKILL.md"
+          ],
+          "selection_guidance": "Choose torchdrug when the request needs TorchDrug's graph data containers, built-in drug-discovery datasets, molecular task classes, or core.Engine training flow rather than only generic chemistry parsing."
+        },
+        {
+          "id": "graph-learning-workflows",
+          "title": "Graph Learning Workflows",
+          "when_to_read": "Graph neural network tasks, graph construction, message passing, graph datasets, graph data loaders, sparse graph operations, and graph model troubleshooting.",
+          "role": "TorchDrug provides tensor-backed graph, molecule, protein, and knowledge-graph containers plus graph neural layers and models for graph ML workflows.",
+          "read_when": "Tasks mention graph neural networks, message passing, PackedGraph, PackedMolecule, PackedProtein, GraphConv, GIN, RGCN, GAT, MPNN, SchNet, GearNet, GraphConstruction, variadic tensors, graph_collate, graph masking, graph packing, or TorchDrug model customization.",
+          "best_for": "TorchDrug-specific graph object construction, batching/masking, layer/model selection, custom MessagePassingBase implementations, and training graph models with core.Engine.",
+          "avoid_when": "Use PyG or DGL skills when the user is using torch-geometric or DGL APIs directly and does not need TorchDrug containers or task classes.",
+          "useful_entry_points": [
+            "torchdrug/SKILL.md",
+            "torchdrug/sub-skills/graph-data/SKILL.md",
+            "torchdrug/sub-skills/layers-and-extensions/SKILL.md",
+            "torchdrug/sub-skills/training-engine/SKILL.md"
+          ],
+          "selection_guidance": "Choose torchdrug for graph ML requests with TorchDrug API names, drug/protein/KG task classes, or tensor-backed PackedGraph workflows; choose another graph package skill only when the API surface is not TorchDrug."
+        },
+        {
+          "id": "protein-structure-prediction-and-design-workflows",
+          "title": "Protein Structure Prediction and Design Workflows",
+          "when_to_read": "Protein language models, protein embeddings, protein structure or sequence workflows, contact prediction, function/property prediction, and protein model troubleshooting.",
+          "role": "TorchDrug/TorchProtein covers protein sequence and structure data, GearNet/ESM/protein encoders, contact prediction, protein property/function tasks, and PPI workflows.",
+          "read_when": "Tasks mention TorchProtein, ProteinNet, AlphaFoldDB, EnzymeCommission, Fluorescence, Stability, BetaLactamase, protein contact prediction, GearNet, ESM, ProteinCNN, ProteinResNet, ProteinLSTM, ProteinBERT, PackedProtein, residue features, graph construction for proteins, or protein-protein interaction prediction.",
+          "best_for": "Planning TorchDrug protein datasets, feature choices, model/task pairings, ESM/GearNet caveats, ContactPrediction settings, and Engine-based protein training loops.",
+          "avoid_when": "Use AlphaFold/ColabFold/Boltz/ProteinMPNN/RFdiffusion skills for structure prediction or design systems that do not use TorchDrug/TorchProtein APIs.",
+          "useful_entry_points": [
+            "torchdrug/SKILL.md",
+            "torchdrug/sub-skills/protein-workflows/SKILL.md",
+            "torchdrug/sub-skills/layers-and-extensions/SKILL.md",
+            "torchdrug/sub-skills/training-engine/SKILL.md"
+          ],
+          "selection_guidance": "Choose torchdrug for protein tasks framed around TorchDrug/TorchProtein datasets, encoders, tasks, or Engine; choose dedicated protein-structure skills for non-TorchDrug prediction/design pipelines."
+        },
+        {
+          "id": "deep-learning-training-engines",
+          "title": "Deep Learning Training Engines",
+          "when_to_read": "Engine-level utilities, training loops, config systems, logging, visualization, checkpointing, and debugging for deep learning frameworks.",
+          "role": "TorchDrug's core.Engine and Configurable/Registry stack provide package-specific model/task training, evaluation, checkpoint, and config serialization workflows.",
+          "read_when": "Tasks mention torchdrug.core.Engine, Configurable, Registry, task.predict, task.target, solver.train, solver.evaluate, solver.save, solver.load, config_dict, load_config_dict, gpus, logger='wandb', gradient_interval, or TorchDrug checkpoint loading.",
+          "best_for": "TorchDrug-specific training harness assembly, Task contract debugging, checkpoint/config round-trips, CPU/GPU selection, and safe no-dataset smoke checks.",
+          "avoid_when": "Use generic PyTorch, Lightning, Accelerate, or distributed-training skills when the training loop is not using TorchDrug's Engine and task abstractions.",
+          "useful_entry_points": [
+            "torchdrug/SKILL.md",
+            "torchdrug/sub-skills/training-engine/SKILL.md"
+          ],
+          "selection_guidance": "Choose torchdrug when the training engine question names TorchDrug abstractions or combines graph drug-discovery tasks with core.Engine; otherwise choose the framework owning the active training loop."
+        }
+      ]
+    }
+  }
+}

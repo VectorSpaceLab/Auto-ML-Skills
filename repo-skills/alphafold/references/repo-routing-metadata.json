@@ -1,0 +1,27 @@
+{
+  "skills": {
+    "alphafold": {
+      "scenarios": [
+        {
+          "id": "protein-structure-prediction-and-design-workflows",
+          "title": "Protein Structure Prediction and Design Workflows",
+          "when_to_read": "Protein structure prediction tasks involving AlphaFold setup, FASTA/MSA/template inputs, model presets, local prediction commands, Docker/data layout, prediction outputs, confidence metrics, AlphaFold DB files, Server JSON, or Amber relaxation.",
+          "role": "AlphaFold-specific skill for planning and troubleshooting AlphaFold 2.x protein structure prediction workflows without running expensive prediction or data-download operations by default.",
+          "read_when": "The task names AlphaFold, run_alphafold, AlphaFold-Multimer, pLDDT, PAE, pTM, ipTM, AlphaFold DB, AlphaFold Server JSON, FASTA protein prediction, MSA/template database setup, BFD/UniRef/MGnify/PDB70/PDB SeqRes data paths, OpenMM relaxation, or Docker/GPU AlphaFold execution.",
+          "best_for": "Generating safe AlphaFold setup plans, validating FASTA and database paths, constructing direct run_alphafold commands, inspecting model presets/configuration, interpreting prediction confidence artifacts, creating Server JSON, and diagnosing relaxation or dependency failures.",
+          "avoid_when": "Avoid for non-AlphaFold protein design tools such as RFdiffusion or ProteinMPNN, general molecular simulation unrelated to AlphaFold relaxation, or generic Docker/JAX troubleshooting without AlphaFold-specific flags, data layout, or output artifacts.",
+          "useful_entry_points": [
+            "alphafold/SKILL.md",
+            "alphafold/sub-skills/docker-and-data-setup/SKILL.md",
+            "alphafold/sub-skills/prediction-cli/SKILL.md",
+            "alphafold/sub-skills/input-data-and-formats/SKILL.md",
+            "alphafold/sub-skills/model-config-and-api/SKILL.md",
+            "alphafold/sub-skills/outputs-and-confidence/SKILL.md",
+            "alphafold/sub-skills/relaxation/SKILL.md"
+          ],
+          "selection_guidance": "Choose alphafold when the request involves AlphaFold 2.x structure prediction setup, input validation, prediction command planning, model preset/config inspection, confidence/output interpretation, AFDB/Server JSON artifacts, or OpenMM relaxation; choose another protein-structure skill when the package or model family is not AlphaFold."
+        }
+      ]
+    }
+  }
+}

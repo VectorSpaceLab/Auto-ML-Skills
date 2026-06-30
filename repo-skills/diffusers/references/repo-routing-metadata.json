@@ -17,7 +17,7 @@
             "diffusers/sub-skills/modular-pipelines/",
             "diffusers/sub-skills/pipelines-and-inference/",
             "diffusers/sub-skills/schedulers/",
-            "1 more sub-skills"
+            "diffusers/sub-skills/training-recipes/"
           ],
           "selection_guidance": "Choose `diffusers` when the request names `diffusers`, centers on Hugging Face Diffusers tasks: pipeline inference, schedulers, adapters/loaders, training recipes, modular pipelines, conversion helpers, CLI checks, and repo maintenance, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in image generation and lora training workflows. Then route to adapters and loaders, conversion and maintenance, modular pipelines, or pipelines and inference when those focused workflows match."
         },
@@ -36,7 +36,7 @@
             "diffusers/sub-skills/modular-pipelines/",
             "diffusers/sub-skills/pipelines-and-inference/",
             "diffusers/sub-skills/schedulers/",
-            "1 more sub-skills"
+            "diffusers/sub-skills/training-recipes/"
           ],
           "selection_guidance": "Choose `diffusers` when the request names `diffusers`, centers on Hugging Face Diffusers tasks: pipeline inference, schedulers, adapters/loaders, training recipes, modular pipelines, conversion helpers, CLI checks, and repo maintenance, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in llm finetuning training serving workflows. Then route to adapters and loaders, conversion and maintenance, modular pipelines, or pipelines and inference when those focused workflows match."
         }

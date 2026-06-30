@@ -1,0 +1,84 @@
+{
+  "skills": {
+    "paddlehelix": {
+      "scenarios": [
+        {
+          "id": "molecular-ml-drug-discovery-and-chemistry-workflows",
+          "title": "Molecular ML, Drug Discovery, and Chemistry Workflows",
+          "when_to_read": "Molecule featurization, molecular property prediction, drug-target interaction, molecular generation, drug synergy, few-shot molecular property, docking, HelixDock, SMILES/config/data validation, and PaddleHelix chemistry app workflows.",
+          "role": "Use paddlehelix to route PaddleHelix chemistry and drug-discovery tasks to compound workflow references and safe validators.",
+          "read_when": "Requests mention PaddleHelix, pahelix compound utilities, GEM, GEM-2, PretrainGNNs, MoleculeNet-style property data, DTI apps such as GraphDTA or MolTrans, JT-VAE/SD-VAE/Seq-VAE, HelixDock, SMILES files, chemistry JSON configs, PDBbind docking data, or missing RDKit/OpenBabel/PGL/Paddle dependencies.",
+          "best_for": "Planning or preflighting PaddleHelix molecular property, DTI, molecular generation, drug synergy, few-shot property, and HelixDock workflows without running heavy downloads or training by default.",
+          "avoid_when": "Use a dedicated RDKit, DeepChem, Chemprop, OpenMM, or generic chemistry package skill when the task does not involve PaddleHelix APIs, app layouts, or HelixDock conventions.",
+          "useful_entry_points": [
+            "paddlehelix/SKILL.md",
+            "paddlehelix/sub-skills/compound-drug-discovery/SKILL.md",
+            "paddlehelix/sub-skills/core-api-data/SKILL.md"
+          ],
+          "selection_guidance": "Choose paddlehelix when the molecular task uses PaddleHelix package names, app folders, pahelix data contracts, HelixDock, GEM/GEM-2/PretrainGNNs, or PaddlePaddle-backed chemistry workflows."
+        },
+        {
+          "id": "protein-structure-prediction-and-design-workflows",
+          "title": "Protein Structure Prediction and Design Workflows",
+          "when_to_read": "Protein or biomolecular structure prediction, HelixFold/HelixFold-Single/HelixFold3/HelixFold-S1 input planning, MSA/database/checkpoint setup, output interpretation, and precision/resource planning.",
+          "role": "Use paddlehelix to plan and validate PaddleHelix HelixFold family workflows without unsafe downloads or GPU inference by default.",
+          "read_when": "Requests mention HelixFold, HelixFold3, HelixFold-S1, biomolecular entity JSON, MSA binaries, reduced databases, bf16 versus fp32, PaddlePaddle GPU stack, structure-prediction output directories, or malformed protein/DNA/RNA/ligand input JSON.",
+          "best_for": "Preflighting HelixFold3/S1 JSON, comparing HelixFold variants, planning command substitutions, and diagnosing missing databases/checkpoints/CUDA/Paddle/MSA tools.",
+          "avoid_when": "Use a non-PaddleHelix structure skill when the request is for AlphaFold, ColabFold, Boltz, Chai-1, ProteinMPNN, RFdiffusion, ESM, or structure-design workflows outside PaddleHelix.",
+          "useful_entry_points": [
+            "paddlehelix/SKILL.md",
+            "paddlehelix/sub-skills/structure-prediction/SKILL.md",
+            "paddlehelix/sub-skills/protein-sequence-function/SKILL.md"
+          ],
+          "selection_guidance": "Choose paddlehelix when structure-prediction tasks name HelixFold, PaddleHelix, PaddlePaddle, HelixFold3 JSON, HelixFold-S1 modules, or PaddleHelix protein-folding app layouts."
+        },
+        {
+          "id": "graph-learning-workflows",
+          "title": "Graph Learning Workflows",
+          "when_to_read": "Graph neural network tasks involving molecular graph construction, PGL-backed graph dataloaders, compound encoders, scaffold splitters, GEM graph features, and PaddleHelix graph model orientation.",
+          "role": "Use paddlehelix for PaddleHelix-specific graph data and molecular GNN workflows built on pahelix and PGL conventions.",
+          "read_when": "Requests mention pahelix graph records, InMemoryDataset, scaffold splitters, CompoundKit, Compound3DKit, mol_to_graph_data, mol_to_geognn_graph_data, PGL optional dependency errors, GEM/GeoGNN/LiteGEM featurizers, or PaddleHelix GNN model families.",
+          "best_for": "Explaining PaddleHelix graph record schemas, cache formats, splitters, optional graph dependencies, and routing graph-model training questions to the compound workflow sub-skill.",
+          "avoid_when": "Use PyG, DGL, or general graph-learning skills when the request is not about PaddleHelix or pahelix data/model contracts.",
+          "useful_entry_points": [
+            "paddlehelix/SKILL.md",
+            "paddlehelix/sub-skills/core-api-data/SKILL.md",
+            "paddlehelix/sub-skills/compound-drug-discovery/SKILL.md"
+          ],
+          "selection_guidance": "Choose paddlehelix for graph-learning tasks that use PaddleHelix data dictionaries, PGL/Paddle optional dependencies, molecular graph features, or the GEM/PretrainGNN app stack."
+        },
+        {
+          "id": "scientific-python-data-workflows",
+          "title": "Scientific Python Data Workflows",
+          "when_to_read": "Bio-computing data utilities, NPZ cache handling, protein tokenization, local validation scripts, and lightweight scientific input checks where PaddleHelix is the named package.",
+          "role": "Use paddlehelix for dependency-light pahelix utilities, protein sequence tokenization, LinearRNA checks, and local data/config preflights tied to PaddleHelix.",
+          "read_when": "Requests mention pahelix InMemoryDataset, NPZ part files, ProteinTokenizer, LinearRNA/LinearFold/LinearPartition, RNA constraints, FASTA/plain sequence validation, or local PaddleHelix input preflight scripts.",
+          "best_for": "Using bundled safe checkers to validate data/config/sequences and explain dependency-light PaddleHelix APIs without launching app workflows.",
+          "avoid_when": "Use broader scientific Python skills when the task is generic NumPy/pandas analysis or unrelated to PaddleHelix data contracts, protein/RNA utilities, or pahelix APIs.",
+          "useful_entry_points": [
+            "paddlehelix/SKILL.md",
+            "paddlehelix/sub-skills/core-api-data/SKILL.md",
+            "paddlehelix/sub-skills/protein-sequence-function/SKILL.md",
+            "paddlehelix/sub-skills/linear-rna/SKILL.md"
+          ],
+          "selection_guidance": "Choose paddlehelix when a scientific data workflow depends on PaddleHelix-specific data loaders, NPZ metadata, tokenizer IDs, RNA folding APIs, or the bundled PaddleHelix validators."
+        },
+        {
+          "id": "python-repository-maintenance",
+          "title": "Python Repository Maintenance",
+          "when_to_read": "Tasks that edit, package, inspect, test, or troubleshoot the PaddleHelix Python repository itself, especially setup.py, optional dependency handling, CMake LinearRNA builds, docs, and app evidence refreshes.",
+          "role": "Use paddlehelix to understand PaddleHelix repository structure, source roots, build caveats, and safe focused checks before making repo changes.",
+          "read_when": "Requests mention modifying PaddleHelix source, pahelix modules, setup.py, docs, app launchers, LinearRNA CMake/pybind builds, optional dependency import failures, or refreshing the generated PaddleHelix skill after code changes.",
+          "best_for": "Repository-aware maintenance guidance that respects PaddleHelix public APIs, optional dependency boundaries, and safe test/example selection.",
+          "avoid_when": "Use a generic Python packaging or CMake skill when the task is not PaddleHelix-specific and does not require its repo structure or domain workflows.",
+          "useful_entry_points": [
+            "paddlehelix/SKILL.md",
+            "paddlehelix/references/repo-provenance.md",
+            "paddlehelix/references/troubleshooting.md"
+          ],
+          "selection_guidance": "Choose paddlehelix for maintenance tasks in a PaddleHelix checkout or when code changes affect pahelix APIs, app workflows, HelixFold/LinearRNA evidence, or the generated PaddleHelix skill."
+        }
+      ]
+    }
+  }
+}

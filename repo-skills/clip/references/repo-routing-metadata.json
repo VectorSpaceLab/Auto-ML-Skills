@@ -1,0 +1,38 @@
+{
+  "skills": {
+    "clip": {
+      "scenarios": [
+        {
+          "id": "computer-vision-modeling-and-augmentation",
+          "title": "Computer Vision Modeling and Augmentation",
+          "when_to_read": "Use for OpenAI CLIP image-text inference, zero-shot image classification, prompt engineering, feature extraction, and CLIP-specific troubleshooting.",
+          "role": "`clip` provides self-contained guidance for OpenAI CLIP model loading, tokenization, zero-shot prompt workflows, image/text embedding extraction, and responsible evaluation.",
+          "read_when": "Task mentions OpenAI CLIP, the `clip` Python package, `clip.load`, `clip.tokenize`, `encode_image`, `encode_text`, ViT-B/32, RN50, zero-shot image classification, image-text similarity, prompt templates for class labels, checkpoint cache/download errors, or CLIP CPU/CUDA/JIT issues.",
+          "best_for": "Loading released OpenAI CLIP models, scoring images against text labels, building tokenizer-safe zero-shot prompts, extracting CLIP image/text features, preparing linear-probe evaluation plans, and diagnosing CLIP package/runtime failures.",
+          "avoid_when": "Use a different skill for OpenCLIP, Hugging Face Transformers CLIP, SigLIP/BLIP-style models, training CLIP from scratch, general torchvision issues without CLIP APIs, or production surveillance/facial-recognition deployment tasks without explicit safety review.",
+          "useful_entry_points": [
+            "clip/SKILL.md",
+            "clip/sub-skills/model-loading-inference/SKILL.md",
+            "clip/sub-skills/prompt-engineering/SKILL.md",
+            "clip/sub-skills/feature-evaluation/SKILL.md"
+          ],
+          "selection_guidance": "Choose `clip` when the user needs OpenAI CLIP package APIs, released CLIP model names, zero-shot image/text workflows, prompt template/tokenizer guidance, or CLIP feature-evaluation recipes rather than a generic computer-vision model workflow."
+        },
+        {
+          "id": "embedding-retrieval-rag-workflows",
+          "title": "Embedding Retrieval and RAG Workflows",
+          "when_to_read": "Use for CLIP image/text embedding extraction, normalized multimodal similarity, and small image-search or image-text retrieval prototypes.",
+          "role": "`clip` explains how to create and validate normalized CLIP embeddings for images and text, store feature arrays, and avoid common similarity mistakes.",
+          "read_when": "Task mentions CLIP embeddings, image embeddings, text embeddings from `encode_text`, image search, image-text retrieval, multimodal similarity, `.npz` feature caches, or retrieval results that are wrong because features were not normalized.",
+          "best_for": "Extracting CLIP image features from local image directories, building normalized text classifier weights, comparing image/text vectors, and planning lightweight multimodal retrieval experiments.",
+          "avoid_when": "Use a general vector database/RAG skill when the task is about indexing infrastructure, chunking text documents, database queries, or LLM RAG orchestration without CLIP image/text encoders.",
+          "useful_entry_points": [
+            "clip/sub-skills/feature-evaluation/SKILL.md",
+            "clip/sub-skills/prompt-engineering/SKILL.md"
+          ],
+          "selection_guidance": "Choose `clip` for CLIP-specific embedding extraction and normalization details; choose broader retrieval skills for vector-store integration or text-only RAG pipelines."
+        }
+      ]
+    }
+  }
+}

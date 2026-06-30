@@ -1,0 +1,42 @@
+{
+  "skills": {
+    "ray": {
+      "scenarios": [
+        {
+          "id": "data-orchestration-and-parallel-computing",
+          "title": "Data Orchestration and Parallel Computing",
+          "when_to_read": "Distributed Python runtime tasks, parallel task and actor graphs, Ray clusters, Ray Data pipelines, Train/Tune experiments, Serve deployments, or scalable reinforcement-learning workloads.",
+          "role": "Use `ray` for Ray-specific distributed Python, cluster operations, data processing, training/tuning, serving, and RLlib workflows.",
+          "read_when": "The task names Ray, ray, ray.remote, Ray Core, Ray Data, Ray Train, Ray Tune, Ray Serve, RLlib, ObjectRef, actor, task, ray job, runtime_env, ray status, serve deploy, Tuner, TuneConfig, PPOConfig, AlgorithmConfig, or asks to scale Python/data/ML/RL work across CPUs, GPUs, nodes, jobs, or Serve replicas.",
+          "best_for": "Ray package usage: task/actor code, cluster CLI and Jobs, runtime environment packaging, Data loading/transforms, Train/Tune checkpointed experiments and hyperparameter sweeps, Serve YAML/application deployment, and RLlib AlgorithmConfig/Gymnasium workflows.",
+          "avoid_when": "Use a generic PyTorch, Dask, Airflow, Kubernetes, cloud-provider, FastAPI, or reinforcement-learning package skill when the request is not using Ray APIs or Ray-managed execution. Use a repo maintenance scenario if the user is editing Ray source internals rather than using Ray as a library.",
+          "useful_entry_points": [
+            "ray/SKILL.md",
+            "ray/sub-skills/core-runtime/SKILL.md",
+            "ray/sub-skills/cluster-ops/SKILL.md",
+            "ray/sub-skills/data-pipelines/SKILL.md",
+            "ray/sub-skills/train-tune/SKILL.md",
+            "ray/sub-skills/serve-deployments/SKILL.md",
+            "ray/sub-skills/rllib-workloads/SKILL.md"
+          ],
+          "selection_guidance": "Choose `ray` when Ray owns the runtime, data pipeline, training/tuning orchestration, serving layer, cluster/job lifecycle, or RLlib algorithm environment. For overlapping requests, choose `ray` if the solution depends on Ray APIs such as `ray.init`, `ray.remote`, `ray.data`, `ray.train`, `ray.tune`, `ray.serve`, `ray.rllib`, Ray CLI, Jobs, or runtime environments."
+        },
+        {
+          "id": "reinforcement-learning-workflows",
+          "title": "Reinforcement Learning Workflows",
+          "when_to_read": "RLlib reinforcement-learning tasks involving AlgorithmConfig, PPOConfig, Gymnasium environments, EnvRunner/Learner scaling, Tune sweeps, RLlib checkpoints, or multi-agent/offline RL routing.",
+          "role": "Use `ray` for RLlib-specific reinforcement-learning workflows that run on Ray and integrate with Ray Tune.",
+          "read_when": "The task names RLlib, ray.rllib, PPOConfig, AlgorithmConfig, EnvRunner, Learner, Gymnasium custom env registration for Ray, multi-agent RL with Ray, RLlib checkpoint/evaluation, or RLlib Tune sweeps.",
+          "best_for": "Configuring, validating, and troubleshooting RLlib workloads, especially PPO/custom Gymnasium envs, config-only checks, and Ray Tune integration.",
+          "avoid_when": "Use another RL package skill for Stable-Baselines3, CleanRL, Tianshou, PettingZoo-only environments, or generic RL scripts that do not use Ray RLlib.",
+          "useful_entry_points": [
+            "ray/sub-skills/rllib-workloads/SKILL.md",
+            "ray/sub-skills/train-tune/SKILL.md",
+            "ray/sub-skills/core-runtime/SKILL.md"
+          ],
+          "selection_guidance": "Choose `ray` for reinforcement-learning tasks only when RLlib or Ray-managed rollout/training execution is central; otherwise choose the more specific non-Ray RL skill."
+        }
+      ]
+    }
+  }
+}

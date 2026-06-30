@@ -29,7 +29,15 @@ Role: Use `diffusers` for Hugging Face Diffusers tasks: pipeline inference, sche
 Read when: The request names `diffusers` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: adapters and loaders, conversion and maintenance, modular pipelines, pipelines and inference, schedulers, and training recipes.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `diffusers/SKILL.md`, `diffusers/sub-skills/adapters-and-loaders/`, `diffusers/sub-skills/conversion-and-maintenance/`, `diffusers/sub-skills/modular-pipelines/`, `diffusers/sub-skills/pipelines-and-inference/`, `diffusers/sub-skills/schedulers/`, `1 more sub-skills`.
+Useful entry points: `diffusers/SKILL.md`, `diffusers/sub-skills/adapters-and-loaders/`, `diffusers/sub-skills/conversion-and-maintenance/`, `diffusers/sub-skills/modular-pipelines/`, `diffusers/sub-skills/pipelines-and-inference/`, `diffusers/sub-skills/schedulers/`, `diffusers/sub-skills/training-recipes/`.
+
+### `generative-models`
+
+Role: Use generative-models for Stability AI's sgm package, SDXL inference APIs, SVD/SV3D/SV4D video sampling scripts, config-driven diffusion training, demos, and watermark interpretation.
+Read when: Task mentions generative-models, sgm, SamplingPipeline, SamplingParams, SDXL base/refiner, stable-diffusion-xl, SVD, SVD-XT, SV3D, SV4D, SV4D2, simple_video_sample, main.py --base, instantiate_from_config, DiffusionEngine, AutoencodingEngine, Streamlit/Gradio demo controls, or invisible watermark bit matches.
+Best for: Planning and troubleshooting SDXL API inference, checkpoint/config naming, video and 4D sampling commands, training YAML adaptation, static config validation, demo-to-API translation, and watermark threshold classification.
+Avoid when: Use a Diffusers skill for Hugging Face Diffusers pipelines not using sgm; use a generic PyTorch Lightning skill for framework-only trainer questions; use computer-vision or serving skills for deployment tasks outside this repository.
+Useful entry points: `generative-models/SKILL.md`, `generative-models/sub-skills/inference-api/SKILL.md`, `generative-models/sub-skills/video-sampling/SKILL.md`, `generative-models/sub-skills/training-and-configs/SKILL.md`, `generative-models/sub-skills/demos-and-watermarking/SKILL.md`.
 
 ### `invokeai`
 
@@ -55,8 +63,16 @@ Best for: Running or configuring WebUI, constructing API requests, writing WebUI
 Avoid when: Use Diffusers-specific skills for Python pipeline APIs outside WebUI, ComfyUI-specific skills for node graphs, or generic repository maintenance skills when the task is only source editing without WebUI domain behavior.
 Useful entry points: `stable-diffusion-webui/SKILL.md`, `stable-diffusion-webui/sub-skills/launch-and-config/SKILL.md`, `stable-diffusion-webui/sub-skills/api-automation/SKILL.md`, `stable-diffusion-webui/sub-skills/assets-and-models/SKILL.md`, `stable-diffusion-webui/sub-skills/extension-scripting/SKILL.md`, `stable-diffusion-webui/sub-skills/training-and-postprocessing/SKILL.md`.
 
+### `unilm`
+
+Role: Use unilm for UniLM-hosted text rendering, multimodal generation, and latent diffusion workflows with safe input checkers.
+Read when: Requests mention TextDiffuser, TextDiffuser-2, text-to-image text rendering, OCR-aware image generation, LoRA checkpoint, inpainting mask, xformers, FlashAttention, LatentLM, FID evaluation, latent diffusion, image prompt/layout coordinates, or Kosmos-2.5 image-to-markdown generation.
+Best for: Planning TextDiffuser/Kosmos/LatentLM generation inputs, mode selection, and dependency checks without running GPU generation by default.
+Avoid when: Use a Stable Diffusion/Diffusers skill for generic diffusion pipelines not from UniLM; use vision-document-ai inside unilm for LayoutLM/TrOCR document understanding.
+Useful entry points: `unilm/SKILL.md`, `unilm/sub-skills/multimodal-generation/SKILL.md`.
+
 <!-- DISCO_SCENARIO:image-generation-and-lora-training-workflows:END -->
 
 ## How To Choose
 
-Choose Diffusers for Python pipeline/model APIs, ComfyUI for graph nodes and server workflows, and sd-scripts for Stable Diffusion LoRA training scripts. Choose `comfy-ui` when the request names `comfy-ui`, centers on Use ComfyUI as a modular AI content-creation engine: launch and automate the server, submit API workflows, validate graph JSON, author custom nodes, and configure model paths/backends, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in image generation and lora training workflows. Choose `control-net` when the request depends on this repository's ControlNet 1.0 scripts, configs, detector wrappers, training tutorials, or checkpoint utilities; choose Diffusers or other image-generation repo skills for generic Stable Diffusion pipelines or unrelated LoRA training frameworks. Choose `diffusers` when the request names `diffusers`, centers on Hugging Face Diffusers tasks: pipeline inference, schedulers, adapters/loaders, training recipes, modular pipelines, conversion helpers, CLI checks, and repo maintenance, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in image generation and lora training workflows. Choose `stable-diffusion-webui` when the practical surface is AUTOMATIC1111 Stable Diffusion WebUI.
+Choose Diffusers for Python pipeline/model APIs, ComfyUI for graph nodes and server workflows, and sd-scripts for Stable Diffusion LoRA training scripts. Choose `comfy-ui` when the request names `comfy-ui`, centers on Use ComfyUI as a modular AI content-creation engine: launch and automate the server, submit API workflows, validate graph JSON, author custom nodes, and configure model paths/backends, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in image generation and lora training workflows. Choose `control-net` when the request depends on this repository's ControlNet 1.0 scripts, configs, detector wrappers, training tutorials, or checkpoint utilities; choose Diffusers or other image-generation repo skills for generic Stable Diffusion pipelines or unrelated LoRA training frameworks. Choose `diffusers` when the request names `diffusers`, centers on Hugging Face Diffusers tasks: pipeline inference, schedulers, adapters/loaders, training recipes, modular pipelines, conversion helpers, CLI checks, and repo maintenance, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in image generation and lora training workflows. Prefer more specialized sibling skills only when the user asks for another package's API surface rather than this repository.

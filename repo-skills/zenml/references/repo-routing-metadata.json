@@ -1,0 +1,57 @@
+{
+  "skills": {
+    "zenml": {
+      "scenarios": [
+        {
+          "id": "ml-experiment-tracking-and-mlops-workflows",
+          "title": "ML Experiment Tracking and MLOps Workflows",
+          "when_to_read": "Tasks about MLOps pipelines, production ML or AI workflows, pipeline execution, artifacts, stacks, deployments, experiment/model operations, observability, or ZenML package usage.",
+          "role": "The zenml skill routes ZenML-specific pipeline authoring, CLI/Client, stack integration, deployment, server, and MLOps workflow tasks.",
+          "read_when": "The task names ZenML, zenml CLI, @pipeline, @step, Client(), stacks, artifacts, materializers, orchestrators, deployers, model deployers, pipeline deployments, triggers, resource pools, schedules, DeploymentSettings, DockerSettings, or MLOps pipeline workflows.",
+          "best_for": "Writing and debugging ZenML pipelines, configuring stack components, using the CLI/Client, adapting model or agent deployment examples, troubleshooting optional dependencies, and understanding ZenML server/store layers.",
+          "avoid_when": "Avoid for generic MLflow/W&B tracking, generic FastAPI apps, generic Docker deployment, or non-ZenML orchestration tasks unless ZenML APIs or repository code are involved.",
+          "useful_entry_points": [
+            "zenml/SKILL.md",
+            "zenml/sub-skills/pipeline-authoring/SKILL.md",
+            "zenml/sub-skills/cli-and-client/SKILL.md",
+            "zenml/sub-skills/stacks-and-integrations/SKILL.md",
+            "zenml/sub-skills/deployments-and-agents/SKILL.md"
+          ],
+          "selection_guidance": "Choose zenml when the workflow depends on ZenML package APIs, CLI commands, stack components, deployments, server/store concepts, or repository conventions rather than only general MLOps ideas."
+        },
+        {
+          "id": "python-repository-maintenance",
+          "title": "Python Repository Maintenance",
+          "when_to_read": "Tasks that edit, review, test, document, package, or maintain the ZenML Python repository checkout.",
+          "role": "The zenml skill captures repository-specific maintenance rules, AGENTS guidance, optional dependency boundaries, targeted tests, docs, migrations, and PR-readiness checks for ZenML.",
+          "read_when": "The task involves modifying ZenML source, tests, docs, scripts, integrations, CLI, FastAPI server, SQLModel schemas, Alembic migrations, pyproject dependencies, AGENTS instructions, or CI-equivalent validation commands.",
+          "best_for": "Choosing targeted pytest/lint/docs/migration checks, preserving optional imports, updating CLI/client/model/schema/store layers consistently, and following ZenML contributor rules.",
+          "avoid_when": "The user only wants to use ZenML as a library without modifying its repository; use the MLOps workflow scenario entry points instead.",
+          "useful_entry_points": [
+            "zenml/SKILL.md",
+            "zenml/sub-skills/maintenance/SKILL.md",
+            "zenml/sub-skills/server-and-stores/SKILL.md",
+            "zenml/sub-skills/stacks-and-integrations/SKILL.md",
+            "zenml/sub-skills/cli-and-client/SKILL.md"
+          ],
+          "selection_guidance": "Choose zenml for repository-maintenance tasks when ZenML-specific AGENTS rules, source layout, tests, docs, migrations, or optional dependency boundaries matter."
+        },
+        {
+          "id": "agent-frameworks-tooling-and-sandboxed-llm-workflows",
+          "title": "Agent Frameworks, Tooling, and Sandboxed LLM Workflows",
+          "when_to_read": "Tasks about ZenML's agent examples, durable AI workflow orchestration, agent framework integrations, MCP-adjacent operational patterns, or production agent deployments built with ZenML pipelines.",
+          "role": "The zenml skill explains how to adapt ZenML agent and LLM examples into credential-aware, deployment-ready pipeline workflows.",
+          "read_when": "The task mentions ZenML with agents, LLMOps, agent_comparison, deploying_agent, LangGraph/LangChain/LlamaIndex/OpenAI agents inside ZenML, deterministic fallbacks, DeploymentSettings, or agent service deployment.",
+          "best_for": "Adapting ZenML agent examples, separating provider credentials from smoke tests, configuring pipeline deployments for agents, and routing framework matrix limitations safely.",
+          "avoid_when": "Avoid for generic agent framework tasks that do not use ZenML pipelines, deployments, or repository examples; choose the framework-specific repo skill instead when available.",
+          "useful_entry_points": [
+            "zenml/sub-skills/deployments-and-agents/SKILL.md",
+            "zenml/sub-skills/pipeline-authoring/SKILL.md",
+            "zenml/sub-skills/stacks-and-integrations/SKILL.md"
+          ],
+          "selection_guidance": "Choose zenml for agent tasks when ZenML is the orchestration/deployment layer or when adapting ZenML's agent examples; otherwise choose the specific agent framework skill."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "skills": {
+    "unilm": {
+      "scenarios": [
+        {
+          "id": "llm-finetuning-training-serving-workflows",
+          "title": "LLM Fine-Tuning, Training, and Serving Workflows",
+          "when_to_read": "Tasks involving UniLM-family language generation, sequence-to-sequence fine-tuning, MiniLM, DeltaLM, InfoXLM, EdgeLM, XTune, long-context or architecture-aware language model workflow planning.",
+          "role": "Use unilm to route Microsoft UniLM umbrella language, model-family, and training workflow requests into focused sub-skills with safe command builders and dependency guidance.",
+          "read_when": "Requests mention UniLM, s2s-ft, MiniLM, DeltaLM, InfoXLM, EdgeLM, XTune, YOCO, LongNet, RetNet, DeepNet, Diff-Transformer, X-MoE, BitNet, sequence-to-sequence generation, summarization, question generation, long-context evaluation, torchrun, DeepSpeed, fairseq, legacy Apex, checkpoint/tokenizer mismatch, or language-model research training scripts.",
+          "best_for": "Planning and troubleshooting UniLM-family training, decoding, evaluation, distributed launch, and architecture experiments without blindly running heavy native jobs.",
+          "avoid_when": "Use a package-specific Transformers, vLLM, DeepSpeed, or general model-serving skill when the task does not involve the UniLM repository or its model families.",
+          "useful_entry_points": [
+            "unilm/SKILL.md",
+            "unilm/sub-skills/language-seq2seq/SKILL.md",
+            "unilm/sub-skills/architectures-training/SKILL.md"
+          ],
+          "selection_guidance": "Choose unilm when the request names Microsoft UniLM or one of its umbrella subprojects, or when seq2seq/long-context/architecture workflow details match UniLM-specific scripts and dependencies."
+        },
+        {
+          "id": "embedding-retrieval-rag-workflows",
+          "title": "Embedding Retrieval and RAG Workflows",
+          "when_to_read": "Tasks involving E5 text embeddings, SimLM dense retrieval, BEIR/MTEB evaluation, MS MARCO or DPR/NQ retriever training, reranking, hard-negative mining, or teacher-score generation.",
+          "role": "Use unilm for E5 and SimLM retrieval workflows inside the Microsoft UniLM repository, including safe benchmark command planning and data-layout troubleshooting.",
+          "read_when": "Requests mention E5, intfloat/e5 models, multilingual-e5, E5-Mistral, SimLM, BEIR, MTEB, MS MARCO, DPR, NQ, biencoder, cross-encoder reranker, hard negatives, teacher scores, query: or passage: prefixes, retrieval pooling, or long-running corpus encoding.",
+          "best_for": "Choosing E5 prefixes/model families, building safe BEIR/MTEB commands, and planning SimLM biencoder/reranker training or inference phases.",
+          "avoid_when": "Use vector-database or RAG-framework skills for application RAG plumbing that does not use E5 or SimLM. Use vision-document-ai inside unilm for image-text/document retrieval unless E5 or SimLM is explicit.",
+          "useful_entry_points": [
+            "unilm/SKILL.md",
+            "unilm/sub-skills/embeddings-retrieval/SKILL.md"
+          ],
+          "selection_guidance": "Choose unilm when E5 or SimLM is the retriever/model source; choose another retrieval skill for unrelated vector stores, sparse retrievers, or RAG orchestration frameworks."
+        },
+        {
+          "id": "computer-vision-modeling-and-augmentation",
+          "title": "Computer Vision Modeling and Augmentation",
+          "when_to_read": "Tasks involving UniLM vision/document AI projects such as BEiT, DiT, LayoutLM, MarkupLM, XDoc, TrOCR, VLMo, VL-BEiT, image classification, segmentation, OCR, form understanding, and vision-language fine-tuning.",
+          "role": "Use unilm to choose and safely plan commands across UniLM vision, document AI, OCR, and vision-language subprojects.",
+          "read_when": "Requests mention BEiT, BEiT-2, BEiT-3, DiT, LayoutLM, LayoutLMv2, LayoutLMv3, LayoutXLM, MarkupLM, XDoc, TrOCR, VLMo, VL-BEiT, FUNSD, CORD, XFUND, PubLayNet, ICDAR, WebSRC, VQAv2, NLVR2, Detectron2, MMCV, OCR checkpoints, or document bounding boxes.",
+          "best_for": "Routing between image-only, document layout/form, OCR, webpage, and vision-language workflows while handling backend and dataset-schema pitfalls.",
+          "avoid_when": "Use image-generation-and-lora-training-workflows for diffusion/image generation tasks; within unilm, use multimodal-generation for TextDiffuser, Kosmos, audio, speech, or LatentLM.",
+          "useful_entry_points": [
+            "unilm/SKILL.md",
+            "unilm/sub-skills/vision-document-ai/SKILL.md"
+          ],
+          "selection_guidance": "Choose unilm for UniLM-hosted BEiT/LayoutLM/TrOCR/VLMo-style workflows; choose other vision skills for unrelated CV frameworks."
+        },
+        {
+          "id": "speech-ai-modeling-and-audio-workflows",
+          "title": "Speech AI Modeling and Audio Workflows",
+          "when_to_read": "Tasks involving WavLM, BEATs, SpeechT5, SpeechLM, VALL-E, audio representation, ASR/ST/TTS/VC planning, speech manifests, checkpoints, and audio sample-rate issues.",
+          "role": "Use unilm to plan and troubleshoot UniLM speech/audio model workflows while keeping heavyweight fairseq/checkpoint runs gated.",
+          "read_when": "Requests mention WavLM, BEATs, SpeechT5, SpeechLM, VALL-E, 16 kHz audio, speech manifests, fairseq speech tasks, ASR, speech translation, TTS, voice conversion, speaker representation, audio checkpoints, or sample-rate mismatch.",
+          "best_for": "Input validation, checkpoint/data planning, and safe command shaping for UniLM speech/audio projects.",
+          "avoid_when": "Use a dedicated speech framework skill when the request targets another package such as NeMo, Whisper, ESPnet, or pyannote rather than UniLM speech projects.",
+          "useful_entry_points": [
+            "unilm/SKILL.md",
+            "unilm/sub-skills/multimodal-generation/SKILL.md"
+          ],
+          "selection_guidance": "Choose unilm when speech/audio workflow terms are tied to WavLM, BEATs, SpeechT5, SpeechLM, or VALL-E."
+        },
+        {
+          "id": "image-generation-and-lora-training-workflows",
+          "title": "Image Generation and LoRA Training Workflows",
+          "when_to_read": "Tasks involving TextDiffuser/TextDiffuser-2, text rendering in images, text-to-image generation, LoRA variants, inpainting, coordinate/layout prompts, or LatentLM latent diffusion sampling/evaluation.",
+          "role": "Use unilm for UniLM-hosted text rendering, multimodal generation, and latent diffusion workflows with safe input checkers.",
+          "read_when": "Requests mention TextDiffuser, TextDiffuser-2, text-to-image text rendering, OCR-aware image generation, LoRA checkpoint, inpainting mask, xformers, FlashAttention, LatentLM, FID evaluation, latent diffusion, image prompt/layout coordinates, or Kosmos-2.5 image-to-markdown generation.",
+          "best_for": "Planning TextDiffuser/Kosmos/LatentLM generation inputs, mode selection, and dependency checks without running GPU generation by default.",
+          "avoid_when": "Use a Stable Diffusion/Diffusers skill for generic diffusion pipelines not from UniLM; use vision-document-ai inside unilm for LayoutLM/TrOCR document understanding.",
+          "useful_entry_points": [
+            "unilm/SKILL.md",
+            "unilm/sub-skills/multimodal-generation/SKILL.md"
+          ],
+          "selection_guidance": "Choose unilm when image/text generation is specifically TextDiffuser, Kosmos, or LatentLM from the UniLM repository."
+        }
+      ]
+    }
+  }
+}

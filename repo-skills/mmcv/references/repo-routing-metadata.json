@@ -1,0 +1,25 @@
+{
+  "skills": {
+    "mmcv": {
+      "scenarios": [
+        {
+          "id": "computer-vision-modeling-and-augmentation",
+          "title": "Computer Vision Modeling and Augmentation",
+          "when_to_read": "Computer-vision utility, preprocessing, augmentation, model-building, OpenMMLab, or compiled vision-op tasks involving MMCV-style APIs.",
+          "role": "Use mmcv for OpenMMLab computer-vision foundations: image/video/flow utilities, dict-style transforms, PyTorch CNN builders, and compiled ops installation diagnostics.",
+          "read_when": "The user names MMCV, mmcv, mmcv-lite, OpenMMLab utilities, mmcv.transforms, mmcv.cnn, mmcv.ops, image/video/optical-flow helpers, transform pipeline dicts, ConvModule/build_layer configs, NMS/ROI/deformable ops, or errors such as No module named mmcv._ext.",
+          "best_for": "MMCV 2.2.0 package usage, media preprocessing, transform pipelines, CNN layer builders, package variant selection, and compiled ops troubleshooting.",
+          "avoid_when": "Avoid for downstream MMDetection/MMSeg model training recipes unless the task is specifically about MMCV APIs or install/build problems; avoid for generic Pillow/OpenCV/TorchVision tasks that do not use MMCV.",
+          "useful_entry_points": [
+            "mmcv/SKILL.md",
+            "mmcv/sub-skills/media-processing/SKILL.md",
+            "mmcv/sub-skills/data-transforms/SKILL.md",
+            "mmcv/sub-skills/cnn-model-building/SKILL.md",
+            "mmcv/sub-skills/ops-and-builds/SKILL.md"
+          ],
+          "selection_guidance": "Choose mmcv when the task needs OpenMMLab MMCV APIs or package/build diagnostics; for overlapping computer-vision skills, choose mmcv over generic image libraries when transform registries, ConvModule builders, or mmcv.ops are central."
+        }
+      ]
+    }
+  }
+}

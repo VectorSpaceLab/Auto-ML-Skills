@@ -1,0 +1,25 @@
+{
+  "skills": {
+    "generative-models": {
+      "scenarios": [
+        {
+          "id": "image-generation-and-lora-training-workflows",
+          "title": "Image Generation and LoRA Training Workflows",
+          "when_to_read": "Stable Diffusion-family image/video generation, diffusion configs, SVD/SV3D/SV4D sampling, SDXL base/refiner inference, demo routing, or watermarking tasks.",
+          "role": "Use generative-models for Stability AI's sgm package, SDXL inference APIs, SVD/SV3D/SV4D video sampling scripts, config-driven diffusion training, demos, and watermark interpretation.",
+          "read_when": "Task mentions generative-models, sgm, SamplingPipeline, SamplingParams, SDXL base/refiner, stable-diffusion-xl, SVD, SVD-XT, SV3D, SV4D, SV4D2, simple_video_sample, main.py --base, instantiate_from_config, DiffusionEngine, AutoencodingEngine, Streamlit/Gradio demo controls, or invisible watermark bit matches.",
+          "best_for": "Planning and troubleshooting SDXL API inference, checkpoint/config naming, video and 4D sampling commands, training YAML adaptation, static config validation, demo-to-API translation, and watermark threshold classification.",
+          "avoid_when": "Use a Diffusers skill for Hugging Face Diffusers pipelines not using sgm; use a generic PyTorch Lightning skill for framework-only trainer questions; use computer-vision or serving skills for deployment tasks outside this repository.",
+          "useful_entry_points": [
+            "generative-models/SKILL.md",
+            "generative-models/sub-skills/inference-api/SKILL.md",
+            "generative-models/sub-skills/video-sampling/SKILL.md",
+            "generative-models/sub-skills/training-and-configs/SKILL.md",
+            "generative-models/sub-skills/demos-and-watermarking/SKILL.md"
+          ],
+          "selection_guidance": "Choose generative-models when the request uses Stability AI generative-models terminology or needs sgm-specific APIs, scripts, configs, checkpoint names, demo controls, or watermark thresholds. Prefer more specialized sibling skills only when the user asks for another package's API surface rather than this repository."
+        }
+      ]
+    }
+  }
+}

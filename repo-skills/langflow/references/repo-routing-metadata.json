@@ -1,0 +1,58 @@
+{
+  "skills": {
+    "langflow": {
+      "scenarios": [
+        {
+          "id": "ai-pipelines-workflows-and-rag",
+          "title": "AI Pipelines, Workflows, RAG, and Agents",
+          "when_to_read": "Visual AI workflow builders, Langflow flows, node/component graphs, RAG/agent workflow authoring, flow JSON validation, and flow execution troubleshooting.",
+          "role": "Use `langflow` for Langflow's visual AI workflow system, flow JSON, components, executor, API clients, and deployment workflows.",
+          "read_when": "The task mentions Langflow, flows, visual workflow builder, components, nodes/edges, tweaks, starter projects, flow import/export, `lfx run`, `lfx serve`, MCP tools, Langflow API run endpoints, or RAG/agent workflow orchestration in Langflow.",
+          "best_for": "Authoring and validating Langflow flows, building components/bundles, running flows through LFX, calling Langflow REST/SDK APIs, and troubleshooting Langflow workflow execution.",
+          "avoid_when": "Use a model-serving, vector database, generic LangChain, or provider-specific skill when the task is not about Langflow's workflow platform or repository.",
+          "useful_entry_points": [
+            "langflow/SKILL.md",
+            "langflow/sub-skills/flow-authoring/SKILL.md",
+            "langflow/sub-skills/component-development/SKILL.md",
+            "langflow/sub-skills/executor-cli/SKILL.md",
+            "langflow/sub-skills/sdk-and-api-clients/SKILL.md"
+          ],
+          "selection_guidance": "Choose `langflow` when the user needs Langflow-specific flow JSON, components, visual workflow behavior, LFX execution, Langflow APIs/SDK, MCP integration, or Langflow deployment guidance rather than a generic LLM framework."
+        },
+        {
+          "id": "python-ai-api-services-and-deployment",
+          "title": "Python AI API Services and Deployment",
+          "when_to_read": "FastAPI-backed AI application services, OpenAI-compatible endpoints, MCP servers, Docker/Compose deployment, secured APIs, database-backed AI workflow servers, and operational troubleshooting.",
+          "role": "Use `langflow` for Langflow's FastAPI backend, auth/authz, database migrations, Docker/Compose, environment variables, observability, and production operations.",
+          "read_when": "The task mentions `langflow run`, FastAPI routes under `/api/v1`, Langflow OpenAI-compatible responses, MCP server/client, auth or authorization guards, shares/audit, migrations, PostgreSQL, Docker Compose, Langflow env vars, API keys, storage, workers, or deployment logs.",
+          "best_for": "Backend route/service changes, guarded resources, database and migration work, Langflow server configuration, Docker/Compose setup, operational troubleshooting, and custom Langflow images.",
+          "avoid_when": "Use `langflow`'s workflow scenario entry for flow-authoring-only tasks; use a generic FastAPI or deployment skill when Langflow APIs, settings, services, or images are not involved.",
+          "useful_entry_points": [
+            "langflow/SKILL.md",
+            "langflow/sub-skills/backend-runtime/SKILL.md",
+            "langflow/sub-skills/deployment-and-operations/SKILL.md",
+            "langflow/sub-skills/frontend-development/SKILL.md"
+          ],
+          "selection_guidance": "Choose `langflow` when the Python AI service or deployment task is specifically a Langflow server, API, auth/authz, database, Docker, Compose, or frontend/backend contract issue."
+        },
+        {
+          "id": "python-repository-maintenance",
+          "title": "Python Repository Maintenance",
+          "when_to_read": "Tasks that edit, review, test, document, package, or maintain Python source repositories rather than using them only as libraries.",
+          "role": "Use `langflow` for maintaining the Langflow monorepo across Python backend/base, LFX, SDK, bundles, frontend, docs, migrations, and release/version scripts.",
+          "read_when": "The task mentions editing the Langflow checkout, `make init`, `make backend`, `make frontend`, `make unit_tests`, package-specific `uv` sync, Ruff/Biome, component indexes, Alembic migration tests, workspace package versions, bundle pins, frontend package scripts, or Langflow contributor policy.",
+          "best_for": "Choosing focused Langflow tests, preserving component identity, updating workspace versions, maintaining generated artifacts, validating migrations, and coordinating backend/frontend/SDK/LFX changes in the repo.",
+          "avoid_when": "Use a generic Python maintenance skill for unrelated repositories; use `langflow`'s workflow or deployment scenarios when the user is operating Langflow rather than editing its source.",
+          "useful_entry_points": [
+            "langflow/SKILL.md",
+            "langflow/sub-skills/repo-maintenance/SKILL.md",
+            "langflow/sub-skills/component-development/SKILL.md",
+            "langflow/sub-skills/backend-runtime/SKILL.md",
+            "langflow/sub-skills/frontend-development/SKILL.md"
+          ],
+          "selection_guidance": "Choose `langflow` for Langflow repository edits, tests, docs, generated files, package metadata, migrations, and cross-package maintenance tasks."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "skills": {
+    "dgl-lifesci": {
+      "scenarios": [
+        {
+          "avoid_when": "Use RDKit or Datamol skills for standalone cheminformatics without DGL-LifeSci; use generic DGL skills for non-chemistry graph learning; use DeepChem/Chemprop skills when the task targets those frameworks instead of dgllife.",
+          "best_for": "Molecule graph construction and featurization, custom SMILES/CSV datasets, supervised property prediction configs, dgllife model-zoo/pretrained constructors, reaction center and candidate ranking workflows, protein-ligand binding affinity planning, and DGMG/JTVAE molecular generation input validation.",
+          "id": "molecular-ml-drug-discovery-and-chemistry-workflows",
+          "read_when": "The request names DGL-LifeSci, dgllife, DGL molecular graphs, MoleculeNet with DGL, WLN reaction prediction, PDBBind binding affinity, ACNN, PotentialNet, DGMG, JTVAE, molecule graph featurizers, or needs chemistry/biology graph neural-network workflows with RDKit and DGL.",
+          "role": "Guides DGL-LifeSci/dgllife workflows for DGL-based graph neural networks in chemistry and biology.",
+          "selection_guidance": "Choose `dgl-lifesci` when the task combines chemistry/biology data with DGL-LifeSci APIs, DGL graph tensors, dgllife datasets/models, or DGL-LifeSci example workflows; choose a lower-level chemistry or graph framework skill only when dgllife is not part of the task.",
+          "title": "Molecular ML, Drug Discovery, and Chemistry Workflows",
+          "useful_entry_points": [
+            "dgl-lifesci/SKILL.md",
+            "dgl-lifesci/sub-skills/molecule-data-prep/SKILL.md",
+            "dgl-lifesci/sub-skills/property-prediction/SKILL.md",
+            "dgl-lifesci/sub-skills/model-zoo-pretraining/SKILL.md",
+            "dgl-lifesci/sub-skills/reaction-prediction/SKILL.md",
+            "dgl-lifesci/sub-skills/binding-affinity/SKILL.md",
+            "dgl-lifesci/sub-skills/generative-models/SKILL.md"
+          ],
+          "when_to_read": "Cheminformatics, molecular graph construction, molecular property prediction, reaction prediction, binding affinity, molecular generation, and chemistry model training tasks."
+        },
+        {
+          "avoid_when": "Use a generic DGL skill for DistGraph, GraphBolt, distributed graph training, or non-chemistry graph workloads; use PyG skills for torch-geometric data/model APIs.",
+          "best_for": "DGL-LifeSci-specific graph constructors, featurizers, datasets, model-zoo constructors, molecule embeddings, and link prediction examples that use dgllife APIs.",
+          "id": "graph-learning-workflows",
+          "read_when": "The request names DGL-LifeSci/dgllife plus graph construction, featurization, GNN predictors, molecule embeddings, link prediction heads, or DGL graph tensors for molecular or biological graph tasks.",
+          "role": "Covers the chemistry/biology-specific DGL-LifeSci layer on top of DGL graph learning.",
+          "selection_guidance": "Choose `dgl-lifesci` for graph-learning requests whose data, APIs, or errors mention molecules, SMILES, RDKit, MoleculeNet, dgllife datasets, or DGL-LifeSci model constructors.",
+          "title": "Graph Learning Workflows",
+          "useful_entry_points": [
+            "dgl-lifesci/SKILL.md",
+            "dgl-lifesci/sub-skills/molecule-data-prep/SKILL.md",
+            "dgl-lifesci/sub-skills/model-zoo-pretraining/SKILL.md"
+          ],
+          "when_to_read": "Graph neural network tasks, graph construction, message passing, graph datasets, graph data loaders, graph partitioning, sparse graph operations, and distributed graph training."
+        }
+      ]
+    }
+  }
+}

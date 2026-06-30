@@ -17,7 +17,7 @@
             "browser-use/sub-skills/cli-and-sessions/",
             "browser-use/sub-skills/llm-and-output/",
             "browser-use/sub-skills/production-integrations/",
-            "1 more sub-skills"
+            "browser-use/sub-skills/tools-and-actions/"
           ],
           "selection_guidance": "Choose `browser-use` when the request names `browser-use`, centers on Python agents that automate websites, browser sessions, custom tools, LLM/provider setup, persistent CLI sessions, cloud/sandbox production deployment, MCP, skills, and troubleshooting. Prefer ChatBrowserUse by default and route to focused sub-skills for implementation details, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in agent frameworks tooling and sandboxed llm workflows. Then route to agent programming, browser control, CLI and sessions, or LLM and output when those focused workflows match."
         }

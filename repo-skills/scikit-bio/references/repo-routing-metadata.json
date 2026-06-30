@@ -1,0 +1,26 @@
+{
+  "skills": {
+    "scikit-bio": {
+      "scenarios": [
+        {
+          "id": "scientific-python-data-workflows",
+          "title": "Scientific Python Data Workflows",
+          "when_to_read": "Bioinformatics and omics data analysis tasks using Python APIs for sequences, trees, community diversity, biological tables, sample metadata, distance matrices, ordination, or compositional statistics.",
+          "role": "scikit-bio provides focused guidance for bioinformatics data structures, file formats, and statistical workflows built around the scikit-bio package.",
+          "read_when": "The user names scikit-bio, skbio, DNA/RNA/Protein sequence objects, TabularMSA, TreeNode, Newick, FASTA/FASTQ, BIOM Table, SampleMetadata, alpha_diversity, beta_diversity, UniFrac, Faith PD, DistanceMatrix, PERMANOVA, ANOSIM, Mantel, PCoA, CCA/RDA, ANCOM, compositional transforms, or protein embeddings.",
+          "best_for": "Using scikit-bio library APIs for sequence/alignment manipulation, phylogenetic trees, diversity metrics, biological IO/metadata, table-like count workflows, distance statistics, ordination, composition analysis, and embeddings.",
+          "avoid_when": "Avoid for general scikit-learn machine learning, Scanpy/AnnData-centered single-cell workflows, molecular chemistry modeling, protein structure prediction/design, or generic pandas/NumPy analysis that does not use scikit-bio data objects or APIs.",
+          "useful_entry_points": [
+            "scikit-bio/SKILL.md",
+            "scikit-bio/sub-skills/io-metadata/SKILL.md",
+            "scikit-bio/sub-skills/sequences-alignment/SKILL.md",
+            "scikit-bio/sub-skills/trees-phylogeny/SKILL.md",
+            "scikit-bio/sub-skills/diversity-tables/SKILL.md",
+            "scikit-bio/sub-skills/statistics-ordination/SKILL.md"
+          ],
+          "selection_guidance": "Choose scikit-bio when a task uses scikit-bio or bioinformatics-specific APIs for biological sequences, trees, diversity, IO formats, metadata, distance matrices, ordination, or compositional statistics. If the task is repository maintenance rather than package use, combine this skill with the Python Repository Maintenance scenario only after identifying the scikit-bio module being edited."
+        }
+      ]
+    }
+  }
+}

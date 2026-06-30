@@ -21,7 +21,15 @@ Role: Use BentoML to author model-serving Services, build and containerize Bento
 Read when: The request names `bentoml` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: cli and cloud, model management, observability and operations, packaging and containerization, service authoring, and serving and clients.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `bentoml/SKILL.md`, `bentoml/sub-skills/cli-and-cloud/`, `bentoml/sub-skills/model-management/`, `bentoml/sub-skills/observability-and-operations/`, `bentoml/sub-skills/packaging-and-containerization/`, `bentoml/sub-skills/service-authoring/`, `1 more sub-skills`.
+Useful entry points: `bentoml/SKILL.md`, `bentoml/sub-skills/cli-and-cloud/`, `bentoml/sub-skills/model-management/`, `bentoml/sub-skills/observability-and-operations/`, `bentoml/sub-skills/packaging-and-containerization/`, `bentoml/sub-skills/service-authoring/`, `bentoml/sub-skills/serving-and-clients/`.
+
+### `clearml`
+
+Role: ClearML-specific routing and workflow guidance for the Python SDK, CLIs, datasets, agents, automation, HPO, routers, and service patterns.
+Read when: Use clearml when tasks mention ClearML, Task.init, Logger, Dataset, clearml-data, clearml-task, clearml-init, clearml-debug, clearml-param-search, clearml-agent queues, PipelineController, PipelineDecorator, HyperParameterOptimizer, TaskScheduler, TriggerScheduler, StorageManager, offline sessions, object-storage output_uri, HTTP routers, endpoint telemetry, or MLOps experiment/data/pipeline workflows that need ClearML-specific APIs and CLIs.
+Best for: Instrumenting scripts with ClearML tracking, constructing dataset/versioning commands, building remote execution commands, creating pipelines/HPO/schedulers, diagnosing credentials/queues/storage extras, and planning HTTP router/service endpoints.
+Avoid when: Do not choose clearml for generic ML training without ClearML instrumentation, non-ClearML experiment trackers such as MLflow or W&B, model-serving backends unrelated to ClearML routers, or repository maintenance tasks that are about editing ClearML source code rather than using the SDK.
+Useful entry points: `clearml/SKILL.md`, `clearml/sub-skills/experiment-tracking/SKILL.md`, `clearml/sub-skills/data-storage/SKILL.md`, `clearml/sub-skills/remote-execution-cli/SKILL.md`, `clearml/sub-skills/automation-pipelines/SKILL.md`, `clearml/sub-skills/routers-services/SKILL.md`.
 
 ### `dvc`
 
@@ -53,7 +61,7 @@ Role: Use `optuna` for Optuna hyperparameter optimization workflows: studies, tr
 Read when: The request names `optuna` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: advanced apis, analysis visualization, artifacts integrations, cli and storage, optimization workflows, and samplers pruners.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `optuna/SKILL.md`, `optuna/sub-skills/advanced-apis/`, `optuna/sub-skills/analysis-visualization/`, `optuna/sub-skills/artifacts-integrations/`, `optuna/sub-skills/cli-and-storage/`, `optuna/sub-skills/optimization-workflows/`, `1 more sub-skills`.
+Useful entry points: `optuna/SKILL.md`, `optuna/sub-skills/advanced-apis/`, `optuna/sub-skills/analysis-visualization/`, `optuna/sub-skills/artifacts-integrations/`, `optuna/sub-skills/cli-and-storage/`, `optuna/sub-skills/optimization-workflows/`, `optuna/sub-skills/samplers-pruners/`.
 
 ### `wandb`
 
@@ -63,8 +71,16 @@ Best for: artifacts and registries, cli and local workflows, experiment tracking
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
 Useful entry points: `wandb/SKILL.md`, `wandb/sub-skills/artifacts-and-registries/`, `wandb/sub-skills/cli-and-local-workflows/`, `wandb/sub-skills/experiment-tracking/`, `wandb/sub-skills/public-api-and-automation/`, `wandb/sub-skills/sweeps-and-launch/`.
 
+### `zenml`
+
+Role: The zenml skill routes ZenML-specific pipeline authoring, CLI/Client, stack integration, deployment, server, and MLOps workflow tasks.
+Read when: The task names ZenML, zenml CLI, @pipeline, @step, Client(), stacks, artifacts, materializers, orchestrators, deployers, model deployers, pipeline deployments, triggers, resource pools, schedules, DeploymentSettings, DockerSettings, or MLOps pipeline workflows.
+Best for: Writing and debugging ZenML pipelines, configuring stack components, using the CLI/Client, adapting model or agent deployment examples, troubleshooting optional dependencies, and understanding ZenML server/store layers.
+Avoid when: Avoid for generic MLflow/W&B tracking, generic FastAPI apps, generic Docker deployment, or non-ZenML orchestration tasks unless ZenML APIs or repository code are involved.
+Useful entry points: `zenml/SKILL.md`, `zenml/sub-skills/pipeline-authoring/SKILL.md`, `zenml/sub-skills/cli-and-client/SKILL.md`, `zenml/sub-skills/stacks-and-integrations/SKILL.md`, `zenml/sub-skills/deployments-and-agents/SKILL.md`.
+
 <!-- DISCO_SCENARIO:ml-experiment-tracking-and-mlops-workflows:END -->
 
 ## How To Choose
 
-Choose MLflow/W&B for experiment tracking and registries, Optuna/NNI/AutoGluon for optimization or AutoML, DVC for data and pipeline versioning, and BentoML when packaging or serving is the main action. Use `autogluon` for practical repository-specific AutoGluon usage. Route tabular rows to tabular-ml, timestamped horizons to time-series-forecasting, and text/image/document/object/matching tasks to multimodal-automl. Use the root references for environment and saved-predictor problems. Choose `bentoml` when the request names `bentoml`, centers on Use BentoML to author model-serving Services, build and containerize Bentos, run HTTP/gRPC servers and clients, manage models, operate the CLI and BentoCloud, and configure observability or production runtime behavior. Use when tasks mention BentoML, bentoml service.py, bentofile.yaml, Bento build/serve/deploy, BentoCloud, or BentoML model stores, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in ml experiment tracking and mlops workflows. Choose `dvc` when DVC-specific command syntax, file formats, cache/remotes, experiment semantics, public dvc.api behavior, or DVC repository tests matter; then route to the most specific sub-skill by task family. Choose `nni` for NNI-specific AutoML APIs and configs; route within it by practical workflow instead of source folder names.
+Choose MLflow/W&B for experiment tracking and registries, Optuna/NNI/AutoGluon for optimization or AutoML, DVC for data and pipeline versioning, and BentoML when packaging or serving is the main action. Use `autogluon` for practical repository-specific AutoGluon usage. Route tabular rows to tabular-ml, timestamped horizons to time-series-forecasting, and text/image/document/object/matching tasks to multimodal-automl. Use the root references for environment and saved-predictor problems. Choose `bentoml` when the request names `bentoml`, centers on Use BentoML to author model-serving Services, build and containerize Bentos, run HTTP/gRPC servers and clients, manage models, operate the CLI and BentoCloud, and configure observability or production runtime behavior. Use when tasks mention BentoML, bentoml service.py, bentofile.yaml, Bento build/serve/deploy, BentoCloud, or BentoML model stores, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in ml experiment tracking and mlops workflows. Choose clearml when the task needs ClearML-specific SDK or CLI behavior for tracking, datasets, remote agents, automation, HPO, queues, storage, or router/service endpoints; choose a broader MLOps skill only when the request is tracker-agnostic or names a different package.

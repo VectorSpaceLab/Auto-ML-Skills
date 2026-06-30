@@ -17,7 +17,8 @@
             "feast/sub-skills/integrations-and-extensibility/",
             "feast/sub-skills/rag-and-vector-search/",
             "feast/sub-skills/repo-development/",
-            "2 more sub-skills"
+            "feast/sub-skills/retrieval-and-materialization/",
+            "feast/sub-skills/servers-and-remote/"
           ],
           "selection_guidance": "Choose `feast` when the request names `feast`, centers on Use for Feast feature store tasks: feature repositories, definitions, CLI, retrieval, materialization, serving, RAG/vector search, integrations, and Feast contributor workflows, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in data orchestration and parallel computing. Then route to feature definitions, feature repos and CLI, integrations and extensibility, or RAG and vector search when those focused workflows match."
         },
@@ -36,7 +37,8 @@
             "feast/sub-skills/integrations-and-extensibility/",
             "feast/sub-skills/rag-and-vector-search/",
             "feast/sub-skills/repo-development/",
-            "2 more sub-skills"
+            "feast/sub-skills/retrieval-and-materialization/",
+            "feast/sub-skills/servers-and-remote/"
           ],
           "selection_guidance": "Choose `feast` when the request names `feast`, centers on Use for Feast feature store tasks: feature repositories, definitions, CLI, retrieval, materialization, serving, RAG/vector search, integrations, and Feast contributor workflows, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in embedding retrieval rag workflows. Then route to feature definitions, feature repos and CLI, integrations and extensibility, or RAG and vector search when those focused workflows match."
         }

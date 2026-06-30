@@ -17,7 +17,9 @@
             "docling/sub-skills/conversion/",
             "docling/sub-skills/document-outputs/",
             "docling/sub-skills/extraction/",
-            "3 more sub-skills"
+            "docling/sub-skills/pipeline-configuration/",
+            "docling/sub-skills/remote-service-client/",
+            "docling/sub-skills/repo-maintenance/"
           ],
           "selection_guidance": "Choose `docling` when the request names `docling`, centers on Use Docling to convert, parse, configure, extract, chunk, serve, and maintain document-processing workflows across Python APIs, CLI commands, optional pipelines, and repository edits, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in document processing unstructured data and rag preparation. Then route to advanced pipelines, CLI and formats, conversion, or document outputs when those focused workflows match."
         }

@@ -1,0 +1,41 @@
+{
+  "skills": {
+    "agilerl": {
+      "scenarios": [
+        {
+          "id": "reinforcement-learning-workflows",
+          "title": "Reinforcement Learning Workflows",
+          "when_to_read": "Gymnasium or PettingZoo reinforcement learning tasks, evolutionary hyperparameter optimization, AgileRL algorithms, replay buffers, vectorized environments, offline RL, contextual bandits, and RL training scripts.",
+          "role": "AgileRL-specific guidance for building, debugging, and validating reinforcement learning workflows with evolvable algorithms and population-based HPO.",
+          "read_when": "Use for tasks naming AgileRL, agilerl, PPO/DQN/RainbowDQN/DDPG/TD3/CQL/ILQL/NeuralUCB/NeuralTS/MADDPG/MATD3/IPPO in AgileRL, create_population, Mutations, TournamentSelection, EvolvableModule, AsyncPettingZooVecEnv, BanditEnv, train_on_policy, train_off_policy, train_offline, train_bandits, train_multi_agent_* APIs, or AgileRL training YAML configs.",
+          "best_for": "Classical and multi-agent AgileRL training setup, evolutionary HPO, evolvable network configuration, replay/offline/bandit data handling, PettingZoo wrappers, and safe smoke checks before long RL runs.",
+          "avoid_when": "Use generic RL environment skills for PettingZoo/Gymnasium environment authoring without AgileRL, other RL library skills for Stable-Baselines3/CleanRL/Tianshou-specific APIs, and LLM post-training skills when the task is not using AgileRL's LLM algorithms.",
+          "useful_entry_points": [
+            "agilerl/SKILL.md",
+            "agilerl/sub-skills/training-workflows/SKILL.md",
+            "agilerl/sub-skills/hpo-and-mutation/SKILL.md",
+            "agilerl/sub-skills/evolvable-modules/SKILL.md",
+            "agilerl/sub-skills/multi-agent-and-wrappers/SKILL.md",
+            "agilerl/sub-skills/offline-bandits-data/SKILL.md",
+            "agilerl/sub-skills/llm-fine-tuning/SKILL.md"
+          ],
+          "selection_guidance": "Choose agilerl when the user is using AgileRL's package APIs, YAML configs, evolvable architecture/HPO features, or AgileRL-specific training helpers rather than a different reinforcement learning framework."
+        },
+        {
+          "id": "llm-post-training-rlhf-workflows",
+          "title": "LLM Post-Training and RLHF Workflows",
+          "when_to_read": "LLM post-training tasks involving GRPO, DPO, SFT, PPO, REINFORCE, reward environments, rollout backends, vLLM, DeepSpeed, PEFT, and preference or reasoning optimization.",
+          "role": "AgileRL-specific guidance for LLM RL fine-tuning and post-training workflows implemented by AgileRL algorithms and trainers.",
+          "read_when": "Use when the request names AgileRL plus GRPO, CISPO, GSPO, DPO, SFT, LLM PPO, LLM REINFORCE, AgileRL LLM envs, `finetune_llm_reasoning`, `finetune_llm_preference`, `finetune_llm_multiturn`, `finetune_llm_sft`, vLLM sleep/wake handoff, or `agilerl[llm]` optional dependencies.",
+          "best_for": "Planning AgileRL LLM fine-tuning configs, optional dependency checks, reasoning/preference/multiturn/SFT trainer selection, checkpoint/quantization handling, and safe dry-run validation without model downloads.",
+          "avoid_when": "Use other RLHF or LLM fine-tuning skills when the package is TRL, OpenRLHF, verl, Axolotl, LlamaFactory, ms-swift, or a serving-only stack and AgileRL is not involved.",
+          "useful_entry_points": [
+            "agilerl/SKILL.md",
+            "agilerl/sub-skills/llm-fine-tuning/SKILL.md"
+          ],
+          "selection_guidance": "Choose agilerl for LLM post-training only when AgileRL's algorithms, trainers, configs, or optional `[llm]` extras are part of the workflow."
+        }
+      ]
+    }
+  }
+}

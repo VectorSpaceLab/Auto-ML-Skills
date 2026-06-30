@@ -17,7 +17,7 @@
             "sentence-transformers/sub-skills/evaluation-and-training/",
             "sentence-transformers/sub-skills/reranking-cross-encoder/",
             "sentence-transformers/sub-skills/retrieval-and-utilities/",
-            "1 more sub-skills"
+            "sentence-transformers/sub-skills/sparse-encoder-search/"
           ],
           "selection_guidance": "Choose `sentence-transformers` when the request names `sentence-transformers`, centers on dense embeddings, semantic search, CrossEncoder reranking, SparseEncoder search, evaluation/training planning, and ONNX/OpenVINO backend optimization. Routes natural language tasks to focused sub-skills with bundled references and safe helper scripts, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in embedding retrieval rag workflows. Then route to backend export optimization, embeddings and similarity, evaluation and training, or reranking cross encoder when those focused workflows match."
         },
@@ -36,7 +36,7 @@
             "sentence-transformers/sub-skills/evaluation-and-training/",
             "sentence-transformers/sub-skills/reranking-cross-encoder/",
             "sentence-transformers/sub-skills/retrieval-and-utilities/",
-            "1 more sub-skills"
+            "sentence-transformers/sub-skills/sparse-encoder-search/"
           ],
           "selection_guidance": "Choose `sentence-transformers` when the request names `sentence-transformers`, centers on dense embeddings, semantic search, CrossEncoder reranking, SparseEncoder search, evaluation/training planning, and ONNX/OpenVINO backend optimization. Routes natural language tasks to focused sub-skills with bundled references and safe helper scripts, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in llm finetuning training serving workflows. Then route to backend export optimization, embeddings and similarity, evaluation and training, or reranking cross encoder when those focused workflows match."
         }

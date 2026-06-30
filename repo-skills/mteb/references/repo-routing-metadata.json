@@ -17,7 +17,7 @@
             "mteb/sub-skills/evaluation-workflows/",
             "mteb/sub-skills/models-and-encoders/",
             "mteb/sub-skills/results-and-leaderboard/",
-            "1 more sub-skills"
+            "mteb/sub-skills/tasks-and-benchmarks/"
           ],
           "selection_guidance": "Choose `mteb` when the request names `mteb`, centers on Use MTEB to evaluate embedding models, select tasks and benchmarks, validate model protocols, run CLI workflows, inspect result caches, and contribute tasks/models/benchmarks, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in dataset processing evaluation and hub workflows. Then route to CLI and automation, contributing to mteb, evaluation workflows, or models and encoders when those focused workflows match."
         },
@@ -36,7 +36,7 @@
             "mteb/sub-skills/evaluation-workflows/",
             "mteb/sub-skills/models-and-encoders/",
             "mteb/sub-skills/results-and-leaderboard/",
-            "1 more sub-skills"
+            "mteb/sub-skills/tasks-and-benchmarks/"
           ],
           "selection_guidance": "Choose `mteb` when the request names `mteb`, centers on Use MTEB to evaluate embedding models, select tasks and benchmarks, validate model protocols, run CLI workflows, inspect result caches, and contribute tasks/models/benchmarks, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in embedding retrieval rag workflows. Then route to CLI and automation, contributing to mteb, evaluation workflows, or models and encoders when those focused workflows match."
         }

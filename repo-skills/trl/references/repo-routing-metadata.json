@@ -17,7 +17,7 @@
             "trl/sub-skills/data-and-rewards/",
             "trl/sub-skills/experimental-and-environments/",
             "trl/sub-skills/repo-development/",
-            "1 more sub-skills"
+            "trl/sub-skills/scaling-and-backends/"
           ],
           "selection_guidance": "Choose `trl` when the request names `trl`, centers on post-training, CLI workflows, data/reward utilities, scaling backends, experimental environments, and repo development, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in llm finetuning training serving workflows. Then route to CLI and configs, core training, data and rewards, or experimental and environments when those focused workflows match."
         },
@@ -36,7 +36,7 @@
             "trl/sub-skills/data-and-rewards/",
             "trl/sub-skills/experimental-and-environments/",
             "trl/sub-skills/repo-development/",
-            "1 more sub-skills"
+            "trl/sub-skills/scaling-and-backends/"
           ],
           "selection_guidance": "Choose `trl` when the request names `trl`, centers on post-training, CLI workflows, data/reward utilities, scaling backends, experimental environments, and repo development, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in llm post training rlhf workflows. Then route to CLI and configs, core training, data and rewards, or experimental and environments when those focused workflows match."
         },
@@ -55,7 +55,7 @@
             "trl/sub-skills/data-and-rewards/",
             "trl/sub-skills/experimental-and-environments/",
             "trl/sub-skills/repo-development/",
-            "1 more sub-skills"
+            "trl/sub-skills/scaling-and-backends/"
           ],
           "selection_guidance": "Choose `trl` when the request names `trl`, centers on post-training, CLI workflows, data/reward utilities, scaling backends, experimental environments, and repo development, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in reinforcement learning workflows. Then route to CLI and configs, core training, data and rewards, or experimental and environments when those focused workflows match."
         }

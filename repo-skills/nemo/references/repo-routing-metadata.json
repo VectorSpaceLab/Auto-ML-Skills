@@ -1,0 +1,73 @@
+{
+  "scenarios": {
+    "speech-ai-modeling-and-audio-workflows": {
+      "allow_new": true,
+      "title": "Speech AI Modeling and Audio Workflows",
+      "when_to_read": "Speech AI tasks involving ASR, transcription, TTS, vocoders, G2P, speaker diarization, VAD, forced alignment, audio enhancement/restoration, speech language models, voice agents, speech manifests, or speech-model repository maintenance.",
+      "how_to_choose": "Choose the repo skill whose speech/audio framework, model family, data format, runtime, or repository workflow most directly matches the request; use package names, checkpoint formats, manifest fields, and task terms such as ASR, TTS, diarization, VAD, forced alignment, SpeechLM, voice-agent, or audio enhancement as strong signals.",
+      "why_not_existing": "Existing scenarios cover generic LLM training, multimodal/audio contrastive training, dataset processing, and MLOps, but none routes speech-specific ASR, TTS, diarization, audio-to-audio, SpeechLM2, voice-agent, manifest, checkpoint, and NeMo repository-development workflows together. Using an LLM or dataset scenario would hide the speech-domain model, data, and troubleshooting boundaries this skill provides.",
+      "expected_future_reuse": "Future skills for speech recognition, TTS, diarization, audio enhancement, voice-agent, or speech-language-model repositories can share this scenario and compare by framework, model family, data format, and runtime surface."
+    }
+  },
+  "skills": {
+    "nemo": {
+      "scenarios": [
+        {
+          "id": "speech-ai-modeling-and-audio-workflows",
+          "title": "Speech AI Modeling and Audio Workflows",
+          "when_to_read": "Speech AI tasks involving ASR, transcription, TTS, vocoders, G2P, diarization, VAD, forced alignment, audio enhancement, SpeechLMs, voice agents, NeMo manifests/configs, or speech-model repository maintenance.",
+          "role": "Guides NVIDIA NeMo Speech usage and maintenance across ASR, TTS, audio processing, SpeechLM2, speaker diarization, shared data tools, and repo-development workflows.",
+          "read_when": "The request names NeMo, nemo-toolkit, NVIDIA NeMo Speech, Parakeet, Canary, FastPitch, HiFi-GAN, MagpieTTS, SALM, SpeechLM2, Nemotron VoiceChat, Sortformer, NeMo Forced Aligner, NeMo JSON manifests, Lhotse dynamic batching, tarred audio datasets, Hydra NeMo configs, .nemo checkpoints, speech transcription, text-to-speech synthesis, speaker diarization, VAD, forced alignment, audio enhancement/restoration, ASR evaluation, speech tokenizer creation, or NeMo repository tests/docs/style.",
+          "best_for": "NeMo-specific ASR inference/fine-tuning/streaming, TTS synthesis and finetuning, audio-to-audio workflows, SpeechLM2 and voice-agent configs, speaker/diarization/forced-alignment tasks, NeMo data tooling, and safe repository development guidance.",
+          "avoid_when": "Use a generic PyTorch, Lightning, Transformers, vLLM, dataset-processing, or audio library skill when the task does not involve NeMo APIs, NeMo configs, NeMo model families, NeMo data formats, or this repository's maintenance workflow.",
+          "useful_entry_points": [
+            "nemo/SKILL.md",
+            "nemo/sub-skills/asr/SKILL.md",
+            "nemo/sub-skills/tts/SKILL.md",
+            "nemo/sub-skills/audio/SKILL.md",
+            "nemo/sub-skills/speechlm2/SKILL.md",
+            "nemo/sub-skills/speaker-diarization/SKILL.md",
+            "nemo/sub-skills/data-tools/SKILL.md",
+            "nemo/sub-skills/repo-development/SKILL.md"
+          ],
+          "selection_guidance": "Choose `nemo` when the user needs NVIDIA NeMo Speech APIs, Hydra configs, .nemo checkpoints, speech/audio manifests, model examples, troubleshooting, or repository maintenance. Within `nemo`, route ASR to `asr`, TTS to `tts`, audio enhancement/restoration to `audio`, SALM/SpeechLM2/Nemotron VoiceChat to `speechlm2`, diarization/VAD/forced alignment to `speaker-diarization`, shared manifests/Lhotse/tarred-data/tokenizer/evaluator tools to `data-tools`, and source edits/tests/docs/build guidance to `repo-development`."
+        },
+        {
+          "id": "dataset-processing-evaluation-and-hub-workflows",
+          "title": "Dataset Processing, Evaluation, and Hub Workflows",
+          "when_to_read": "Dataset loading, schemas, streaming, format conversion, metric/evaluator modules, benchmark task selection, result caches, data validation, and Hub or CLI workflows.",
+          "role": "Adds NeMo-specific speech/audio manifest, Lhotse, tarred dataset, tokenizer, ASR evaluator, CTC segmentation, and checkpoint utility guidance to dataset-processing tasks.",
+          "read_when": "The request names NeMo manifests, audio_filepath/duration/text JSONL, Lhotse CutSet or Shar, tarred audio datasets, NeMo tokenizer scripts, duration bins, dataset weights, ASR evaluator, CTC segmentation, speech data explorer, customization dataset preparation, or NeMo conversion utilities.",
+          "best_for": "Validating and planning NeMo speech/audio data pipelines, sharding audio manifests, estimating duration bins, routing ASR/TTS/audio data formats, and preflighting NeMo evaluator or tokenizer workflows.",
+          "avoid_when": "Use a generic dataset-processing skill when the data is not speech/audio and does not use NeMo JSON manifests, NeMo tools, Lhotse, tarred audio, or NeMo evaluators.",
+          "useful_entry_points": [
+            "nemo/SKILL.md",
+            "nemo/sub-skills/data-tools/SKILL.md",
+            "nemo/sub-skills/asr/SKILL.md",
+            "nemo/sub-skills/tts/SKILL.md",
+            "nemo/sub-skills/audio/SKILL.md"
+          ],
+          "selection_guidance": "Choose `nemo` for dataset-processing tasks when the formats, tools, or errors are NeMo-specific, especially speech JSONL manifests, Lhotse settings, tarred audio shards, ASR/TTS/audio fields, or NeMo evaluator/tokenizer utilities."
+        },
+        {
+          "id": "distributed-pytorch-training-and-large-model-workflows",
+          "title": "Distributed PyTorch Training and Large Model Workflows",
+          "when_to_read": "Distributed training loops, launchers, DeepSpeed/FSDP/TPU backends, PyTorch Lightning/Fabric, scalable GNN training, checkpoints, and memory planning.",
+          "role": "Adds NeMo Speech-specific PyTorch Lightning, FSDP2/DTensor SpeechLM2, checkpoint, GPU memory, and batch-planning guidance for speech and audio models.",
+          "read_when": "The request combines NeMo with PyTorch Lightning trainer configs, FSDP2 or DTensor, SpeechLM2 distributed training, `.nemo` or distributed checkpoint handling, OOMptimizer, dynamic bucketing, CUDA extras, compiled Automodel backends, or GPU memory planning.",
+          "best_for": "NeMo-specific training/fine-tuning and memory planning for ASR, TTS, audio, SpeechLM2, and repository tests that use PyTorch Lightning/FSDP2/DTensor conventions.",
+          "avoid_when": "Use a generic distributed PyTorch or Lightning skill when the task is framework-level and does not involve NeMo collections, configs, checkpoints, or examples.",
+          "useful_entry_points": [
+            "nemo/SKILL.md",
+            "nemo/sub-skills/asr/SKILL.md",
+            "nemo/sub-skills/tts/SKILL.md",
+            "nemo/sub-skills/audio/SKILL.md",
+            "nemo/sub-skills/speechlm2/SKILL.md",
+            "nemo/sub-skills/repo-development/SKILL.md"
+          ],
+          "selection_guidance": "Choose `nemo` for distributed or large-model training questions when NeMo configs, speech/audio model families, NeMo checkpoints, OOMptimizer, Lhotse bucketing, SpeechLM2 FSDP2/DTensor, or NeMo optional backend extras appear in the request."
+        }
+      ]
+    }
+  }
+}

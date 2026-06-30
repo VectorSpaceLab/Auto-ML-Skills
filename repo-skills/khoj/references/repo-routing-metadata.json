@@ -1,0 +1,87 @@
+{
+  "skills": {
+    "khoj": {
+      "scenarios": [
+        {
+          "id": "ai-memory-sdks-and-app-integration",
+          "title": "AI Memory SDKs and App Integration",
+          "when_to_read": "Self-hosted AI memory services, second-brain apps, document-grounded personal assistants, persistent memory APIs, and app integration workflows.",
+          "role": "Khoj is a self-hosted AI second-brain application that combines document ingestion, semantic search, chat, agents, automations, and persistent memories.",
+          "read_when": "Tasks mention Khoj, AI second brain, self-hosted personal AI, document chat/search, /api/content, /api/search, /api/chat, /api/agents, /api/automation, /api/memories, Khoj clients, local model providers, or errors involving Khoj startup, indexing, search, chat, agents, automations, or memory scoping.",
+          "best_for": "Installing or operating Khoj, syncing and parsing personal documents, debugging semantic search and filters, configuring chat models and agents, creating scheduled automations, managing memories, or maintaining the Khoj Python repository.",
+          "avoid_when": "Use a lower-level vector database, embedding model, generic document parser, or generic FastAPI/Django skill when the task is not specifically about Khoj or a Khoj-like second-brain app workflow.",
+          "useful_entry_points": [
+            "khoj/SKILL.md",
+            "khoj/sub-skills/deployment-api/SKILL.md",
+            "khoj/sub-skills/content-indexing/SKILL.md",
+            "khoj/sub-skills/search-retrieval/SKILL.md",
+            "khoj/sub-skills/chat-agents/SKILL.md",
+            "khoj/sub-skills/automations-memory/SKILL.md",
+            "khoj/sub-skills/development/SKILL.md"
+          ],
+          "selection_guidance": "Choose khoj when the user is working with Khoj's self-hosted AI second-brain server, document indexing/search, chat/agent tooling, automation/memory features, or the Khoj repository itself; choose more generic skills only when no Khoj-specific API, CLI, config, data-source, chat command, or error signal is present."
+        },
+        {
+          "id": "python-ai-api-services-and-deployment",
+          "title": "Python AI API Services and Deployment",
+          "when_to_read": "Python AI packages exposed as FastAPI/Django services, secured APIs, Docker or pip self-hosting, admin configuration, model provider setup, and operational troubleshooting.",
+          "role": "Khoj provides concrete FastAPI/Django deployment, REST API, model-provider, database, auth, and Docker guidance for the Khoj AI app.",
+          "read_when": "Tasks mention self-hosting Khoj, khoj CLI, FastAPI/Django routes, docker-compose for Khoj, PostgreSQL/embedded DB setup, KHOJ_DOMAIN, KHOJ_ALLOWED_DOMAIN, KHOJ_NO_HTTPS, KHOJ_ADMIN_EMAIL, model provider base URLs, or Khoj API route behavior.",
+          "best_for": "Deploying or debugging Khoj as an AI API service, mapping Khoj REST endpoints, configuring auth/admin/model providers, and understanding server startup side effects.",
+          "avoid_when": "Use a generic FastAPI/Django deployment skill when the service is not Khoj and does not share Khoj-specific CLI, route, model-provider, content, search, chat, automation, or memory behavior.",
+          "useful_entry_points": [
+            "khoj/SKILL.md",
+            "khoj/sub-skills/deployment-api/SKILL.md",
+            "khoj/sub-skills/development/SKILL.md"
+          ],
+          "selection_guidance": "Choose khoj for deployment/API tasks that include Khoj-specific environment variables, CLI behavior, route families, admin setup, model-provider setup, or startup errors."
+        },
+        {
+          "id": "document-processing-unstructured-data-and-rag-preparation",
+          "title": "Document Processing, Unstructured Data, and RAG Preparation",
+          "when_to_read": "Document conversion, OCR/table pipelines, Markdown/Org/PDF/DOCX/plaintext parsing, chunking, extraction, cleaning, staging, and RAG-ready document preparation.",
+          "role": "Khoj offers package-specific content ingestion, parser, indexing, and search preparation guidance for document-grounded chat and retrieval.",
+          "read_when": "Tasks mention Khoj document upload, /api/content, Markdown or Org entries, PDF/DOCX/image/plaintext conversion, GitHub or Notion sync, parser entry fields, chunking, stale index visibility, or making personal docs searchable in Khoj.",
+          "best_for": "Building or debugging Khoj content ingestion and parser flows before semantic search or chat grounding.",
+          "avoid_when": "Use a generic document extraction skill when the task is about standalone conversion tools rather than Khoj's content API, parser classes, database entries, or search integration.",
+          "useful_entry_points": [
+            "khoj/SKILL.md",
+            "khoj/sub-skills/content-indexing/SKILL.md",
+            "khoj/sub-skills/search-retrieval/SKILL.md"
+          ],
+          "selection_guidance": "Choose khoj when document processing is tied to Khoj uploads, parser outputs, indexed entries, or search/chat visibility in the Khoj app."
+        },
+        {
+          "id": "embedding-retrieval-rag-workflows",
+          "title": "Embedding Retrieval and RAG Workflows",
+          "when_to_read": "Embedding models, semantic search, reranking, corpus indexing, RAG pipelines, vector retrieval behavior, and retrieval troubleshooting.",
+          "role": "Khoj supplies package-specific semantic search, filter, embedding, reranking, and document-grounded chat guidance.",
+          "read_when": "Tasks mention Khoj /api/search, SearchType, SearchResponse, date/file/word filters, max_distance, dedupe, reranking, no search results, stale embeddings, /notes grounding, or document chat search behavior.",
+          "best_for": "Debugging Khoj retrieval behavior after content ingestion and explaining how filters, embeddings, cross-encoder reranking, and user/agent isolation affect results.",
+          "avoid_when": "Use a lower-level vector database or embedding model skill when the request is not about Khoj APIs, filters, indexed entries, or document chat grounding.",
+          "useful_entry_points": [
+            "khoj/SKILL.md",
+            "khoj/sub-skills/search-retrieval/SKILL.md",
+            "khoj/sub-skills/content-indexing/SKILL.md",
+            "khoj/sub-skills/chat-agents/SKILL.md"
+          ],
+          "selection_guidance": "Choose khoj for retrieval/RAG tasks when Khoj-specific filters, response fields, content ingestion, chat commands, or model configuration are part of the problem."
+        },
+        {
+          "id": "python-repository-maintenance",
+          "title": "Python Repository Maintenance",
+          "when_to_read": "Tasks that edit, review, test, document, package, or maintain Python source repositories rather than using them only as libraries.",
+          "role": "Khoj includes focused maintainer guidance for modifying the Khoj Python/FastAPI/Django repository, selecting tests, and handling migrations/frontend/docs side effects.",
+          "read_when": "Tasks mention editing the Khoj repo, changing src/khoj routers, processors, search filters, database models or migrations, documentation, clients, tests, pyproject metadata, or maintainer scripts.",
+          "best_for": "Choosing focused tests for Khoj code changes, planning Django migrations, understanding development setup, and avoiding unsafe dev/release script execution.",
+          "avoid_when": "Use generic Python maintenance guidance for non-Khoj repositories or when no Khoj-specific source paths, tests, models, routers, parsers, or scripts are involved.",
+          "useful_entry_points": [
+            "khoj/SKILL.md",
+            "khoj/sub-skills/development/SKILL.md"
+          ],
+          "selection_guidance": "Choose khoj when repository-maintenance tasks target Khoj source paths, tests, docs, package metadata, Django models/migrations, or maintainer workflows."
+        }
+      ]
+    }
+  }
+}

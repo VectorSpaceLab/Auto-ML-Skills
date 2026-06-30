@@ -17,7 +17,7 @@
             "llama-index/sub-skills/indexing-and-querying/",
             "llama-index/sub-skills/ingestion-and-loading/",
             "llama-index/sub-skills/integrations-and-storage/",
-            "1 more sub-skills"
+            "llama-index/sub-skills/repo-maintenance/"
           ],
           "selection_guidance": "Choose `llama-index` when the request names `llama-index`, centers on building, customize, troubleshoot, and maintain LlamaIndex Python applications and the LlamaIndex monorepo. Routes ingestion, indexing/querying, agents/workflows, structured outputs, integrations/storage, and repo-maintenance tasks to focused sub-skills, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in agent frameworks tooling and sandboxed llm workflows. Then route to agents and workflows, customization and structured outputs, indexing and querying, or ingestion and loading when those focused workflows match."
         },
@@ -36,7 +36,7 @@
             "llama-index/sub-skills/indexing-and-querying/",
             "llama-index/sub-skills/ingestion-and-loading/",
             "llama-index/sub-skills/integrations-and-storage/",
-            "1 more sub-skills"
+            "llama-index/sub-skills/repo-maintenance/"
           ],
           "selection_guidance": "Choose `llama-index` when the request names `llama-index`, centers on building, customize, troubleshoot, and maintain LlamaIndex Python applications and the LlamaIndex monorepo. Routes ingestion, indexing/querying, agents/workflows, structured outputs, integrations/storage, and repo-maintenance tasks to focused sub-skills, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in embedding retrieval rag workflows. Then route to agents and workflows, customization and structured outputs, indexing and querying, or ingestion and loading when those focused workflows match."
         }

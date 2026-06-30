@@ -1,0 +1,27 @@
+{
+  "skills": {
+    "galaxy": {
+      "scenarios": [
+        {
+          "id": "python-repository-maintenance",
+          "title": "Python Repository Maintenance",
+          "when_to_read": "Tasks that edit, review, test, document, configure, automate, or maintain the Galaxy scientific workflow platform repository.",
+          "role": "Galaxy provides repo-specific routing for server configuration, HTTP APIs, tool and workflow development, data/storage systems, Tool Shed operations, and Vue/TypeScript client development.",
+          "read_when": "A task mentions Galaxy, galaxy.yml, run.sh, Galaxy API keys or OpenAPI, histories, datasets, workflows, tool XML, Format2 workflows, datatypes, object stores, file sources, data managers, Tool Shed repositories, shed_tool_conf.xml, client pnpm/Vitest/Vite, or errors from Galaxy config, API, tool-util, Tool Shed, storage, or client workflows.",
+          "best_for": "Galaxy repository changes and usage workflows that need precise routing across backend Python packages, server admin configuration, API automation, Galaxy tool/workflow artifacts, data/storage behavior, Tool Shed repository maintenance, and web-client testing/builds.",
+          "avoid_when": "Avoid for unrelated workflow engines, general Bioinformatics analysis without Galaxy repository/API/tool surfaces, or generic Python packaging questions that do not involve Galaxy-specific files, commands, APIs, or errors.",
+          "useful_entry_points": [
+            "galaxy/SKILL.md",
+            "galaxy/sub-skills/configuration-and-admin/SKILL.md",
+            "galaxy/sub-skills/api-automation/SKILL.md",
+            "galaxy/sub-skills/workflows-and-tools/SKILL.md",
+            "galaxy/sub-skills/data-and-storage/SKILL.md",
+            "galaxy/sub-skills/tool-shed-operations/SKILL.md",
+            "galaxy/sub-skills/web-client-development/SKILL.md"
+          ],
+          "selection_guidance": "Choose galaxy when the user names Galaxy or asks about Galaxy-specific server config, API automation, tool/workflow artifacts, datatypes/storage, Tool Shed repositories, or client development; then route to the narrow sub-skill whose trigger terms match the task."
+        }
+      ]
+    }
+  }
+}

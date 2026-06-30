@@ -1,0 +1,25 @@
+{
+  "skills": {
+    "rag-retrieval": {
+      "scenarios": [
+        {
+          "id": "embedding-retrieval-rag-workflows",
+          "title": "Embedding Retrieval and RAG Workflows",
+          "when_to_read": "Embedding models, semantic or sparse search, reranking, vector or graph RAG, retrieval training, corpus indexing, RAG pipelines, vector database clients, and retrieval evaluation.",
+          "role": "RAG-Retrieval covers reranker inference plus bundled preparation for embedding, reranker, and ColBERT retrieval-model training and distillation workflows.",
+          "read_when": "Read rag-retrieval when tasks mention RAG-Retrieval, rag_retrieval, RAG passage reranking, BGE/BCE/Gemma/MiniCPM reranker scoring, compute_score, rerank, RankedResults, embedding fine-tuning, MRL, teacher embedding distillation, reranker pointwise/grouped JSONL, RankNet/listwise CE, LLM-to-BERT reranker distillation, ColBERT training, colbert_dim, or MyopicTrap positional-bias retrieval experiments.",
+          "best_for": "Installed-package reranker inference with Reranker, safe no-download API checks, JSONL/YAML validation before bundled embedding/reranker/ColBERT training, and explaining current ColBERT inference limitations.",
+          "avoid_when": "Avoid rag-retrieval for generic vector database client tasks, unrelated RAG orchestration frameworks, production model serving stacks, or full benchmark/training execution when the user did not ask for RAG-Retrieval-specific workflows.",
+          "useful_entry_points": [
+            "rag-retrieval/SKILL.md",
+            "rag-retrieval/sub-skills/inference/SKILL.md",
+            "rag-retrieval/sub-skills/embedding-training/SKILL.md",
+            "rag-retrieval/sub-skills/reranker-training/SKILL.md",
+            "rag-retrieval/sub-skills/colbert-training/SKILL.md"
+          ],
+          "selection_guidance": "Choose rag-retrieval when the task is about RAG-Retrieval's reranker API, retrieval model training data/configs, BGE/BCE/LLM reranker workflows, embedding or ColBERT fine-tuning, or package-specific errors such as Reranker model_type/device/dtype behavior. Choose a vector database, RAG framework, or generic distributed-training skill instead when the task is not tied to RAG-Retrieval APIs, configs, or data formats."
+        }
+      ]
+    }
+  }
+}

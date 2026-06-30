@@ -1,0 +1,26 @@
+{
+  "skills": {
+    "meta-gpt": {
+      "scenarios": [
+        {
+          "id": "agent-frameworks-tooling-and-sandboxed-llm-workflows",
+          "title": "Agent Frameworks, Tooling, and Sandboxed LLM Workflows",
+          "when_to_read": "LLM agent frameworks, browser automation agents, tool calling, graph/state runtimes, hosted or sandbox execution, MCP, CLIs, and production agent operations.",
+          "role": "Use meta-gpt for MetaGPT's multi-agent software-company framework, Data Interpreter, RoleZero agents, RAG/tool integrations, extension environments, and MetaGPT repository maintenance.",
+          "read_when": "Read meta-gpt when tasks mention MetaGPT, metagpt, MGX, software-company agents, Team/Role/Action/ActionNode, DataInterpreter, RoleZero, DataAnalyst, SWEAgent, AFlow, SPO, MetaGPT RAG, MetaGPT tools, config2.yaml, the metagpt CLI, generated workspace projects, or errors from MetaGPT provider/config/import workflows.",
+          "best_for": "Project generation from natural-language requirements, configuring and troubleshooting MetaGPT provider settings, custom multi-agent roles/actions, DI data-analysis agents, MetaGPT RAG/tool diagnostics, AFlow/SPO/environment extension setup, and focused MetaGPT source maintenance.",
+          "avoid_when": "Use a provider gateway skill for generic OpenAI-compatible proxy routing, a vector database skill for standalone vector client operations, or a generic Python maintenance skill when the task is not specific to MetaGPT APIs, CLI, config, examples, or tests.",
+          "useful_entry_points": [
+            "meta-gpt/SKILL.md",
+            "meta-gpt/sub-skills/software-company/SKILL.md",
+            "meta-gpt/sub-skills/data-interpreter/SKILL.md",
+            "meta-gpt/sub-skills/rag-and-tools/SKILL.md",
+            "meta-gpt/sub-skills/extensions-and-environments/SKILL.md",
+            "meta-gpt/sub-skills/maintainer-apis/SKILL.md"
+          ],
+          "selection_guidance": "Choose meta-gpt when the task concerns MetaGPT's own package, CLI, multi-agent SOP workflow, DI/RoleZero agents, RAG/tool wrappers, extensions, config2.yaml, or repository internals; choose overlapping skills only when the user's primary package or runtime is not MetaGPT."
+        }
+      ]
+    }
+  }
+}

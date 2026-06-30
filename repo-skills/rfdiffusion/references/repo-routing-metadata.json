@@ -17,7 +17,9 @@
             "rfdiffusion/sub-skills/macrocycle-design/",
             "rfdiffusion/sub-skills/motif-scaffolding/",
             "rfdiffusion/sub-skills/partial-diffusion/",
-            "3 more sub-skills"
+            "rfdiffusion/sub-skills/scaffold-guided-design/",
+            "rfdiffusion/sub-skills/symmetric-oligomers/",
+            "rfdiffusion/sub-skills/unconditional-generation/"
           ],
           "selection_guidance": "Choose `rfdiffusion` when the request names `rfdiffusion`, centers on protein backbone generation workflows, including unconditional design, motif scaffolding, partial diffusion, binder design, symmetric oligomers, guided potentials, scaffold-guided design, and RFpeptides macrocycles, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in protein structure prediction and design workflows. Then route to binder design, guided potentials, macrocycle design, or motif scaffolding when those focused workflows match."
         }

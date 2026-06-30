@@ -17,7 +17,8 @@
             "ultralytics/sub-skills/inference-and-results/",
             "ultralytics/sub-skills/model-families-and-tasks/",
             "ultralytics/sub-skills/repo-development/",
-            "2 more sub-skills"
+            "ultralytics/sub-skills/tracking-and-solutions/",
+            "ultralytics/sub-skills/training-and-validation/"
           ],
           "selection_guidance": "Choose `ultralytics` when the request names `ultralytics`, centers on Ultralytics YOLO package workflows: CLI/Python model usage, data/config setup, train/val, prediction/results, export/deployment, tracking/solutions, model-family selection, and repo development, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in computer vision modeling and augmentation. Then route to data and configuration, export and deployment, inference and results, or model families and tasks when those focused workflows match."
         }

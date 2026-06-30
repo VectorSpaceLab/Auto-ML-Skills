@@ -15,13 +15,21 @@ Best for: Preparing BEIR datasets, validating custom corpora/qrels, running retr
 Avoid when: The task is about a different IR framework, general Elasticsearch operations without BEIR, or production search serving unrelated to BEIR benchmark data formats.
 Useful entry points: `beir/SKILL.md`, `beir/sub-skills/data-loading/SKILL.md`, `beir/sub-skills/retrieval-evaluation/SKILL.md`, `beir/sub-skills/reranking/SKILL.md`, `beir/sub-skills/generation/SKILL.md`, `beir/sub-skills/training/SKILL.md`.
 
+### `clip`
+
+Role: `clip` explains how to create and validate normalized CLIP embeddings for images and text, store feature arrays, and avoid common similarity mistakes.
+Read when: Task mentions CLIP embeddings, image embeddings, text embeddings from `encode_text`, image search, image-text retrieval, multimodal similarity, `.npz` feature caches, or retrieval results that are wrong because features were not normalized.
+Best for: Extracting CLIP image features from local image directories, building normalized text classifier weights, comparing image/text vectors, and planning lightweight multimodal retrieval experiments.
+Avoid when: Use a general vector database/RAG skill when the task is about indexing infrastructure, chunking text documents, database queries, or LLM RAG orchestration without CLIP image/text encoders.
+Useful entry points: `clip/sub-skills/feature-evaluation/SKILL.md`, `clip/sub-skills/prompt-engineering/SKILL.md`.
+
 ### `colbert`
 
 Role: Use ColBERT/colbert-ai for late-interaction retrieval: prepare data, inspect configs, train/fine-tune, index collections, search rankings, update indexes, serve search, evaluate MS MARCO/LoTTE outputs, or reason about Baleen.
 Read when: The request names `colbert` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: baleen multihop, data and evaluation, index updates and serving, indexing and search, modeling and tokenization, and training and distillation.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `colbert/SKILL.md`, `colbert/sub-skills/baleen-multihop/`, `colbert/sub-skills/data-and-evaluation/`, `colbert/sub-skills/index-updates-and-serving/`, `colbert/sub-skills/indexing-and-search/`, `colbert/sub-skills/modeling-and-tokenization/`, `1 more sub-skills`.
+Useful entry points: `colbert/SKILL.md`, `colbert/sub-skills/baleen-multihop/`, `colbert/sub-skills/data-and-evaluation/`, `colbert/sub-skills/index-updates-and-serving/`, `colbert/sub-skills/indexing-and-search/`, `colbert/sub-skills/modeling-and-tokenization/`, `colbert/sub-skills/training-and-distillation/`.
 
 ### `feast`
 
@@ -29,7 +37,7 @@ Role: Use for Feast feature store tasks: feature repositories, definitions, CLI,
 Read when: The request names `feast` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: feature definitions, feature repos and cli, integrations and extensibility, rag and vector search, repo development, and 2 other focused workflows.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `feast/SKILL.md`, `feast/sub-skills/feature-definitions/`, `feast/sub-skills/feature-repos-and-cli/`, `feast/sub-skills/integrations-and-extensibility/`, `feast/sub-skills/rag-and-vector-search/`, `feast/sub-skills/repo-development/`, `2 more sub-skills`.
+Useful entry points: `feast/SKILL.md`, `feast/sub-skills/feature-definitions/`, `feast/sub-skills/feature-repos-and-cli/`, `feast/sub-skills/integrations-and-extensibility/`, `feast/sub-skills/rag-and-vector-search/`, `feast/sub-skills/repo-development/`, `feast/sub-skills/retrieval-and-materialization/`, `feast/sub-skills/servers-and-remote/`.
 
 ### `flag-embedding`
 
@@ -61,7 +69,15 @@ Role: Use Haystack to build, debug, evaluate, and maintain RAG, agent, pipeline,
 Read when: The request names `haystack` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: agents tools and hitl, data ingestion, evaluation and observability, generation and model components, pipelines and components, and 2 other focused workflows.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `haystack/SKILL.md`, `haystack/sub-skills/agents-tools-and-hitl/`, `haystack/sub-skills/data-ingestion/`, `haystack/sub-skills/evaluation-and-observability/`, `haystack/sub-skills/generation-and-model-components/`, `haystack/sub-skills/pipelines-and-components/`, `2 more sub-skills`.
+Useful entry points: `haystack/SKILL.md`, `haystack/sub-skills/agents-tools-and-hitl/`, `haystack/sub-skills/data-ingestion/`, `haystack/sub-skills/evaluation-and-observability/`, `haystack/sub-skills/generation-and-model-components/`, `haystack/sub-skills/pipelines-and-components/`, `haystack/sub-skills/repo-development/`, `haystack/sub-skills/retrieval-and-rag/`.
+
+### `khoj`
+
+Role: Khoj supplies package-specific semantic search, filter, embedding, reranking, and document-grounded chat guidance.
+Read when: Tasks mention Khoj /api/search, SearchType, SearchResponse, date/file/word filters, max_distance, dedupe, reranking, no search results, stale embeddings, /notes grounding, or document chat search behavior.
+Best for: Debugging Khoj retrieval behavior after content ingestion and explaining how filters, embeddings, cross-encoder reranking, and user/agent isolation affect results.
+Avoid when: Use a lower-level vector database or embedding model skill when the request is not about Khoj APIs, filters, indexed entries, or document chat grounding.
+Useful entry points: `khoj/SKILL.md`, `khoj/sub-skills/search-retrieval/SKILL.md`, `khoj/sub-skills/content-indexing/SKILL.md`, `khoj/sub-skills/chat-agents/SKILL.md`.
 
 ### `lightrag`
 
@@ -77,7 +93,7 @@ Role: Build, customize, troubleshoot, and maintain LlamaIndex Python application
 Read when: The request names `llama-index` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: agents and workflows, customization and structured outputs, indexing and querying, ingestion and loading, integrations and storage, and repo maintenance.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `llama-index/SKILL.md`, `llama-index/sub-skills/agents-and-workflows/`, `llama-index/sub-skills/customization-and-structured-outputs/`, `llama-index/sub-skills/indexing-and-querying/`, `llama-index/sub-skills/ingestion-and-loading/`, `llama-index/sub-skills/integrations-and-storage/`, `1 more sub-skills`.
+Useful entry points: `llama-index/SKILL.md`, `llama-index/sub-skills/agents-and-workflows/`, `llama-index/sub-skills/customization-and-structured-outputs/`, `llama-index/sub-skills/indexing-and-querying/`, `llama-index/sub-skills/ingestion-and-loading/`, `llama-index/sub-skills/integrations-and-storage/`, `llama-index/sub-skills/repo-maintenance/`.
 
 ### `mteb`
 
@@ -85,7 +101,7 @@ Role: Use MTEB to evaluate embedding models, select tasks and benchmarks, valida
 Read when: The request names `mteb` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: cli and automation, contributing to mteb, evaluation workflows, models and encoders, results and leaderboard, and tasks and benchmarks.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `mteb/SKILL.md`, `mteb/sub-skills/cli-and-automation/`, `mteb/sub-skills/contributing-to-mteb/`, `mteb/sub-skills/evaluation-workflows/`, `mteb/sub-skills/models-and-encoders/`, `mteb/sub-skills/results-and-leaderboard/`, `1 more sub-skills`.
+Useful entry points: `mteb/SKILL.md`, `mteb/sub-skills/cli-and-automation/`, `mteb/sub-skills/contributing-to-mteb/`, `mteb/sub-skills/evaluation-workflows/`, `mteb/sub-skills/models-and-encoders/`, `mteb/sub-skills/results-and-leaderboard/`, `mteb/sub-skills/tasks-and-benchmarks/`.
 
 ### `pyserini`
 
@@ -103,6 +119,14 @@ Best for: Connecting to Qdrant, prototyping with local mode, running sync or asy
 Avoid when: The task is about running the Qdrant server itself, designing vector search concepts without Python client code, or using another vector database client. The request needs framework-specific integration code for LangChain, LlamaIndex, or a non-Qdrant vector store without direct qdrant-client API usage.
 Useful entry points: `qdrant-client/SKILL.md`, `qdrant-client/sub-skills/client-operations/SKILL.md`, `qdrant-client/sub-skills/local-mode/SKILL.md`, `qdrant-client/sub-skills/connection-and-transport/SKILL.md`, `qdrant-client/sub-skills/async-client/SKILL.md`, `qdrant-client/sub-skills/inference/SKILL.md`, `qdrant-client/sub-skills/migration-and-upload/SKILL.md`, `qdrant-client/sub-skills/models-and-conversions/SKILL.md`.
 
+### `rag-retrieval`
+
+Role: RAG-Retrieval covers reranker inference plus bundled preparation for embedding, reranker, and ColBERT retrieval-model training and distillation workflows.
+Read when: Read rag-retrieval when tasks mention RAG-Retrieval, rag_retrieval, RAG passage reranking, BGE/BCE/Gemma/MiniCPM reranker scoring, compute_score, rerank, RankedResults, embedding fine-tuning, MRL, teacher embedding distillation, reranker pointwise/grouped JSONL, RankNet/listwise CE, LLM-to-BERT reranker distillation, ColBERT training, colbert_dim, or MyopicTrap positional-bias retrieval experiments.
+Best for: Installed-package reranker inference with Reranker, safe no-download API checks, JSONL/YAML validation before bundled embedding/reranker/ColBERT training, and explaining current ColBERT inference limitations.
+Avoid when: Avoid rag-retrieval for generic vector database client tasks, unrelated RAG orchestration frameworks, production model serving stacks, or full benchmark/training execution when the user did not ask for RAG-Retrieval-specific workflows.
+Useful entry points: `rag-retrieval/SKILL.md`, `rag-retrieval/sub-skills/inference/SKILL.md`, `rag-retrieval/sub-skills/embedding-training/SKILL.md`, `rag-retrieval/sub-skills/reranker-training/SKILL.md`, `rag-retrieval/sub-skills/colbert-training/SKILL.md`.
+
 ### `ragatouille`
 
 Role: Guides agents through RAGatouille's training, indexing, search, reranking, integration, and export APIs with safe dependency and verification checks.
@@ -117,7 +141,7 @@ Role: Use Sentence Transformers for dense embeddings, semantic search, CrossEnco
 Read when: The request names `sentence-transformers` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: backend export optimization, embeddings and similarity, evaluation and training, reranking cross encoder, retrieval and utilities, and sparse encoder search.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `sentence-transformers/SKILL.md`, `sentence-transformers/sub-skills/backend-export-optimization/`, `sentence-transformers/sub-skills/embeddings-and-similarity/`, `sentence-transformers/sub-skills/evaluation-and-training/`, `sentence-transformers/sub-skills/reranking-cross-encoder/`, `sentence-transformers/sub-skills/retrieval-and-utilities/`, `1 more sub-skills`.
+Useful entry points: `sentence-transformers/SKILL.md`, `sentence-transformers/sub-skills/backend-export-optimization/`, `sentence-transformers/sub-skills/embeddings-and-similarity/`, `sentence-transformers/sub-skills/evaluation-and-training/`, `sentence-transformers/sub-skills/reranking-cross-encoder/`, `sentence-transformers/sub-skills/retrieval-and-utilities/`, `sentence-transformers/sub-skills/sparse-encoder-search/`.
 
 ### `splade`
 
@@ -143,8 +167,16 @@ Best for: Building and maintaining txtai Embeddings indexes, writing query/filte
 Avoid when: The task is about generic vector databases not using txtai, or about serving an already-built index over FastAPI without changing query logic.
 Useful entry points: `txtai/SKILL.md`, `txtai/sub-skills/embeddings-search/SKILL.md`.
 
+### `unilm`
+
+Role: Use unilm for E5 and SimLM retrieval workflows inside the Microsoft UniLM repository, including safe benchmark command planning and data-layout troubleshooting.
+Read when: Requests mention E5, intfloat/e5 models, multilingual-e5, E5-Mistral, SimLM, BEIR, MTEB, MS MARCO, DPR, NQ, biencoder, cross-encoder reranker, hard negatives, teacher scores, query: or passage: prefixes, retrieval pooling, or long-running corpus encoding.
+Best for: Choosing E5 prefixes/model families, building safe BEIR/MTEB commands, and planning SimLM biencoder/reranker training or inference phases.
+Avoid when: Use vector-database or RAG-framework skills for application RAG plumbing that does not use E5 or SimLM. Use vision-document-ai inside unilm for image-text/document retrieval unless E5 or SimLM is explicit.
+Useful entry points: `unilm/SKILL.md`, `unilm/sub-skills/embeddings-retrieval/SKILL.md`.
+
 <!-- DISCO_SCENARIO:embedding-retrieval-rag-workflows:END -->
 
 ## How To Choose
 
-Choose the repo skill whose package owns the retrieval layer named by the request: vector client, retriever model, sparse index, graph RAG system, RAG framework, or benchmark harness. Choose `beir` when the user names BEIR or uses BEIR-specific data, APIs, metrics, or example workflows; use sub-skill routes to narrow from dataset preparation to retrieval, reranking, generation, or training. Choose `colbert` when the request names `colbert`, centers on late-interaction retrieval: prepare data, inspect configs, train/fine-tune, index collections, search rankings, update indexes, serve search, evaluate MS MARCO/LoTTE outputs, or reason about Baleen multi-hop retrieval, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in embedding retrieval rag workflows. Choose `feast` when the request names `feast`, centers on Use for Feast feature store tasks: feature repositories, definitions, CLI, retrieval, materialization, serving, RAG/vector search, integrations, and Feast contributor workflows, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in embedding retrieval rag workflows. Choose `lightrag` when the user names LightRAG or its concrete APIs/CLI/configs. Prefer narrower generic skills only when the user is not using Pyserini. Choose `qdrant-client` for practical Python client usage.
+Choose the repo skill whose package owns the retrieval layer named by the request: vector client, retriever model, sparse index, graph RAG system, RAG framework, or benchmark harness. Choose `beir` when the user names BEIR or uses BEIR-specific data, APIs, metrics, or example workflows; use sub-skill routes to narrow from dataset preparation to retrieval, reranking, generation, or training. Choose `clip` for CLIP-specific embedding extraction and normalization details; choose broader retrieval skills for vector-store integration or text-only RAG pipelines. Choose `colbert` when the request names `colbert`, centers on late-interaction retrieval: prepare data, inspect configs, train/fine-tune, index collections, search rankings, update indexes, serve search, evaluate MS MARCO/LoTTE outputs, or reason about Baleen multi-hop retrieval, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in embedding retrieval rag workflows. Choose `feast` when the request names `feast`, centers on Use for Feast feature store tasks: feature repositories, definitions, CLI, retrieval, materialization, serving, RAG/vector search, integrations, and Feast contributor workflows, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in embedding retrieval rag workflows.

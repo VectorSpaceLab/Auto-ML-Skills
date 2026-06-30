@@ -17,7 +17,8 @@
             "pytorch-geometric/sub-skills/gnn-modeling/",
             "pytorch-geometric/sub-skills/graphgym-experiments/",
             "pytorch-geometric/sub-skills/heterogeneous-graphs/",
-            "2 more sub-skills"
+            "pytorch-geometric/sub-skills/loaders-and-sampling/",
+            "pytorch-geometric/sub-skills/scalable-distributed/"
           ],
           "selection_guidance": "Choose `pytorch-geometric` when the request names `pytorch-geometric`, centers on Use PyTorch Geometric to build graph data, loaders, GNN models, heterogeneous workflows, explainers, scalable/distributed jobs, and GraphGym experiments, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in data orchestration and parallel computing. Then route to data and datasets, explainability, gnn modeling, or graphgym experiments when those focused workflows match."
         },
@@ -36,7 +37,8 @@
             "pytorch-geometric/sub-skills/gnn-modeling/",
             "pytorch-geometric/sub-skills/graphgym-experiments/",
             "pytorch-geometric/sub-skills/heterogeneous-graphs/",
-            "2 more sub-skills"
+            "pytorch-geometric/sub-skills/loaders-and-sampling/",
+            "pytorch-geometric/sub-skills/scalable-distributed/"
           ],
           "selection_guidance": "Choose `pytorch-geometric` when the request names `pytorch-geometric`, centers on Use PyTorch Geometric to build graph data, loaders, GNN models, heterogeneous workflows, explainers, scalable/distributed jobs, and GraphGym experiments, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in distributed pytorch training and large model workflows. Then route to data and datasets, explainability, gnn modeling, or graphgym experiments when those focused workflows match."
         }

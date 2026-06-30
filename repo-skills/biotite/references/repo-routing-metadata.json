@@ -1,0 +1,42 @@
+{
+  "skills": {
+    "biotite": {
+      "scenarios": [
+        {
+          "id": "scientific-python-data-workflows",
+          "title": "Scientific Python Data Workflows",
+          "when_to_read": "Tasks that use NumPy-style biological sequence or molecular structure analysis, coordinate transformations, molecular trajectory summaries, local scientific file parsing, or Biotite computational biology APIs.",
+          "role": "Biotite provides practical guidance for sequence analysis, structure analysis, biological file IO, database fetch planning, and optional scientific visualization interfaces.",
+          "read_when": "Read biotite for tasks mentioning Biotite, biotite.sequence, biotite.structure, AtomArray, AtomArrayStack, ProteinSequence, NucleotideSequence, FASTA/FASTQ/GenBank/GFF parsing, PDB/PDBx/BinaryCIF/GRO/PDBQT/MOL/SDF/trajectory parsing, sequence alignment, substitution matrices, k-mer search, profiles, phylogenetic trees, RCSB/Entrez/UniProt/AlphaFold DB/PubChem fetch planning, BLAST/MSA/DSSP/SRA/ViennaRNA wrappers, or NumPy-backed biomolecular analysis.",
+          "best_for": "Local computational molecular biology workflows: constructing and validating sequences, aligning sequences, handling annotations/profiles/trees, reading and converting biological file formats, analyzing AtomArray structures, measuring geometry/contacts/SASA/superposition/trajectories, and planning database/application handoffs.",
+          "avoid_when": "Avoid biotite when the request is primarily ML model training, protein structure prediction/design with AlphaFold/ESM/RFdiffusion-style models, bulk RNA-seq differential expression, general data pipelines, or materials-science crystal workflows that do not use Biotite APIs.",
+          "useful_entry_points": [
+            "biotite/SKILL.md",
+            "biotite/sub-skills/sequence-analysis/SKILL.md",
+            "biotite/sub-skills/structure-analysis/SKILL.md",
+            "biotite/sub-skills/file-io-formats/SKILL.md",
+            "biotite/sub-skills/database-application/SKILL.md"
+          ],
+          "selection_guidance": "Choose biotite when the task names Biotite or uses its biological sequence/structure object model, file formats, database clients, or wrappers. For molecular simulations, choose biotite when the work is AtomArray/trajectory analysis or OpenMM conversion, and choose a dedicated simulation package skill when force-field setup or simulation execution is primary."
+        },
+        {
+          "id": "molecular-ml-drug-discovery-and-chemistry-workflows",
+          "title": "Molecular ML, Drug Discovery, and Chemistry Workflows",
+          "when_to_read": "Tasks that combine Biotite with molecular structures, small molecules, PubChem, RDKit, OpenMM, PyMOL, docking, molecular visualization, or cheminformatics-oriented file conversion.",
+          "role": "Biotite covers the molecular data preparation, file conversion, AtomArray manipulation, PubChem fetching, AutoDock Vina wrapper planning, RDKit/OpenMM/PyMOL conversion, and visualization side of chemistry-adjacent workflows.",
+          "read_when": "Read biotite for AtomArray-to-RDKit/OpenMM/PyMOL conversions, MOL/SDF/PDB/PDBx/BinaryCIF parsing, PubChem CID queries/fetches, AutoDock Vina wrapper diagnostics, molecular structure filtering, finite-coordinate or BondList preparation, and visualization/export errors involving Biotite objects.",
+          "best_for": "Preparing and converting molecular structure data with Biotite, diagnosing optional RDKit/OpenMM/PyMOL/Vina dependencies, and bridging local Biotite arrays to chemistry or visualization tools.",
+          "avoid_when": "Avoid biotite when the request is primarily molecular ML model training/inference, retrosynthesis, property-prediction benchmarks, force-field parameterization, or full molecular dynamics simulation setup not centered on Biotite conversion or analysis.",
+          "useful_entry_points": [
+            "biotite/SKILL.md",
+            "biotite/sub-skills/structure-analysis/SKILL.md",
+            "biotite/sub-skills/file-io-formats/SKILL.md",
+            "biotite/sub-skills/database-application/SKILL.md",
+            "biotite/sub-skills/interfaces-visualization/SKILL.md"
+          ],
+          "selection_guidance": "Choose biotite for chemistry-adjacent tasks when Biotite owns the data representation or handoff: AtomArray, BondList, MOL/SDF/PDBx IO, PubChem fetches, RDKit/OpenMM/PyMOL conversion, or Vina wrapper planning. Choose a dedicated RDKit/OpenMM/MD/ML skill when Biotite is only a peripheral input format."
+        }
+      ]
+    }
+  }
+}
