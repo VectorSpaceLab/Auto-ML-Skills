@@ -1,6 +1,6 @@
 # Architecture
 
-Auto-ML Skills separates the published skill library from the tooling that
+Auto-ML-Skills separates the published skill library from the tooling that
 creates and maintains it.
 
 ## Current Repository Snapshot

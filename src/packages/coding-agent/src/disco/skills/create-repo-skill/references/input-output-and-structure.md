@@ -271,3 +271,16 @@ family, API/CLI, config, artifact, error, or workflow signals that imply this
 skill. Do not write ambiguous phrases such as "Choose this skill" or "Choose it"
 in metadata; name the concrete skill id or package, for example
 `Choose <skill-id> when ...`.
+
+Metadata field values are data, not rendered router Markdown lines. Do not
+prefix values with their output labels:
+
+- Write `"read_when": "The task names ..."` rather than
+  `"read_when": "Read when the task names ..."`.
+- Write `"avoid_when": "The task is only ..."` rather than
+  `"avoid_when": "Avoid when the task is only ..."`.
+- Do not start `role` with `Role`, an index, or a count such as
+  `"1 workflows"`; write a sentence such as
+  `"Guides <package> workflows for ..."`.
+- Every `useful_entry_points` item must be a concrete path or URL. Do not write
+  placeholders such as `"1 more sub-skills"`.

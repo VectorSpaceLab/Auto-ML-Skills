@@ -15,8 +15,8 @@ Use these for software repositories and Python packages:
   self-refine, native checks when safe, and import-readiness gates.
 - `refresh-repo-skill`: update an existing skill after upstream changes.
 - `extend-repo-skill`: add coverage to an existing skill.
-- `import-repo-skills-to-agent`: copy selected repo skills into Codex, Claude
-  Code, or another agent skill directory.
+- `import-repo-skills-to-agent`: copy selected or all repo skills into Codex,
+  Claude Code, or another agent skill directory.
 - `repo-skills-router`: route user requests across installed repo skills.
 
 Package workflow defaults:

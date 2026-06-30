@@ -503,6 +503,10 @@ While holding the lock:
    top-level `scenarios.<id>` entry with `allow_new: true`,
    `why_not_existing`, and `expected_future_reuse`; otherwise the updater should
    reject the import.
+   Also lint metadata fields before import: field values must not include
+   rendered labels such as `Read when`, `Avoid when`, `Best for`, or `Role`, role
+   text must not start with numeric artifacts, and `useful_entry_points` must not
+   contain generated count placeholders such as `1 more sub-skills`.
 7. Run `scripts/update_repo_skills_router.mjs --agent-dir <agent-dir> --already-locked`
    inside the same locked process. Do not hand-edit the router Markdown as the
    import mechanism. The updater re-reads live skills and the live router,
@@ -564,7 +568,24 @@ names, repo names, and imports are strong signals, but `read_when` and
 API/CLI surfaces, configs, artifacts, and error modes that imply this repo skill
 when the user describes a need without naming the package. Do not write
 ambiguous `Choose this skill` or `Choose it` wording; name the concrete skill id
-or package.
+or package. Metadata values are not rendered Markdown rows: do not start them
+with labels like `Read when`, `Avoid when`, `Best for`, or `Role`; do not start
+`role` with numeric artifacts such as `0 for` or `1 workflows`; and do not use
+non-path `useful_entry_points` placeholders such as `1 more sub-skills`.
+
+Use these checks before approving import or publication:
+
+```bash
+rg -n '"role"\s*:\s*"(Role\b|[0-9]+\b)|"read_when"\s*:\s*"Read when\b|"avoid_when"\s*:\s*"Avoid when\b|"best_for"\s*:\s*"Best for\b|"useful_entry_points"\s*:\s*\[[^\]]*"[0-9]+ more sub-skills"' \
+  <skills-root>/*/references/repo-routing-metadata.json
+```
+
+After rebuilding the router, also check rendered Markdown:
+
+```bash
+rg -n '^(Role|Read when|Best for|Avoid when|Useful entry points):\s*(Role|Read when|Best for|Avoid when|Useful entry points)\b|^Role:\s*[0-9]+\b' \
+  <skills-root>/repo-skills-router
+```
 
 When import is approved or auto-authorized, update the DisCo user
 `repo-skills-router` skill only inside the global import lock and only through

@@ -32,8 +32,8 @@ environment variables such as `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`,
   or paper/repo pairs into modular Agent Skills.
 - Skill refresh and extension workflows when upstream repositories change or a
   skill needs deeper coverage.
-- Import/export workflows for moving selected repo skills into Codex, Claude
-  Code, or another agent skill directory.
+- Import/export workflows for moving selected or all repo skills into Codex,
+  Claude Code, or another agent skill directory.
 - A managed local skill library under `~/.disco/agent/skills/`.
 
 ## Quick Start
@@ -51,7 +51,7 @@ managed skill library:
 disco --source package -p "Create a repo skill for /path/to/repo with auto decide and auto import."
 ```
 
-Import selected skills into Codex:
+Import selected or all skills into Codex:
 
 ```bash
 disco -p "/skill:import-repo-skills-to-agent import vllm and sglang to ~/.codex"
