@@ -17,7 +17,7 @@
             "colbert/sub-skills/index-updates-and-serving/",
             "colbert/sub-skills/indexing-and-search/",
             "colbert/sub-skills/modeling-and-tokenization/",
-            "1 more sub-skills"
+            "colbert/sub-skills/training-and-distillation/"
           ],
           "selection_guidance": "Choose `colbert` when the request names `colbert`, centers on late-interaction retrieval: prepare data, inspect configs, train/fine-tune, index collections, search rankings, update indexes, serve search, evaluate MS MARCO/LoTTE outputs, or reason about Baleen multi-hop retrieval, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in embedding retrieval rag workflows. Then route to baleen multihop, data and evaluation, index updates and serving, or indexing and search when those focused workflows match."
         }

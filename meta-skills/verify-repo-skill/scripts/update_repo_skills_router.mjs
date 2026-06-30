@@ -463,11 +463,27 @@ function mergeSentenceFields(values, limit = 900) {
 	return normalizeSentence(uniqueStrings(values).join(" "), limit);
 }
 
-function normalizeSkillReferenceText(value, skillId) {
+function stripRenderedFieldPrefix(text, fieldName) {
+	const labels = {
+		role: ["role"],
+		read_when: ["read when", "when to read"],
+		best_for: ["best for"],
+		avoid_when: ["avoid when"],
+		selection_guidance: ["selection guidance", "how to choose"],
+	};
+	for (const label of labels[fieldName] || []) {
+		const escaped = label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/\s+/g, "\\s+");
+		text = text.replace(new RegExp(`^${escaped}\\s*:?\\s+`, "i"), "");
+	}
+	return text.trim();
+}
+
+function normalizeSkillReferenceText(value, skillId, { fieldName = "" } = {}) {
 	let text = normalizeSentence(value, 1200);
 	if (!text) {
 		return "";
 	}
+	text = stripRenderedFieldPrefix(text, fieldName);
 	text = text.replace(/\b(Choose|Use|Prefer|Select) this skill\b/gi, (_match, verb) => `${verb} \`${skillId}\``);
 	text = text.replace(/\b(Choose|Use|Prefer|Select) it\b/gi, (_match, verb) => `${verb} \`${skillId}\``);
 	text = text.replace(/\b[Rr]oute here\b/g, (match) => `${match[0] === "R" ? "Route" : "route"} to \`${skillId}\``);
@@ -483,6 +499,9 @@ function normalizeSkillReferenceText(value, skillId) {
 		/^(md|py|json|yaml|yml|toml|sh|txt|pth|app|main|viz|eval)\b/i.test(stripped)
 	) {
 		return "";
+	}
+	if (fieldName === "role" && /^\d+\b/.test(stripped)) {
+		throw new RouterError(`routing metadata role for ${skillId} starts with a numeric artifact: ${text}`);
 	}
 	if (!/[.!?]$/.test(text)) {
 		text = `${text}.`;
@@ -950,14 +969,21 @@ function normalizeRoutingMetadata(data, liveSkills, registry) {
 				scenario: canonicalScenarioId,
 				whenToRead: coerceStr(rawEntry.when_to_read ?? rawEntry.when, `${fieldPrefix}.when_to_read`),
 				title: coerceStr(rawEntry.title, `${fieldPrefix}.title`),
-				role: normalizeSkillReferenceText(coerceStr(rawEntry.role, `${fieldPrefix}.role`), skillId),
-				readWhen: normalizeSkillReferenceText(coerceStr(rawEntry.read_when, `${fieldPrefix}.read_when`), skillId),
-				bestFor: normalizeSkillReferenceText(coerceStr(rawEntry.best_for, `${fieldPrefix}.best_for`), skillId),
-				avoidWhen: normalizeSkillReferenceText(coerceStr(rawEntry.avoid_when, `${fieldPrefix}.avoid_when`), skillId),
+				role: normalizeSkillReferenceText(coerceStr(rawEntry.role, `${fieldPrefix}.role`), skillId, { fieldName: "role" }),
+				readWhen: normalizeSkillReferenceText(coerceStr(rawEntry.read_when, `${fieldPrefix}.read_when`), skillId, {
+					fieldName: "read_when",
+				}),
+				bestFor: normalizeSkillReferenceText(coerceStr(rawEntry.best_for, `${fieldPrefix}.best_for`), skillId, {
+					fieldName: "best_for",
+				}),
+				avoidWhen: normalizeSkillReferenceText(coerceStr(rawEntry.avoid_when, `${fieldPrefix}.avoid_when`), skillId, {
+					fieldName: "avoid_when",
+				}),
 				usefulEntryPoints,
 				selectionGuidance: normalizeSkillReferenceText(
 					coerceStr(rawEntry.selection_guidance ?? rawEntry.how_to_choose, `${fieldPrefix}.selection_guidance`),
 					skillId,
+					{ fieldName: "selection_guidance" },
 				),
 			};
 			const previous = entriesByScenario.get(canonicalScenarioId);
@@ -1069,7 +1095,12 @@ function validateEntryPoints(skillsRoot, routing) {
 		const skillRoot = path.join(skillsRoot, skillId);
 		for (const entry of skillRouting.entries) {
 			for (const value of entry.usefulEntryPoints) {
-				if (/^\d+ more sub-skills$/.test(value) || value.startsWith("http://") || value.startsWith("https://")) {
+				if (/^\d+\s+more\s+sub-skills$/i.test(value)) {
+					throw new RouterError(
+						`useful entry point for ${skillId}/${entry.scenario} must be a concrete path, not a generated count placeholder: ${value}`,
+					);
+				}
+				if (value.startsWith("http://") || value.startsWith("https://")) {
 					continue;
 				}
 				if (!value.startsWith(`${skillId}/`)) {
@@ -1847,6 +1878,8 @@ function validateRouterDir(skillsRoot, routerDir, scenarios, liveSkills, registr
 	if (/^### `/m.test(rootText)) {
 		throw new RouterError("router SKILL.md contains per-repo detail sections");
 	}
+	const renderedResiduePattern =
+		/^(Role|Read when|Best for|Avoid when|Useful entry points):\s*(Role|Read when|Best for|Avoid when|Useful entry points)\b|^Role:\s*\d+\b|\b\d+\s+more\s+sub-skills\b/im;
 
 	const covered = new Set();
 	for (const scenario of scenarios.values()) {
@@ -1858,6 +1891,12 @@ function validateRouterDir(skillsRoot, routerDir, scenarios, liveSkills, registr
 			throw new RouterError(`generated scenario ${scenario.scenarioId} is not present in scenario-registry.json`);
 		}
 		const pageText = readText(scenarioPage);
+		const renderedResidue = renderedResiduePattern.exec(pageText);
+		if (renderedResidue) {
+			throw new RouterError(
+				`scenario page contains rendered metadata residue at ${scenarioPage}: ${renderedResidue[0]}`,
+			);
+		}
 		const start = `<!-- DISCO_SCENARIO:${scenario.scenarioId}:START -->`;
 		const end = `<!-- DISCO_SCENARIO:${scenario.scenarioId}:END -->`;
 		if (countMatches(pageText, start) !== 1 || countMatches(pageText, end) !== 1) {
@@ -1897,6 +1936,12 @@ function validateRouterDir(skillsRoot, routerDir, scenarios, liveSkills, registr
 	];
 	for (const markdownFile of markdownFiles) {
 		const text = readText(markdownFile);
+		const renderedResidue = renderedResiduePattern.exec(text);
+		if (renderedResidue) {
+			throw new RouterError(
+				`router markdown contains rendered metadata residue at ${markdownFile}: ${renderedResidue[0]}`,
+			);
+		}
 		for (const match of text.matchAll(/\[[^\]]+\]\(([^)]+)\)/g)) {
 			assertRelativeLinkExists(routerDir, markdownFile, match[1]);
 		}

@@ -1,0 +1,26 @@
+{
+  "skills": {
+    "openhands": {
+      "scenarios": [
+        {
+          "id": "python-repository-maintenance",
+          "title": "Python Repository Maintenance",
+          "when_to_read": "Tasks that edit, review, test, document, package, or maintain Python source repositories rather than using them only as libraries.",
+          "role": "OpenHands-specific maintainer guidance for backend, frontend, enterprise, skills/microagents, validation, and repository automation work.",
+          "read_when": "Use for OpenHands, agent canvas, app-server, sandbox, settings, secrets, conversation APIs, React frontend settings/chat UI, enterprise SaaS extension, OpenHands skills or microagents, pre-commit hooks, lockfiles, GitHub Actions pinning, issue triage automation, or repo validation commands.",
+          "best_for": "Changing the OpenHands checkout across Python backend routes/services, frontend TanStack Query/settings/i18n flows, enterprise auth/storage/integrations, prompt-extension files, or repo-wide maintenance automation.",
+          "avoid_when": "The task is only to operate OpenHands as an end user without editing the repository, or when another skill targets the exact library/framework being modified outside this checkout.",
+          "useful_entry_points": [
+            "openhands/SKILL.md",
+            "openhands/sub-skills/backend-development/SKILL.md",
+            "openhands/sub-skills/frontend-development/SKILL.md",
+            "openhands/sub-skills/enterprise-extension/SKILL.md",
+            "openhands/sub-skills/skills-and-microagents/SKILL.md",
+            "openhands/sub-skills/repo-maintenance/SKILL.md"
+          ],
+          "selection_guidance": "Choose openhands when the user is contributing to or troubleshooting the OpenHands repository itself, especially tasks involving app-server APIs, frontend settings or chat UI, enterprise SaaS code, OpenHands skills/microagents, validation commands, lockfiles, or issue automation."
+        }
+      ]
+    }
+  }
+}

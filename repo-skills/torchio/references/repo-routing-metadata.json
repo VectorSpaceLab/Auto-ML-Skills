@@ -6,7 +6,7 @@
           "id": "medical-imaging-and-segmentation-workflows",
           "title": "Medical Imaging and Segmentation Workflows",
           "when_to_read": "Medical image transforms, nnU-Net planning/training/inference, MONAI bundles, TorchIO patch workflows, healthcare segmentation, and 3D image augmentation.",
-          "role": "0 for medical image loading, preprocessing, augmentation, patch-based training/inference, CLI conversion, and I/O troubleshooting.",
+          "role": "Guides TorchIO medical image loading, preprocessing, augmentation, patch-based training/inference, CLI conversion, and I/O troubleshooting.",
           "read_when": "The request names `torchio` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.",
           "best_for": "cli and io, data model, patch workflows, and transforms.",
           "avoid_when": "another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.",

@@ -17,7 +17,9 @@
             "scvi-tools/sub-skills/core-models/",
             "scvi-tools/sub-skills/data-setup/",
             "scvi-tools/sub-skills/downstream-analysis/",
-            "3 more sub-skills"
+            "scvi-tools/sub-skills/model-io-and-hub/",
+            "scvi-tools/sub-skills/multimodal-and-spatial/",
+            "scvi-tools/sub-skills/training-and-inference/"
           ],
           "selection_guidance": "Choose `scvi-tools` when the request names `scvi-tools`, centers on probabilistic single-cell omics analysis with AnnData/MuData setup, model selection, training, downstream analysis, save/load, Hub workflows, and advanced extension/autotune tasks, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in single cell omics and scanpy workflows. Then route to advanced operations, annotation and query, core models, or data setup when those focused workflows match."
         }

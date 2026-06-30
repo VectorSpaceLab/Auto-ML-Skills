@@ -1,0 +1,42 @@
+{
+  "skills": {
+    "nilearn": {
+      "scenarios": [
+        {
+          "id": "scientific-python-data-workflows",
+          "title": "Scientific Python Data Workflows",
+          "when_to_read": "Neuroimaging data analysis in Python with NIfTI/Niimg volumes, surface meshes, fMRI signals, GLM, decoding, connectomes, atlases, BIDS/fMRIPrep, or Nilearn plotting/reporting.",
+          "role": "Use nilearn for Python neuroimaging workflows built on NumPy, nibabel, scipy, scikit-learn, and domain-specific fMRI analysis APIs.",
+          "read_when": "The task mentions Nilearn, neuroimaging, fMRI, NIfTI/Niimg, brain masks, surface meshes, fsaverage, fMRIPrep confounds, BIDS derivatives, first-level or second-level GLM, design matrices, contrasts, statistical maps, voxel decoding, searchlight, connectomes, atlases, or Nilearn plotting/reporting.",
+          "best_for": "Image/signal preprocessing, masker and region extraction, surface workflows, GLM modeling, decoding/searchlight/connectivity/decomposition, dataset/template/atlas fetchers, fMRIPrep interfaces, and brain visualization/reporting.",
+          "avoid_when": "Avoid for generic medical image segmentation/training frameworks, non-neuroimaging computer vision, non-Python neuroscience tools, or general scikit-learn tasks with no Nilearn/neuroimaging data contract.",
+          "useful_entry_points": [
+            "nilearn/SKILL.md",
+            "nilearn/sub-skills/data-io-signal/SKILL.md",
+            "nilearn/sub-skills/maskers-regions/SKILL.md",
+            "nilearn/sub-skills/surface-workflows/SKILL.md",
+            "nilearn/sub-skills/glm-analysis/SKILL.md",
+            "nilearn/sub-skills/ml-decoding-connectivity/SKILL.md",
+            "nilearn/sub-skills/datasets-interfaces/SKILL.md",
+            "nilearn/sub-skills/plotting-reporting/SKILL.md"
+          ],
+          "selection_guidance": "Choose nilearn when the user needs Python code or troubleshooting for neuroimaging arrays, Niimg/NIfTI files, fMRI statistical models, brain masks/atlases, surface meshes, BIDS/fMRIPrep interfaces, or Nilearn-specific plotting/reporting APIs. Choose a broader scientific Python skill only when the task has no neuroimaging or Nilearn-specific concepts."
+        },
+        {
+          "id": "python-repository-maintenance",
+          "title": "Python Repository Maintenance",
+          "when_to_read": "Tasks that edit, test, document, package, or review the Nilearn Python source checkout rather than only using Nilearn as a library.",
+          "role": "Use nilearn to follow this repository's import-layer architecture, estimator conventions, tests, docs, changelog, and generated-test marker rules.",
+          "read_when": "The task mentions editing Nilearn source, adding Nilearn tests, fixing Nilearn docs, import-linter, tox, pre-commit, estimator checks, maskers/GLM/plotting internals, doc/changes/latest.rst, or @pytest.mark.ai_generated.",
+          "best_for": "Targeted code changes in the Nilearn checkout, test selection, doc/gallery validation, changelog entries, import architecture checks, and coding-agent maintenance guidance.",
+          "avoid_when": "Avoid for ordinary user analysis scripts that import Nilearn but do not modify the source checkout; route those to the scientific-python-data-workflows scenario entry instead.",
+          "useful_entry_points": [
+            "nilearn/SKILL.md",
+            "nilearn/sub-skills/development-maintenance/SKILL.md"
+          ],
+          "selection_guidance": "Choose nilearn for repository-maintenance tasks when the user is changing or reviewing the Nilearn checkout; use the development-maintenance sub-skill first, then route to the affected user-facing sub-skill for API behavior details."
+        }
+      ]
+    }
+  }
+}

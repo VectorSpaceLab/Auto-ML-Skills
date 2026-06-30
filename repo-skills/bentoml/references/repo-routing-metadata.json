@@ -17,7 +17,7 @@
             "bentoml/sub-skills/observability-and-operations/",
             "bentoml/sub-skills/packaging-and-containerization/",
             "bentoml/sub-skills/service-authoring/",
-            "1 more sub-skills"
+            "bentoml/sub-skills/serving-and-clients/"
           ],
           "selection_guidance": "Choose `bentoml` when the request names `bentoml`, centers on Use BentoML to author model-serving Services, build and containerize Bentos, run HTTP/gRPC servers and clients, manage models, operate the CLI and BentoCloud, and configure observability or production runtime behavior. Use when tasks mention BentoML, bentoml service.py, bentofile.yaml, Bento build/serve/deploy, BentoCloud, or BentoML model stores, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in llm finetuning training serving workflows. Then route to CLI and cloud, model management, observability and operations, or packaging and containerization when those focused workflows match."
         },
@@ -36,7 +36,7 @@
             "bentoml/sub-skills/observability-and-operations/",
             "bentoml/sub-skills/packaging-and-containerization/",
             "bentoml/sub-skills/service-authoring/",
-            "1 more sub-skills"
+            "bentoml/sub-skills/serving-and-clients/"
           ],
           "selection_guidance": "Choose `bentoml` when the request names `bentoml`, centers on Use BentoML to author model-serving Services, build and containerize Bentos, run HTTP/gRPC servers and clients, manage models, operate the CLI and BentoCloud, and configure observability or production runtime behavior. Use when tasks mention BentoML, bentoml service.py, bentofile.yaml, Bento build/serve/deploy, BentoCloud, or BentoML model stores, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in ml experiment tracking and mlops workflows. Then route to CLI and cloud, model management, observability and operations, or packaging and containerization when those focused workflows match."
         }

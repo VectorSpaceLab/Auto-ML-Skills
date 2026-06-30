@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.0.4
+
+- Hardened `repo-skills-router` generation against routing metadata residue by
+  stripping rendered field labels, rejecting numeric role artifacts, and
+  failing on generated `N more sub-skills` entry-point placeholders.
+- Documented routing metadata hygiene in the bundled create/verify repo-skill
+  workflows so imported skills provide data-shaped fields instead of rendered
+  router Markdown.
+- Added genomics HTS file and speech/audio modeling scenarios to the bundled
+  router registry template for future repo-skill imports.
+- Synchronized package versions for the `0.0.4` release.
+
 ## 0.0.3
 
 - Added Codex-target export handling for imported repo skills by writing

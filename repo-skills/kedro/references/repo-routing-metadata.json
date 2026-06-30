@@ -1,0 +1,44 @@
+{
+  "skills": {
+    "kedro": {
+      "scenarios": [
+        {
+          "id": "data-orchestration-and-parallel-computing",
+          "title": "Data Orchestration and Parallel Computing",
+          "when_to_read": "Workflow engines, DAGs, assets, lazy or parallel task graphs, distributed arrays/dataframes, feature stores, cloud compute orchestration, and production data pipelines.",
+          "role": "Kedro covers production-ready Python data and analytics pipeline projects with nodes, pipelines, catalogs, configuration, sessions, runners, hooks, inspection, and project CLI workflows.",
+          "read_when": "Use kedro when tasks mention Kedro, data/analytics pipelines, node or Pipeline APIs, DataCatalog or catalog.yml, OmegaConfigLoader, credentials.yml, parameters.yml, kedro run, KedroSession, project scaffolding with kedro new, hooks/plugins, SequentialRunner, ThreadRunner, ParallelRunner, project snapshots, or optional Kedro server endpoints.",
+          "best_for": "Designing and running Kedro pipelines, configuring DataCatalog and OmegaConfigLoader, creating Kedro projects, constructing kedro run commands, selecting runners, writing hooks/plugins/custom datasets, using Kedro sessions, and inspecting Kedro projects without running pipelines.",
+          "avoid_when": "Avoid kedro for generic Airflow/Dagster/Prefect orchestration, Dask dataframe/array compute, Feast feature-store tasks, generic pandas ETL, or concrete dataset implementation details that belong to kedro-datasets unless the task is specifically about wiring those datasets through Kedro.",
+          "useful_entry_points": [
+            "kedro/SKILL.md",
+            "kedro/sub-skills/pipelines-and-nodes/SKILL.md",
+            "kedro/sub-skills/data-catalog-and-config/SKILL.md",
+            "kedro/sub-skills/project-cli-and-sessions/SKILL.md",
+            "kedro/sub-skills/runners-and-execution/SKILL.md",
+            "kedro/sub-skills/hooks-and-extensions/SKILL.md",
+            "kedro/sub-skills/inspection-and-server/SKILL.md"
+          ],
+          "selection_guidance": "Choose kedro when the request is about Kedro-specific project structure, APIs, configuration, CLI, session lifecycle, runners, hooks, or inspection. If the task is only generic orchestration without Kedro terms or Kedro artifacts, choose the skill for that named orchestration framework instead."
+        },
+        {
+          "id": "python-repository-maintenance",
+          "title": "Python Repository Maintenance",
+          "when_to_read": "Tasks that edit, review, test, document, package, or maintain Python source repositories rather than using them only as libraries.",
+          "role": "Kedro also covers contribution-time facts for maintaining Kedro projects and interpreting Kedro's own Python package APIs, tests, templates, and extension boundaries.",
+          "read_when": "Use kedro for maintenance tasks that involve editing a Kedro project, updating Kedro pipeline code, debugging Kedro project tests, packaging a Kedro project, writing project hooks, reviewing catalog/config changes, or troubleshooting Kedro-specific source changes.",
+          "best_for": "Kedro-aware code review, project test triage, package metadata interpretation, project settings updates, pipeline registry changes, hook/plugin changes, and safe CLI/package diagnostics in Kedro repositories.",
+          "avoid_when": "Avoid kedro for general Python maintenance that does not involve Kedro APIs, Kedro project metadata, Kedro CLI commands, or Kedro configuration artifacts.",
+          "useful_entry_points": [
+            "kedro/SKILL.md",
+            "kedro/sub-skills/project-cli-and-sessions/SKILL.md",
+            "kedro/sub-skills/pipelines-and-nodes/SKILL.md",
+            "kedro/sub-skills/data-catalog-and-config/SKILL.md",
+            "kedro/sub-skills/hooks-and-extensions/SKILL.md"
+          ],
+          "selection_guidance": "Choose kedro for maintenance when the repository is a Kedro project or the changed files include Kedro pipeline factories, catalog/config files, settings.py, pipeline_registry.py, hooks, runners, sessions, or Kedro CLI commands."
+        }
+      ]
+    }
+  }
+}

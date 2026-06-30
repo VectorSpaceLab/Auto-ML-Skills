@@ -1,0 +1,25 @@
+{
+  "skills": {
+    "sa-prot": {
+      "scenarios": [
+        {
+          "id": "protein-structure-prediction-and-design-workflows",
+          "title": "Protein Structure Prediction and Design Workflows",
+          "when_to_read": "Protein language model tasks involving structure-aware AA+3Di tokens, Foldseek 3Di sequences, SaProt checkpoints, mutation-effect scoring, inverse folding, LMDB protein datasets, or SaProt training/evaluation configs.",
+          "role": "Use sa-prot as the package-specific guide for SaProt structure-aware protein language modeling workflows.",
+          "read_when": "The task names SaProt or asks for AA+3Di token construction, Foldseek structure sequences, pLDDT masking, SaProt_35M/650M/1.3B checkpoints, EsmTokenizer with SaProt vocab, mutation strings like V3A, ProteinGym/ClinVar zero-shot evaluation, SaProt LMDB splits, or YAML configs for Thermostability, GO, EC, DeepLoc, PPI, Contact, or pretraining.",
+          "best_for": "Converting structures to SaProt input, validating model assets, writing local embedding/mutation/inverse-folding code, preparing LMDB data, adapting SaProt task YAMLs, and safely reviewing training or benchmark launchers.",
+          "avoid_when": "Use a general protein-structure predictor skill for AlphaFold/ColabFold/Boltz structure prediction, ProteinMPNN sequence design, or RFdiffusion backbone generation when SaProt APIs, checkpoints, or configs are not involved.",
+          "useful_entry_points": [
+            "sa-prot/SKILL.md",
+            "sa-prot/sub-skills/structure-sequences/SKILL.md",
+            "sa-prot/sub-skills/model-inference/SKILL.md",
+            "sa-prot/sub-skills/datasets-configs/SKILL.md",
+            "sa-prot/sub-skills/training-evaluation/SKILL.md"
+          ],
+          "selection_guidance": "Choose sa-prot when the task centers on SaProt-specific AA+3Di vocab, Foldseek-derived structure tokens, SaProt model classes, LMDB/config layouts, or SaProt benchmark scripts; choose broader protein design or structure-prediction skills for non-SaProt model families."
+        }
+      ]
+    }
+  }
+}

@@ -17,7 +17,8 @@
             "transformers/sub-skills/model-extension/",
             "transformers/sub-skills/quantization-integrations/",
             "transformers/sub-skills/serving-cli/",
-            "2 more sub-skills"
+            "transformers/sub-skills/tokenizers-processors/",
+            "transformers/sub-skills/training/"
           ],
           "selection_guidance": "Choose `transformers` when the request names `transformers`, centers on inference, generation, training, tokenizers/processors, serving CLI, quantization/integrations, and contributor workflows, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in llm finetuning training serving workflows. Then route to generation, inference pipelines, model extension, or quantization integrations when those focused workflows match."
         }

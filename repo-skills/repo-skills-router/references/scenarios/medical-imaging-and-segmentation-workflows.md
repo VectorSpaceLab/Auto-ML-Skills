@@ -15,6 +15,14 @@ Best for: Python ANTsPy package usage: image metadata, image operations, registr
 Avoid when: Use MONAI/nnU-Net/TorchIO skills for model training, bundle workflows, patch samplers, or deep learning frameworks not centered on ANTsPy; use generic Python maintenance skills for unrelated repo editing.
 Useful entry points: `antspy/SKILL.md`, `antspy/sub-skills/image-core/SKILL.md`, `antspy/sub-skills/image-ops-math/SKILL.md`, `antspy/sub-skills/registration-transforms/SKILL.md`, `antspy/sub-skills/segmentation-labels/SKILL.md`, `antspy/sub-skills/visualization-interop/SKILL.md`, `antspy/sub-skills/learning-deeplearn/SKILL.md`.
 
+### `clam`
+
+Role: Use clam for CLAM-specific weakly supervised whole-slide pathology workflows from raw WSIs through heatmaps.
+Read when: The task names CLAM, whole-slide images, WSI patch coordinates, create_patches_fp.py, extract_features_fp.py, main.py, eval.py, create_heatmaps.py, CLAM_SB, CLAM_MB, MIL baselines, UNI/CONCH pathology encoders, slide-level labels, process_list CSVs, or attention heatmaps.
+Best for: Building or debugging CLAM commands, validating CLAM data/config layouts, selecting ResNet50/UNI/CONCH feature dimensions, training/evaluating CLAM/MIL models, and configuring heatmaps for pathology slides.
+Avoid when: Use a general medical imaging skill for MONAI, nnU-Net, TorchIO, DICOM/NIfTI segmentation, or non-CLAM pipelines; use a generic PyTorch skill when the task is ordinary model development without CLAM data layouts or scripts.
+Useful entry points: `clam/SKILL.md`, `clam/sub-skills/wsi-preprocessing/SKILL.md`, `clam/sub-skills/feature-extraction/SKILL.md`, `clam/sub-skills/training-evaluation/SKILL.md`, `clam/sub-skills/heatmap-visualization/SKILL.md`.
+
 ### `dipy`
 
 Role: Provides self-contained Dipy routing, API references, CLI workflow guidance, and safe smoke probes for diffusion MRI analysis workflows.
@@ -22,6 +30,14 @@ Read when: dipy, DIPY, diffusion MRI, DWI, bvals, bvecs, GradientTable, TensorMo
 Best for: Using or debugging Dipy as a package: loading diffusion data, preprocessing, fitting reconstruction models, generating tractography, segmenting bundles, registering images/streamlines, and building Dipy CLI commands.
 Avoid when: The task is generic repository maintenance unrelated to Dipy usage, clinical deployment decision support, non-Dipy medical imaging packages, or deep-learning model training outside Dipy optional helpers.
 Useful entry points: `dipy/SKILL.md`, `dipy/sub-skills/io-data/SKILL.md`, `dipy/sub-skills/reconstruction-models/SKILL.md`, `dipy/sub-skills/tracking-segmentation/SKILL.md`, `dipy/sub-skills/denoising-preprocessing/SKILL.md`, `dipy/sub-skills/registration-alignment/SKILL.md`, `dipy/sub-skills/cli-workflows/SKILL.md`.
+
+### `fastmri`
+
+Role: Use `fastmri` for fastMRI-specific MRI reconstruction data loading, MRI operators, model architectures, training workflows, and output evaluation/submission preparation.
+Read when: Requests mention fastMRI, fastMRI HDF5 files, k-space, singlecoil or multicoil challenges, SliceDataset, RandomMaskFunc, EquiSpacedMaskFunc, UnetDataTransform, VarNetDataTransform, U-Net MRI reconstruction, VarNet, AdaptiveVarNet, zero-filled baselines, MSE/NMSE/PSNR/SSIM on reconstruction files, fastmri.evaluate, save_reconstructions, or leaderboard-style reconstruction outputs.
+Best for: Loading and validating fastMRI data, using centered FFT and coil-combine operators, debugging U-Net/VarNet tensor shapes, rendering Lightning train/test workflows, validating prediction HDF5 files, and preparing local fastMRI reconstruction metrics or output folders.
+Avoid when: The task is generic medical image segmentation without fastMRI HDF5/k-space semantics, general MONAI/nnU-Net/TorchIO work, external BART compressed sensing setup only, dataset download administration, or unrelated MRI repositories such as external prostate code.
+Useful entry points: `fastmri/SKILL.md`, `fastmri/sub-skills/data-loading/SKILL.md`, `fastmri/sub-skills/mri-operators/SKILL.md`, `fastmri/sub-skills/model-architectures/SKILL.md`, `fastmri/sub-skills/lightning-training/SKILL.md`, `fastmri/sub-skills/evaluation-submission/SKILL.md`.
 
 ### `monai`
 
@@ -57,7 +73,7 @@ Useful entry points: `tiatoolbox/SKILL.md`, `tiatoolbox/sub-skills/wsi-io/SKILL.
 
 ### `torchio`
 
-Role: 0 for medical image loading, preprocessing, augmentation, patch-based training/inference, CLI conversion, and I/O troubleshooting.
+Role: Guides TorchIO medical image loading, preprocessing, augmentation, patch-based training/inference, CLI conversion, and I/O troubleshooting.
 Read when: The request names `torchio` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: cli and io, data model, patch workflows, and transforms.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
@@ -75,4 +91,4 @@ Useful entry points: `totalsegmentator/SKILL.md`, `totalsegmentator/sub-skills/c
 
 ## How To Choose
 
-Choose by medical imaging package and workflow: MONAI for healthcare model/bundle workflows, nnU-Net for nnU-Net planning/training/inference, and TorchIO for 3D augmentation and patch sampling. Choose `antspy` when the task is explicitly about ANTsPy/antspyx or ANTs-style Python image registration/segmentation APIs. Choose adjacent medical imaging skills only when the named package or workflow is MONAI, nnU-Net, TorchIO, TotalSegmentator, SimpleITK, or a neural-network training/inference pipeline rather than ANTsPy usage. Choose `dipy` when the request names Dipy or Dipy-specific APIs/CLIs. For generic medical segmentation frameworks choose MONAI, nnU-Net, or TorchIO skills when those packages are named instead; choose Python repository maintenance only when editing Dipy source code rather than using Dipy workflows. Choose `monai` when the request names `monai`, centers on data/transforms, modeling/inference, training/evaluation, Bundle configs, and Auto3DSeg/app workflows, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in medical imaging and segmentation workflows. Choose `simpleitk` when SimpleITK itself owns the image object, IO, filter, registration, transform, or build surface named by the request; choose model-family skills when the user primarily asks for neural network training/inference workflows.
+Choose by medical imaging package and workflow: MONAI for healthcare model/bundle workflows, nnU-Net for nnU-Net planning/training/inference, and TorchIO for 3D augmentation and patch sampling. Choose `antspy` when the task is explicitly about ANTsPy/antspyx or ANTs-style Python image registration/segmentation APIs. Choose adjacent medical imaging skills only when the named package or workflow is MONAI, nnU-Net, TorchIO, TotalSegmentator, SimpleITK, or a neural-network training/inference pipeline rather than ANTsPy usage. Choose clam when the request combines computational pathology WSIs with CLAM's script names, data folders, feature bags, model types, checkpoints, or heatmap configuration. Do not choose clam for unrelated medical image segmentation frameworks even if they use PyTorch. Choose `dipy` when the request names Dipy or Dipy-specific APIs/CLIs. For generic medical segmentation frameworks choose MONAI, nnU-Net, or TorchIO skills when those packages are named instead; choose Python repository maintenance only when editing Dipy source code rather than using Dipy workflows. Choose `fastmri` when the task combines MRI reconstruction data, k-space tensors, fastMRI challenge layouts, U-Net/VarNet reconstruction models, or fastMRI metric/submission files. Choose TIAToolbox when the request is about computational pathology or the named TIAToolbox APIs/commands.

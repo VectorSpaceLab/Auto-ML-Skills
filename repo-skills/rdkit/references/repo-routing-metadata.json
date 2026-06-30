@@ -17,7 +17,8 @@
             "rdkit/sub-skills/data-cli-integration/",
             "rdkit/sub-skills/descriptors-fingerprints/",
             "rdkit/sub-skills/molecule-io-core/",
-            "2 more sub-skills"
+            "rdkit/sub-skills/reactions-standardization/",
+            "rdkit/sub-skills/repo-development/"
           ],
           "selection_guidance": "Choose `rdkit` when the request names `rdkit`, centers on Use for RDKit cheminformatics tasks: molecule parsing and validation, descriptors and fingerprints, conformers and drawing, reactions and standardization, data integrations, optional Contrib utilities, or RDKit repository development, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in molecular ml drug discovery and chemistry workflows. Then route to conformers drawing, contrib utilities, data CLI integration, or descriptors fingerprints when those focused workflows match."
         }

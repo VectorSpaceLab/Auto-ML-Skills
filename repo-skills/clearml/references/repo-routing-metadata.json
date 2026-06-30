@@ -1,0 +1,26 @@
+{
+  "skills": {
+    "clearml": {
+      "scenarios": [
+        {
+          "id": "ml-experiment-tracking-and-mlops-workflows",
+          "title": "ML Experiment Tracking and MLOps Workflows",
+          "when_to_read": "Experiment tracking, MLOps automation, data versioning, remote execution, pipelines, hyperparameter optimization, schedulers, routers, and ClearML SDK or CLI troubleshooting.",
+          "role": "ClearML-specific routing and workflow guidance for the Python SDK, CLIs, datasets, agents, automation, HPO, routers, and service patterns.",
+          "read_when": "Use clearml when tasks mention ClearML, Task.init, Logger, Dataset, clearml-data, clearml-task, clearml-init, clearml-debug, clearml-param-search, clearml-agent queues, PipelineController, PipelineDecorator, HyperParameterOptimizer, TaskScheduler, TriggerScheduler, StorageManager, offline sessions, object-storage output_uri, HTTP routers, endpoint telemetry, or MLOps experiment/data/pipeline workflows that need ClearML-specific APIs and CLIs.",
+          "best_for": "Instrumenting scripts with ClearML tracking, constructing dataset/versioning commands, building remote execution commands, creating pipelines/HPO/schedulers, diagnosing credentials/queues/storage extras, and planning HTTP router/service endpoints.",
+          "avoid_when": "Do not choose clearml for generic ML training without ClearML instrumentation, non-ClearML experiment trackers such as MLflow or W&B, model-serving backends unrelated to ClearML routers, or repository maintenance tasks that are about editing ClearML source code rather than using the SDK.",
+          "useful_entry_points": [
+            "clearml/SKILL.md",
+            "clearml/sub-skills/experiment-tracking/SKILL.md",
+            "clearml/sub-skills/data-storage/SKILL.md",
+            "clearml/sub-skills/remote-execution-cli/SKILL.md",
+            "clearml/sub-skills/automation-pipelines/SKILL.md",
+            "clearml/sub-skills/routers-services/SKILL.md"
+          ],
+          "selection_guidance": "Choose clearml when the task needs ClearML-specific SDK or CLI behavior for tracking, datasets, remote agents, automation, HPO, queues, storage, or router/service endpoints; choose a broader MLOps skill only when the request is tracker-agnostic or names a different package."
+        }
+      ]
+    }
+  }
+}

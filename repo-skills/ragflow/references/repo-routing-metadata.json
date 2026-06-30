@@ -1,0 +1,68 @@
+{
+  "skills": {
+    "ragflow": {
+      "scenarios": [
+        {
+          "id": "ai-pipelines-workflows-and-rag",
+          "title": "AI Pipelines, Workflows, RAG, and Agents",
+          "when_to_read": "End-to-end RAG applications that combine document ingestion, chunking, embeddings, retrieval, chat, agents, services, and deployment.",
+          "role": "RAGFlow skill for maintaining or using a full-stack RAG engine with document parsing, dataset ingestion, retrieval, chat, agents, and frontend/API surfaces.",
+          "read_when": "Tasks mention RAGFlow, document ingestion, parser_config, datasets/documents/chunks, RAG retrieval, GraphRAG, RAPTOR, task executors, chat assistants, citations, or multi-service RAG app debugging.",
+          "best_for": "Tracing RAGFlow workflows across deployment, backend API routes, parser_config, task execution, retrieval/search, SDK/HTTP calls, agent canvas, and frontend integration.",
+          "avoid_when": "Use narrower vector database, retriever-model, document-conversion, or generic web-framework skills when the request is not about RAGFlow or a RAGFlow-like full-stack app.",
+          "useful_entry_points": [
+            "ragflow/SKILL.md",
+            "ragflow/sub-skills/dataset-ingestion-retrieval/SKILL.md",
+            "ragflow/sub-skills/sdk-http-integration/SKILL.md"
+          ],
+          "selection_guidance": "Choose ragflow when the task combines RAG application operations, document ingestion, RAGFlow API/SDK calls, or RAGFlow-specific deployment and source-code changes."
+        },
+        {
+          "id": "python-ai-api-services-and-deployment",
+          "title": "Python AI API Services and Deployment",
+          "when_to_read": "Python AI applications exposed through APIs, Docker/source deployment, service configuration, health checks, auth, route implementation, and operational troubleshooting.",
+          "role": "RAGFlow skill for Quart/Peewee backend APIs, public REST and OpenAI-compatible endpoints, Docker/source/Helm configuration, and service health debugging.",
+          "read_when": "Tasks mention RAGFlow deployment, Docker Compose, service_conf.yaml, DOC_ENGINE, /api/v1, /v1, Quart routes, API keys, OpenAI-compatible endpoints, healthz, MySQL, Redis, MinIO, Elasticsearch, Infinity, OpenSearch, or OceanBase.",
+          "best_for": "Debugging RAGFlow service startup, route prefixes, auth/API-token behavior, backend service layers, SDK/HTTP integrations, and deployment config mismatches.",
+          "avoid_when": "Use a generic FastAPI/Flask skill or infrastructure skill when RAGFlow code, APIs, or config keys are not involved.",
+          "useful_entry_points": [
+            "ragflow/SKILL.md",
+            "ragflow/sub-skills/deployment-configuration/SKILL.md",
+            "ragflow/sub-skills/backend-api-services/SKILL.md",
+            "ragflow/sub-skills/sdk-http-integration/SKILL.md"
+          ],
+          "selection_guidance": "Choose ragflow for RAGFlow API route, deployment, health-check, auth, service-config, or SDK/HTTP tasks; route inside the skill by whether the user is deploying, changing backend code, or calling the public API."
+        },
+        {
+          "id": "document-processing-unstructured-data-and-rag-preparation",
+          "title": "Document Processing, Unstructured Data, and RAG Preparation",
+          "when_to_read": "Document conversion, OCR/table extraction, parsing backends, chunk preparation, metadata, and RAG-ready document ingestion.",
+          "role": "RAGFlow skill for DeepDoc parsers, parser backend selection, file-type routing, parser_config, chunk metadata, and ingestion handoff into RAGFlow datasets.",
+          "read_when": "Tasks mention DeepDoc, RAGFlow PDF parsing, OCR/layout/table recognition, MinerU, Docling, PaddleOCR, parser_config, Excel-to-HTML, scanned PDFs, empty chunks, bounding boxes, parser tests, or document parser backends.",
+          "best_for": "Choosing or debugging RAGFlow parser backends and connecting parser outputs to dataset ingestion and retrieval behavior.",
+          "avoid_when": "Use a standalone document-conversion skill when the task is not tied to RAGFlow parser_config, DeepDoc, or RAGFlow ingestion semantics.",
+          "useful_entry_points": [
+            "ragflow/sub-skills/document-parsing/SKILL.md",
+            "ragflow/sub-skills/dataset-ingestion-retrieval/SKILL.md"
+          ],
+          "selection_guidance": "Choose ragflow when document parsing issues affect RAGFlow datasets, chunking, citations, parser_config, or DeepDoc-specific OCR/layout backends."
+        },
+        {
+          "id": "agent-frameworks-tooling-and-sandboxed-llm-workflows",
+          "title": "Agent Frameworks, Tooling, and Sandboxed LLM Workflows",
+          "when_to_read": "LLM agent frameworks, tool calling, graph/state runtimes, MCP, sandboxed code execution, workflow templates, and agent operations.",
+          "role": "RAGFlow skill for agent canvas DSL, components, templates, tools, memory, MCP retrieval, sandbox/code execution, webhooks, sessions, and debug traces inside RAGFlow.",
+          "read_when": "Tasks mention RAGFlow agents, canvas DSL, components, templates, tool calls, memory, MCP ragflow_retrieval, sandbox/code executor, webhooks, component debug, agent sessions, or agent frontend canvas behavior.",
+          "best_for": "Maintaining or debugging RAGFlow's agent workflow engine and integrating it with retrieval, memory, MCP, backend APIs, and frontend canvas screens.",
+          "avoid_when": "Use another agent-framework skill when the task is about a different agent library or a generic MCP server unrelated to RAGFlow.",
+          "useful_entry_points": [
+            "ragflow/sub-skills/agent-workflows/SKILL.md",
+            "ragflow/sub-skills/frontend-integration/SKILL.md",
+            "ragflow/sub-skills/sdk-http-integration/SKILL.md"
+          ],
+          "selection_guidance": "Choose ragflow for RAGFlow agent canvas, MCP, memory, tools, and sandbox workflows; combine agent-workflows with frontend-integration when the user changes the visual canvas UI."
+        }
+      ]
+    }
+  }
+}

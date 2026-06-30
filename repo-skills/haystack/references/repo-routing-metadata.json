@@ -17,7 +17,8 @@
             "haystack/sub-skills/evaluation-and-observability/",
             "haystack/sub-skills/generation-and-model-components/",
             "haystack/sub-skills/pipelines-and-components/",
-            "2 more sub-skills"
+            "haystack/sub-skills/repo-development/",
+            "haystack/sub-skills/retrieval-and-rag/"
           ],
           "selection_guidance": "Choose `haystack` when the request names `haystack`, centers on the haystack-ai package and repository, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in agent frameworks tooling and sandboxed llm workflows. Then route to agents tools and hitl, data ingestion, evaluation and observability, or generation and model components when those focused workflows match."
         },
@@ -36,7 +37,8 @@
             "haystack/sub-skills/evaluation-and-observability/",
             "haystack/sub-skills/generation-and-model-components/",
             "haystack/sub-skills/pipelines-and-components/",
-            "2 more sub-skills"
+            "haystack/sub-skills/repo-development/",
+            "haystack/sub-skills/retrieval-and-rag/"
           ],
           "selection_guidance": "Choose `haystack` when the request names `haystack`, centers on the haystack-ai package and repository, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in embedding retrieval rag workflows. Then route to agents tools and hitl, data ingestion, evaluation and observability, or generation and model components when those focused workflows match."
         }

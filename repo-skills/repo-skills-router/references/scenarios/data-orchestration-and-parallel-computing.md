@@ -21,7 +21,7 @@ Role: Use when working with Dagster OSS: assets, jobs, Definitions, config/resou
 Read when: The request names `dagster` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: asset definitions, automation schedules sensors, cli local development, components projects, configuration resources, and 4 other focused workflows.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `dagster/SKILL.md`, `dagster/sub-skills/asset-definitions/`, `dagster/sub-skills/automation-schedules-sensors/`, `dagster/sub-skills/cli-local-development/`, `dagster/sub-skills/components-projects/`, `dagster/sub-skills/configuration-resources/`, `4 more sub-skills`.
+Useful entry points: `dagster/SKILL.md`, `dagster/sub-skills/asset-definitions/`, `dagster/sub-skills/automation-schedules-sensors/`, `dagster/sub-skills/cli-local-development/`, `dagster/sub-skills/components-projects/`, `dagster/sub-skills/configuration-resources/`, `dagster/sub-skills/deployment-operations/`, `dagster/sub-skills/graphql-and-webserver/`, `dagster/sub-skills/pipes-external-processes/`, `dagster/sub-skills/repo-development/`.
 
 ### `dask`
 
@@ -37,7 +37,7 @@ Role: Use for Feast feature store tasks: feature repositories, definitions, CLI,
 Read when: The request names `feast` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: feature definitions, feature repos and cli, integrations and extensibility, rag and vector search, repo development, and 2 other focused workflows.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `feast/SKILL.md`, `feast/sub-skills/feature-definitions/`, `feast/sub-skills/feature-repos-and-cli/`, `feast/sub-skills/integrations-and-extensibility/`, `feast/sub-skills/rag-and-vector-search/`, `feast/sub-skills/repo-development/`, `2 more sub-skills`.
+Useful entry points: `feast/SKILL.md`, `feast/sub-skills/feature-definitions/`, `feast/sub-skills/feature-repos-and-cli/`, `feast/sub-skills/integrations-and-extensibility/`, `feast/sub-skills/rag-and-vector-search/`, `feast/sub-skills/repo-development/`, `feast/sub-skills/retrieval-and-materialization/`, `feast/sub-skills/servers-and-remote/`.
 
 ### `hail`
 
@@ -46,6 +46,14 @@ Read when: User mentions Hail, hail, hailtop, hailctl, MatrixTable, VariantDatas
 Best for: Using Hail Tables, dense MatrixTables, VDS/GVCF workflows, Hail Batch DAGs, hailctl config/auth/batch/dataproc/hdinsight commands, and diagnosing Hail setup/backend failures.
 Avoid when: The task is about unrelated Hail monorepo service deployment, Kubernetes infrastructure, release automation, generic Spark without Hail, or non-genomic data systems not using Hail APIs.
 Useful entry points: `hail/SKILL.md`, `hail/sub-skills/setup-and-backends/SKILL.md`, `hail/sub-skills/tables-and-expressions/SKILL.md`, `hail/sub-skills/genomics-analysis/SKILL.md`, `hail/sub-skills/variant-datasets/SKILL.md`, `hail/sub-skills/batch-and-cli/SKILL.md`.
+
+### `kedro`
+
+Role: Kedro covers production-ready Python data and analytics pipeline projects with nodes, pipelines, catalogs, configuration, sessions, runners, hooks, inspection, and project CLI workflows.
+Read when: Use kedro when tasks mention Kedro, data/analytics pipelines, node or Pipeline APIs, DataCatalog or catalog.yml, OmegaConfigLoader, credentials.yml, parameters.yml, kedro run, KedroSession, project scaffolding with kedro new, hooks/plugins, SequentialRunner, ThreadRunner, ParallelRunner, project snapshots, or optional Kedro server endpoints.
+Best for: Designing and running Kedro pipelines, configuring DataCatalog and OmegaConfigLoader, creating Kedro projects, constructing kedro run commands, selecting runners, writing hooks/plugins/custom datasets, using Kedro sessions, and inspecting Kedro projects without running pipelines.
+Avoid when: Avoid kedro for generic Airflow/Dagster/Prefect orchestration, Dask dataframe/array compute, Feast feature-store tasks, generic pandas ETL, or concrete dataset implementation details that belong to kedro-datasets unless the task is specifically about wiring those datasets through Kedro.
+Useful entry points: `kedro/SKILL.md`, `kedro/sub-skills/pipelines-and-nodes/SKILL.md`, `kedro/sub-skills/data-catalog-and-config/SKILL.md`, `kedro/sub-skills/project-cli-and-sessions/SKILL.md`, `kedro/sub-skills/runners-and-execution/SKILL.md`, `kedro/sub-skills/hooks-and-extensions/SKILL.md`, `kedro/sub-skills/inspection-and-server/SKILL.md`.
 
 ### `prefect`
 
@@ -61,7 +69,15 @@ Role: Use PyTorch Geometric to build graph data, loaders, GNN models, heterogene
 Read when: The request names `pytorch-geometric` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: data and datasets, explainability, gnn modeling, graphgym experiments, heterogeneous graphs, and 2 other focused workflows.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `pytorch-geometric/SKILL.md`, `pytorch-geometric/sub-skills/data-and-datasets/`, `pytorch-geometric/sub-skills/explainability/`, `pytorch-geometric/sub-skills/gnn-modeling/`, `pytorch-geometric/sub-skills/graphgym-experiments/`, `pytorch-geometric/sub-skills/heterogeneous-graphs/`, `2 more sub-skills`.
+Useful entry points: `pytorch-geometric/SKILL.md`, `pytorch-geometric/sub-skills/data-and-datasets/`, `pytorch-geometric/sub-skills/explainability/`, `pytorch-geometric/sub-skills/gnn-modeling/`, `pytorch-geometric/sub-skills/graphgym-experiments/`, `pytorch-geometric/sub-skills/heterogeneous-graphs/`, `pytorch-geometric/sub-skills/loaders-and-sampling/`, `pytorch-geometric/sub-skills/scalable-distributed/`.
+
+### `ray`
+
+Role: Use `ray` for Ray-specific distributed Python, cluster operations, data processing, training/tuning, serving, and RLlib workflows.
+Read when: The task names Ray, ray, ray.remote, Ray Core, Ray Data, Ray Train, Ray Tune, Ray Serve, RLlib, ObjectRef, actor, task, ray job, runtime_env, ray status, serve deploy, Tuner, TuneConfig, PPOConfig, AlgorithmConfig, or asks to scale Python/data/ML/RL work across CPUs, GPUs, nodes, jobs, or Serve replicas.
+Best for: Ray package usage: task/actor code, cluster CLI and Jobs, runtime environment packaging, Data loading/transforms, Train/Tune checkpointed experiments and hyperparameter sweeps, Serve YAML/application deployment, and RLlib AlgorithmConfig/Gymnasium workflows.
+Avoid when: Use a generic PyTorch, Dask, Airflow, Kubernetes, cloud-provider, FastAPI, or reinforcement-learning package skill when the request is not using Ray APIs or Ray-managed execution. Use a repo maintenance scenario if the user is editing Ray source internals rather than using Ray as a library.
+Useful entry points: `ray/SKILL.md`, `ray/sub-skills/core-runtime/SKILL.md`, `ray/sub-skills/cluster-ops/SKILL.md`, `ray/sub-skills/data-pipelines/SKILL.md`, `ray/sub-skills/train-tune/SKILL.md`, `ray/sub-skills/serve-deployments/SKILL.md`, `ray/sub-skills/rllib-workloads/SKILL.md`.
 
 ### `skypilot`
 
@@ -73,11 +89,11 @@ Useful entry points: `skypilot/SKILL.md`, `skypilot/sub-skills/task-yaml/SKILL.m
 
 ### `snakemake`
 
-Role: 1 workflows, including Snakefile authoring, CLI execution, configuration/data validation, deployment/storage, reporting/testing, and Python API/plugin usage.
+Role: Guides Snakemake workflows, including Snakefile authoring, CLI execution, configuration/data validation, deployment/storage, reporting/testing, and Python API/plugin usage.
 Read when: The request names `snakemake` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: configuration data, debugging reporting, deployment storage, execution cli, python api plugins, and workflow authoring.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `snakemake/SKILL.md`, `snakemake/sub-skills/configuration-data/`, `snakemake/sub-skills/debugging-reporting/`, `snakemake/sub-skills/deployment-storage/`, `snakemake/sub-skills/execution-cli/`, `snakemake/sub-skills/python-api-plugins/`, `1 more sub-skills`.
+Useful entry points: `snakemake/SKILL.md`, `snakemake/sub-skills/configuration-data/`, `snakemake/sub-skills/debugging-reporting/`, `snakemake/sub-skills/deployment-storage/`, `snakemake/sub-skills/execution-cli/`, `snakemake/sub-skills/python-api-plugins/`, `snakemake/sub-skills/workflow-authoring/`.
 
 <!-- DISCO_SCENARIO:data-orchestration-and-parallel-computing:END -->
 

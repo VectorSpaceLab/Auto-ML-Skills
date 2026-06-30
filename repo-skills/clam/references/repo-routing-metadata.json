@@ -1,0 +1,25 @@
+{
+  "skills": {
+    "clam": {
+      "scenarios": [
+        {
+          "id": "medical-imaging-and-segmentation-workflows",
+          "title": "Medical Imaging and Segmentation Workflows",
+          "when_to_read": "Whole-slide image preprocessing, computational pathology MIL training, CLAM feature extraction, slide-level classification, and attention heatmap workflows.",
+          "role": "Use clam for CLAM-specific weakly supervised whole-slide pathology workflows from raw WSIs through heatmaps.",
+          "read_when": "The task names CLAM, whole-slide images, WSI patch coordinates, create_patches_fp.py, extract_features_fp.py, main.py, eval.py, create_heatmaps.py, CLAM_SB, CLAM_MB, MIL baselines, UNI/CONCH pathology encoders, slide-level labels, process_list CSVs, or attention heatmaps.",
+          "best_for": "Building or debugging CLAM commands, validating CLAM data/config layouts, selecting ResNet50/UNI/CONCH feature dimensions, training/evaluating CLAM/MIL models, and configuring heatmaps for pathology slides.",
+          "avoid_when": "Use a general medical imaging skill for MONAI, nnU-Net, TorchIO, DICOM/NIfTI segmentation, or non-CLAM pipelines; use a generic PyTorch skill when the task is ordinary model development without CLAM data layouts or scripts.",
+          "useful_entry_points": [
+            "clam/SKILL.md",
+            "clam/sub-skills/wsi-preprocessing/SKILL.md",
+            "clam/sub-skills/feature-extraction/SKILL.md",
+            "clam/sub-skills/training-evaluation/SKILL.md",
+            "clam/sub-skills/heatmap-visualization/SKILL.md"
+          ],
+          "selection_guidance": "Choose clam when the request combines computational pathology WSIs with CLAM's script names, data folders, feature bags, model types, checkpoints, or heatmap configuration. Do not choose clam for unrelated medical image segmentation frameworks even if they use PyTorch."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "skills": {
+    "kotaemon": {
+      "scenarios": [
+        {
+          "id": "ai-pipelines-workflows-and-rag",
+          "title": "AI Pipelines, Workflows, RAG, and Agents",
+          "when_to_read": "Tasks about end-to-end document QA apps, RAG workflow orchestration, component pipelines, retrieval, reranking, reasoning, citations, and Gradio-backed RAG experiences.",
+          "role": "Kotaemon covers a document-QA RAG app plus a composable Python RAG library for building, configuring, and debugging retrieval workflows.",
+          "read_when": "The task mentions Kotaemon, ktem, document QA, file index chat, `BaseComponent`, `Document`, `RetrievedDocument`, vector retrieval, citation QA, RAG pipelines, prompt UI, reasoning modes, GraphRAG in Kotaemon, or a Gradio RAG app with LLM and embedding resources.",
+          "best_for": "Installing or operating the Kotaemon web app, composing Kotaemon RAG pipelines, configuring file indexes and retrieval, debugging citations and low-confidence answers, and adding custom reasoning/index extensions.",
+          "avoid_when": "Avoid for generic vector database clients, standalone LlamaIndex/LangChain tasks not using Kotaemon, or unrelated model serving frameworks; choose a narrower retrieval, provider, or serving skill instead.",
+          "useful_entry_points": [
+            "kotaemon/SKILL.md",
+            "kotaemon/sub-skills/app-deployment/SKILL.md",
+            "kotaemon/sub-skills/rag-core/SKILL.md",
+            "kotaemon/sub-skills/model-providers/SKILL.md"
+          ],
+          "selection_guidance": "Choose kotaemon when the request combines a document QA/RAG app, file indexing, LLM/embedding resources, citations, or Kotaemon/ktem APIs rather than only a generic provider SDK or vector store."
+        },
+        {
+          "id": "document-processing-unstructured-data-and-rag-preparation",
+          "title": "Document Processing, Unstructured Data, and RAG Preparation",
+          "when_to_read": "Tasks about preparing local files, PDFs, scanned documents, tables, OCR outputs, metadata, and chunks for RAG indexing.",
+          "role": "Kotaemon provides guidance for its loader/parser/splitter stack and document metadata expected by file indexing workflows.",
+          "read_when": "The task mentions Kotaemon document ingestion, PDF/table/OCR loaders, Docling, PaddleOCR, Mathpix, Azure Document Intelligence, DOCX/HTML/XLSX/TXT readers, `Document` metadata, `table_origin`, `page_label`, or chunking before indexing.",
+          "best_for": "Choosing a Kotaemon reader, validating document-like JSON records, diagnosing optional parser dependencies, preserving table metadata, and preparing chunks for the Kotaemon file index.",
+          "avoid_when": "Avoid for document conversion tools outside Kotaemon or pure OCR/model tasks with no Kotaemon indexing or RAG-preparation context.",
+          "useful_entry_points": [
+            "kotaemon/sub-skills/document-ingestion/SKILL.md"
+          ],
+          "selection_guidance": "Choose kotaemon for document preparation when the target output is Kotaemon `Document` records, ktem File Index data, or a Kotaemon RAG pipeline."
+        },
+        {
+          "id": "python-ai-api-services-and-deployment",
+          "title": "Python AI API Services and Deployment",
+          "when_to_read": "Tasks about launching, configuring, packaging, or operating Python AI applications, Gradio apps, local model services, Docker images, and app data directories.",
+          "role": "Kotaemon covers deployment and configuration of the Kotaemon Gradio document-QA app and its model/resource settings.",
+          "read_when": "The task mentions `python app.py`, Kotaemon Docker images, Gradio server variables, `.env`, `flowsettings.py`, app data, PDF.js, local Ollama or llama-cpp server setup for the app, first setup/login, or Chroma migration preflight.",
+          "best_for": "Safe app configuration diagnostics, Docker/local setup guidance, PDF viewer setup, local provider URL checks, update/migration caution, and operator troubleshooting for Kotaemon deployments.",
+          "avoid_when": "Avoid for deploying unrelated FastAPI/Gradio apps or generic model servers unless they are being configured as Kotaemon providers.",
+          "useful_entry_points": [
+            "kotaemon/sub-skills/app-deployment/SKILL.md",
+            "kotaemon/sub-skills/model-providers/SKILL.md"
+          ],
+          "selection_guidance": "Choose kotaemon when deployment questions name Kotaemon/ktem or include its app config signals such as `KH_*`, `GRADIO_*`, File Index, Resources tab, PDF.js, or local RAG provider setup."
+        }
+      ]
+    }
+  }
+}

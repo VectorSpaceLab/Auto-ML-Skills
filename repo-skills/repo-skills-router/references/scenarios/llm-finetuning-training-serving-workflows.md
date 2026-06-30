@@ -29,7 +29,7 @@ Role: Use BentoML to author model-serving Services, build and containerize Bento
 Read when: The request names `bentoml` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: cli and cloud, model management, observability and operations, packaging and containerization, service authoring, and serving and clients.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `bentoml/SKILL.md`, `bentoml/sub-skills/cli-and-cloud/`, `bentoml/sub-skills/model-management/`, `bentoml/sub-skills/observability-and-operations/`, `bentoml/sub-skills/packaging-and-containerization/`, `bentoml/sub-skills/service-authoring/`, `1 more sub-skills`.
+Useful entry points: `bentoml/SKILL.md`, `bentoml/sub-skills/cli-and-cloud/`, `bentoml/sub-skills/model-management/`, `bentoml/sub-skills/observability-and-operations/`, `bentoml/sub-skills/packaging-and-containerization/`, `bentoml/sub-skills/service-authoring/`, `bentoml/sub-skills/serving-and-clients/`.
 
 ### `bitsandbytes`
 
@@ -61,7 +61,7 @@ Role: Use `diffusers` for Hugging Face Diffusers tasks: pipeline inference, sche
 Read when: The request names `diffusers` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: adapters and loaders, conversion and maintenance, modular pipelines, pipelines and inference, schedulers, and training recipes.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `diffusers/SKILL.md`, `diffusers/sub-skills/adapters-and-loaders/`, `diffusers/sub-skills/conversion-and-maintenance/`, `diffusers/sub-skills/modular-pipelines/`, `diffusers/sub-skills/pipelines-and-inference/`, `diffusers/sub-skills/schedulers/`, `1 more sub-skills`.
+Useful entry points: `diffusers/SKILL.md`, `diffusers/sub-skills/adapters-and-loaders/`, `diffusers/sub-skills/conversion-and-maintenance/`, `diffusers/sub-skills/modular-pipelines/`, `diffusers/sub-skills/pipelines-and-inference/`, `diffusers/sub-skills/schedulers/`, `diffusers/sub-skills/training-recipes/`.
 
 ### `litgpt`
 
@@ -77,7 +77,7 @@ Role: Use for LlamaFactory repository workflows: training configs, dataset/templ
 Read when: The request names `llama-factory` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: data and templates, inference and serving, model loading and export, training and configs, v1 experimental, and webui and ops.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `llama-factory/SKILL.md`, `llama-factory/sub-skills/data-and-templates/`, `llama-factory/sub-skills/inference-and-serving/`, `llama-factory/sub-skills/model-loading-and-export/`, `llama-factory/sub-skills/training-and-configs/`, `llama-factory/sub-skills/v1-experimental/`, `1 more sub-skills`.
+Useful entry points: `llama-factory/SKILL.md`, `llama-factory/sub-skills/data-and-templates/`, `llama-factory/sub-skills/inference-and-serving/`, `llama-factory/sub-skills/model-loading-and-export/`, `llama-factory/sub-skills/training-and-configs/`, `llama-factory/sub-skills/v1-experimental/`, `llama-factory/sub-skills/webui-and-ops/`.
 
 ### `lmdeploy`
 
@@ -101,7 +101,7 @@ Role: Use PEFT for parameter-efficient fine-tuning adapters, LoRA and quantized 
 Read when: The request names `peft` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: adapter core, lora and quantization, prompt and soft methods, repo development, save load merge, and 2 other focused workflows.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `peft/SKILL.md`, `peft/sub-skills/adapter-core/`, `peft/sub-skills/lora-and-quantization/`, `peft/sub-skills/prompt-and-soft-methods/`, `peft/sub-skills/repo-development/`, `peft/sub-skills/save-load-merge/`, `2 more sub-skills`.
+Useful entry points: `peft/SKILL.md`, `peft/sub-skills/adapter-core/`, `peft/sub-skills/lora-and-quantization/`, `peft/sub-skills/prompt-and-soft-methods/`, `peft/sub-skills/repo-development/`, `peft/sub-skills/save-load-merge/`, `peft/sub-skills/specialized-tuners/`, `peft/sub-skills/training-and-integrations/`.
 
 ### `sentence-transformers`
 
@@ -109,7 +109,7 @@ Role: Use Sentence Transformers for dense embeddings, semantic search, CrossEnco
 Read when: The request names `sentence-transformers` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: backend export optimization, embeddings and similarity, evaluation and training, reranking cross encoder, retrieval and utilities, and sparse encoder search.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `sentence-transformers/SKILL.md`, `sentence-transformers/sub-skills/backend-export-optimization/`, `sentence-transformers/sub-skills/embeddings-and-similarity/`, `sentence-transformers/sub-skills/evaluation-and-training/`, `sentence-transformers/sub-skills/reranking-cross-encoder/`, `sentence-transformers/sub-skills/retrieval-and-utilities/`, `1 more sub-skills`.
+Useful entry points: `sentence-transformers/SKILL.md`, `sentence-transformers/sub-skills/backend-export-optimization/`, `sentence-transformers/sub-skills/embeddings-and-similarity/`, `sentence-transformers/sub-skills/evaluation-and-training/`, `sentence-transformers/sub-skills/reranking-cross-encoder/`, `sentence-transformers/sub-skills/retrieval-and-utilities/`, `sentence-transformers/sub-skills/sparse-encoder-search/`.
 
 ### `sglang`
 
@@ -133,7 +133,7 @@ Role: Use and extend Hugging Face Transformers for inference, generation, traini
 Read when: The request names `transformers` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: generation, inference pipelines, model extension, quantization integrations, serving cli, and 2 other focused workflows.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `transformers/SKILL.md`, `transformers/sub-skills/generation/`, `transformers/sub-skills/inference-pipelines/`, `transformers/sub-skills/model-extension/`, `transformers/sub-skills/quantization-integrations/`, `transformers/sub-skills/serving-cli/`, `2 more sub-skills`.
+Useful entry points: `transformers/SKILL.md`, `transformers/sub-skills/generation/`, `transformers/sub-skills/inference-pipelines/`, `transformers/sub-skills/model-extension/`, `transformers/sub-skills/quantization-integrations/`, `transformers/sub-skills/serving-cli/`, `transformers/sub-skills/tokenizers-processors/`, `transformers/sub-skills/training/`.
 
 ### `trl`
 
@@ -141,7 +141,15 @@ Role: Use and modify TRL, the Hugging Face Transformers Reinforcement Learning l
 Read when: The request names `trl` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: cli and configs, core training, data and rewards, experimental and environments, repo development, and scaling and backends.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `trl/SKILL.md`, `trl/sub-skills/cli-and-configs/`, `trl/sub-skills/core-training/`, `trl/sub-skills/data-and-rewards/`, `trl/sub-skills/experimental-and-environments/`, `trl/sub-skills/repo-development/`, `1 more sub-skills`.
+Useful entry points: `trl/SKILL.md`, `trl/sub-skills/cli-and-configs/`, `trl/sub-skills/core-training/`, `trl/sub-skills/data-and-rewards/`, `trl/sub-skills/experimental-and-environments/`, `trl/sub-skills/repo-development/`, `trl/sub-skills/scaling-and-backends/`.
+
+### `unilm`
+
+Role: Use unilm to route Microsoft UniLM umbrella language, model-family, and training workflow requests into focused sub-skills with safe command builders and dependency guidance.
+Read when: Requests mention UniLM, s2s-ft, MiniLM, DeltaLM, InfoXLM, EdgeLM, XTune, YOCO, LongNet, RetNet, DeepNet, Diff-Transformer, X-MoE, BitNet, sequence-to-sequence generation, summarization, question generation, long-context evaluation, torchrun, DeepSpeed, fairseq, legacy Apex, checkpoint/tokenizer mismatch, or language-model research training scripts.
+Best for: Planning and troubleshooting UniLM-family training, decoding, evaluation, distributed launch, and architecture experiments without blindly running heavy native jobs.
+Avoid when: Use a package-specific Transformers, vLLM, DeepSpeed, or general model-serving skill when the task does not involve the UniLM repository or its model families.
+Useful entry points: `unilm/SKILL.md`, `unilm/sub-skills/language-seq2seq/SKILL.md`, `unilm/sub-skills/architectures-training/SKILL.md`.
 
 ### `unsloth`
 

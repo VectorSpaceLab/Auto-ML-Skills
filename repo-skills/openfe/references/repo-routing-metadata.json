@@ -1,0 +1,39 @@
+{
+  "skills": {
+    "openfe": {
+      "scenarios": [
+        {
+          "id": "molecular-ml-drug-discovery-and-chemistry-workflows",
+          "title": "Molecular ML, Drug Discovery, and Chemistry Workflows",
+          "when_to_read": "Cheminformatics, molecule processing, molecular property prediction, featurization, MoleculeNet, docking, molecular simulation, force fields, conformers, reactions, retrosynthesis, and chemistry model training.",
+          "role": "OpenFE-specific routing for alchemical free energy planning, OpenMM protocol configuration, command-line execution, and result analysis in molecular simulation campaigns.",
+          "read_when": "Tasks mention OpenFE, Open Free Energy, alchemical free energy, RBFE, RHFE, ABFE, AHFE, SepTop, ligand networks, atom mappings, transformation JSONs, openfe quickrun, OpenMM free energy protocols, gather TSVs, result estimates, or uncertainty interpretation.",
+          "best_for": "Planning ligand/protein/solvent systems, creating RBFE/RHFE networks, configuring OpenFE protocol classes and settings, constructing safe openfe CLI command plans, debugging quickrun/cache issues, and summarizing OpenFE result JSONs or gather outputs.",
+          "avoid_when": "Use broader OpenMM or chemistry-tool skills when the task is generic molecular dynamics, force-field setup, RDKit molecule editing, docking, or trajectory analysis without OpenFE-specific planning, execution, or result artifacts.",
+          "useful_entry_points": [
+            "openfe/SKILL.md",
+            "openfe/sub-skills/network-planning/SKILL.md",
+            "openfe/sub-skills/protocols/SKILL.md",
+            "openfe/sub-skills/cli-workflows/SKILL.md",
+            "openfe/sub-skills/results-analysis/SKILL.md"
+          ],
+          "selection_guidance": "Choose openfe when the request involves OpenFE APIs, the openfe CLI, alchemical-network planning, transformation JSONs, OpenFE protocol settings, quickrun execution, gather outputs, or OpenFE result JSONs; choose other chemistry skills for non-OpenFE molecule processing or generic simulation tasks."
+        },
+        {
+          "id": "python-repository-maintenance",
+          "title": "Python Repository Maintenance",
+          "when_to_read": "Tasks that edit, review, test, document, package, or maintain Python source repositories rather than using them only as libraries.",
+          "role": "OpenFE-specific context for maintaining this Python package's APIs, CLI commands, docs, protocol tests, and dependency-sensitive scientific workflows.",
+          "read_when": "Tasks ask to modify OpenFE source, update protocol or CLI behavior, adjust docs for OpenFE workflows, run focused OpenFE tests, debug package imports, or refresh repo-specific OpenFE skill coverage after repository changes.",
+          "best_for": "Finding the right OpenFE source/test/docs area for changes, choosing safe focused tests around network planning, protocol settings, CLI commands, and result gathering, and understanding dependency/backend constraints while maintaining the package.",
+          "avoid_when": "Do not use this maintenance route for ordinary OpenFE user workflows where no repository editing is needed; use the molecular chemistry workflow route instead.",
+          "useful_entry_points": [
+            "openfe/SKILL.md",
+            "openfe/references/repo-provenance.md"
+          ],
+          "selection_guidance": "Choose openfe for maintenance tasks when the user is working inside an OpenFE checkout or asks about editing/testing OpenFE package, CLI, protocol, docs, or result-gathering behavior."
+        }
+      ]
+    }
+  }
+}

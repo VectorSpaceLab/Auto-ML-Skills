@@ -1,0 +1,26 @@
+{
+  "skills": {
+    "gymnasium": {
+      "scenarios": [
+        {
+          "id": "reinforcement-learning-workflows",
+          "title": "Reinforcement Learning Workflows",
+          "when_to_read": "Gymnasium environment loops, custom RL environments, observation/action spaces, wrappers, vectorized environments, built-in environment IDs, action masks, render modes, or migration from old Gym APIs.",
+          "role": "Gymnasium provides the standard single-agent RL environment API plus spaces, wrappers, vectorized environment utilities, and reference built-in environments.",
+          "read_when": "Use for tasks mentioning Gymnasium, gym.make, Env.reset, Env.step, terminated/truncated, action_space, observation_space, wrappers, RecordVideo, make_vec, SyncVectorEnv, AsyncVectorEnv, CartPole, Taxi, FrozenLake, MuJoCo, Box2D, Atari/ALE, action_mask, or old Gym migration.",
+          "best_for": "Creating and validating Gymnasium Env loops or custom environments, choosing spaces, applying wrappers/recording, vectorizing RL rollouts, selecting built-in environment families, and troubleshooting optional extras or versioned environment IDs.",
+          "avoid_when": "Do not choose gymnasium for RL algorithm implementations, replay buffers, policy optimization, model training frameworks, multi-agent PettingZoo environments, or Stable-Baselines3/CleanRL-specific training code unless the task specifically depends on Gymnasium environment APIs.",
+          "useful_entry_points": [
+            "gymnasium/SKILL.md",
+            "gymnasium/sub-skills/environment-api/SKILL.md",
+            "gymnasium/sub-skills/spaces-data/SKILL.md",
+            "gymnasium/sub-skills/wrappers-recording/SKILL.md",
+            "gymnasium/sub-skills/vectorization/SKILL.md",
+            "gymnasium/sub-skills/builtin-envs/SKILL.md"
+          ],
+          "selection_guidance": "Choose gymnasium when the task is about the RL environment interface, environment IDs, spaces, wrappers, vectorized envs, or Gym-to-Gymnasium migration; choose algorithm/framework skills such as Stable-Baselines3, CleanRL, Tianshou, or PettingZoo when the user primarily asks about training algorithms, experiment scripts, collectors, buffers, or multi-agent APIs."
+        }
+      ]
+    }
+  }
+}

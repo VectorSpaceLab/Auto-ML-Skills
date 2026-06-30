@@ -17,7 +17,10 @@
             "dagster/sub-skills/cli-local-development/",
             "dagster/sub-skills/components-projects/",
             "dagster/sub-skills/configuration-resources/",
-            "4 more sub-skills"
+            "dagster/sub-skills/deployment-operations/",
+            "dagster/sub-skills/graphql-and-webserver/",
+            "dagster/sub-skills/pipes-external-processes/",
+            "dagster/sub-skills/repo-development/"
           ],
           "selection_guidance": "Choose `dagster` when the request names `dagster`, centers on Use when working with Dagster OSS: assets, jobs, Definitions, config/resources, schedules/sensors, automation, CLI/local development, deployment operations, GraphQL/webserver, Pipes external processes, components/projects, or editing the Dagster repository itself, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in data orchestration and parallel computing. Then route to asset definitions, automation schedules sensors, CLI local development, or components projects when those focused workflows match."
         }

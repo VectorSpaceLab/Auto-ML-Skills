@@ -1,0 +1,24 @@
+{
+  "skills": {
+    "omega-fold": {
+      "scenarios": [
+        {
+          "id": "protein-structure-prediction-and-design-workflows",
+          "title": "Protein Structure Prediction and Design Workflows",
+          "when_to_read": "Protein structure prediction from amino-acid FASTA sequences, OmegaFold CLI or Python API usage, de novo structure prediction outputs, PDB confidence interpretation, and sequence-to-structure inference troubleshooting.",
+          "role": "Use omega-fold for OmegaFold-specific FASTA-to-PDB inference, CLI command construction, FASTA/PDB handling, model config/API inspection, and dependency/backend troubleshooting.",
+          "read_when": "The task names OmegaFold or omegafold, asks for de novo protein structure prediction from primary sequence, uses FASTA input to generate PDB output, mentions OmegaFold model 1 or model 2 weights, references --subbatch_size/--num_cycle/--weights_file, needs pLDDT-like confidence in PDB B-factors, or needs APIs such as make_config, OmegaFold.forward, pipeline.fasta2inputs, or pipeline.save_pdb.",
+          "best_for": "OmegaFold command-line inference, no-download CLI and API smoke checks, choosing model/device/resource flags, validating FASTA records before prediction, interpreting one-PDB-per-sequence outputs and confidence B-factors, and using OmegaFold's Python model/config/pipeline helpers.",
+          "avoid_when": "Use a different protein-structure skill for AlphaFold, ColabFold, Boltz, Chai-1, ESMFold, ProteinMPNN, RFdiffusion, binder design, sequence design, MSA generation outside OmegaFold, training/fine-tuning, or general PDB editing unrelated to OmegaFold outputs.",
+          "useful_entry_points": [
+            "omega-fold/SKILL.md",
+            "omega-fold/sub-skills/inference-cli/SKILL.md",
+            "omega-fold/sub-skills/data-and-outputs/SKILL.md",
+            "omega-fold/sub-skills/model-api/SKILL.md"
+          ],
+          "selection_guidance": "Choose omega-fold when the package or workflow is OmegaFold-specific, especially for FASTA-to-PDB inference, OmegaFold release weights, omegafold CLI flags, pipeline.fasta2inputs/save_pdb behavior, or OmegaFold Torch dependency issues. Choose another protein-structure skill when the request centers on another model family, protein design, MSA tooling, or training workflows."
+        }
+      ]
+    }
+  }
+}

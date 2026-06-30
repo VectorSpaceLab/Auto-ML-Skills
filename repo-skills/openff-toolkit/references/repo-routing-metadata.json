@@ -1,0 +1,25 @@
+{
+  "skills": {
+    "openff-toolkit": {
+      "scenarios": [
+        {
+          "avoid_when": "Use OpenMM or MDAnalysis-specific skills for simulation engine or trajectory analysis after OpenFF has produced system/topology artifacts; use generic RDKit/datamol skills for chemistry tasks that do not involve OpenFF objects or SMIRNOFF force fields.",
+          "best_for": "Using or troubleshooting OpenFF Toolkit APIs for molecules, topology/PDB systems, SMIRNOFF .offxml force fields, OpenMM/Interchange handoff, and optional backend registry behavior.",
+          "id": "molecular-ml-drug-discovery-and-chemistry-workflows",
+          "read_when": "User asks about openff-toolkit, Open Force Field Toolkit, openff.toolkit, Molecule, Topology, ForceField, SMIRNOFF, OFFXML, toolkit_registry, RDKit/OpenEye/AmberTools/NAGL wrappers, OpenFF force fields, parameter handlers, label_molecules, create_interchange, create_openmm_system, PDB unique_molecules, conformers, partial charges, SMARTS/SMIRKS, or force-field assignment errors.",
+          "role": "OpenFF Toolkit skill for molecule processing, topology/system assembly, SMIRNOFF force-field loading/editing/application, and backend wrapper troubleshooting.",
+          "selection_guidance": "Choose openff-toolkit when the task involves OpenFF Toolkit objects, SMIRNOFF .offxml force fields, OpenFF force-field assignment, toolkit wrapper registry behavior, or preparing OpenFF topologies for Interchange/OpenMM. Choose a different chemistry/simulation skill when the request names another package and does not need OpenFF Toolkit APIs.",
+          "title": "Molecular ML, Drug Discovery, and Chemistry Workflows",
+          "useful_entry_points": [
+            "openff-toolkit/SKILL.md",
+            "openff-toolkit/sub-skills/molecules-and-io/SKILL.md",
+            "openff-toolkit/sub-skills/topology-and-systems/SKILL.md",
+            "openff-toolkit/sub-skills/smirnoff-force-fields/SKILL.md",
+            "openff-toolkit/sub-skills/toolkit-backends/SKILL.md"
+          ],
+          "when_to_read": "Cheminformatics, molecular mechanics force-field, SMIRNOFF, molecule/topology conversion, conformer, partial charge, PDB preparation, OpenMM/Interchange handoff, and optional chemistry backend tasks."
+        }
+      ]
+    }
+  }
+}

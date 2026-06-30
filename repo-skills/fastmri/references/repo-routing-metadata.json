@@ -1,0 +1,41 @@
+{
+  "skills": {
+    "fastmri": {
+      "scenarios": [
+        {
+          "id": "medical-imaging-and-segmentation-workflows",
+          "title": "Medical Imaging and Segmentation Workflows",
+          "when_to_read": "MRI reconstruction tasks involving fastMRI HDF5 k-space data, U-Net or VarNet reconstruction models, PyTorch Lightning reconstruction training, MRI metrics, or submission-style reconstruction files.",
+          "role": "Use `fastmri` for fastMRI-specific MRI reconstruction data loading, MRI operators, model architectures, training workflows, and output evaluation/submission preparation.",
+          "read_when": "Requests mention fastMRI, fastMRI HDF5 files, k-space, singlecoil or multicoil challenges, SliceDataset, RandomMaskFunc, EquiSpacedMaskFunc, UnetDataTransform, VarNetDataTransform, U-Net MRI reconstruction, VarNet, AdaptiveVarNet, zero-filled baselines, MSE/NMSE/PSNR/SSIM on reconstruction files, fastmri.evaluate, save_reconstructions, or leaderboard-style reconstruction outputs.",
+          "best_for": "Loading and validating fastMRI data, using centered FFT and coil-combine operators, debugging U-Net/VarNet tensor shapes, rendering Lightning train/test workflows, validating prediction HDF5 files, and preparing local fastMRI reconstruction metrics or output folders.",
+          "avoid_when": "The task is generic medical image segmentation without fastMRI HDF5/k-space semantics, general MONAI/nnU-Net/TorchIO work, external BART compressed sensing setup only, dataset download administration, or unrelated MRI repositories such as external prostate code.",
+          "useful_entry_points": [
+            "fastmri/SKILL.md",
+            "fastmri/sub-skills/data-loading/SKILL.md",
+            "fastmri/sub-skills/mri-operators/SKILL.md",
+            "fastmri/sub-skills/model-architectures/SKILL.md",
+            "fastmri/sub-skills/lightning-training/SKILL.md",
+            "fastmri/sub-skills/evaluation-submission/SKILL.md"
+          ],
+          "selection_guidance": "Choose `fastmri` when the task combines MRI reconstruction data, k-space tensors, fastMRI challenge layouts, U-Net/VarNet reconstruction models, or fastMRI metric/submission files. Choose broader medical-imaging skills such as MONAI, nnU-Net, or TorchIO when the task is not fastMRI-specific or is about generic 3D transforms, segmentation planning, or medical image augmentation."
+        },
+        {
+          "id": "dataset-processing-evaluation-and-hub-workflows",
+          "title": "Dataset Processing, Evaluation, and Hub Workflows",
+          "when_to_read": "Dataset and evaluation plumbing for fastMRI-style HDF5 volumes, reconstruction prediction files, metric scripts, schema checks, and validation of output directories.",
+          "role": "Use `fastmri` when dataset/evaluation work depends on fastMRI split names, HDF5 keys, challenge target keys, reconstruction metrics, or prediction-file contracts.",
+          "read_when": "Requests mention checking fastMRI `.h5` keys, `kspace`, `reconstruction_rss`, `reconstruction_esc`, prediction files with dataset `reconstruction`, fastMRI MSE/NMSE/PSNR/SSIM metrics, `fastmri.evaluate`, v2 filename conversion, zero-filled baseline files, or target/prediction filename mismatches.",
+          "best_for": "Validating local fastMRI data and predictions, choosing target keys by challenge, running or explaining fastMRI metrics, and diagnosing output-file schema problems before submission-style packaging.",
+          "avoid_when": "The dataset task is not fastMRI HDF5 MRI reconstruction data, does not involve k-space/reconstruction target keys, or is better handled by a general dataset library skill.",
+          "useful_entry_points": [
+            "fastmri/SKILL.md",
+            "fastmri/sub-skills/data-loading/SKILL.md",
+            "fastmri/sub-skills/evaluation-submission/SKILL.md"
+          ],
+          "selection_guidance": "Choose `fastmri` for dataset/evaluation requests whose schema or metrics depend on fastMRI challenge conventions; choose generic dataset-processing skills for non-MRI tabular, text, image, or benchmark-hub workflows."
+        }
+      ]
+    }
+  }
+}

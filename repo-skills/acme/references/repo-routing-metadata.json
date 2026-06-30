@@ -1,0 +1,25 @@
+{
+  "skills": {
+    "acme": {
+      "scenarios": [
+        {
+          "id": "reinforcement-learning-workflows",
+          "title": "Reinforcement Learning Workflows",
+          "when_to_read": "Tasks involving reinforcement-learning framework APIs, agent loops, replay buffers, algorithm builders, experiment runners, or Acme-specific examples.",
+          "role": "Use acme for DeepMind Acme framework tasks spanning dm_env loops, Reverb replay, JAX agents, and TensorFlow/Sonnet agents.",
+          "read_when": "User mentions Acme, dm-acme, acme.EnvironmentLoop, acme.specs, acme.adders, Reverb adders, acme.jax.experiments, acme.agents.jax, acme.agents.tf, Sonnet networks, Launchpad Acme examples, or asks to choose/adapt D4PG, DQN, IMPALA, R2D2, SAC, MPO, PPO, BC, CQL, CRR, MCTS, MBOP, SQIL, PWIL, or DQfD in Acme.",
+          "best_for": "Selecting Acme agent families, wiring dm_env environments to actors/learners, choosing replay adder/dataset structures, adapting JAX experiment configs, debugging TensorFlow/Sonnet Acme agents, and understanding optional backend dependencies.",
+          "avoid_when": "Use another RL skill when the task primarily targets Stable-Baselines3, CleanRL, Tianshou, PettingZoo, TRL, OpenRLHF, or generic RL theory without Acme APIs or examples.",
+          "useful_entry_points": [
+            "acme/SKILL.md",
+            "acme/sub-skills/core-workflows/SKILL.md",
+            "acme/sub-skills/replay-and-data/SKILL.md",
+            "acme/sub-skills/jax-agents/SKILL.md",
+            "acme/sub-skills/tf-agents/SKILL.md"
+          ],
+          "selection_guidance": "Choose acme when the task includes Acme package/API names or Acme-style RL workflow signals such as dm_env specs, EnvironmentLoop, Reverb adders, JAX ExperimentConfig, TensorFlow Sonnet agents, Launchpad distributed Acme examples, or Acme algorithm builders."
+        }
+      ]
+    }
+  }
+}

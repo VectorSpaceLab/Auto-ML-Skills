@@ -17,7 +17,7 @@
             "langchain/sub-skills/core-primitives/",
             "langchain/sub-skills/integrations/",
             "langchain/sub-skills/monorepo-development/",
-            "1 more sub-skills"
+            "langchain/sub-skills/testing-and-profiles/"
           ],
           "selection_guidance": "Choose `langchain` when the request names `langchain`, centers on Work on the LangChain Python monorepo: package routing, core primitives, v1 agents and middleware, classic APIs, partner integrations, standard tests, model profiles, and safe validation workflows, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in agent frameworks tooling and sandboxed llm workflows. Then route to agents and middleware, classic chains, core primitives, or integrations when those focused workflows match."
         }

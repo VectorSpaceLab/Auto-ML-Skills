@@ -120,6 +120,12 @@
       "when_to_read": "Embodied AI simulation, navigation/rearrangement tasks, habitat-style configs, datasets, training, HITL apps, and simulator extension registries.",
       "how_to_choose": "Use this scenario for embodied AI simulation and training stacks rather than generic reinforcement learning algorithms or vision models."
     },
+    "genomics-hts-file-workflows": {
+      "title": "Genomics HTS File Workflows",
+      "when_to_read": "SAM/BAM/CRAM alignment files, VCF/BCF variant files, tabix-indexed genomic interval tables, FASTA/FASTQ sequence access, htslib/samtools/bcftools Python wrappers, and high-throughput sequencing file troubleshooting.",
+      "how_to_choose": "Choose the repo skill whose package or API surface owns the requested genomics file workflow: pysam for Python htslib/samtools/bcftools bindings, alignment/variant/tabix/FASTA/FASTQ file APIs, and command-wrapper troubleshooting.",
+      "split_guidance": "Existing scientific and molecular scenarios focus on generic scientific arrays, molecular simulation, chemistry, protein, materials, or omics analysis workflows; they do not capture high-throughput sequencing file formats, htslib index mechanics, samtools/bcftools wrappers, or genomic interval coordinate troubleshooting. Future skills for HTSlib bindings, BAM/CRAM/VCF utilities, genomic interval indexing, sequence-file APIs, or command wrappers around samtools, bcftools, tabix, bgzip, and faidx can share this scenario."
+    },
     "graph-learning-workflows": {
       "title": "Graph Learning Workflows",
       "when_to_read": "Graph neural network tasks, graph construction, message passing, graph datasets, graph data loaders, graph partitioning, sparse graph operations, and distributed graph training.",
@@ -246,6 +252,12 @@
       "title": "Single-Cell Omics and Scanpy Workflows",
       "when_to_read": "AnnData/MuData setup, Scanpy preprocessing/QC, graph analysis, marker genes, probabilistic scvi-tools models, multimodal/spatial omics, and single-cell plotting/reporting.",
       "how_to_choose": "Choose Scanpy for preprocessing, plotting, and AnnData workflows; choose scvi-tools for probabilistic models and deep generative single-cell analysis."
+    },
+    "speech-ai-modeling-and-audio-workflows": {
+      "title": "Speech AI Modeling and Audio Workflows",
+      "when_to_read": "Speech AI tasks involving ASR, transcription, TTS, vocoders, G2P, speaker diarization, VAD, forced alignment, audio enhancement/restoration, speech language models, voice agents, speech manifests, or speech-model repository maintenance.",
+      "how_to_choose": "Choose the repo skill whose speech/audio framework, model family, data format, runtime, or repository workflow most directly matches the request; use package names, checkpoint formats, manifest fields, and task terms such as ASR, TTS, diarization, VAD, forced alignment, SpeechLM, voice-agent, or audio enhancement as strong signals.",
+      "split_guidance": "Existing scenarios cover generic LLM training, multimodal/audio contrastive training, dataset processing, and MLOps, but none routes speech-specific ASR, TTS, diarization, audio-to-audio, SpeechLM2, voice-agent, manifest, checkpoint, and NeMo repository-development workflows together. Using an LLM or dataset scenario would hide the speech-domain model, data, and troubleshooting boundaries this skill provides. Future skills for speech recognition, TTS, diarization, audio enhancement, voice-agent, or speech-language-model repositories can share this scenario and compare by framework, model family, data format, and runtime surface."
     }
   }
 }

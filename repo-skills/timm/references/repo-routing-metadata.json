@@ -17,7 +17,8 @@
             "timm/sub-skills/data-pipelines/",
             "timm/sub-skills/export-and-interoperability/",
             "timm/sub-skills/layers-and-components/",
-            "2 more sub-skills"
+            "timm/sub-skills/model-library/",
+            "timm/sub-skills/training-workflows/"
           ],
           "selection_guidance": "Choose `timm` when the request names `timm`, centers on model discovery, pretrained loading, transforms/data loaders, training APIs, repository CLI workflows, export/checkpoint interoperability, benchmarking/results, and reusable layers/components, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in computer vision modeling and augmentation. Then route to benchmarking and results, CLI workflows, data pipelines, or export and interoperability when those focused workflows match."
         }

@@ -1,0 +1,25 @@
+{
+  "skills": {
+    "schnetpack": {
+      "scenarios": [
+        {
+          "id": "molecular-ml-drug-discovery-and-chemistry-workflows",
+          "title": "Molecular ML, Drug Discovery, and Chemistry Workflows",
+          "when_to_read": "Atomistic machine-learning workflows involving molecules, materials, neural network potentials, quantum-chemical properties, ASE databases, force fields, molecular dynamics, or SchNetPack CLI/API usage.",
+          "role": "SchNetPack-specific guidance for atomistic neural network potentials, datasets, Hydra training/prediction configs, ASE/MD interfaces, and LAMMPS deployment.",
+          "read_when": "Use for requests naming SchNetPack, schnetpack, spktrain, spkpredict, spkconvert, spkdeploy, spkmd, SchNet, PaiNN, AtomisticModel, NeuralNetworkPotential, ASEAtomsData, AtomsDataModule, SpkCalculator, atomistic datasets, neural network potentials, energy/force/stress model training, QM9/MD17/rMD17 configs, ASE calculators, molecular dynamics, or LAMMPS pair_style schnetpack.",
+          "best_for": "Creating and validating ASE DB datasets, composing Hydra training or prediction commands, wiring atomistic model components and property keys, using trained models with ASE/MD, and preparing LAMMPS TorchScript deployment.",
+          "avoid_when": "Avoid for generic cheminformatics molecule manipulation without atomistic neural-network potentials, non-SchNetPack molecular simulation engines, or repository-maintenance tasks unrelated to SchNetPack workflows.",
+          "useful_entry_points": [
+            "schnetpack/SKILL.md",
+            "schnetpack/sub-skills/data-pipelines/SKILL.md",
+            "schnetpack/sub-skills/training-configs/SKILL.md",
+            "schnetpack/sub-skills/models-atomistic/SKILL.md",
+            "schnetpack/sub-skills/interfaces-md/SKILL.md"
+          ],
+          "selection_guidance": "Choose schnetpack when the task involves SchNetPack-specific APIs, CLIs, Hydra configs, ASE DB metadata, atomistic neural network potential components, SchNet/PaiNN models, ASE calculators, MD configs, or LAMMPS deployment. Choose a more general chemistry or simulation skill when the package is not SchNetPack and the request is about another toolkit's molecule processing or trajectory engine."
+        }
+      ]
+    }
+  }
+}

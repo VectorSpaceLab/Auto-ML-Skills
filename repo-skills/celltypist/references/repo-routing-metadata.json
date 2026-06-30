@@ -1,0 +1,25 @@
+{
+  "skills": {
+    "celltypist": {
+      "scenarios": [
+        {
+          "id": "single-cell-omics-and-scanpy-workflows",
+          "title": "Single-Cell Omics and Scanpy Workflows",
+          "when_to_read": "Single-cell RNA-seq annotation, AnnData-based label transfer, Scanpy-compatible result handling, model-based cell type classification, and CellTypist CLI/API troubleshooting.",
+          "role": "Guides CellTypist workflows for automated scRNA-seq cell type annotation, model cache/download management, custom classifier training, and result export or visualization.",
+          "read_when": "The request names CellTypist or celltypist, asks to annotate scRNA-seq cells, label AnnData or h5ad data, run celltypist --indata, use built-in or local CellTypist .pkl models, download or cache CellTypist models, convert/subset CellTypist models, train a custom CellTypist classifier, debug majority voting/over-clustering, or export AnnotationResult tables, AnnData columns, UMAPs, or dotplots.",
+          "best_for": "CellTypist package-specific annotation, probability-match and majority-voting decisions, CLI command construction, offline local-model workflows, model conversion/subsetting, custom CellTypist training preflight, and AnnotationResult export/plot troubleshooting.",
+          "avoid_when": "Use anndata for generic AnnData storage semantics, Scanpy for broad preprocessing/QC/clustering/plotting outside CellTypist prediction, scvi-tools for probabilistic/deep generative single-cell models, pySCENIC for regulatory network inference, or bulk RNA-seq skills for DESeq2-like differential expression.",
+          "useful_entry_points": [
+            "celltypist/SKILL.md",
+            "celltypist/sub-skills/annotation-workflows/SKILL.md",
+            "celltypist/sub-skills/model-management/SKILL.md",
+            "celltypist/sub-skills/training-and-custom-models/SKILL.md",
+            "celltypist/sub-skills/visualization-and-results/SKILL.md"
+          ],
+          "selection_guidance": "Choose celltypist when the task is package-specific to CellTypist cell type classification, CellTypist model pickles/cache/downloads, custom CellTypist classifiers, the celltypist CLI, or AnnotationResult outputs; choose Scanpy/anndata/scvi-tools only when the task is not centered on CellTypist prediction or model workflows."
+        }
+      ]
+    }
+  }
+}

@@ -31,6 +31,14 @@ Best for: cli configuration, deployment serving, distributed accelerators, fabri
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
 Useful entry points: `lightning/SKILL.md`, `lightning/sub-skills/cli-configuration/`, `lightning/sub-skills/deployment-serving/`, `lightning/sub-skills/distributed-accelerators/`, `lightning/sub-skills/fabric-expert-loops/`, `lightning/sub-skills/training-core/`.
 
+### `nemo`
+
+Role: Adds NeMo Speech-specific PyTorch Lightning, FSDP2/DTensor SpeechLM2, checkpoint, GPU memory, and batch-planning guidance for speech and audio models.
+Read when: The request combines NeMo with PyTorch Lightning trainer configs, FSDP2 or DTensor, SpeechLM2 distributed training, `.nemo` or distributed checkpoint handling, OOMptimizer, dynamic bucketing, CUDA extras, compiled Automodel backends, or GPU memory planning.
+Best for: NeMo-specific training/fine-tuning and memory planning for ASR, TTS, audio, SpeechLM2, and repository tests that use PyTorch Lightning/FSDP2/DTensor conventions.
+Avoid when: Use a generic distributed PyTorch or Lightning skill when the task is framework-level and does not involve NeMo collections, configs, checkpoints, or examples.
+Useful entry points: `nemo/SKILL.md`, `nemo/sub-skills/asr/SKILL.md`, `nemo/sub-skills/tts/SKILL.md`, `nemo/sub-skills/audio/SKILL.md`, `nemo/sub-skills/speechlm2/SKILL.md`, `nemo/sub-skills/repo-development/SKILL.md`.
+
 ### `openfold`
 
 Role: Adds OpenFold-specific train_openfold.py, DeepSpeed config, checkpoint, seed, data-cache, and GPU runtime guidance to generic distributed PyTorch workflows.
@@ -53,7 +61,7 @@ Role: Use `optuna` for Optuna hyperparameter optimization workflows: studies, tr
 Read when: The request names `optuna` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: advanced apis, analysis visualization, artifacts integrations, cli and storage, optimization workflows, and samplers pruners.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `optuna/SKILL.md`, `optuna/sub-skills/advanced-apis/`, `optuna/sub-skills/analysis-visualization/`, `optuna/sub-skills/artifacts-integrations/`, `optuna/sub-skills/cli-and-storage/`, `optuna/sub-skills/optimization-workflows/`, `1 more sub-skills`.
+Useful entry points: `optuna/SKILL.md`, `optuna/sub-skills/advanced-apis/`, `optuna/sub-skills/analysis-visualization/`, `optuna/sub-skills/artifacts-integrations/`, `optuna/sub-skills/cli-and-storage/`, `optuna/sub-skills/optimization-workflows/`, `optuna/sub-skills/samplers-pruners/`.
 
 ### `pytorch-geometric`
 
@@ -61,7 +69,7 @@ Role: Use PyTorch Geometric to build graph data, loaders, GNN models, heterogene
 Read when: The request names `pytorch-geometric` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: data and datasets, explainability, gnn modeling, graphgym experiments, heterogeneous graphs, and 2 other focused workflows.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `pytorch-geometric/SKILL.md`, `pytorch-geometric/sub-skills/data-and-datasets/`, `pytorch-geometric/sub-skills/explainability/`, `pytorch-geometric/sub-skills/gnn-modeling/`, `pytorch-geometric/sub-skills/graphgym-experiments/`, `pytorch-geometric/sub-skills/heterogeneous-graphs/`, `2 more sub-skills`.
+Useful entry points: `pytorch-geometric/SKILL.md`, `pytorch-geometric/sub-skills/data-and-datasets/`, `pytorch-geometric/sub-skills/explainability/`, `pytorch-geometric/sub-skills/gnn-modeling/`, `pytorch-geometric/sub-skills/graphgym-experiments/`, `pytorch-geometric/sub-skills/heterogeneous-graphs/`, `pytorch-geometric/sub-skills/loaders-and-sampling/`, `pytorch-geometric/sub-skills/scalable-distributed/`.
 
 ### `torchtune`
 
@@ -77,10 +85,10 @@ Role: Use verl for LLM post-training workflows: setup, data and rewards, PPO/GRP
 Read when: The request names `verl` or asks for package-specific APIs, CLIs, configs, data/model artifacts, error messages, workflows, or repository maintenance that match this project.
 Best for: checkpoints and model ops, data and rewards, repo development, rollout and tools, setup and backends, and training and configs.
 Avoid when: another repo skill in this scenario matches the user's task, package, model family, data format, serving backend, or workflow more directly.
-Useful entry points: `verl/SKILL.md`, `verl/sub-skills/checkpoints-and-model-ops/`, `verl/sub-skills/data-and-rewards/`, `verl/sub-skills/repo-development/`, `verl/sub-skills/rollout-and-tools/`, `verl/sub-skills/setup-and-backends/`, `1 more sub-skills`.
+Useful entry points: `verl/SKILL.md`, `verl/sub-skills/checkpoints-and-model-ops/`, `verl/sub-skills/data-and-rewards/`, `verl/sub-skills/repo-development/`, `verl/sub-skills/rollout-and-tools/`, `verl/sub-skills/setup-and-backends/`, `verl/sub-skills/training-and-configs/`.
 
 <!-- DISCO_SCENARIO:distributed-pytorch-training-and-large-model-workflows:END -->
 
 ## How To Choose
 
-Choose Accelerate for generic distributed loop migration and launch, DeepSpeed for ZeRO/DeepSpeed configs, Lightning for Lightning/Fabric, PyG for graph neural training, OpenRLHF/verl for RLHF-scale training stacks, and Optuna for hyperparameter optimization. Choose `accelerate` when the request names `accelerate`, centers on PyTorch training-loop migration, distributed launch/configuration, DeepSpeed/FSDP/TPU backend setup, big-model inference/offload, checkpointing, tracking, and troubleshooting, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in distributed pytorch training and large model workflows. Choose `deepspeed` when the request names `deepspeed`, centers on distributed training, inference acceleration, ZeRO configuration, parallelism/MoE design, profiling, autotuning, and operational diagnostics, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in distributed pytorch training and large model workflows. Use this secondary scenario only when OpenFold training is central; choose the protein-structure scenario for prediction, data prep, installation, or API tasks. Use torchtune for `tune run` distributed recipe operations; use broader distributed PyTorch skills for framework-agnostic process group or custom loop development.
+Choose Accelerate for generic distributed loop migration and launch, DeepSpeed for ZeRO/DeepSpeed configs, Lightning for Lightning/Fabric, PyG for graph neural training, OpenRLHF/verl for RLHF-scale training stacks, and Optuna for hyperparameter optimization. Choose `accelerate` when the request names `accelerate`, centers on PyTorch training-loop migration, distributed launch/configuration, DeepSpeed/FSDP/TPU backend setup, big-model inference/offload, checkpointing, tracking, and troubleshooting, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in distributed pytorch training and large model workflows. Choose `deepspeed` when the request names `deepspeed`, centers on distributed training, inference acceleration, ZeRO configuration, parallelism/MoE design, profiling, autotuning, and operational diagnostics, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in distributed pytorch training and large model workflows. Choose `nemo` for distributed or large-model training questions when NeMo configs, speech/audio model families, NeMo checkpoints, OOMptimizer, Lhotse bucketing, SpeechLM2 FSDP2/DTensor, or NeMo optional backend extras appear in the request.

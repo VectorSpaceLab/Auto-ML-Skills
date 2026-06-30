@@ -17,7 +17,7 @@
             "llama-factory/sub-skills/model-loading-and-export/",
             "llama-factory/sub-skills/training-and-configs/",
             "llama-factory/sub-skills/v1-experimental/",
-            "1 more sub-skills"
+            "llama-factory/sub-skills/webui-and-ops/"
           ],
           "selection_guidance": "Choose `llama-factory` when the request names `llama-factory`, centers on Use for LlamaFactory repository workflows: training configs, dataset/template preparation, model loading/export, inference/API/Web UI operations, and experimental USE_V1 flows, uses its APIs or CLIs, references its configs/artifacts/errors, or asks for repository workflows in llm finetuning training serving workflows. Then route to data and templates, inference and serving, model loading and export, or training and configs when those focused workflows match."
         }
